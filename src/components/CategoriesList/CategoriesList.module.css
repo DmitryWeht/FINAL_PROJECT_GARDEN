@@ -12,9 +12,9 @@
 }
 
 @media (max-width: 1440px) {
-    .categories_block {
+    /* .categories_block {
         flex-wrap: wrap;
-    }
+    } */
 
     .link {
         width: 31%;
