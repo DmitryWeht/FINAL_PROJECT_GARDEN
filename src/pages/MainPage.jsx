@@ -1,9 +1,9 @@
-import { CategoriesList } from "../components/CategoriesList/CategoriesList";
+import { Categories } from "../components/Categories/Categories";
 
 export const MainPage = () => {
   return (
     <div>
-      <CategoriesList />
+      <Categories />
     </div>
   );
 };
