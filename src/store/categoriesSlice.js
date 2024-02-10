@@ -6,7 +6,6 @@ const categoriesSlice = createSlice({
     initialState: [],
     reducers: {
         addCategoriesList(state, action) {
-            console.log('redux start');
             return action.payload.map((category) => ({ ...category }));
         },
     },

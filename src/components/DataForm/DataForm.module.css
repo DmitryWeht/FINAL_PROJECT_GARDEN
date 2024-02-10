@@ -1,0 +1,77 @@
+.dataForm {
+    width: 40%;
+    padding: 32px 0 10px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+input {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 16px 32px;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+    background-color: #0B710B;
+    font-weight: 500;
+    line-height: 130%;
+    color: #ffffff;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #0B710B inset;
+    -webkit-text-fill-color: #ffffff;
+}
+
+#submit_button {
+    background-color: #ffffff;
+    color: #282828;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+
+#submit_button:active {
+    transform: scale(0.95);
+}
+
+#submit_button:hover {
+    color: #0B710B;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
+}
+
+.message {
+    padding-top: 10px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+input::placeholder {
+    color: #ffffff;
+}
+
+@media (max-width: 1440px) {
+    .dataForm {
+        width: 50%;
+    }
+
+    input {
+        padding: 16px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dataForm {
+        width: 100%;
+        padding: 0;
+    }
+}
