@@ -5,9 +5,7 @@ const categoriesSlice = createSlice({
     name: 'categories',
     initialState: [],
     reducers: {
-        addCategoriesList(state, action) {
-            return action.payload.map((category) => ({ ...category }));
-        },
+
     },
 });
 
