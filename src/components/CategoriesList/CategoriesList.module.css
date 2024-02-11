@@ -1,4 +1,6 @@
 .categories_block {
+    width: 100%;
+    /* удалить,когда линк */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,9 +9,9 @@
     cursor: pointer;
 }
 
-.link {
+/* .link {
     width: 23%;
-}
+} */
 
 @media (max-width: 1440px) {
     /* .categories_block {

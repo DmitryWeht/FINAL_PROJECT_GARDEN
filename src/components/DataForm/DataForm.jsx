@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
-import styles from "./DataForm.module.css";
+import classes from "./DataForm.module.css";
 
 export const DataForm = () => {
   const {
@@ -39,7 +39,7 @@ export const DataForm = () => {
   };
 
   return (
-    <div className={styles.dataForm}>
+    <div className={classes.dataForm}>
       <form onSubmit={handleSubmit(handleAddUser)}>
         <input
           type="text"
@@ -74,11 +74,15 @@ export const DataForm = () => {
             },
           })}
         />
-        <input type="submit" value="Get a discount" id={styles.submit_button} />
+        <input
+          type="submit"
+          value="Get a discount"
+          id={classes.submit_button}
+        />
       </form>
 
       <p
-        className={styles.message}
+        className={classes.message}
         style={{ color: isSubmitSuccessful ? "white" : "red" }}
       >
         {errors.email?.message && `${errors.email.message}`}

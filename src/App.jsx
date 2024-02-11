@@ -1,13 +1,15 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 import "./App.css";
-
-import { MainPage } from "./pages/MainPage/MainPage";
+import Header from "./Layout/Header/Header";
 
 function App() {
   return (
     <div className="App">
-      <MainPage />
+      <Header />
+      <Outlet />
+      {/* <Footer /> */}
     </div>
   );
 }
