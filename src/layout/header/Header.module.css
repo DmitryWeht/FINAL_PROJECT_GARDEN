@@ -47,6 +47,7 @@ body {
   line-height: 130%;
 }
 
+
 .mobile_btn {
   display: none;
 }
@@ -62,6 +63,10 @@ body {
 
 .active {
   right: 0;
+}
+
+.nav_list_item a.actives {
+  color: #0B710B;
 }
 
 .overlay {

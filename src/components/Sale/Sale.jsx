@@ -1,4 +1,3 @@
-import React from "react";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductsList from "../ProductsList/ProductsList";
 import classes from "./Sale.module.css";
