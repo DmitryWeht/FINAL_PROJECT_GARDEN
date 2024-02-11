@@ -15,14 +15,11 @@ const ProductsList = () => {
     (product) => product.discont_price
   );
 
-  const getRandomItem = (array) => {
-    return array[Math.floor(Math.random() * array.length)];
-  };
-
   const limitedProducts = [];
-  for (let i = 0; i < 4; i++) {
-    const randomProduct = getRandomItem(discountedProducts);
-    limitedProducts.push(randomProduct);
+  while (limitedProducts.length < 4 && discountedProducts.length > 0) {
+    const randomIndex = Math.floor(Math.random() * discountedProducts.length);
+    limitedProducts.push(discountedProducts[randomIndex]);
+    discountedProducts.splice(randomIndex, 1);
   }
 
   return (

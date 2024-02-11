@@ -5,6 +5,7 @@
 }
 .text_container h2 {
   padding-right: 2rem;
+  font-size: (2rem, 1.333rem + 2.96vw, 4rem);
 }
 
 .line {
