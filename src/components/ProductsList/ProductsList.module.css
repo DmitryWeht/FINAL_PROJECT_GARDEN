@@ -1,0 +1,11 @@
+.products_list {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .products_list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
