@@ -1,0 +1,89 @@
+.title_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+
+.line {
+    width: 70%;
+    height: 1px;
+    background-color: #DDD;
+    margin-right: 0;
+}
+
+.title_box h3 {
+    font-size: clamp(2rem, 1.333rem + 2.96vw, 4rem);
+    font-weight: 700;
+    line-height: 110%;
+    margin-right: 32px;
+}
+
+.title_box button {
+    padding: 8px 16px;
+    font-family: Montserrat;
+    color: #8B8B8B;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 126%;
+    border-radius: 6px;
+    border: 1px solid #DDD;
+    white-space: nowrap;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.title_box button:active {
+    transform: scale(0.95);
+}
+
+.title_box button:hover {
+    color: #0B710B;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.hidden_button button {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .line {
+        display: none;
+    }
+
+    .title_box button {
+        display: none;
+    }
+
+    .hidden_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hidden_button button {
+        display: block;
+        padding: 12px 24px;
+        font-family: Montserrat;
+        color: #8B8B8B;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 126%;
+        border-radius: 6px;
+        border: 1px solid #DDD;
+        white-space: nowrap;
+        margin-bottom: 68px;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hidden_button button:active {
+        transform: scale(0.95);
+    }
+
+    .hidden_button button:hover {
+        color: #0B710B;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+}

@@ -1,8 +1,7 @@
-
 import { useState } from "react";
 import classes from "./Header.module.css";
-import logo from "../../media/header/logo-garten.svg";
-import basketImage from "../../media/header/basket_light.png";
+import logo from "../../media/logo-garten.svg";
+import basketImage from "../../media/basket_light.png";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 const Header = () => {
