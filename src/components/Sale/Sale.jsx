@@ -1,4 +1,3 @@
-import React from "react";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductsList from "../ProductsList/ProductsList";
 import classes from "./Sale.module.css";
@@ -13,8 +12,8 @@ const Sale = () => {
     <div className={classes.sale_container}>
       <div className={classes.text_container}>
         <h2>Sale</h2>
-        <hr className={classes.line} />
-        <p>All sales</p>
+        <div className={classes.line}></div>
+        <button>All sales</button>
       </div>
       <div>
         <ProductsList products={data} />
