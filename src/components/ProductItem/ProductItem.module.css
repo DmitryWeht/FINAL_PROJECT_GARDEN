@@ -23,8 +23,8 @@
   align-items: flex-start;
   border-radius: var(--radius-big, 12px);
   border: 1px solid var(--grey-divider, #ddd);
-  max-width: 275px;
-  width: 100%;
+  /* max-width: 275px; */
+  /* width: 100%; */
   gap: 16px;
   position: relative;
 }
@@ -65,4 +65,11 @@
   font-weight: 600;
   line-height: 130%;
   letter-spacing: 0.6px;
+}
+.product_item.active {
+  border-color: green;
+}
+.product_title:hover {
+  color: #0b710b;
+  cursor: pointer;
 }
