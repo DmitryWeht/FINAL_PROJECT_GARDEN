@@ -16,7 +16,7 @@ const Sale = () => {
         <h2>Sale</h2>
         <hr className={classes.line} />
         <Link to="/sales">
-          <p>All sales</p>
+          <button>All sales</button>
         </Link>
       </div>
       <div>

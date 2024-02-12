@@ -12,10 +12,10 @@
   flex: 1;
   border-bottom: 1px solid #ddd;
 }
-.text_container p {
+.text_container button {
   color: #8b8b8b;
   text-align: center;
-
+  background-color: transparent;
   font-size: 16px;
   line-height: 126%;
   border-radius: 6px;
@@ -23,8 +23,12 @@
   padding: 8px 16px;
   cursor: pointer;
 }
-.text_container p:hover {
+.text_container button:hover {
   color: #0b710b;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.text_container button:active {
+  transform: scale(0.95);
 }
 .sale_container {
   display: flex;

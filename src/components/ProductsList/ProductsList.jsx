@@ -31,10 +31,7 @@ const ProductsList = () => {
           to={`/products/${product.id}`}
           className={classes.link}
         >
-          <ProductItem
-            product={product}
-            isActive={activeProduct === product.id}
-          />
+          <ProductItem product={product} />
         </Link>
       ))}
     </div>

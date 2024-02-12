@@ -58,3 +58,6 @@
   line-height: 130%;
   letter-spacing: 0.6px;
 }
+.product_item:hover h3 {
+  color: #0b710b;
+}
