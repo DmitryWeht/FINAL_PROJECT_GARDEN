@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
 const ProductsList = () => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
-  const [activeProduct, setActiveProduct] = useState(null);
-  const handleProductClick = (productId) => {
-    setActiveProduct(productId);
-  };
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
   if (!products || products.length === 0) {
@@ -32,7 +29,6 @@ const ProductsList = () => {
         <Link
           key={product.id}
           to={`/products/${product.id}`}
-          onClick={() => handleProductClick(product.id)}
           className={classes.link}
         >
           <ProductItem
