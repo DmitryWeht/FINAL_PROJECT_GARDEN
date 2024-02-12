@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .text_container h2 {
   padding-right: 2rem;
 }
@@ -11,6 +12,7 @@
   flex: 1;
   border-bottom: 1px solid #ddd;
 }
+
 .text_container p {
   color: var(--txt-grey, #8b8b8b);
   text-align: center;
@@ -22,7 +24,9 @@
   border: 1px solid var(--grey-divider, #ddd);
   padding: 8px 16px;
 }
+
 .sale_container {
+
   display: flex;
   flex-direction: column;
   padding: 0 40px;
@@ -38,6 +42,7 @@
     padding: 0 16px;
   }
 }
+
 @media (max-width: 1200px) {
   .sale_container {
     padding: 0 20px;
