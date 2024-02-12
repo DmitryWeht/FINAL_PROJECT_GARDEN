@@ -1,6 +1,7 @@
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductsList from "../ProductsList/ProductsList";
 import classes from "./Sale.module.css";
+import { Link } from "react-router-dom";
 
 const Sale = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
@@ -9,11 +10,11 @@ const Sale = () => {
   if (error) return <div>Error: {error}</div>;
   if (!data) return <div>No products available</div>;
   return (
-    <div className={classes.sale_container}>
+    <div className={`${classes.sale_container} container`}>
       <div className={classes.text_container}>
         <h2>Sale</h2>
         <div className={classes.line}></div>
-        <button>All sales</button>
+        <Link to="/sales"><button>All sales</button></Link>
       </div>
       <div>
         <ProductsList products={data} />
