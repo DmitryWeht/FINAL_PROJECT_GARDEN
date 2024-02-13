@@ -4,15 +4,14 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  flex-wrap: wrap;
 }
+
 .link {
   width: 23%;
 }
-@media (max-width: 1440px) {
-  .products_list {
-    flex-wrap: wrap;
-  }
 
+@media (max-width: 1440px) {
   .link {
     width: 31%;
   }
@@ -39,4 +38,3 @@
     width: 100%;
   }
 }
-

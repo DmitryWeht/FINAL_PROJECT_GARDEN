@@ -70,6 +70,11 @@ footer {
   gap: 16px;
 }
 
+.instagram:hover img,
+.whatsapp:hover img {
+  transform: scale(1.2);
+}
+
 @media (max-width: 1200px) {
   .phone,
   .adress {
@@ -152,9 +157,4 @@ footer {
     margin-top: 56px;
     margin-bottom: 80px;
   }
-}
-
-.instagram:hover img,
-.whatsapp:hover img {
-  transform: scale(1.2);
 }
