@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./CategoryItem.module.css";
 
 export const CategoryItem = ({ title, image }) => {

@@ -19,16 +19,47 @@ const Header = () => {
           <div className={classes.menu}>
             <ul className={`${classes.nav_list} ${nav ? classes.active : ""}`}>
               <li className={classes.nav_list_item}>
-                <NavLink to="/">Main Page</NavLink>
+                <NavLink
+                 to="/"
+                 className={({ isActive }) =>
+                    isActive
+                      ? `${classes.link} ${classes.active_link}`
+                      : `${classes.link}  : ""}`
+                  }
+                >
+                  Main Page
+                 </NavLink>
               </li>
               <li className={classes.nav_list_item}>
-                <NavLink to="/categories">Categories</NavLink>
+                <NavLink 
+                  to="/categories"
+                  className={({ isActive }) =>
+                  isActive
+                  ? `${classes.link} ${classes.active_link}`
+                  : `${classes.link}  : ""}`
+              }>
+                Categories</NavLink>
               </li>
               <li className={classes.nav_list_item}>
-                <NavLink to="/products">All products</NavLink>
+                <NavLink
+                  to="/products"
+                  className={({ isActive }) =>
+                    isActive
+                    ? `${classes.link} ${classes.active_link}`
+                    : `${classes.link}  : ""}`
+                }>
+                  All products
+                  </NavLink>
               </li>
               <li className={classes.nav_list_item}>
-                <NavLink to="/sales">All sales</NavLink>
+                <NavLink 
+                to="/sales"
+                className={({isActive}) =>
+                  isActive
+                      ? `${classes.link} ${classes.active_link}`
+                      : `${classes.link}  : ""}`
+                  }
+                >All sales</NavLink>
               </li>
             </ul>
           </div>
