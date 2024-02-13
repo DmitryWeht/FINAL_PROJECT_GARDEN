@@ -19,7 +19,7 @@ const Sale = () => {
         </Link>
       </div>
       <div>
-        <ProductsList products={data} content="main" />
+        <ProductsList content="main" />
       </div>
     </div>
   );
