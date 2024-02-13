@@ -12,6 +12,20 @@
     width: 100%;
     border-radius: 12px;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.img_wrapper {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.card:hover .img_wrapper img {
+    transform: scale(1.1);
 }
 
 .card p {

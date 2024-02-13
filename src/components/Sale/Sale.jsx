@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductsList from "../ProductsList/ProductsList";
 import classes from "./Sale.module.css";
-import { Link } from "react-router-dom";
 
 const Sale = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
@@ -14,10 +14,12 @@ const Sale = () => {
       <div className={classes.text_container}>
         <h2>Sale</h2>
         <div className={classes.line}></div>
-        <Link to="/sales"><button>All sales</button></Link>
+        <Link to="/sales">
+          <button>All sales</button>
+        </Link>
       </div>
       <div>
-        <ProductsList products={data} />
+        <ProductsList content="main" />
       </div>
     </div>
   );

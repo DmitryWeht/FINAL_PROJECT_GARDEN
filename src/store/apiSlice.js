@@ -9,7 +9,15 @@ export const appApi = createApi({
     getAllCategories: builder.query({
       query: () => "/categories/all",
     }),
+    addNewUser: builder.mutation({
+      query: (user) => ({
+        url: '/sale/send',
+        method: "POST",
+        body: user,
+      }),
+
+    })
   }),
 });
 
-export const { useGetAllProductsQuery, useGetAllCategoriesQuery } = appApi;
+export const { useGetAllProductsQuery, useGetAllCategoriesQuery, useAddNewUserMutation } = appApi;
