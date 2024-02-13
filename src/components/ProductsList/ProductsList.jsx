@@ -1,10 +1,9 @@
-
+import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
-import { Link } from "react-router-dom";
 
-const ProductsList = () => {
+const ProductsList = ({ content }) => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
@@ -25,22 +24,38 @@ const ProductsList = () => {
 
   return (
     <div className={classes.products_list}>
-      {limitedProducts.map((product) => (
-        <Link
-          key={product.id}
-          to={`/products/${product.id}`}
-          // onClick={() => handleProductClick(product.id)}
-          className={classes.link}
-        >
-          <ProductItem
-            product={product}
-            // isActive={activeProduct === product.id}
-          />
-        </Link>
-      ))}
+      {content === "main"
+        ? limitedProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              className={classes.link}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))
+        : content === "sale"
+        ? discountedProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              className={classes.link}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))
+        : products &&
+          products.map((product) => (
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              className={classes.link}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))}
     </div>
   );
 };
-
 
 export default ProductsList;
