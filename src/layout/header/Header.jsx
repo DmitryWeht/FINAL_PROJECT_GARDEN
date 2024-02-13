@@ -21,24 +21,45 @@ const Header = () => {
             <ul className={`${classes.nav_list} ${nav ? classes.active : ""}`}>
               <li className={classes.nav_list_item}>
                 <NavLink
-                 to="/">
+                 to="/"
+                 className={({ isActive }) =>
+                    isActive
+                      ? `${classes.link} ${classes.active_link}`
+                      : `${classes.link}  : ""}`
+                  }
+                >
                   Main Page
                  </NavLink>
               </li>
               <li className={classes.nav_list_item}>
                 <NavLink 
-                  to="/categories">
+                  to="/categories"
+                  className={({ isActive }) =>
+                  isActive
+                  ? `${classes.link} ${classes.active_link}`
+                  : `${classes.link}  : ""}`
+              }>
                 Categories</NavLink>
               </li>
               <li className={classes.nav_list_item}>
                 <NavLink
-                  to="/products">
+                  to="/products"
+                  className={({ isActive }) =>
+                    isActive
+                    ? `${classes.link} ${classes.active_link}`
+                    : `${classes.link}  : ""}`
+                }>
                   All products
                   </NavLink>
               </li>
               <li className={classes.nav_list_item}>
                 <NavLink 
                 to="/sales"
+                className={({isActive}) =>
+                  isActive
+                      ? `${classes.link} ${classes.active_link}`
+                      : `${classes.link}  : ""}`
+                  }
                 >All sales</NavLink>
               </li>
             </ul>

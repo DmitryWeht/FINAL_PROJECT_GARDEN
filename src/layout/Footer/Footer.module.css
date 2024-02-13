@@ -55,7 +55,7 @@ footer {
   .socials,
   .work {
     display: flex;
-    width: 37%;
+    width: 38%;
     padding: 32px;
     border-radius: var(--radius-big, 12px);
     background: var(--light-grey, #f1f3f4);
