@@ -4,17 +4,12 @@ import whatsapp from "../../media/ic-whatsapp.svg";
 import classes from "./Footer.module.css";
 
 function Footer() {
-
   return (
     <div>
-      <footer
-        className={classes.footer}>
+      <footer className={classes.footer}>
         <div className="container">
           <div className={classes.daten}>
-            <div
-              className={classes.contact}>
-              Contact
-            </div>
+            <div className={classes.contact}>Contact</div>
 
             <div className={classes.connect}>
               <div className={classes.phone}>
@@ -27,13 +22,21 @@ function Footer() {
 
                 <div className={classes.media}>
                   <div className={classes.instagram}>
-                    <a href="#!" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.instagram.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <img src={instagram} alt="instagram" />
                     </a>
                   </div>
 
                   <div className={classes.whatsapp}>
-                    <a href="#!" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.whatsapp.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <img src={whatsapp} alt="whatsapp" />
                     </a>
                   </div>
@@ -56,7 +59,6 @@ function Footer() {
             </div>
           </div>
         </div>
-        
       </footer>
     </div>
   );
