@@ -30,18 +30,7 @@
   padding-left: 2rem;
   align-items: flex-end;
 }
-.price_container p:first-child {
-  color: #282828;
-  font-size: clamp(20px, 5vw, 40px);
-  font-weight: 600;
-  line-height: 110%;
-}
-.price_container p:last-child {
-  color: #8b8b8b;
-  font-size: clamp(16px, 2vw, 20px);
-  line-height: 130%;
-  text-decoration: line-through;
-}
+
 .discount_overlay {
   position: absolute;
   top: 16px;
@@ -60,4 +49,18 @@
 }
 .product_item:hover h3 {
   color: #0b710b;
+}
+.discounted_price {
+  color: #282828;
+
+  font-size: clamp(20px, 5vw, 40px);
+  font-weight: 600;
+  line-height: 110%;
+}
+.price_without_discounted {
+  color: #8b8b8b;
+
+  font-size: clamp(16px, 2vw, 20px);
+  text-decoration: line-through;
+  line-height: 130%;
 }
