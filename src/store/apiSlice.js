@@ -15,6 +15,7 @@ export const appApi = createApi({
         method: "POST",
         body: user,
       }),
+
     })
   }),
 });

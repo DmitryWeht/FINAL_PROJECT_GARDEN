@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import { useAddNewUserMutation } from "../../store/apiSlice";
@@ -13,20 +14,32 @@ export const DataForm = () => {
 
   const [addNewUser] = useAddNewUserMutation();
 
+  const [strimSuccessful, setStrimSuccessful] = useState();
+
   const handleAddUser = (data) => {
     const newUser = {
       ...data,
       id: uuidv4(),
     };
-    addNewUser(handleAddUser);
-    reset();
+    addNewUser(newUser);
+    //TODO : ответ от запроса обрабатывается в if
+    if (true) setStrimSuccessful(true);
+
     console.log(newUser);
+
+    reset();
   };
 
+  const cleanMessage = () => {
+    setStrimSuccessful(false);
+  };
+
+  console.log("strim", strimSuccessful);
   return (
     <div className={classes.dataForm}>
       <form onSubmit={handleSubmit(handleAddUser)}>
         <input
+          onFocus={cleanMessage}
           type="text"
           placeholder="Name"
           {...register("name", {
@@ -38,6 +51,7 @@ export const DataForm = () => {
           })}
         />
         <input
+          onFocus={cleanMessage}
           type="tel"
           placeholder="Phone number"
           {...register("phone", {
@@ -49,6 +63,7 @@ export const DataForm = () => {
           })}
         />
         <input
+          onFocus={cleanMessage}
           type="email"
           placeholder="Email"
           {...register("email", {
@@ -68,14 +83,14 @@ export const DataForm = () => {
 
       <p
         className={classes.message}
-        style={{ color: isSubmitSuccessful ? "white" : "red" }}
+        style={{ color: strimSuccessful ? "white" : "red" }}
       >
         {errors.email?.message && `${errors.email.message}`}
         <br></br>
         {errors.name?.message && `${errors.name.message}`}
         <br></br>
         {errors.phone?.message && `${errors.phone.message}`}
-        {isSubmitSuccessful
+        {strimSuccessful
           ? "Thank you, the data has been sent. Expect an email with a discount."
           : ""}
       </p>
