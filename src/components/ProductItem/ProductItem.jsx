@@ -1,8 +1,6 @@
-import React from "react";
 import classes from "./ProductItem.module.css";
 
-const ProductItem = ({ product }) => {
-  const { image, title, price, discont_price } = product;
+const ProductItem = ({ image, title, price, discont_price }) => {
   const discountPercentage =
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
@@ -13,7 +11,7 @@ const ProductItem = ({ product }) => {
       <div className={classes.product_item}>
         <img
           className={classes.product_img}
-          src={`http://127.0.0.1:3333${image}`}
+          src={`http://127.0.0.1:3333/${image}`}
           alt={title}
         />
         {discountPercentage !== null && (

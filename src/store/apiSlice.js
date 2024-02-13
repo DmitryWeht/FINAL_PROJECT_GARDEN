@@ -15,6 +15,13 @@ export const appApi = createApi({
     getCategoryById: builder.query({
       query: (id) => `/categories/${id}`,
     }),
+    addNewUser: builder.mutation({
+      query: (user) => ({
+        url: "/sale/send",
+        method: "POST",
+        body: user,
+      }),
+    }),
   }),
 });
 
@@ -23,4 +30,5 @@ export const {
   useGetAllCategoriesQuery,
   useGetProductByIdQuery,
   useGetCategoryByIdQuery,
+  useAddNewUserMutation,
 } = appApi;

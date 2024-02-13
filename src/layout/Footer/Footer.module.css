@@ -1,0 +1,172 @@
+footer {
+  padding-bottom: clamp(3.5rem, 3rem + 2.2222vw, 5rem);
+}
+
+.contact {
+  color: var(--txt-black, #282828);
+  font-size: clamp(2.5rem, 2.071rem + 2.14vw, 4rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  margin-bottom: clamp(1.5rem, 1.214rem + 1.43vw, 2.5rem);
+}
+
+.connect {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.phone,
+.adress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  width: 60%;
+
+  padding: 32px;
+  border-radius: var(--radius-big, 12px);
+  background: var(--light-grey, #f1f3f4);
+}
+
+.phone {
+  height: 10%;
+}
+
+.descreibe {
+  color: var(--txt-grey, #8b8b8b);
+  font-size: clamp(1.125rem, 1.089rem + 0.18vw, 1.25rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.number {
+  color: var(--txt-black, #282828);
+  font-size: clamp(1.75rem, 1.536rem + 1.07vw, 2.5rem);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%;
+}
+
+.socials,
+.work {
+  display: flex;
+  width: 37%;
+  padding: 32px;
+  border-radius: var(--radius-big, 12px);
+  background: var(--light-grey, #f1f3f4);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.media {
+  display: flex;
+  gap: 16px;
+}
+
+.instagram:hover img,
+.whatsapp:hover img {
+  transform: scale(1.2);
+}
+
+@media (max-width: 1200px) {
+
+  .phone,
+  .adress {
+    width: 48%;
+
+  }
+
+  .socials,
+  .work {
+    width: 48%;
+    padding: 20px;
+  }
+
+  Map {
+    height: 250px;
+  }
+}
+
+@media (max-width: 850px) {
+
+  .phone,
+  .adress {
+    width: 62%;
+
+  }
+
+  .socials,
+  .work {
+    width: 35%;
+    padding: 20px;
+  }
+
+  .connect {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+
+  .phone,
+  .adress {
+    width: 55%;
+    padding: 20px;
+  }
+
+  .socials,
+  .work {
+    width: 41.5%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 620px) {
+
+  .socials,
+  .work {
+    width: 40.5%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .connect {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phone,
+  .adress,
+  .socials,
+  .work {
+    width: 100%;
+  }
+
+  .footer {
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .phone,
+  .adress,
+  .socials,
+  .work {
+    width: 100%;
+  }
+
+  .footer {
+    margin-top: 56px;
+    margin-bottom: 80px;
+  }
+}

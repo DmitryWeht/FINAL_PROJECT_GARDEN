@@ -1,9 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
-const ProductsList = () => {
+
+const ProductsList = ({ content }) => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
 
   if (isLoading) return <div>Loading...</div>;
@@ -25,15 +25,36 @@ const ProductsList = () => {
 
   return (
     <div className={classes.products_list}>
-      {limitedProducts.map((product) => (
-        <Link
-          key={product.id}
-          to={`/products/${product.id}`}
-          className={classes.link}
-        >
-          <ProductItem product={product} />
-        </Link>
-      ))}
+      {content === "main"
+        ? limitedProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              className={classes.link}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))
+        : content === "sale"
+        ? discountedProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              className={classes.link}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))
+        : products &&
+          products.map((product) => (
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              className={classes.link}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))}
     </div>
   );
 };
