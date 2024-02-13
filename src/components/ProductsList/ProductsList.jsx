@@ -1,8 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
+
 const ProductsList = () => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
 
@@ -29,9 +29,13 @@ const ProductsList = () => {
         <Link
           key={product.id}
           to={`/products/${product.id}`}
+          // onClick={() => handleProductClick(product.id)}
           className={classes.link}
         >
-          <ProductItem product={product} />
+          <ProductItem
+            product={product}
+            // isActive={activeProduct === product.id}
+          />
         </Link>
       ))}
     </div>

@@ -2,11 +2,12 @@
   width: 100%;
   padding-top: clamp(1.25rem, 0.393rem + 1.79vw, 2rem);
   padding-bottom: 20px;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid var(--grey-divider, #ddd);
   background-color: #ffffff;
+  
 }
 
 body {
@@ -47,6 +48,7 @@ body {
   line-height: 130%;
 }
 
+
 .mobile_btn {
   display: none;
 }
@@ -64,6 +66,10 @@ body {
   right: 0;
 }
 
+.nav_list_item a.actives {
+  color: #0B710B;
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -72,7 +78,7 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0);
   pointer-events: none; 
-  transition: background-color 1s ease; 
+  transition: background-color 1s ease;
 }
 
 .activeOverlay {

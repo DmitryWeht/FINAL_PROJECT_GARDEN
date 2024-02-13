@@ -8,7 +8,6 @@
 .link {
   width: 23%;
 }
-
 @media (max-width: 1440px) {
   .products_list {
     flex-wrap: wrap;

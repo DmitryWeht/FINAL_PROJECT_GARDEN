@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductsList from "../ProductsList/ProductsList";
@@ -14,7 +13,7 @@ const Sale = () => {
     <div className={`${classes.sale_container} container`}>
       <div className={classes.text_container}>
         <h2>Sale</h2>
-        <hr className={classes.line} />
+        <div className={classes.line}></div>
         <Link to="/sales">
           <button>All sales</button>
         </Link>

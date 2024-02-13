@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./Header.module.css";
 import logo from "../../media/logo-garten.svg";
 import basketImage from "../../media/basket_light.png";
+import { NavLink } from "react-router-dom"
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 const Header = () => {
@@ -19,16 +20,26 @@ const Header = () => {
         
             <ul className={`${classes.nav_list} ${nav ? classes.active : ""}`}>
               <li className={classes.nav_list_item}>
-                <a href="#">Main Page</a>
+                <NavLink
+                 to="/">
+                  Main Page
+                 </NavLink>
               </li>
               <li className={classes.nav_list_item}>
-                <a href="#">Categories</a>
+                <NavLink 
+                  to="/categories">
+                Categories</NavLink>
               </li>
               <li className={classes.nav_list_item}>
-                <a href="#">All products</a>
+                <NavLink
+                  to="/products">
+                  All products
+                  </NavLink>
               </li>
               <li className={classes.nav_list_item}>
-                <a href="#">All sales</a>
+                <NavLink 
+                to="/sales"
+                >All sales</NavLink>
               </li>
             </ul>
           </div>
