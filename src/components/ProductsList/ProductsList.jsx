@@ -1,9 +1,9 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
 
-const ProductsList = () => {
+const ProductsList = ({ content }) => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
@@ -15,21 +15,45 @@ const ProductsList = () => {
     (product) => product.discont_price
   );
 
-  const getRandomItem = (array) => {
-    return array[Math.floor(Math.random() * array.length)];
-  };
-
   const limitedProducts = [];
-  for (let i = 0; i < 4; i++) {
-    const randomProduct = getRandomItem(discountedProducts);
-    limitedProducts.push(randomProduct);
+  while (limitedProducts.length < 4 && discountedProducts.length > 0) {
+    const randomIndex = Math.floor(Math.random() * discountedProducts.length);
+    limitedProducts.push(discountedProducts[randomIndex]);
+    discountedProducts.splice(randomIndex, 1);
   }
 
   return (
     <div className={classes.products_list}>
-      {limitedProducts.map((product) => (
-        <ProductItem key={product.id} product={product} />
-      ))}
+      {content === "main"
+        ? limitedProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              className={classes.link}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))
+        : content === "sale"
+        ? discountedProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              className={classes.link}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))
+        : products &&
+          products.map((product) => (
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              className={classes.link}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))}
     </div>
   );
 };

@@ -16,6 +16,7 @@
   width: 100%;
   height: 284px;
   border-bottom: 1px solid var(--grey-divider, #ddd);
+  object-fit: cover;
 }
 
 .product_item {
@@ -25,10 +26,11 @@
   align-items: flex-start;
   border-radius: var(--radius-big, 12px);
   border: 1px solid var(--grey-divider, #ddd);
-  max-width: 275px;
-  width: 100%;
+  /* max-width: 275px; */
+  /* width: 100%; */
   gap: 16px;
   position: relative;
+  cursor: pointer;
 }
 
 .price_container {
@@ -71,4 +73,9 @@
   font-weight: 600;
   line-height: 130%;
   letter-spacing: 0.6px;
+}
+
+.product_item:hover h3 {
+  color: #0b710b;
+
 }

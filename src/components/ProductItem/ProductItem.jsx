@@ -1,8 +1,7 @@
 import React from "react";
 import classes from "./ProductItem.module.css";
 
-const ProductItem = ({ product }) => {
-  const { image, title, price, discont_price } = product;
+const ProductItem = ({ image, title, price, discont_price }) => {
   const discountPercentage = Math.round(
     ((price - discont_price) / price) * 100
   );

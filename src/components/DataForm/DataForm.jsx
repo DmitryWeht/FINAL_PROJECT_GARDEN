@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
+import { useAddNewUserMutation } from "../../store/apiSlice";
 import classes from "./DataForm.module.css";
 
 export const DataForm = () => {
@@ -10,32 +11,16 @@ export const DataForm = () => {
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
-  const addUser = async (user) => {
-    try {
-      const response = await fetch(`http://127.0.0.1:3333/sale/send`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
-      });
-      if (!response.ok) {
-        throw new Error("Ошибка при отправке пользователя");
-      }
-      const userData = await response.json();
-      console.log(userData);
-      return userData;
-    } catch (error) {
-      console.error("Oшибка:", error);
-    }
-  };
+  const [addNewUser] = useAddNewUserMutation();
 
   const handleAddUser = (data) => {
     const newUser = {
       ...data,
       id: uuidv4(),
     };
-    addUser(handleAddUser);
-    console.log(newUser);
+    addNewUser(handleAddUser);
     reset();
+    console.log(newUser);
   };
 
   return (
@@ -64,7 +49,7 @@ export const DataForm = () => {
           })}
         />
         <input
-          type="emeil"
+          type="email"
           placeholder="Email"
           {...register("email", {
             required: true,
