@@ -12,19 +12,18 @@
 .line {
   flex: 1;
   height: 1px;
-  background-color: #DDD;
+  background-color: #ddd;
 }
 
 .text_container button {
   padding: 8px 16px;
   font-family: Montserrat;
-  color: #8B8B8B;
+  color: #8b8b8b;
   text-align: center;
   font-size: 16px;
-  font-weight: 500;
   line-height: 126%;
   border-radius: 6px;
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   white-space: nowrap;
   transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
@@ -34,7 +33,7 @@
 }
 
 .text_container button:hover {
-  color: #0B710B;
+  color: #0b710b;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 

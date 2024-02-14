@@ -1,6 +1,5 @@
 footer {
   padding-bottom: clamp(3.5rem, 3rem + 2.2222vw, 5rem);
-  padding-top: 80px;
 }
 
 .contact {
@@ -16,7 +15,6 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  margin-bottom: 80px;
 }
 
 .phone,
@@ -71,12 +69,17 @@ footer {
   gap: 16px;
 }
 
+.instagram:hover img,
+.whatsapp:hover img {
+  transform: scale(1.2);
+}
+
 @media (max-width: 1200px) {
 
   .phone,
   .adress {
     width: 48%;
-    padding: 20px;
+
   }
 
   .socials,
@@ -95,7 +98,7 @@ footer {
   .phone,
   .adress {
     width: 62%;
-    padding: 20px;
+
   }
 
   .socials,
