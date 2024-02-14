@@ -15,7 +15,6 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  margin-bottom: 80px;
 }
 
 .phone,
@@ -76,32 +75,38 @@ footer {
 }
 
 @media (max-width: 1200px) {
+
   .phone,
   .adress {
     width: 48%;
-    padding: 20px;
+
   }
+
   .socials,
   .work {
     width: 48%;
     padding: 20px;
   }
+
   Map {
     height: 250px;
   }
 }
 
 @media (max-width: 850px) {
+
   .phone,
   .adress {
     width: 62%;
-    padding: 20px;
+
   }
+
   .socials,
   .work {
     width: 35%;
     padding: 20px;
   }
+
   .connect {
     display: flex;
     flex-wrap: wrap;
@@ -110,11 +115,13 @@ footer {
 }
 
 @media (max-width: 720px) {
+
   .phone,
   .adress {
     width: 55%;
     padding: 20px;
   }
+
   .socials,
   .work {
     width: 41.5%;
@@ -123,6 +130,7 @@ footer {
 }
 
 @media (max-width: 620px) {
+
   .socials,
   .work {
     width: 40.5%;
@@ -135,24 +143,28 @@ footer {
     display: flex;
     flex-direction: column;
   }
+
   .phone,
   .adress,
   .socials,
   .work {
     width: 100%;
   }
+
   .footer {
     margin-bottom: 80px;
   }
 }
 
 @media (max-width: 400px) {
+
   .phone,
   .adress,
   .socials,
   .work {
     width: 100%;
   }
+
   .footer {
     margin-top: 56px;
     margin-bottom: 80px;
