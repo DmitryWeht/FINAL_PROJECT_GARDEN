@@ -13,7 +13,10 @@ const Header = () => {
       <div className="container">
         <div className={classes.header_row}>
           <div className={classes.header_logo}>
-            <img src={logo} alt="logo" />
+          <NavLink
+                 to="/">
+                   <img src={logo} alt="logo" />
+          </NavLink>
           </div>
 
           <div className={classes.menu}>
@@ -74,7 +77,7 @@ const Header = () => {
             </div>
 
             <div onClick={() => setNav(!nav)} className={classes.mobile_btn}>
-              {nav ? <AiOutlineClose size={45} /> : <AiOutlineMenu size={45} />}
+              {nav ? <AiOutlineClose size={50} /> : <AiOutlineMenu size={50} />}
             </div>
           </div>
         </div>
