@@ -1,0 +1,25 @@
+.products_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 5vw, 20px);
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 80px;
+}
+@media screen and (max-width: 1200px) {
+  .products_wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .products_wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .products_wrapper {
+    grid-template-columns: 1fr;
+  }
+}

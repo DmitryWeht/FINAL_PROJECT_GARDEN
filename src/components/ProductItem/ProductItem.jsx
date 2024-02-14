@@ -9,11 +9,13 @@ const ProductItem = ({ image, title, price, discont_price }) => {
     <div>
       {" "}
       <div className={classes.product_item}>
-        <img
-          className={classes.product_img}
-          src={`http://127.0.0.1:3333/${image}`}
-          alt={title}
-        />
+        <div className={classes.img_container}>
+          <img
+            className={classes.product_img}
+            src={`http://127.0.0.1:3333/${image}`}
+            alt={title}
+          />
+        </div>
         {discountPercentage !== null && (
           <div className={classes.discount_overlay}>
             <div className={classes.discount_text}>-{discountPercentage}% </div>

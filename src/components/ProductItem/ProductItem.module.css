@@ -16,6 +16,7 @@
   border-radius: 12px 12px 0 0;
   border-bottom: 1px solid #ddd;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .product_item {
@@ -29,6 +30,18 @@
   position: relative;
 }
 
+.img_container {
+  height: 284px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.product_item:hover .img_container img {
+  transform: scale(1.1);
+}
 .price_container {
   display: flex;
   gap: 1rem;
@@ -64,7 +77,6 @@
   font-weight: 600;
   line-height: 110%;
 }
-
 .price_without_discounted {
   color: #8b8b8b;
 

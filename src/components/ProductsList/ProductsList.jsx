@@ -5,6 +5,7 @@ import classes from "./ProductsList.module.css";
 
 const ProductsList = ({ content }) => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
   if (!products || products.length === 0) {
