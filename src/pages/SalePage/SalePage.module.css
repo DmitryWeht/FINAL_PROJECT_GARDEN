@@ -1,0 +1,56 @@
+.title {
+    color: #282828;
+    font-size: clamp(2rem, 1.333rem + 2.96vw, 4rem);
+    font-weight: 700;
+    line-height: 110%;
+    margin-bottom: 40px;
+}
+
+.button_box {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.button_box button {
+    color: #282828;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 126%;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid#DDD;
+    background-color: #ffffff;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.button_box a button {
+    color: #8B8B8B;
+}
+
+.button_box button:active {
+    transform: scale(0.95);
+}
+
+.button_box button:hover {
+    color: #0B710B;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.line {
+    width: 16px;
+    height: 1px;
+    background: #DDD;
+}
+
+@media (max-width: 768px) {
+    .button_box {
+        display: none;
+    }
+
+    .title {
+        padding-top: 24px;
+    }
+}
