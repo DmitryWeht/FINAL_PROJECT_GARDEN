@@ -5,6 +5,7 @@ import {
   useGetCategoryByIdQuery,
 } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
+import classes from "./ProductsFromCategory.module.css";
 
 const ProductsFromCategory = () => {
   const { id } = useParams();
@@ -25,14 +26,12 @@ const ProductsFromCategory = () => {
 
   return (
     <div>
-      <div
-      //   className={classes.products_wrapper}
-      >
+      <div className={classes.products_wrapper}>
         {products &&
           products.map((product) => (
             <div key={product.id}>
-              <Link to={`/product/${product.id}`}>
-                <ProductItem product={product} />
+              <Link to={`/products/${product.id}`}>
+                <ProductItem {...product} />
               </Link>
             </div>
           ))}

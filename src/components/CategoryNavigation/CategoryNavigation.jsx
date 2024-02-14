@@ -1,5 +1,6 @@
 import { NavLink, useParams } from "react-router-dom";
 import { useGetCategoryByIdQuery } from "../../store/apiSlice";
+import classes from "./CategoryNavigation.module.css";
 const CategoryNavigation = () => {
   const { id } = useParams();
 
@@ -9,28 +10,21 @@ const CategoryNavigation = () => {
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {isError.message}</div>;
 
-  // Проверяем наличие объекта data и его свойства category
   const category = data && data.category;
   const title = category && category.title;
 
   return (
     <>
       <hr />
-      <div>
-        <nav
-        // className={productClasses.smallProductsContainer}
-        >
+      <div className={classes.category_title}>
+        <nav className={classes.navigation_container}>
           <div>
             {" "}
             <NavLink
               to="/"
-              //   className={({ isActive, isPending }) =>
-              //     isPending
-              //       ? productClasses.pending
-              //       : isActive
-              //       ? productClasses.active
-              //       : ""
-              //   }
+              className={({ isActive, isPending }) =>
+                isPending ? classes.pending : isActive ? classes.active : ""
+              }
             >
               {" "}
               Main page
@@ -40,13 +34,9 @@ const CategoryNavigation = () => {
             {" "}
             <NavLink
               to="/categories"
-              //   className={({ isActive, isPending }) =>
-              //     isPending
-              //       ? productClasses.pending
-              //       : isActive
-              //       ? productClasses.active
-              //       : ""
-              //   }
+              className={({ isActive, isPending }) =>
+                isPending ? classes.pending : isActive ? classes.active : ""
+              }
             >
               {" "}
               Categories
@@ -56,19 +46,15 @@ const CategoryNavigation = () => {
           <div>
             <NavLink
               to={`/categories/${id}`}
-              //   className={({ isActive, isPending }) =>
-              //     isPending
-              //       ? productClasses.pending
-              //       : isActive
-              //       ? productClasses.active
-              //       : ""
-              //   }
+              className={({ isActive, isPending }) =>
+                isPending ? classes.pending : isActive ? classes.active : ""
+              }
             >
               {title}
             </NavLink>
           </div>
         </nav>
-        <p>{title}</p>
+        <p className={classes.title}>{title}</p>
       </div>
     </>
   );

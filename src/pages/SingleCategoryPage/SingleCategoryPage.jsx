@@ -3,7 +3,7 @@ import ProductsFromCategory from "../../components/ProductsFromCategory/Products
 
 const SingleCategoryPage = () => {
   return (
-    <div>
+    <div className="container">
       <CategoryNavigation />
       <ProductsFromCategory />
     </div>
