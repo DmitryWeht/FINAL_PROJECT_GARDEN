@@ -16,10 +16,10 @@ const ProductsFromCategory = () => {
     <div>
       <div className={classes.products_wrapper}>
         {categories.data.data &&
-          categories.data.data.map((category) => (
-            <div key={category.id}>
-              <Link to={`/categories/${category.id}`}>
-                <ProductItem {...category} />
+          categories.data.data.map((product) => (
+            <div key={product.id}>
+              <Link to={`/products/${product.id}`}>
+                <ProductItem {...product} />
               </Link>
             </div>
           ))}
