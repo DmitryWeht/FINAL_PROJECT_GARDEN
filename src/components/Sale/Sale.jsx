@@ -21,6 +21,11 @@ const Sale = () => {
       <div>
         <ProductsList products={data} />
       </div>
+      <div className={classes.hidden_button}>
+        <Link to="/sales">
+          <button>All sales</button>
+        </Link>
+      </div>
     </div>
   );
 };
