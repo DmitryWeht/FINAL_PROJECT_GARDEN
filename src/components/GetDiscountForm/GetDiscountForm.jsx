@@ -1,31 +1,31 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
-import { useAddNewUserMutation } from "../../store/apiSlice";
-import classes from "./DataForm.module.css";
+import { useGetDiscountMutation } from "../../store/apiSlice";
+import classes from "./GetDiscountForm.module.css";
 
-export const DataForm = () => {
+export const GetDiscountForm = () => {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm();
 
-  const [addNewUser] = useAddNewUserMutation();
+  const [getDiscount] = useGetDiscountMutation();
 
   const [strimSuccessful, setStrimSuccessful] = useState();
 
-  const handleAddUser = (data) => {
-    const newUser = {
+  const handlePostUserDataToGetDiscount = (data) => {
+    const userData = {
       ...data,
       id: uuidv4(),
     };
-    addNewUser(newUser);
-    //TODO : ответ от запроса обрабатывается в if
+    getDiscount(userData);
+
     if (true) setStrimSuccessful(true);
 
-    console.log(newUser);
+    console.log(userData);
 
     reset();
   };
@@ -37,7 +37,7 @@ export const DataForm = () => {
   console.log("strim", strimSuccessful);
   return (
     <div className={classes.dataForm}>
-      <form onSubmit={handleSubmit(handleAddUser)}>
+      <form onSubmit={handleSubmit(handlePostUserDataToGetDiscount)}>
         <input
           onFocus={cleanMessage}
           type="text"

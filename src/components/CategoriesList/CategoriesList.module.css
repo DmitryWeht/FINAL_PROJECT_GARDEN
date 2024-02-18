@@ -36,6 +36,7 @@
 @media (max-width: 480px) {
     .categories_block {
         flex-direction: column;
+        padding-bottom: 0;
     }
 
     .categories_block {
