@@ -12,9 +12,9 @@ export const GetDiscountForm = () => {
     formState: { errors },
   } = useForm();
 
-  const [getDiscount] = useGetDiscountMutation();
+  const [submittedSuccessful, setSubmittedSuccessful] = useState(false);
 
-  const [strimSuccessful, setStrimSuccessful] = useState();
+  const [getDiscount] = useGetDiscountMutation();
 
   const handlePostUserDataToGetDiscount = (data) => {
     const userData = {
@@ -23,23 +23,20 @@ export const GetDiscountForm = () => {
     };
     getDiscount(userData);
 
-    if (true) setStrimSuccessful(true);
-
+    setSubmittedSuccessful(true);
     console.log(userData);
-
     reset();
   };
 
-  const cleanMessage = () => {
-    setStrimSuccessful(false);
+  const handleInputChange = () => {
+    setSubmittedSuccessful(false);
   };
 
-  console.log("strim", strimSuccessful);
   return (
     <div className={classes.dataForm}>
       <form onSubmit={handleSubmit(handlePostUserDataToGetDiscount)}>
         <input
-          onFocus={cleanMessage}
+          onFocus={handleInputChange}
           type="text"
           placeholder="Name"
           {...register("name", {
@@ -51,7 +48,7 @@ export const GetDiscountForm = () => {
           })}
         />
         <input
-          onFocus={cleanMessage}
+          onFocus={handleInputChange}
           type="tel"
           placeholder="Phone number"
           {...register("phone", {
@@ -63,7 +60,7 @@ export const GetDiscountForm = () => {
           })}
         />
         <input
-          onFocus={cleanMessage}
+          onFocus={handleInputChange}
           type="email"
           placeholder="Email"
           {...register("email", {
@@ -76,23 +73,20 @@ export const GetDiscountForm = () => {
         />
         <input
           type="submit"
-          value="Get a discount"
-          id={classes.submit_button}
+          value={submittedSuccessful ? "Request Submitted" : "Get a discount"}
+          className={`${classes.submit_button} ${
+            submittedSuccessful ? classes.successful_button : ""
+          }`}
+          disabled={submittedSuccessful}
         />
       </form>
 
-      <p
-        className={classes.message}
-        style={{ color: strimSuccessful ? "white" : "red" }}
-      >
+      <p className={classes.message}>
         {errors.email?.message && `${errors.email.message}`}
-        <br></br>
+        <br />
         {errors.name?.message && `${errors.name.message}`}
-        <br></br>
+        <br />
         {errors.phone?.message && `${errors.phone.message}`}
-        {strimSuccessful
-          ? "Thank you, the data has been sent. Expect an email with a discount."
-          : ""}
       </p>
     </div>
   );
