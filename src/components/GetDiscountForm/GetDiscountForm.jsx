@@ -39,6 +39,7 @@ export const GetDiscountForm = () => {
           onFocus={handleInputChange}
           type="text"
           placeholder="Name"
+          className={classes.form_input}
           {...register("name", {
             required: true,
             minLength: {
@@ -51,6 +52,7 @@ export const GetDiscountForm = () => {
           onFocus={handleInputChange}
           type="tel"
           placeholder="Phone number"
+          className={classes.form_input}
           {...register("phone", {
             required: true,
             pattern: {
@@ -63,6 +65,7 @@ export const GetDiscountForm = () => {
           onFocus={handleInputChange}
           type="email"
           placeholder="Email"
+          className={classes.form_input}
           {...register("email", {
             required: true,
             pattern: {
