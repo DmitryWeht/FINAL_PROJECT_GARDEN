@@ -19,7 +19,6 @@
 }
 
 .product_item {
-
   display: flex;
   height: 422px;
   flex-direction: column;
@@ -101,16 +100,25 @@
   cursor: pointer;
   font-size: clamp(16px, 2vw, 20px);
   font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
-.product_item:hover .custom_button {
+.product_item:hover .custom_button:not(.added) {
   display: block;
   background-color: green;
   color: #fff;
+  border: none;
 }
 
 .custom_button:active {
   background-color: black !important;
+  color: white;
+}
+.custom_button.added {
+  border: 1px solid rgb(40, 40, 40);
+  background-color: white;
+  color: black;
+  display: block;
 }
 
 @media (max-width: 768px) {

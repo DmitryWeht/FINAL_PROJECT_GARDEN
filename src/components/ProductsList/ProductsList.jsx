@@ -62,10 +62,6 @@ const ProductsList = ({ content }) => {
 
 export default ProductsList;
 
-
-
-
-
 // import { Link } from "react-router-dom";
 // import { useGetAllProductsQuery } from "../../store/apiSlice";
 // import ProductItem from "../ProductItem/ProductItem";
@@ -77,37 +73,37 @@ export default ProductsList;
 //   const { data , isLoading, isError } = useGetAllProductsQuery();
 //   const [products, setProducts] = useState(data);
 
-  // const { minPrice, maxPrice, showDiscounted, sort } = 
-  //        useSelector((state) => state.filter);
+// const { minPrice, maxPrice, showDiscounted, sort } =
+//        useSelector((state) => state.filter);
 
-        //  useEffect(() => {
-        //   if (!isLoading && !isError) {
-        //     const filteredAndSortedProducts = fetchedProducts
-        //       .filter((product) => {
-        //         const isInPriceRange =
-        //           (!minPrice || product.price >= Number(minPrice)) &&
-        //           (!maxPrice || product.price <= Number(maxPrice));
-      
-        //         const isDiscounted = showDiscounted ? product.discont_price : true;
-      
-        //         return isInPriceRange && isDiscounted;
-        //       })
-        //       .sort((a, b) => {
-        //         if (sort === "asc") {
-        //           return a.price - b.price;
-        //         } else if (sort === "desc") {
-        //           return b.price - a.price;
-        //         } else {
-        //           return 0;
-        //         }
-        //       });
-      
-        //     setProducts(filteredAndSortedProducts);
-        //   }
-        // }, [minPrice, maxPrice, showDiscounted, sort, fetchedProducts, isLoading, isError]);
-      
-        // console.log("fetchedProducts:", fetchedProducts);
-        // console.log("filteredAndSortedProducts:", products);
+//  useEffect(() => {
+//   if (!isLoading && !isError) {
+//     const filteredAndSortedProducts = fetchedProducts
+//       .filter((product) => {
+//         const isInPriceRange =
+//           (!minPrice || product.price >= Number(minPrice)) &&
+//           (!maxPrice || product.price <= Number(maxPrice));
+
+//         const isDiscounted = showDiscounted ? product.discont_price : true;
+
+//         return isInPriceRange && isDiscounted;
+//       })
+//       .sort((a, b) => {
+//         if (sort === "asc") {
+//           return a.price - b.price;
+//         } else if (sort === "desc") {
+//           return b.price - a.price;
+//         } else {
+//           return 0;
+//         }
+//       });
+
+//     setProducts(filteredAndSortedProducts);
+//   }
+// }, [minPrice, maxPrice, showDiscounted, sort, fetchedProducts, isLoading, isError]);
+
+// console.log("fetchedProducts:", fetchedProducts);
+// console.log("filteredAndSortedProducts:", products);
 
 //   if (isLoading) return <div>Loading...</div>;
 //   if (isError) return <div>Error...</div>;
@@ -118,7 +114,7 @@ export default ProductsList;
 //   const discountedProducts = products.filter(
 //     (product) => product.discont_price
 //   );
-  
+
 //   const limitedProducts = [];
 //   while (limitedProducts.length < 4 && discountedProducts.length > 0) {
 //     const randomIndex = Math.floor(Math.random() * discountedProducts.length);
@@ -161,4 +157,3 @@ export default ProductsList;
 // };
 
 // export default ProductsList;
-
