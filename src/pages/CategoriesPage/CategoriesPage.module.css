@@ -47,10 +47,12 @@
 
 @media (max-width: 768px) {
   .button_box {
+    /* margin-top: 20px; */
     display: none;
   }
 
   .title {
+    margin-top: 40px;
     padding-top: 24px;
   }
 }
