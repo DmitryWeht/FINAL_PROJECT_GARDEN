@@ -42,6 +42,7 @@ export const DataForm = () => {
           onFocus={cleanMessage}
           type="text"
           placeholder="Name"
+          className={classes.form_input}
           {...register("name", {
             required: true,
             minLength: {
@@ -54,6 +55,7 @@ export const DataForm = () => {
           onFocus={cleanMessage}
           type="tel"
           placeholder="Phone number"
+          className={classes.form_input}
           {...register("phone", {
             required: true,
             pattern: {
@@ -66,6 +68,7 @@ export const DataForm = () => {
           onFocus={cleanMessage}
           type="email"
           placeholder="Email"
+          className={classes.form_input}
           {...register("email", {
             required: true,
             pattern: {
@@ -77,6 +80,7 @@ export const DataForm = () => {
         <input
           type="submit"
           value="Get a discount"
+          className={classes.form_input}
           id={classes.submit_button}
         />
       </form>
