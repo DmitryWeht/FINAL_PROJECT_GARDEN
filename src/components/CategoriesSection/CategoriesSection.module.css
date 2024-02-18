@@ -7,10 +7,9 @@
 
 
 .line {
-    width: 70%;
+    flex: 1;
     height: 1px;
     background-color: #DDD;
-    margin-right: 0;
 }
 
 .title_box h3 {

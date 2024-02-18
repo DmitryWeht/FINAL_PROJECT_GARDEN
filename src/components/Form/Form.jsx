@@ -1,5 +1,5 @@
-import handsImage from "../../media/hands.svg";
-import { DataForm } from "../DataForm/DataForm";
+import gardenSuppliesImage from "../../media/garden-supplies.svg";
+import { GetDiscountForm } from "../GetDiscountForm/GetDiscountForm";
 import classes from "./Form.module.css";
 
 export const Form = () => {
@@ -9,8 +9,12 @@ export const Form = () => {
         <div className={classes.form_wrapper}>
           <h3>5% off on the first order</h3>
           <div className={classes.formBox}>
-            <img src={handsImage} alt="hands" className={classes.hidden} />
-            <DataForm />
+            <img
+              src={gardenSuppliesImage}
+              alt="garden supplies"
+              className={classes.hidden}
+            />
+            <GetDiscountForm />
           </div>
         </div>
       </div>

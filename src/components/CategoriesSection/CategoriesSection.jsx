@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { CategoriesList } from "../CategoriesList/CategoriesList";
-import classes from "./Categories.module.css";
+import classes from "./CategoriesSection.module.css";
 
-export const Categories = () => {
+export const CategoriesSection = () => {
   return (
     <div>
       <div className="container">
