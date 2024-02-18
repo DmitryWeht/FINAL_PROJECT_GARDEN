@@ -1,4 +1,4 @@
-import { NavLink, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetCategoryByIdQuery } from "../../store/apiSlice";
 import classes from "./CategoryNavigation.module.css";
 const CategoryNavigation = () => {
@@ -17,43 +17,36 @@ const CategoryNavigation = () => {
     <>
       <hr />
       <div className={classes.category_title}>
-        <nav className={classes.navigation_container}>
-          <div>
+        <div className={classes.navigation_container}>
+          <Link
+            to="/"
+            className={({ isActive, isPending }) =>
+              isPending ? classes.pending : isActive ? classes.active : ""
+            }
+          >
             {" "}
-            <NavLink
-              to="/"
-              className={({ isActive, isPending }) =>
-                isPending ? classes.pending : isActive ? classes.active : ""
-              }
-            >
-              {" "}
-              Main page
-            </NavLink>
-          </div>
-          <div>
+            <button>Main page</button>
+          </Link>
+          <div className={classes.line}></div>
+          <Link
+            to="/categories"
+            className={({ isActive, isPending }) =>
+              isPending ? classes.pending : isActive ? classes.active : ""
+            }
+          >
             {" "}
-            <NavLink
-              to="/categories"
-              className={({ isActive, isPending }) =>
-                isPending ? classes.pending : isActive ? classes.active : ""
-              }
-            >
-              {" "}
-              Categories
-            </NavLink>
-          </div>
+            <button>Categories</button>
+          </Link>
+          <div className={classes.line}></div>
 
-          <div>
-            <NavLink
-              to={`/categories/${id}`}
-              className={({ isActive, isPending }) =>
-                isPending ? classes.pending : isActive ? classes.active : ""
-              }
-            >
-              {title}
-            </NavLink>
+          <div
+            className={({ isActive, isPending }) =>
+              isPending ? classes.pending : isActive ? classes.active : ""
+            }
+          >
+            <button> {title}</button>
           </div>
-        </nav>
+        </div>
         <p className={classes.title}>{title}</p>
       </div>
     </>
