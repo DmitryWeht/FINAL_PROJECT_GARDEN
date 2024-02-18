@@ -4,7 +4,7 @@
   text-overflow: ellipsis;
   font-size: clamp(16px, 2vw, 20px);
   line-height: 130%;
-  width: clamp(200px, 80%, 275px);
+  width: 275px;
   white-space: nowrap;
   padding-left: 2rem;
 }
@@ -104,4 +104,9 @@
 }
 .custom_button:active {
   background-color: black !important;
+}
+@media (max-width: 768px) {
+  .product_item h3 {
+    width: 200px;
+  }
 }
