@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
 import AllProductsPage from "./pages/AllProductsPage/AllProductsPage.jsx";
-import CategoriesPage from "./pages/CategoriesPage/CategoriesPage.jsx";
+import { CategoriesPage } from "./pages/CategoriesPage/CategoriesPage.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
 import SalePage from "./pages/SalePage/SalePage.jsx";
