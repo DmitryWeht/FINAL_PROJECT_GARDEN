@@ -32,7 +32,7 @@ const ProductItem = ({ image, title, price, discont_price }) => {
             <p className={classes.discounted_price}>${price}</p>
           )}
         </div>
-        <button className={classes.custom_button}>Added to cart</button>
+        <button className={classes.custom_button}>Add to cart</button>
       </div>
     </div>
   );

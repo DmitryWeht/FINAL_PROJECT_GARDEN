@@ -28,7 +28,7 @@ form {
     -webkit-text-fill-color: #ffffff;
 }
 
-#submit_button {
+.submit_button {
     background-color: #ffffff;
     color: #282828;
     font-weight: 600;
@@ -37,15 +37,19 @@ form {
     transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
+.successful_button {
+    background-color: #ffffff;
+    color: #0B710B;
+}
 
-#submit_button:active {
+
+.submit_button:not(.successful_button):active {
     transform: scale(0.95);
 }
 
-#submit_button:hover {
-    color: #0B710B;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-
+.submit_button:not(.successful_button):hover {
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .message {

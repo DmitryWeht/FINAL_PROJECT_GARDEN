@@ -9,6 +9,7 @@ footer {
   font-weight: 700;
   line-height: 110%;
   margin-bottom: clamp(1.5rem, 1.214rem + 1.43vw, 2.5rem);
+  margin-top: 80px;
 }
 
 .connect {
