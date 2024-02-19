@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 import ProductsList from "../../components/ProductsList/ProductsList";
 import classes from "./AllProductsPage.module.css";
-import {FilterBar} from "../../components/FilterBar/FilterBar";
-// import { UseSelector } from "react-redux";
+import {Filter} from "../../components/Filter/Filter";
+//  import { useSelector } from "react-redux";
 
 
 const AllProductsPage = () => {
-  // const products = useSelector((state) => state.products.products);
-  
-  // const productList = useSelector(store => store.productList.productList)
-  // .filter((product) => product.showBySale && product.showByRange)
+ 
  
 
   return (
@@ -24,7 +21,7 @@ const AllProductsPage = () => {
         </div>
         <p className={classes.title}>All products</p>
 
-        <FilterBar />
+         <Filter /> 
         <div>
           <ProductsList />
         </div>
