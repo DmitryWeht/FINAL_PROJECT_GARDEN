@@ -29,6 +29,12 @@ form {
 }
 
 .submit_button {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 16px 32px;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid #ffffff;
     background-color: #ffffff;
     color: #282828;
     font-weight: 600;

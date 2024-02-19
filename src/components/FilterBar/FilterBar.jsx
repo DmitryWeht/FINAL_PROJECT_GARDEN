@@ -100,6 +100,7 @@ export const FilterBar = ({ content }) => {
             />
           </label>
         </div>
+
         {content !== "sale" && (
           <div className={classes.checkbox}>
             <p>Discounted items</p>
@@ -115,6 +116,7 @@ export const FilterBar = ({ content }) => {
             </label>
           </div>
         )}
+        
         <div className={classes.sorted}>
           <label htmlFor="sort" className={classes.sort_label}>
             Sorted
