@@ -14,7 +14,9 @@ function Footer() {
             <div className={classes.connect}>
               <div className={classes.phone}>
                 <p className={classes.descreibe}>Phone</p>
-                <p className={classes.number}>+49 999 999 99 99</p>
+                <p className={classes.number}>
+                  <a href="tel:+499999999999">+49 999 999 99 99</a>
+                </p>
               </div>
 
               <div className={classes.socials}>
