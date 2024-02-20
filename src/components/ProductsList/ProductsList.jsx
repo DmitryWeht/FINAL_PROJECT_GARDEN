@@ -2,38 +2,17 @@ import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
-import { useEffect, useState } from "react";
+// import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useFiltration } from '../../hooks/useFiltration';
 
 const ProductsList = ({ content }) => {
   const { data: fetchedProducts, isLoading, isError } = useGetAllProductsQuery();
-  const [products, setProducts] = useState(fetchedProducts);
+  // const [products, setProducts] = useState(fetchedProducts);
   const { minPrice, maxPrice, showDiscounted, sort } = useSelector((state) => state.filter);
 
-  useEffect(() => {
-    if (!isLoading && !isError) {
-      const filteredAndSortedProducts = fetchedProducts
-        .filter((product) => {
-          const isInPriceRange =
-            (!minPrice || product.price >= Number(minPrice)) &&
-            (!maxPrice || product.price <= Number(maxPrice));
-          const isDiscounted = showDiscounted ? product.discont_price : true;
-          return isInPriceRange && isDiscounted;
-        })
-        .sort((a, b) => {
-          if (sort === "asc") {
-            return a.price - b.price;
-          } else if (sort === "desc") {
-            return b.price - a.price;
-          } else {
-            return 0;
-          }
-        });
-
-      setProducts(filteredAndSortedProducts);
-    }
-  }, [minPrice, maxPrice, showDiscounted, sort, fetchedProducts, isLoading, isError]);
-
+  const products = useFiltration(minPrice, maxPrice, showDiscounted, sort, fetchedProducts)
+ 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
   if (!products || products.length === 0) {
