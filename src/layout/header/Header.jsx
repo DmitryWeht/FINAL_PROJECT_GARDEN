@@ -80,9 +80,11 @@ const Header = () => {
           <div className={classes.toogleAll}>
             <div className={classes.nav_basket}>
               <img src={basketImage} alt="basket" />
-              <span>
-                <span>{cartTotalQuantity}</span>
-              </span>
+              {cartTotalQuantity && (
+                <span className={classes.bag_quantity}>
+                  <span>{cartTotalQuantity}</span>
+                </span>
+              )}
             </div>
 
             <div onClick={() => setNav(!nav)} className={classes.mobile_btn}>
