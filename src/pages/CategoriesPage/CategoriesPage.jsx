@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CategoriesList } from "../../Components/CategoriesList/CategoriesList";
+import { CategoriesList } from "../../components/CategoriesList/CategoriesList";
 import classes from "./CategoriesPage.module.css";
 
 export const CategoriesPage = () => {
