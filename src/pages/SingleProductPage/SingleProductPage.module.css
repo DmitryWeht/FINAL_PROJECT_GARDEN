@@ -41,7 +41,7 @@
 
 .card_product {
     display: flex;
-    padding: 40px 0 82px 0;
+    padding-bottom: 82px;
     gap: 32px;
 }
 

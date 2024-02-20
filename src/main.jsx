@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         element: <CategoriesPage />,
       },
       {
-        path: "/categories/:id",
+        path: "/categories/:categoryId",
         element: <SingleCategoryPage />,
       },
 
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <SingleProductPage />,
       },
       {
-        path: "/categories/:id/:id",
+        path: "/categories/:categoryId/:id",
         element: <SingleProductPage />,
       },
       {

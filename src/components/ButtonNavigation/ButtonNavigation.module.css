@@ -2,10 +2,14 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    display: flex;
+    margin: 40px 0;
 }
 
 .navigation_container button {
     display: flex;
+    font-weight: 500;
+    font-family: Montserrat;
     padding: 8px 16px;
     justify-content: center;
     align-items: center;
@@ -24,12 +28,6 @@ a.active {
     color: black;
 }
 
-.category_title {
-    display: flex;
-    flex-direction: column;
-    margin: 32px 0 60px 0;
-    gap: 2rem;
-}
 
 .navigation_container button:active {
     transform: scale(0.95);
@@ -40,11 +38,8 @@ a.active {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.title {
+#last_button {
     color: #282828;
-    font-size: clamp(20px, 5vw, 64px);
-    font-weight: 700;
-    line-height: 110%;
 }
 
 .line {

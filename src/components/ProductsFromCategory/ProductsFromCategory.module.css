@@ -6,6 +6,15 @@
   justify-content: flex-start;
   margin-bottom: 80px;
 }
+
+.title {
+  color: #282828;
+  font-size: clamp(2rem, 1.333rem + 2.96vw, 4rem);
+  font-weight: 700;
+  line-height: 110%;
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 1200px) {
   .products_wrapper {
     grid-template-columns: repeat(3, 1fr);
@@ -15,6 +24,10 @@
 @media screen and (max-width: 900px) {
   .products_wrapper {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .title {
+    padding-top: 24px;
   }
 }
 

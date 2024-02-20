@@ -5,20 +5,23 @@ import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsFromCategory.module.css";
 
 const ProductsFromCategory = () => {
-  const { id } = useParams();
-  const categories = useGetCategoryByIdQuery(id);
+  const { categoryId } = useParams();
+  const categories = useGetCategoryByIdQuery(categoryId);
+  const categoryTitle = categories.data ? categories.data.category.title : "";
+  console.log(categoryTitle);
 
   if (!categories || !categories.data) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
+    <div className="conteiner">
+      <p className={classes.title}>{categoryTitle}</p>
       <div className={classes.products_wrapper}>
         {categories.data.data &&
           categories.data.data.map((product) => (
             <div key={product.id}>
-              <Link to={`/categories/${id}/${product.id}`}>
+              <Link to={`/categories/${categoryId}/${product.id}`}>
                 <ProductItem {...product} />
               </Link>
             </div>
