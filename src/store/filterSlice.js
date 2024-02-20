@@ -26,9 +26,13 @@ const filterSlice = createSlice({
         sortChange: (state, action) => {
             return { ...state, sort: action.payload }
         },
-    },
-})
+        resetFilters: (state) => {
+            return initialState; 
+          },
+        },
+      })
 
-export const { minPriceChange, maxPriceChange, toggleDiscounted, sortChange } = filterSlice.actions
+
+export const { minPriceChange, maxPriceChange, toggleDiscounted, sortChange, resetFilters } = filterSlice.actions
 
 export default filterSlice.reducer
