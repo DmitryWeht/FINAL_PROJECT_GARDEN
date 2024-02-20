@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
+import { Filter } from "../../components/Filter/Filter";
 import ProductsList from "../../components/ProductsList/ProductsList";
 import classes from "./AllProductsPage.module.css";
-import {Filter} from "../../components/Filter/Filter";
 //  import { useSelector } from "react-redux";
 
-
 const AllProductsPage = () => {
- 
- 
-
   return (
     <div>
       <div className="container">
@@ -21,7 +17,7 @@ const AllProductsPage = () => {
         </div>
         <p className={classes.title}>All products</p>
 
-         <Filter /> 
+        <Filter />
         <div>
           <ProductsList />
         </div>

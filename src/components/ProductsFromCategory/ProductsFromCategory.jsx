@@ -18,7 +18,7 @@ const ProductsFromCategory = () => {
         {categories.data.data &&
           categories.data.data.map((product) => (
             <div key={product.id}>
-              <Link to={`/products/${product.id}`}>
+              <Link to={`/categories/${id}/${product.id}`}>
                 <ProductItem {...product} />
               </Link>
             </div>
