@@ -72,10 +72,13 @@
 
 import React from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { useGetCategoryByIdQuery } from "../../store/apiSlice";
+import {
+  useGetCategoryByIdQuery,
+  useGetProductByIdQuery,
+} from "../../store/apiSlice";
 import classes from "./ButtonNavigation.module.css";
 
-const ButtonNavigation = ({ productTitle }) => {
+const ButtonNavigation = () => {
   const { id } = useParams();
 
   const location = useLocation();
@@ -86,24 +89,24 @@ const ButtonNavigation = ({ productTitle }) => {
     isLoading: categoryLoading,
     isError: categoryError,
   } = useGetCategoryByIdQuery(id);
-  //   const {
-  //     data: productData,
-  //     isLoading: productLoading,
-  //     isError: productError,
-  //   } = useGetProductByIdQuery(id);
+  const {
+    data: productData,
+    isLoading: productLoading,
+    isError: productError,
+  } = useGetProductByIdQuery(id);
 
-  //   if (categoryLoading || productLoading) return <div>Loading...</div>;
-  //   if (categoryError || productError)
-  //     return (
-  //       <div>
-  //         Error: {categoryError ? categoryError.message : productError.message}
-  //       </div>
-  //     );
+  if (categoryLoading || productLoading) return <div>Loading...</div>;
+  if (categoryError || productError)
+    return (
+      <div>
+        Error: {categoryError ? categoryError.message : productError.message}
+      </div>
+    );
 
   const category = categoryData && categoryData.category;
   const categoryTitle = category && category.title;
 
-  //   const productTitle = productData && productData[0].title;
+  const productTitle = productData && productData[0].title;
 
   let buttonText = "";
   let linkTo = "";

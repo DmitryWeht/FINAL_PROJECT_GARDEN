@@ -16,7 +16,7 @@ export const SingleProductPage = () => {
   return (
     <div>
       <div className="container">
-        <ButtonNavigation productTitle={productTitle} />
+        <ButtonNavigation />
         {products.map((product) => (
           <div key={product.id} className={styles.card_product}>
             <img

@@ -1,10 +1,18 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Filter } from "../../components/Filter/Filter";
 import ProductsList from "../../components/ProductsList/ProductsList";
+import { resetFilters } from "../../store/filterSlice";
 import classes from "./AllProductsPage.module.css";
-//  import { useSelector } from "react-redux";
 
 const AllProductsPage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetFilters());
+  }, [dispatch]);
+
   return (
     <div>
       <div className="container">
