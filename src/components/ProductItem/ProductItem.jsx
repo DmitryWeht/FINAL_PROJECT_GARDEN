@@ -1,17 +1,19 @@
-import { useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../store/cartSlice";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 
-const ProductItem = ({ image, title, price, discont_price }) => {
-  const [added, setAdded] = useState(false);
+const ProductItem = ({ image, title, price, discont_price, id }) => {
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const isInCart = cartItems.some((item) => item.id === id);
+  const dispatch = useDispatch();
   const discountPercentage =
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
   const handleClick = (event) => {
     event.preventDefault();
-    setAdded(true);
+    dispatch(addToCart({ id }));
   };
   return (
     <div>
@@ -42,9 +44,9 @@ const ProductItem = ({ image, title, price, discont_price }) => {
         </div>
         <CustomButton
           onClick={handleClick}
-          added={added}
+          added={isInCart}
           buttonClasses={`${classes.custom_button} ${
-            added ? classes.added : ""
+            isInCart ? classes.added : ""
           }`}
         />
       </div>
