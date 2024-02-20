@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { CategoriesList } from "../../components/CategoriesList/CategoriesList";
 import classes from "./CategoriesPage.module.css";

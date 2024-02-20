@@ -36,7 +36,6 @@ export const Filter = ({content}) => {
           </label>
         </div>
 
-        {console.log(content)}
         {content !== "sale" && (
           <div className={classes.checkbox}>
             <p>Discounted items</p>

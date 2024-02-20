@@ -1,12 +1,12 @@
 import { CategoriesSection } from "../../components/CategoriesSection/CategoriesSection";
-import Discount from "../../components/Discount/Discount";
 import { Form } from "../../components/Form/Form";
 import Sale from "../../components/Sale/Sale";
+import SaleBanner from "../../components/SaleBanner/SaleBanner";
 
 export const MainPage = () => {
   return (
     <div>
-      <Discount />
+      <SaleBanner />
       <CategoriesSection />
       <Form />
       <Sale />
