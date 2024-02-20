@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 import { Filter} from "../../components/Filter/Filter";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 // import { useSelector } from "react-redux";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { resetFilters } from "../../store/filterSlice";
 
 import ProductsList from "../../components/ProductsList/ProductsList";
 import classes from "./SalePage.module.css";
 
-const SalePage = () => { 
+const SalePage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetFilters());
+  }, [dispatch]);
 
   return (
     <div>
@@ -21,7 +27,7 @@ const SalePage = () => {
         </div>
         <p className={classes.title}>Discounted items</p>
 
-         <Filter /> 
+         <Filter content="sale" /> 
 
         <ProductsList content="sale"/>
       </div>
