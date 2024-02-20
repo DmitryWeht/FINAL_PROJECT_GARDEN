@@ -12,7 +12,7 @@ const AllProductsPage = () => {
   useEffect(() => {
     dispatch(resetFilters());
   }, [dispatch]);
- 
+
   return (
     <div>
       <div className="container">
