@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = ({ image, title, price, discont_price }) => {
@@ -38,12 +40,13 @@ const ProductItem = ({ image, title, price, discont_price }) => {
             <p className={classes.discounted_price}>${price}</p>
           )}
         </div>
-        <button
-          className={`${classes.custom_button} ${added ? classes.added : ""}`}
+        <CustomButton
           onClick={handleClick}
-        >
-          {added ? "Added" : "Add to cart"}
-        </button>
+          added={added}
+          buttonClasses={`${classes.custom_button} ${
+            added ? classes.added : ""
+          }`}
+        />
       </div>
     </div>
   );
