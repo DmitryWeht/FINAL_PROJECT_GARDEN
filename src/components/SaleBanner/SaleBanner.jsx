@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import classes from "./Discount.module.css";
+import classes from "./SaleBanner.module.css";
 
-const Discount = () => {
+const SaleBanner = () => {
   return (
     <div className={classes.main}>
       <div className="container">
@@ -23,4 +23,4 @@ const Discount = () => {
   );
 };
 
-export default Discount;
+export default SaleBanner;
