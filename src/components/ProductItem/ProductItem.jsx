@@ -1,10 +1,16 @@
+import { useState } from "react";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = ({ image, title, price, discont_price }) => {
+  const [added, setAdded] = useState(false);
   const discountPercentage =
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
+  const handleClick = (event) => {
+    event.preventDefault();
+    setAdded(true);
+  };
   return (
     <div>
       {" "}
@@ -32,7 +38,12 @@ const ProductItem = ({ image, title, price, discont_price }) => {
             <p className={classes.discounted_price}>${price}</p>
           )}
         </div>
-        <button className={classes.custom_button}>Add to cart</button>
+        <button
+          className={`${classes.custom_button} ${added ? classes.added : ""}`}
+          onClick={handleClick}
+        >
+          {added ? "Added" : "Add to cart"}
+        </button>
       </div>
     </div>
   );
