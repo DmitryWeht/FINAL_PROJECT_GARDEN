@@ -10,7 +10,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
 import SalePage from "./pages/SalePage/SalePage.jsx";
 import SingleCategoryPage from "./pages/SingleCategoryPage/SingleCategoryPage.jsx";
-import SingleProductPage from "./pages/SingleProductPage/SingleProductPage.jsx";
+import { SingleProductPage } from "./pages/SingleProductPage/SingleProductPage.jsx";
 import { store } from "./store/store.js";
 
 const router = createBrowserRouter([

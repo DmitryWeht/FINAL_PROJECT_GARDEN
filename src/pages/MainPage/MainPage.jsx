@@ -2,7 +2,6 @@ import { CategoriesSection } from "../../components/CategoriesSection/Categories
 import { Form } from "../../components/Form/Form";
 import Sale from "../../components/Sale/Sale";
 import SaleBanner from "../../components/SaleBanner/SaleBanner";
-import SingleProductPage from "../SingleProductPage/SingleProductPage";
 
 export const MainPage = () => {
   return (
@@ -11,7 +10,6 @@ export const MainPage = () => {
       <CategoriesSection />
       <Form />
       <Sale />
-      <SingleProductPage />
     </div>
   );
 };

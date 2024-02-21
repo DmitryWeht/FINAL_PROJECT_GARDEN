@@ -15,13 +15,11 @@ const SalePage = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div className="container">
-        <ButtonNavigation showOnlyFirstTwoButtons={false} />
-        <p className={classes.title}>Discounted items</p>
-        <Filter content="sale" />
-        <ProductsList content="sale" />
-      </div>
+    <div className="container">
+      <ButtonNavigation showOnlyFirstTwoButtons={false} />
+      <p className={classes.title}>Discounted items</p>
+      <Filter content="sale" />
+      <ProductsList content="sale" />
     </div>
   );
 };

@@ -14,15 +14,11 @@ const AllProductsPage = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div className="container">
-        <ButtonNavigation showOnlyFirstTwoButtons={false} />
-        <p className={classes.title}>All products</p>
-        <Filter />
-        <div>
-          <ProductsList />
-        </div>
-      </div>
+    <div className="container">
+      <ButtonNavigation showOnlyFirstTwoButtons={false} />
+      <p className={classes.title}>All products</p>
+      <Filter />
+      <ProductsList />
     </div>
   );
 };
