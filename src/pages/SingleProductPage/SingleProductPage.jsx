@@ -1,5 +1,11 @@
-const SingleProductPage = () => {
-  return <div></div>;
-};
+import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
+import SingleProduct from "../../components/SingleProduct/SingleProduct";
 
-export default SingleProductPage;
+export const SingleProductPage = () => {
+  return (
+    <div className="container">
+      <ButtonNavigation />
+      <SingleProduct />
+    </div>
+  );
+};

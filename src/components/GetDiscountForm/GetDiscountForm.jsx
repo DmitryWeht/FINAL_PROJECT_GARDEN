@@ -4,7 +4,13 @@ import { v4 as uuidv4 } from "uuid";
 import { useGetDiscountMutation } from "../../store/apiSlice";
 import classes from "./GetDiscountForm.module.css";
 
-export const GetDiscountForm = () => {
+export const GetDiscountForm = ({
+  inputStyles,
+  formStyles,
+  buttonStyles,
+  buttonText = "Get a discount",
+  successText = "Request Submitted",
+}) => {
   const {
     register,
     handleSubmit,
@@ -33,13 +39,13 @@ export const GetDiscountForm = () => {
   };
 
   return (
-    <div className={classes.dataForm}>
+    <div className={`${classes.dataForm} ${formStyles}`}>
       <form onSubmit={handleSubmit(handlePostUserDataToGetDiscount)}>
         <input
           onFocus={handleInputChange}
           type="text"
           placeholder="Name"
-          className={classes.form_input}
+          className={`${classes.form_input} ${inputStyles}`}
           {...register("name", {
             required: true,
             minLength: {
@@ -52,7 +58,7 @@ export const GetDiscountForm = () => {
           onFocus={handleInputChange}
           type="tel"
           placeholder="Phone number"
-          className={classes.form_input}
+          className={`${classes.form_input} ${inputStyles}`}
           {...register("phone", {
             required: true,
             pattern: {
@@ -65,7 +71,7 @@ export const GetDiscountForm = () => {
           onFocus={handleInputChange}
           type="email"
           placeholder="Email"
-          className={classes.form_input}
+          className={`${classes.form_input} ${inputStyles}`}
           {...register("email", {
             required: true,
             pattern: {
@@ -76,10 +82,10 @@ export const GetDiscountForm = () => {
         />
         <input
           type="submit"
-          value={submittedSuccessful ? "Request Submitted" : "Get a discount"}
+          value={submittedSuccessful ? successText : buttonText}
           className={`${classes.submit_button} ${
             submittedSuccessful ? classes.successful_button : ""
-          }`}
+          } ${buttonStyles}`}
           disabled={submittedSuccessful}
         />
       </form>

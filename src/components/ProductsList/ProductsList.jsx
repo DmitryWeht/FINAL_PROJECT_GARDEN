@@ -37,7 +37,11 @@ const ProductsList = ({ content }) => {
       ).map((product) => (
         <Link
           key={product.id}
-          to={`/products/${product.id}`}
+          to={
+            content === "sale"
+              ? `/sales/${product.id}`
+              : `/products/${product.id}`
+          }
           className={classes.link}
         >
           <ProductItem {...product} />
