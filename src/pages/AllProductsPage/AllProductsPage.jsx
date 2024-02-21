@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import ProductsList from "../../components/ProductsList/ProductsList";
-import classes from "./AllProductsPage.module.css";
-import {Filter} from "../../components/Filter/Filter";
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
+import { Filter } from "../../components/Filter/Filter";
+import ProductsList from "../../components/ProductsList/ProductsList";
 import { resetFilters } from "../../store/filterSlice";
+import classes from "./AllProductsPage.module.css";
 
 const AllProductsPage = () => {
   const dispatch = useDispatch();
@@ -14,22 +14,11 @@ const AllProductsPage = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div className="container">
-        <div className={classes.button_box}>
-          <Link to="/">
-            <button>Main page</button>
-          </Link>
-          <div className={classes.line}></div>
-          <button>All products</button>
-        </div>
-        <p className={classes.title}>All products</p>
-
-         <Filter /> 
-        <div>
-          <ProductsList />
-        </div>
-      </div>
+    <div className="container">
+      <ButtonNavigation showOnlyFirstTwoButtons={false} />
+      <p className={classes.title}>All products</p>
+      <Filter />
+      <ProductsList />
     </div>
   );
 };

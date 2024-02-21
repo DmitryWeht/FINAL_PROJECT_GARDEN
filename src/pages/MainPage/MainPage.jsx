@@ -1,3 +1,4 @@
+import CartForm from "../../components/CartForm/CartForm";
 import { CategoriesSection } from "../../components/CategoriesSection/CategoriesSection";
 import { Form } from "../../components/Form/Form";
 import Sale from "../../components/Sale/Sale";
@@ -10,6 +11,7 @@ export const MainPage = () => {
       <CategoriesSection />
       <Form />
       <Sale />
+      <CartForm />
     </div>
   );
 };
