@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
 
-export const useFiltration = (minPrice, maxPrice, showDiscounted, sort, data) => {
+export const useFiltration = (minPrice, maxPrice, showDiscounted, sort, data, isLoading, isError) => {
   const [products, setProducts] = useState(data);
-//   const [filteredProducts, setFilteredProducts] = useState(data);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
+  
   useEffect(() => {
     const filterProducts = () => {
       if (!isLoading && !isError) {

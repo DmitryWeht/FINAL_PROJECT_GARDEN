@@ -8,7 +8,9 @@ import { useFiltration } from '../../hooks/useFiltration';
 const ProductsList = ({ content }) => {
   const { data: fetchedProducts, isLoading, isError } = useGetAllProductsQuery();
   const { minPrice, maxPrice, showDiscounted, sort } = useSelector((state) => state.filter);
-  const products = useFiltration(minPrice, maxPrice, showDiscounted, sort, fetchedProducts)
+
+  const products = useFiltration(minPrice, maxPrice, showDiscounted, sort,
+     fetchedProducts, content)
  
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
