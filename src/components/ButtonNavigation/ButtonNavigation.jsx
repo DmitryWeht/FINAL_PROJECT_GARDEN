@@ -6,18 +6,18 @@ import {
 } from "../../store/apiSlice";
 import classes from "./ButtonNavigation.module.css";
 
-const ButtonNavigation = () => {
+const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const location = useLocation();
   let buttonText = "";
   let linkTo = "";
 
-  if (location.pathname.startsWith("/products/")) {
+  if (location.pathname.startsWith("/products")) {
     buttonText = "All products";
     linkTo = "/products";
-  } else if (location.pathname.startsWith("/categories/")) {
+  } else if (location.pathname.startsWith("/categories")) {
     buttonText = "Categories";
     linkTo = "/categories";
-  } else if (location.pathname.startsWith("/sales/")) {
+  } else if (location.pathname.startsWith("/sales")) {
     buttonText = "All sales";
     linkTo = "/sales";
   }
@@ -43,13 +43,21 @@ const ButtonNavigation = () => {
   return (
     <>
       <div className={classes.navigation_container}>
-        <Link to="/">
-          <button>Main page</button>
-        </Link>
-        <div className={classes.line}></div>
-        <Link to={linkTo}>
-          <button>{buttonText}</button>
-        </Link>
+        {!showOnlyFirstTwoButtons && (
+          <>
+            <Link to="/">
+              <button>Main page</button>
+            </Link>
+            <div className={classes.line}></div>
+            <Link to={linkTo}>
+              <button
+                id={categoryTitle || productTitle ? "" : classes.last_button}
+              >
+                {buttonText}
+              </button>
+            </Link>
+          </>
+        )}
         <div className={classes.line} style={categoryButtonStyle}></div>
 
         <Link to={`/categories/${categoryId}`}>

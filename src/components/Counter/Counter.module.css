@@ -25,3 +25,22 @@
     border-top: 1px solid #DDD;
     border-bottom: 1px solid #DDD;
 }
+
+@media (max-width: 768px) {
+
+    .minus,
+    .plus {
+        width: 47px;
+        height: 47px;
+    }
+
+    .counter {
+        height: 47px;
+    }
+}
+
+@media (max-width: 480px) {
+    .counter_box {
+        justify-content: center;
+    }
+}

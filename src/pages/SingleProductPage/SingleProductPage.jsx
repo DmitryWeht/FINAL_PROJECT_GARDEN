@@ -11,7 +11,6 @@ export const SingleProductPage = () => {
   if (!Array.isArray(products)) {
     return <div>Loading...</div>;
   }
-  const productTitle = products.length > 0 ? products[0].title : "";
 
   return (
     <div>
