@@ -3,7 +3,7 @@ import SingleProduct from "../../components/SingleProduct/SingleProduct";
 
 export const SingleProductPage = () => {
   return (
-    <div>
+    <div className="container">
       <ButtonNavigation />
       <SingleProduct />
     </div>
