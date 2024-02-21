@@ -79,7 +79,9 @@ const Header = () => {
 
           <div className={classes.toogleAll}>
             <div className={classes.nav_basket}>
-              <img src={basketImage} alt="basket" />
+              <NavLink to="/cart">
+                <img src={basketImage} alt="basket" />
+              </NavLink>
               {cartTotalQuantity && (
                 <span className={classes.bag_quantity}>
                   <span>{cartTotalQuantity}</span>
