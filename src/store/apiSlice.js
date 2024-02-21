@@ -23,6 +23,13 @@ export const appApi = createApi({
         body: data,
       }),
     }),
+    sendOrder: builder.mutation({
+      query: (data) => ({
+        url: "/order/send",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -32,4 +39,5 @@ export const {
   useGetProductByIdQuery,
   useGetCategoryByIdQuery,
   useGetDiscountMutation,
+  useSendOrderMutation,
 } = appApi;
