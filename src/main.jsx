@@ -13,6 +13,8 @@ import SingleCategoryPage from "./pages/SingleCategoryPage/SingleCategoryPage.js
 import { SingleProductPage } from "./pages/SingleProductPage/SingleProductPage.jsx";
 import { store } from "./store/store.js";
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +53,7 @@ const router = createBrowserRouter([
         path: "/sales",
         element: <SalePage />,
       },
+  
       {
         path: "/*",
         element: <ErrorPage />,

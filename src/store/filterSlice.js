@@ -26,9 +26,7 @@ const filterSlice = createSlice({
         sortChange: (state, action) => {
             return { ...state, sort: action.payload }
         },
-        resetFilters: (state) => {
-            return initialState; 
-          },
+        resetFilters: () => initialState,
         },
       })
 

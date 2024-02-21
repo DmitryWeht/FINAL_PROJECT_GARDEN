@@ -121,16 +121,9 @@
   .sorted {
     margin-left: 0px;
     gap: 30px;
-    margin-top: -20px;
   }
 
   .sort_select {
     padding: 8px 20px 8px 10px;
-  }
-}
-
-@media (max-width: 620px) {
-  .checkbox {
-    margin-top: -20px;
   }
 }
