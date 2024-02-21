@@ -1,15 +1,54 @@
 .form_conteiner {
     border-radius: 12px;
-    padding: 32px 20px;
-    width: 100%;
+    padding: 32px;
+    width: 38%;
     height: 538px;
     background-color: #f1f3f4;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text_box {
+    width: 100%;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.total_box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total_sum {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 70px;
+    letter-spacing: 0em;
+    color: #000000;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0em;
+}
+
+p {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 52px;
+    letter-spacing: 0em;
+    color: #8B8B8B;
 }
 
 .cartForm {
-    width: 34%;
+    width: 100%;
     padding: 32px 0 10px 0;
 }
 
