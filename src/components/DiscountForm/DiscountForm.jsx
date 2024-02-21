@@ -1,8 +1,8 @@
 import gardenSuppliesImage from "../../media/garden-supplies.svg";
-import { GetDiscountForm } from "../GetDiscountForm/GetDiscountForm";
-import classes from "./Form.module.css";
+import { UserDataForm } from "../UserDataForm/UserDataForm";
+import classes from "./DiscountForm.module.css";
 
-export const Form = () => {
+export const DiscountForm = () => {
   return (
     <div className={classes.form}>
       <div className="container">
@@ -14,7 +14,7 @@ export const Form = () => {
               alt="garden supplies"
               className={classes.hidden}
             />
-            <GetDiscountForm />
+            <UserDataForm />
           </div>
         </div>
       </div>

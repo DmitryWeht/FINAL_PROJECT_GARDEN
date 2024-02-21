@@ -9,6 +9,7 @@ import { CategoriesPage } from "./pages/CategoriesPage/CategoriesPage.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
 import SalePage from "./pages/SalePage/SalePage.jsx";
+import ShoppingCartPage from "./pages/ShoppingCartPage/ShoppingCartPage.jsx";
 import SingleCategoryPage from "./pages/SingleCategoryPage/SingleCategoryPage.jsx";
 import { SingleProductPage } from "./pages/SingleProductPage/SingleProductPage.jsx";
 import { store } from "./store/store.js";
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         element: <SalePage />,
       },
   
+      {
+        path: "/cart",
+        element: <ShoppingCartPage />,
+      },
       {
         path: "/*",
         element: <ErrorPage />,
