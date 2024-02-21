@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export const useFiltration = (minPrice, maxPrice, showDiscounted, sort, data) => {
   const [products, setProducts] = useState(data);
-//   const [filteredProducts, setFilteredProducts] = useState(data);
+//   
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
