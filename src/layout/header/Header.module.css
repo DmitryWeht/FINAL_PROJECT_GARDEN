@@ -8,7 +8,6 @@
   border-bottom: 1px solid var(--grey-divider, #ddd);
   background-color: #ffffff;
   margin-top: -130px;
-  
 }
 
 body {
@@ -34,11 +33,11 @@ body {
 }
 
 .nav_list li a:hover {
-  color: var(--hover-color, var(--green, #0B710B));
+  color: var(--hover-color, var(--green, #0b710b));
 }
 
 .nav_list .color_active {
-  color: var(--hover-color, var(--green, #0B710B));
+  color: var(--hover-color, var(--green, #0b710b));
 }
 
 .mobile_btn {
@@ -47,6 +46,7 @@ body {
 
 .nav_basket {
   cursor: pointer;
+  position: relative;
 }
 
 .toogleAll {
@@ -65,8 +65,8 @@ body {
 }
 
 .active_link {
-  color: #0B710B;
-} 
+  color: #0b710b;
+}
 
 .overlay {
   position: fixed;
@@ -83,12 +83,26 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
   pointer-events: auto;
 }
+.bag_quantity {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  font-weight: 600;
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(51, 153, 51);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 2px;
+  top: 7px;
+}
 
 @media (max-width: 790px) {
-   
   .header {
     padding: 12px 0;
-}
+  }
   .mobile_btn {
     display: block;
     position: absolute;
