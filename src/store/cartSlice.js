@@ -43,9 +43,8 @@ const cartSlice = createSlice({
       }
     },
     decreaseCart(state, action) {
-      const itemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
-      );
+      const { id } = action.payload;
+      const itemIndex = state.cartItems.findIndex((item) => item.id === id);
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
@@ -63,19 +62,19 @@ const cartSlice = createSlice({
     },
     getTotals(state) {
       const { cartItems } = state;
+      const uniqueIds = [];
+      cartItems.forEach((item) => {
+        if (!uniqueIds.includes(item.id)) {
+          uniqueIds.push(item.id);
+        }
+      });
 
-      const { total, quantity } = cartItems.reduce(
-        (cartTotal, cartItem) => {
-          const { price, cartQuantity } = cartItem;
-          const itemTotal = price * cartQuantity;
-          return {
-            total: cartTotal.total + itemTotal,
-            quantity: cartTotal.quantity + cartQuantity,
-          };
-        },
-        { total: 0, quantity: 0 }
-      );
-
+      const quantity = uniqueIds.length;
+      const total = cartItems.reduce((cartTotal, cartItem) => {
+        const { price, cartQuantity } = cartItem;
+        const itemTotal = price * cartQuantity;
+        return cartTotal + itemTotal;
+      }, 0);
       state.cartTotalQuantity = quantity;
       state.cartTotalAmount = Number(total.toFixed(2));
     },
