@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
 import { CategoriesList } from "../CategoriesList/CategoriesList";
+import TitleBar from "../TitleBar/TitleBar";
 import classes from "./CategoriesSection.module.css";
 
 export const CategoriesSection = () => {
   return (
     <div>
       <div className="container">
-        <div className={classes.title_box}>
-          <h3>Categories</h3>
-          <div className={classes.line}></div>
-          <Link to="/categories">
-            <button>All categories </button>
-          </Link>
-        </div>
+        <TitleBar
+          title="Categories"
+          buttonText="All categories"
+          linkTo="/categories"
+        />
         <CategoriesList />
         <div className={classes.hidden_button}>
           <Link to="/categories">

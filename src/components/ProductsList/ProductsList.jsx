@@ -30,7 +30,7 @@ const ProductsList = ({ content, products: propProducts }) => {
       {(content === "main"
         ? limitedProducts
         : content === "sale"
-        ? discountedProducts
+        ? [...discountedProducts, ...limitedProducts]
         : products
       ).map((product) => (
         <Link
