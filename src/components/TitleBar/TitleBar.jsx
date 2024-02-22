@@ -3,7 +3,7 @@ import classes from "./TitleBar.module.css";
 const TitleBar = ({ title, buttonText, linkTo }) => {
   return (
     <div className={classes.title_box}>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <div className={classes.line}></div>
       <Link to={linkTo}>
         <button>{buttonText}</button>

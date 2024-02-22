@@ -45,13 +45,14 @@ body {
 }
 
 .nav_basket {
+  align-items: center;
   cursor: pointer;
   position: relative;
 }
 
 .toogleAll {
   display: flex;
-  gap: 4rem;
+  gap: 24px;
 }
 
 .active {
@@ -83,6 +84,7 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
   pointer-events: auto;
 }
+
 .bag_quantity {
   position: absolute;
   width: 26px;
@@ -103,6 +105,7 @@ body {
   .header {
     padding: 12px 0;
   }
+
   .mobile_btn {
     display: block;
     position: absolute;

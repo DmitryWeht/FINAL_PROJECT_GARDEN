@@ -62,6 +62,7 @@ const cartSlice = createSlice({
     },
     getTotals(state) {
       const { cartItems } = state;
+ 
       const uniqueItems = {};
       cartItems.forEach((item) => {
         if (uniqueItems[item.id]) {
@@ -78,6 +79,7 @@ const cartSlice = createSlice({
         return cartTotal + itemTotal;
       }, 0);
       const quantity = Object.values(uniqueItems).length;
+
       state.cartTotalQuantity = quantity;
       state.cartTotalAmount = Number(total.toFixed(2));
     },
