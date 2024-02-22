@@ -1,4 +1,3 @@
-import CartForm from "../../components/CartForm/CartForm";
 import { CategoriesSection } from "../../components/CategoriesSection/CategoriesSection";
 import { DiscountForm } from "../../components/DiscountForm/DiscountForm";
 import Sale from "../../components/Sale/Sale";
@@ -11,7 +10,6 @@ export const MainPage = () => {
       <CategoriesSection />
       <DiscountForm />
       <Sale />
-      <CartForm />
     </div>
   );
 };

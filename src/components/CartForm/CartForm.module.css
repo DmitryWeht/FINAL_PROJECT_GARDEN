@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 40px;
 }
 
 .text_box {
@@ -25,7 +26,7 @@
 }
 
 .total_sum {
-    font-size: 64px;
+    font-size: clamp(2.5rem, 2rem + 2.22vw, 4rem);
     font-weight: 700;
     line-height: 70px;
     letter-spacing: 0em;
@@ -33,14 +34,14 @@
 }
 
 h2 {
-    font-size: 40px;
+    font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
     font-weight: 700;
     line-height: 44px;
     letter-spacing: 0em;
 }
 
 p {
-    font-size: 40px;
+    font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
     font-weight: 500;
     line-height: 52px;
     letter-spacing: 0em;
@@ -71,4 +72,10 @@ p {
     width: 100%;
     background-color: #0B710B;
     color: #ffffff;
+}
+
+@media (max-width: 1000px) {
+    .form_conteiner {
+        width: 100%;
+    }
 }
