@@ -3,6 +3,7 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import basketImage from "../../media/basket_light.png";
+import likeIcon from "../../media/like-icon.svg";
 import logo from "../../media/logo-garden.svg";
 import classes from "./Header.module.css";
 
@@ -79,6 +80,9 @@ const Header = () => {
 
           <div className={classes.toogleAll}>
             <div className={classes.nav_basket}>
+              <NavLink to="/liked">
+                <img src={likeIcon} alt="basket" />
+              </NavLink>
               <NavLink to="/cart">
                 <img src={basketImage} alt="basket" />
               </NavLink>
