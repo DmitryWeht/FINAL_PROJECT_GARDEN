@@ -2,7 +2,7 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import basketImage from "../../media/basket_light.png";
-import classes from "./Header.module.css";
+import classes from "./BurgerMenu.module.css";
 
 const BurgerMenu = ({ nav, setNav }) => {
   const { cartTotalQuantity } = useSelector((state) => state.cart);

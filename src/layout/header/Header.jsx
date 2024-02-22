@@ -10,15 +10,15 @@ const Header = () => {
   return (
     <header className={classes.header}>      
       <div className="container">
-        <div className={classes.header_row}>         
-          <NavMenu />
-          <HeaderLogo />
-
-        <div className={`${classes.overlay} ${nav ? classes.activeOverlay : ""}`}
+        <div className={classes.header_row}>
+          <HeaderLogo />         
+          <NavMenu nav={nav} />
+          <div className={`${classes.overlay} ${nav ? classes.activeOverlay : ""}`}
              onClick={() => setNav(false)} />
 
           <BurgerMenu nav={nav} setNav={setNav} />
         </div>
+
       </div>
     </header>
   );

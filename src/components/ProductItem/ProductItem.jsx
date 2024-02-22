@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getTotals } from "../../store/cartSlice";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
+import { NavLink } from "react-router-dom";
 
 const ProductItem = ({ image, title, price, discont_price, id }) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -42,13 +43,15 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
             <p className={classes.discounted_price}>${price}</p>
           )}
         </div>
-        <CustomButton
-          onClick={handleClick}
-          added={isInCart}
-          buttonClasses={`${classes.custom_button} ${
-            isInCart ? classes.added : ""
-          }`}
-        />
+        <NavLink to="/cart" className={classes.navLink}> 
+           <CustomButton
+              onClick={handleClick}
+              added={isInCart}
+              buttonClasses={`${classes.custom_button} ${
+              isInCart ? classes.added : ""
+            }`}
+          />
+        </NavLink>
       </div>
     </div>
   );
