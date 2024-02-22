@@ -62,19 +62,22 @@ const cartSlice = createSlice({
     },
     getTotals(state) {
       const { cartItems } = state;
-      const uniqueIds = [];
+      const uniqueItems = {};
       cartItems.forEach((item) => {
-        if (!uniqueIds.includes(item.id)) {
-          uniqueIds.push(item.id);
+        if (uniqueItems[item.id]) {
+          uniqueItems[item.id].cartQuantity += item.cartQuantity;
+        } else {
+          uniqueItems[item.id] = { ...item };
         }
       });
-
-      const quantity = uniqueIds.length;
-      const total = cartItems.reduce((cartTotal, cartItem) => {
-        const { price, cartQuantity } = cartItem;
-        const itemTotal = price * cartQuantity;
+      const total = Object.values(uniqueItems).reduce((cartTotal, cartItem) => {
+        const { price, discont_price, cartQuantity } = cartItem;
+        const itemTotal = discont_price
+          ? discont_price * cartQuantity
+          : price * cartQuantity;
         return cartTotal + itemTotal;
       }, 0);
+      const quantity = Object.values(uniqueItems).length;
       state.cartTotalQuantity = quantity;
       state.cartTotalAmount = Number(total.toFixed(2));
     },
