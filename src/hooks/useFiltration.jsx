@@ -4,25 +4,33 @@ export const useFiltration = (minPrice, maxPrice, showDiscounted, sort, data, is
   const [products, setProducts] = useState(data);
   
   useEffect(() => {
+    
     const filterProducts = () => {
       if (data && !isLoading && !isError) {
         const filteredAndSortedProducts = data
           .filter((product) => {
+            const productPrice = product.discont_price !== null ? product.discont_price : product.price;
+
             const isInPriceRange =
-              (!minPrice || product.price >= Number(minPrice)) &&
-              (!maxPrice || product.price <= Number(maxPrice));
-            const isDiscounted = showDiscounted ? product.discont_price : true;
+           (!minPrice || product.discont_price >= Number(minPrice) || productPrice >= Number(minPrice)) &&
+           (!maxPrice || product.discont_price <= Number(maxPrice) || productPrice <= Number(maxPrice));
+
+           const isDiscounted = showDiscounted ? product.discont_price !== null : true;
             return isInPriceRange && isDiscounted;
           })
+
           .sort((a, b) => {
+            const priceA = a.discont_price !== null ? a.discont_price : a.price;
+            const priceB = b.discont_price !== null ? b.discont_price : b.price;
+          
             if (sort === 'asc') {
-              return a.price - b.price;
-            } else if (sort === 'desc') {
-              return b.price - a.price;
-            } else {
-              return 0;
-            }
-          });
+                return priceA - priceB;
+              } else if (sort === 'desc') {
+                return priceB - priceA;
+              } else {
+                return 0;
+              }
+            });
 
         setProducts(filteredAndSortedProducts);
       }
