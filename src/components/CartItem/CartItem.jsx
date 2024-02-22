@@ -1,9 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import classes from './CartItem.module.css';
 import { useGetProductByIdQuery } from "../../store/apiSlice";
 import {  addToCart} from '../../store/cartSlice';
 import { useDispatch } from 'react-redux';
-import { AiOutlineMinus } from 'react-icons/ai';
 import { AiOutlinePlus } from 'react-icons/ai';
 
     export const CartItem = (props) => {
