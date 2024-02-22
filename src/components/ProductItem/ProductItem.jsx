@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../store/cartSlice";
+import { addToCart, getTotals } from "../../store/cartSlice";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 
@@ -11,9 +11,9 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
-  const handleClick = (event) => {
-    event.preventDefault();
-    dispatch(addToCart({ id }));
+  const handleClick = () => {
+    dispatch(addToCart({ id, image, title, price, discont_price }));
+    dispatch(getTotals());
   };
   return (
     <div>

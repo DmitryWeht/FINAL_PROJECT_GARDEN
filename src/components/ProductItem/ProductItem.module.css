@@ -88,11 +88,15 @@
   line-height: 130%;
 }
 
-.product_item:hover .custom_button:not(.added) {
+.product_item:hover .custom_button {
   display: block;
   background-color: green;
   color: #fff;
   border: none;
+}
+.product_item:hover .custom_button:hover {
+  background-color: black;
+  color: white;
 }
 
 @media (max-width: 768px) {
