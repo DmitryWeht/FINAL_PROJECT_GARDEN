@@ -79,10 +79,14 @@ const Header = () => {
           />
 
           <div className={classes.toogleAll}>
+            <NavLink to="/liked">
+              <img
+                src={likeIcon}
+                alt="like-icon"
+                className={classes.likeIcon}
+              />
+            </NavLink>
             <div className={classes.nav_basket}>
-              <NavLink to="/liked">
-                <img src={likeIcon} alt="basket" />
-              </NavLink>
               <NavLink to="/cart">
                 <img src={basketImage} alt="basket" />
               </NavLink>

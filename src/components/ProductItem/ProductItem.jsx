@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import likeIcon from "../../media/like-in-card.svg";
 import { addToCart } from "../../store/cartSlice";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
@@ -31,6 +32,7 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
             <div className={classes.discount_text}>-{discountPercentage}% </div>
           </div>
         )}
+        <img src={likeIcon} alt="like-icon" className={classes.likeIcon} />
         <h3 className={classes.product_title}>{title}</h3>
         <div className={classes.price_container}>
           {discont_price ? (

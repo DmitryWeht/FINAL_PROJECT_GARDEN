@@ -45,8 +45,6 @@ body {
 }
 
 .nav_basket {
-  display: flex;
-  gap: 24px;
   align-items: center;
   cursor: pointer;
   position: relative;
@@ -54,7 +52,7 @@ body {
 
 .toogleAll {
   display: flex;
-  gap: 4rem;
+  gap: 24px;
 }
 
 .active {
