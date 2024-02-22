@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
-import { useGetDiscountMutation } from "../../store/apiSlice";
-import classes from "./GetDiscountForm.module.css";
+import {
+  useGetDiscountMutation,
+  useSendOrderMutation,
+} from "../../store/apiSlice";
+import classes from "./UserDataForm.module.css";
 
-export const GetDiscountForm = ({
+export const UserDataForm = ({
   inputStyles,
   formStyles,
   buttonStyles,
   buttonText = "Get a discount",
   successText = "Request Submitted",
+  requestType = "getDiscount",
 }) => {
   const {
     register,
@@ -21,13 +25,19 @@ export const GetDiscountForm = ({
   const [submittedSuccessful, setSubmittedSuccessful] = useState(false);
 
   const [getDiscount] = useGetDiscountMutation();
+  const [sendOrder] = useSendOrderMutation();
 
-  const handlePostUserDataToGetDiscount = (data) => {
+  const handlePostUserData = (data) => {
     const userData = {
       ...data,
       id: uuidv4(),
     };
-    getDiscount(userData);
+
+    if (requestType === "getDiscount") {
+      getDiscount(userData);
+    } else if (requestType === "sendOrder") {
+      sendOrder(userData);
+    }
 
     setSubmittedSuccessful(true);
     console.log(userData);
@@ -40,7 +50,7 @@ export const GetDiscountForm = ({
 
   return (
     <div className={`${classes.dataForm} ${formStyles}`}>
-      <form onSubmit={handleSubmit(handlePostUserDataToGetDiscount)}>
+      <form onSubmit={handleSubmit(handlePostUserData)}>
         <input
           onFocus={handleInputChange}
           type="text"
