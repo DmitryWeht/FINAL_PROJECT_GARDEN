@@ -1,17 +1,29 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useFiltration } from "../../hooks/useFiltration";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
-import { useFiltration } from '../../hooks/useFiltration';
 
 const ProductsList = ({ content }) => {
-  const { data: fetchedProducts, isLoading, isError } = useGetAllProductsQuery();
-  const { minPrice, maxPrice, showDiscounted, sort } = useSelector((state) => state.filter);
+  const {
+    data: fetchedProducts,
+    isLoading,
+    isError,
+  } = useGetAllProductsQuery();
+  const { minPrice, maxPrice, showDiscounted, sort } = useSelector(
+    (state) => state.filter
+  );
 
-  const products = useFiltration(minPrice, maxPrice, showDiscounted, sort,
-     fetchedProducts, content)
- 
+  const products = useFiltration(
+    minPrice,
+    maxPrice,
+    showDiscounted,
+    sort,
+    fetchedProducts,
+    content
+  );
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
   if (!products || products.length === 0) {
@@ -34,7 +46,7 @@ const ProductsList = ({ content }) => {
       {(content === "main"
         ? limitedProducts
         : content === "sale"
-        ? discountedProducts
+        ? [...discountedProducts, ...limitedProducts]
         : products
       ).map((product) => (
         <Link

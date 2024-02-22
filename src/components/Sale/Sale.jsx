@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductsList from "../ProductsList/ProductsList";
+import TitleBar from "../TitleBar/TitleBar";
 import classes from "./Sale.module.css";
 
 const Sale = () => {
@@ -11,13 +12,7 @@ const Sale = () => {
   if (!data) return <div>No products available</div>;
   return (
     <div className={`${classes.sale_container} container`}>
-      <div className={classes.text_container}>
-        <h2>Sale</h2>
-        <div className={classes.line}></div>
-        <Link to="/sales">
-          <button>All sales</button>
-        </Link>
-      </div>
+      <TitleBar title="Sale" buttonText="All sales" linkTo="/sales" />
       <div>
         <ProductsList content="main" />
       </div>
