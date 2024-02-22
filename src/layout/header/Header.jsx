@@ -8,7 +8,10 @@ import classes from "./Header.module.css";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const cartTotalQuantity = useSelector(
+    (state) => state.cart.cartTotalQuantity
+  );
+  const hasItemsInCart = cartTotalQuantity !== null && cartTotalQuantity !== 0;
 
   return (
     <header className={classes.header}>
@@ -82,7 +85,7 @@ const Header = () => {
               <NavLink to="/cart">
                 <img src={basketImage} alt="basket" />
               </NavLink>
-              {cartTotalQuantity && (
+              {hasItemsInCart && (
                 <span className={classes.bag_quantity}>
                   <span>{cartTotalQuantity}</span>
                 </span>
