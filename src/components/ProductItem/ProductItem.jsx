@@ -11,8 +11,7 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
-  const handleClick = (event) => {
-    event.preventDefault();
+  const handleClick = () => {
     dispatch(addToCart({ id, image, title, price, discont_price }));
     dispatch(getTotals());
   };
