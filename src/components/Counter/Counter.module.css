@@ -37,6 +37,10 @@
     .counter {
         height: 47px;
     }
+
+    .counter_box{
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 480px) {

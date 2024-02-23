@@ -10,13 +10,13 @@
 
 @media (max-width: 1200px) {
     .cart_list {
-       width: 40rem;
+       width: 42rem;
     }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1120px) {
     .cart_list {
-       width: 35rem;
+       width: 36rem;
     }
 }
 

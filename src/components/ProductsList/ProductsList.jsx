@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
@@ -33,7 +32,7 @@ const ProductsList = ({ content, products: propProducts }) => {
         ? [...discountedProducts, ...limitedProducts]
         : products
       ).map((product) => (
-        <Link
+        <div
           key={product.id}
           to={
             content === "sale"
@@ -42,7 +41,7 @@ const ProductsList = ({ content, products: propProducts }) => {
           }
           className={classes.link}>
           <ProductItem {...product} />
-        </Link>
+        </div>
       ))}
     </div>
   );

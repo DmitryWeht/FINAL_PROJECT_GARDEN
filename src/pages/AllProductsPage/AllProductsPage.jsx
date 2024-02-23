@@ -22,7 +22,7 @@ const AllProductsPage = () => {
   return (
     <div className="container">
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
-      <p className={classes.title}>All products</p>
+      <h1 className={classes.title}>All products</h1>
       <Filter />
       <ProductsList  products={filteredProducts}/>
     </div>

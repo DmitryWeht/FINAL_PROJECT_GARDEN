@@ -43,6 +43,22 @@ body {
   opacity: 1;
 }
 
+.like_quantity {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  font-weight: 600;
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(51, 153, 51);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 7px;
+}
+
+
 @media (max-width: 790px) {
   .header {
     padding: 12px 0;

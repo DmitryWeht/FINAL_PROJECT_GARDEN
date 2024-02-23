@@ -19,6 +19,9 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   } else if (location.pathname.startsWith("/sales")) {
     buttonText = "All sales";
     linkTo = "/sales";
+  } else if (location.pathname.startsWith("/liked")) {
+    buttonText = "Liked products";
+    linkTo = "/liked";
   }
 
   const id = useParams().id;

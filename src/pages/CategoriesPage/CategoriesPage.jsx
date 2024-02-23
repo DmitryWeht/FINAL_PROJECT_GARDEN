@@ -6,7 +6,7 @@ export const CategoriesPage = () => {
   return (
     <div className="container">
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
-      <p className={classes.title}>Categories</p>
+      <h1 className={classes.title}>Categories</h1>
       <CategoriesList listLength={5} />
     </div>
   );

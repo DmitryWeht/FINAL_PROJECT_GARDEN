@@ -1,5 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
+import likeIcon from "../../media/like-in-card.svg";
+import likedIcon from "../../media/liked-icon.svg";
 import { addToCart, getTotals } from "../../store/cartSlice";
+import {
+  addToLikedProducts,
+  deleteFromLikedProducts,
+  getQuantity,
+} from "../../store/likedProductsSlice";
+
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 import { NavLink } from "react-router-dom";
@@ -7,6 +15,10 @@ import { NavLink } from "react-router-dom";
 const ProductItem = ({ image, title, price, discont_price, id }) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const isInCart = cartItems.some((item) => item.id === id);
+
+  const isLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((item) => item.id === id)
+  );
   const dispatch = useDispatch();
   const discountPercentage =
     discont_price !== null
@@ -16,9 +28,17 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
     dispatch(addToCart({ id, image, title, price, discont_price }));
     dispatch(getTotals());
   };
+  const handleClickLikeIcon = () => {
+    if (isLiked) {
+      dispatch(deleteFromLikedProducts(id));
+    } else {
+      dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
+    }
+    dispatch(getQuantity());
+  };
+
   return (
     <div>
-      {" "}
       <div className={classes.product_item}>
         <div className={classes.img_container}>
           <img
@@ -32,6 +52,12 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
             <div className={classes.discount_text}>-{discountPercentage}% </div>
           </div>
         )}
+        <img
+          src={isLiked ? likedIcon : likeIcon}
+          alt="like-icon"
+          className={classes.likeIcon}
+          onClick={handleClickLikeIcon}
+        />
         <h3 className={classes.product_title}>{title}</h3>
         <div className={classes.price_container}>
           {discont_price ? (

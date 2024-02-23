@@ -24,7 +24,7 @@ const SalePage = () => {
   return (
     <div className="container">
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
-      <p className={classes.title}>Discounted items</p>
+      <h1 className={classes.title}>Discounted items</h1>
       <Filter content="sale" />
       <ProductsList content="sale" products={filteredProducts}/>
     </div>

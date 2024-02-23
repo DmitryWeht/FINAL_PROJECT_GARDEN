@@ -7,6 +7,7 @@ import "./index.css";
 import AllProductsPage from "./pages/AllProductsPage/AllProductsPage.jsx";
 import { CategoriesPage } from "./pages/CategoriesPage/CategoriesPage.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
+import LikedProductPage from "./pages/LikedProductPage/LikedProductPage.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
 import SalePage from "./pages/SalePage/SalePage.jsx";
 import ShoppingCartPage from "./pages/ShoppingCartPage/ShoppingCartPage.jsx";
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <ShoppingCartPage />,
+      },
+      {
+        path: "/liked",
+        element: <LikedProductPage />,
       },
       {
         path: "/*",

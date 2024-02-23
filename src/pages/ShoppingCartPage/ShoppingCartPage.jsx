@@ -18,7 +18,7 @@ const ShoppingCartPage = () => {
           </div>
           <CartForm />
         </div>
-        
+
     </div>
   );
 };
