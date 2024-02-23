@@ -4,9 +4,8 @@ import TitleBar from "../../components/TitleBar/TitleBar";
 import classes from "./ShoppingCartPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getTotals } from "../../store/cartSlice";
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
 
 const ShoppingCartPage = () => {
   const dispatch = useDispatch();
@@ -33,25 +32,21 @@ const ShoppingCartPage = () => {
           buttonText="Back to the store"
           linkTo="/products"
         />
-        <div className={`container ${isCartNotEmpty ? classes.shopping_basket 
+        <div className={`${isCartNotEmpty ? classes.shopping_basket 
           : classes.empty_basket}`}>
   
-          {isCartNotEmpty ? (
+          {isCartNotEmpty ? ( 
             <CartList />
           ) : (
+            <>
             <p>Looks like you have no items in your basket currently.</p>
-          )}
-          <button className={classes.shopping_button}>
+           <button className={classes.shopping_button}>
           <NavLink to="/categories">Continue Shopping</NavLink></button> 
-         
-        </div>
-
+            </>
+          )} 
           {isCartNotEmpty && <CartForm />}
-      
-        </div>
-
-    
+        </div>          
+      </div> 
   );
-};
-
-export default ShoppingCartPage;
+}
+export default ShoppingCartPage

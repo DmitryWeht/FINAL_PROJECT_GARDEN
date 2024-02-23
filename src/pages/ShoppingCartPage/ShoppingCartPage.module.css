@@ -7,7 +7,6 @@
 .empty_basket{
     display: flex;
     flex-direction: column;
-    margin-left: -15px;
 }
 
 .empty_basket p{
@@ -15,6 +14,7 @@
     flex-direction: column;
     color: #282828; 
     font-size: 20px;
+    margin-left: 0;
 }
 
 .shopping_button{

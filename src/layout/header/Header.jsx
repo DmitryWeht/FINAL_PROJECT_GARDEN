@@ -6,7 +6,7 @@ import HeaderLogo from "../../components/HeaderLogo/HeaderLogo";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
-
+ 
   return (
     <header className={classes.header}>      
       <div className="container">
@@ -15,7 +15,6 @@ const Header = () => {
           <NavMenu nav={nav} />
           <div className={`${classes.overlay} ${nav ? classes.activeOverlay : ""}`}
              onClick={() => setNav(false)} />
-
           <BurgerMenu nav={nav} setNav={setNav} />
         </div>
 
