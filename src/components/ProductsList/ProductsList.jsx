@@ -55,7 +55,7 @@ const ProductsList = ({ content }) => {
               ? `/sales/${product.id}`
               : `/products/${product.id}`
           }
-          className={classes.link}
+          className={classes.card_product}
         >
           <ProductItem {...product} />
         </div>
