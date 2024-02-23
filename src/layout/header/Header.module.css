@@ -50,6 +50,12 @@ body {
   position: relative;
 }
 
+.nav_liked {
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
 .toogleAll {
   display: flex;
   gap: 24px;
@@ -100,6 +106,22 @@ body {
   left: 2px;
   top: 7px;
 }
+
+.like_quantity {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  font-weight: 600;
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(51, 153, 51);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 7px;
+}
+
 
 @media (max-width: 790px) {
   .header {

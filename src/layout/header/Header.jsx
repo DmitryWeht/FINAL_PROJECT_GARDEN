@@ -12,7 +12,12 @@ const Header = () => {
   const cartTotalQuantity = useSelector(
     (state) => state.cart.cartTotalQuantity
   );
+  const likeTotalQuantity = useSelector(
+    (state) => state.likedProducts.likeTotalQuantity
+  );
+
   const hasItemsInCart = cartTotalQuantity !== null && cartTotalQuantity !== 0;
+  const hasItemsInLiked = likeTotalQuantity !== null && likeTotalQuantity !== 0;
 
   return (
     <header className={classes.header}>
@@ -82,13 +87,20 @@ const Header = () => {
           />
 
           <div className={classes.toogleAll}>
-            <NavLink to="/liked">
-              <img
-                src={likeIcon}
-                alt="like-icon"
-                className={classes.likeIcon}
-              />
-            </NavLink>
+            <div className={classes.nav_liked}>
+              <NavLink to="/liked">
+                <img
+                  src={likeIcon}
+                  alt="like-icon"
+                  className={classes.likeIcon}
+                />
+                {hasItemsInLiked > 0 && (
+                  <span className={classes.like_quantity}>
+                    <span>{likeTotalQuantity}</span>
+                  </span>
+                )}
+              </NavLink>
+            </div>
             <div className={classes.nav_basket}>
               <NavLink to="/cart">
                 <img src={basketImage} alt="basket" />
