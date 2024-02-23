@@ -54,10 +54,16 @@
 .discount_overlay {
   position: absolute;
   top: 16px;
-  right: 16px;
+  left: 16px;
   border-radius: 6px;
   background: #393;
   padding: 4px 8px;
+}
+
+.likeIcon {
+  position: absolute;
+  top: 15px;
+  right: 16px;
 }
 
 .discount_text {

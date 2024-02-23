@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { useFiltration } from "../../hooks/useFiltration";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
@@ -49,7 +48,7 @@ const ProductsList = ({ content }) => {
         ? [...discountedProducts, ...limitedProducts]
         : products
       ).map((product) => (
-        <Link
+        <div
           key={product.id}
           to={
             content === "sale"
@@ -59,7 +58,7 @@ const ProductsList = ({ content }) => {
           className={classes.link}
         >
           <ProductItem {...product} />
-        </Link>
+        </div>
       ))}
     </div>
   );

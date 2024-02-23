@@ -43,9 +43,8 @@ const cartSlice = createSlice({
       }
     },
     decreaseCart(state, action) {
-      const itemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
-      );
+      const { id } = action.payload;
+      const itemIndex = state.cartItems.findIndex((item) => item.id === id);
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
@@ -63,18 +62,23 @@ const cartSlice = createSlice({
     },
     getTotals(state) {
       const { cartItems } = state;
-
-      const { total, quantity } = cartItems.reduce(
-        (cartTotal, cartItem) => {
-          const { price, cartQuantity } = cartItem;
-          const itemTotal = price * cartQuantity;
-          return {
-            total: cartTotal.total + itemTotal,
-            quantity: cartTotal.quantity + cartQuantity,
-          };
-        },
-        { total: 0, quantity: 0 }
-      );
+ 
+      const uniqueItems = {};
+      cartItems.forEach((item) => {
+        if (uniqueItems[item.id]) {
+          uniqueItems[item.id].cartQuantity += item.cartQuantity;
+        } else {
+          uniqueItems[item.id] = { ...item };
+        }
+      });
+      const total = Object.values(uniqueItems).reduce((cartTotal, cartItem) => {
+        const { price, discont_price, cartQuantity } = cartItem;
+        const itemTotal = discont_price
+          ? discont_price * cartQuantity
+          : price * cartQuantity;
+        return cartTotal + itemTotal;
+      }, 0);
+      const quantity = Object.values(uniqueItems).length;
 
       state.cartTotalQuantity = quantity;
       state.cartTotalAmount = Number(total.toFixed(2));
