@@ -16,7 +16,9 @@ const LikedProductPage = () => {
       <Filter content="sale" />
       <div className={classes.products_list}>
         {likedProducts.map((product) => (
-          <ProductItem key={product.id} {...product} className={classes.link} />
+          <div className={classes.card_product} key={product.id}>
+            <ProductItem {...product} />
+          </div>
         ))}
       </div>
     </div>

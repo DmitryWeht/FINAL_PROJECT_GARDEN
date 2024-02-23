@@ -3,19 +3,24 @@ import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
 
 const ProductsList = ({ content, products: propProducts }) => {
-  const { data: fetchedProducts, isLoading, isError } = useGetAllProductsQuery();
-  
+  const {
+    data: fetchedProducts,
+    isLoading,
+    isError,
+  } = useGetAllProductsQuery();
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
 
-   const products = propProducts || fetchedProducts;
+  const products = propProducts || fetchedProducts;
 
   if (!products || products.length === 0) {
     return <div>No products available</div>;
   }
 
   const discountedProducts = products.filter(
-       (product) => product.discont_price);
+    (product) => product.discont_price
+  );
 
   const limitedProducts = [];
   while (limitedProducts.length < 4 && discountedProducts.length > 0) {
@@ -39,7 +44,8 @@ const ProductsList = ({ content, products: propProducts }) => {
               ? `/sales/${product.id}`
               : `/products/${product.id}`
           }
-          className={classes.link}>
+          className={classes.card_product}
+        >
           <ProductItem {...product} />
         </div>
       ))}
