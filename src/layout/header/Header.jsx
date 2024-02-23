@@ -1,122 +1,24 @@
 import { useState } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import basketImage from "../../media/basket_light.png";
-import likeIcon from "../../media/like-icon.svg";
-import logo from "../../media/logo-garden.svg";
 import classes from "./Header.module.css";
+import NavMenu from "../../components/NavMenu/NavMenu";
+import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
+import HeaderLogo from "../../components/HeaderLogo/HeaderLogo";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
-  const cartTotalQuantity = useSelector(
-    (state) => state.cart.cartTotalQuantity
-  );
-  const likeTotalQuantity = useSelector(
-    (state) => state.likedProducts.likeTotalQuantity
-  );
-
-  const hasItemsInCart = cartTotalQuantity !== null && cartTotalQuantity !== 0;
-  const hasItemsInLiked = likeTotalQuantity !== null && likeTotalQuantity !== 0;
 
   return (
-    <header className={classes.header}>
+    <header className={classes.header}>      
       <div className="container">
         <div className={classes.header_row}>
-          <div className={classes.header_logo}>
-            <NavLink to="/">
-              <img src={logo} alt="logo" />
-            </NavLink>
-          </div>
+          <HeaderLogo />         
+          <NavMenu nav={nav} />
+          <div className={`${classes.overlay} ${nav ? classes.activeOverlay : ""}`}
+             onClick={() => setNav(false)} />
 
-          <div className={classes.menu}>
-            <ul className={`${classes.nav_list} ${nav ? classes.active : ""}`}>
-              <li className={classes.nav_list_item}>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? `${classes.link} ${classes.active_link}`
-                      : `${classes.link}  : ""}`
-                  }
-                >
-                  Main Page
-                </NavLink>
-              </li>
-              <li className={classes.nav_list_item}>
-                <NavLink
-                  to="/categories"
-                  className={({ isActive }) =>
-                    isActive
-                      ? `${classes.link} ${classes.active_link}`
-                      : `${classes.link}  : ""}`
-                  }
-                >
-                  Categories
-                </NavLink>
-              </li>
-              <li className={classes.nav_list_item}>
-                <NavLink
-                  to="/products"
-                  className={({ isActive }) =>
-                    isActive
-                      ? `${classes.link} ${classes.active_link}`
-                      : `${classes.link}  : ""}`
-                  }
-                >
-                  All products
-                </NavLink>
-              </li>
-              <li className={classes.nav_list_item}>
-                <NavLink
-                  to="/sales"
-                  className={({ isActive }) =>
-                    isActive
-                      ? `${classes.link} ${classes.active_link}`
-                      : `${classes.link}  : ""}`
-                  }
-                >
-                  All sales
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-
-          <div
-            className={`${classes.overlay} ${nav ? classes.activeOverlay : ""}`}
-          />
-
-          <div className={classes.toogleAll}>
-            <div className={classes.nav_liked}>
-              <NavLink to="/liked">
-                <img
-                  src={likeIcon}
-                  alt="like-icon"
-                  className={classes.likeIcon}
-                />
-                {hasItemsInLiked > 0 && (
-                  <span className={classes.like_quantity}>
-                    <span>{likeTotalQuantity}</span>
-                  </span>
-                )}
-              </NavLink>
-            </div>
-            <div className={classes.nav_basket}>
-              <NavLink to="/cart">
-                <img src={basketImage} alt="basket" />
-              </NavLink>
-              {hasItemsInCart && (
-                <span className={classes.bag_quantity}>
-                  <span>{cartTotalQuantity}</span>
-                </span>
-              )}
-            </div>
-
-            <div onClick={() => setNav(!nav)} className={classes.mobile_btn}>
-              {nav ? <AiOutlineClose size={50} /> : <AiOutlineMenu size={50} />}
-            </div>
-          </div>
+          <BurgerMenu nav={nav} setNav={setNav} />
         </div>
+
       </div>
     </header>
   );

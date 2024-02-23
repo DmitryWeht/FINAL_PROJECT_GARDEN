@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllCategoriesQuery } from "../../store/apiSlice";
 import { CategoryItem } from "../CategoryItem/CategoryItem";
