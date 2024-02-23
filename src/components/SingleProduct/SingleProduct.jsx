@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 
 import { Counter } from "../../components/Counter/Counter";
 import { useGetProductByIdQuery } from "../../store/apiSlice";
+import CustomButton from "../CustomButton/CustomButton";
 import classes from "./SingleProduct.module.css";
 
 const SingleProduct = () => {
@@ -45,7 +46,7 @@ const SingleProduct = () => {
             </div>
             <Counter />
             <div className={classes.button_box}>
-              <button>Add to cart</button>
+              <CustomButton buttonClasses={classes.custom_button} />
             </div>
             <div className={classes.text_box}>
               <p>Description</p>
