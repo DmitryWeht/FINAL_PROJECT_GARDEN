@@ -1,5 +1,14 @@
 .shopping_basket{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 32px
 }
+
+ @media (max-width: 950px) {
+    .shopping_basket {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  } 
+ 
