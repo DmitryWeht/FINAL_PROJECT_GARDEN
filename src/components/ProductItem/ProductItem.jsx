@@ -1,11 +1,19 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import likeIcon from "../../media/like-in-card.svg";
+import likedIcon from "../../media/liked-icon.svg";
 import { addToCart, getTotals } from "../../store/cartSlice";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = ({ image, title, price, discont_price, id }) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleLikeIcon = () => {
+    setIsLiked(true);
+  };
+
   const isInCart = cartItems.some((item) => item.id === id);
   const dispatch = useDispatch();
   const discountPercentage =
@@ -16,9 +24,9 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
     dispatch(addToCart({ id, image, title, price, discont_price }));
     dispatch(getTotals());
   };
+
   return (
     <div>
-      {" "}
       <div className={classes.product_item}>
         <div className={classes.img_container}>
           <img
@@ -32,7 +40,12 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
             <div className={classes.discount_text}>-{discountPercentage}% </div>
           </div>
         )}
-        <img src={likeIcon} alt="like-icon" className={classes.likeIcon} />
+        <img
+          src={isLiked ? likedIcon : likeIcon}
+          alt="like-icon"
+          className={classes.likeIcon}
+          onClick={handleLikeIcon}
+        />
         <h3 className={classes.product_title}>{title}</h3>
         <div className={classes.price_container}>
           {discont_price ? (
