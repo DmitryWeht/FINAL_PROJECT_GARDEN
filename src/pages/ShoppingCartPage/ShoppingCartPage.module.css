@@ -4,6 +4,35 @@
     gap: 32px
 }
 
+.empty_basket{
+    display: flex;
+    flex-direction: column;
+}
+
+.empty_basket p{
+    display: flex;
+    flex-direction: column;
+    color: #282828; 
+    font-size: 20px;
+    margin-left: 0;
+}
+
+.shopping_button{
+  padding: 16px 56px;
+  width: 313px;
+  margin-top: 32px; 
+  
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  display: inline-block;
+  border-radius: 6px;
+  background: #339933;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+
  @media (max-width: 950px) {
     .shopping_basket {
       display: flex;
