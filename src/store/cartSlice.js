@@ -62,7 +62,7 @@ const cartSlice = createSlice({
     },
     getTotals(state) {
       const { cartItems } = state;
- 
+
       const uniqueItems = {};
       cartItems.forEach((item) => {
         if (uniqueItems[item.id]) {
