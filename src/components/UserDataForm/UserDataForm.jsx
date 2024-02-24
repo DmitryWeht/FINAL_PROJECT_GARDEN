@@ -60,10 +60,12 @@ export const UserDataForm = ({
             required: true,
             minLength: {
               value: 4,
-              message: "The name must be longer than three letters",
+              message: "Please enter correct name",
             },
           })}
         />
+        <p className={classes.name}>{`${errors.name?.message || ""}`}</p>
+
         <input
           onFocus={handleInputChange}
           type="tel"
@@ -73,10 +75,11 @@ export const UserDataForm = ({
             required: true,
             pattern: {
               value: /(\(?([\d \-\)\–\+\/\(]+){6,}\)?([ .\-–\/]?)([\d]+))/g,
-              message: "Please enter a correct phone number",
+              message: "Please enter correct phone number",
             },
           })}
         />
+        <p className={classes.phone}>{`${errors.phone?.message || ""}`}</p>
         <input
           onFocus={handleInputChange}
           type="email"
@@ -86,10 +89,13 @@ export const UserDataForm = ({
             required: true,
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "Please enter a correct e-mail",
+              message: "Please enter correct email",
             },
           })}
         />
+
+        <p className={classes.email}> {`${errors.email?.message || ""}`}</p>
+
         <input
           type="submit"
           value={submittedSuccessful ? successText : buttonText}
@@ -99,14 +105,6 @@ export const UserDataForm = ({
           disabled={submittedSuccessful}
         />
       </form>
-
-      <p className={classes.message}>
-        {errors.email?.message && `${errors.email.message}`}
-        <br />
-        {errors.name?.message && `${errors.name.message}`}
-        <br />
-        {errors.phone?.message && `${errors.phone.message}`}
-      </p>
     </div>
   );
 };

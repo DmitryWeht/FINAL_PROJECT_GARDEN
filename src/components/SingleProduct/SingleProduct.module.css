@@ -4,6 +4,12 @@
     gap: 32px;
 }
 
+.title_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
 .custom_button {
     display: block;
     position: static;
