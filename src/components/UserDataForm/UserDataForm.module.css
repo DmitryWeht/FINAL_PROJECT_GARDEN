@@ -1,13 +1,14 @@
 .dataForm {
     width: 40%;
-    padding: 32px 0 10px 0;
+    padding: 40px 0 32px 0;
+    position: relative;
 }
 
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 16px;
+    gap: 20px;
 }
 
 .form_input {
@@ -22,6 +23,7 @@ form {
     line-height: 130%;
     color: #ffffff;
 }
+
 
 .form_input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px #0B710B inset;
@@ -39,7 +41,6 @@ form {
     color: #282828;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 4px;
     transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
@@ -58,11 +59,31 @@ form {
     color: #ffffff;
 }
 
-.message {
-    padding-top: 10px;
+.name {
     text-align: center;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
+    position: absolute;
+    top: 23%;
+    color: #890202;
+}
+
+.phone {
+    color: #890202;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    position: absolute;
+    top: 44.4%;
+}
+
+.email {
+    color: #890202;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    position: absolute;
+    top: 66%;
 }
 
 input::placeholder {
@@ -83,5 +104,17 @@ input::placeholder {
     .dataForm {
         width: 100%;
         padding: 0;
+    }
+
+    .name {
+        top: 15%;
+    }
+
+    .phone {
+        top: 42%;
+    }
+
+    .email {
+        top: 68%;
     }
 }

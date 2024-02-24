@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllCategoriesQuery } from "../../store/apiSlice";
 import { CategoryItem } from "../CategoryItem/CategoryItem";
@@ -16,7 +15,7 @@ export const CategoriesList = ({ listLength = 4 }) => {
           <Link
             key={category.id}
             to={`/categories/${category.id}`}
-            className={classes.link}
+            className={classes.card_category}
           >
             <CategoryItem {...category} />
           </Link>

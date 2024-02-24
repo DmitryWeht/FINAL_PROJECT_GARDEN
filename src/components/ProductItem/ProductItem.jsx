@@ -3,20 +3,26 @@ import { useDispatch, useSelector } from "react-redux";
 import likeIcon from "../../media/like-in-card.svg";
 import likedIcon from "../../media/liked-icon.svg";
 import { addToCart, getTotals } from "../../store/cartSlice";
+import {
+  addToLikedProducts,
+  deleteFromLikedProducts,
+  getQuantity,
+} from "../../store/likedProductsSlice";
+
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = ({ image, title, price, discont_price, id }) => {
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const [isLiked, setIsLiked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
-  const handleLikeIcon = () => {
-    setIsLiked(true);
-  };
-
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const isInCart = cartItems.some((item) => item.id === id);
+
+  const isLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((item) => item.id === id)
+  );
   const dispatch = useDispatch();
+
   const discountPercentage =
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
@@ -31,6 +37,17 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
         }
       }
     );
+  };
+
+  const handleClickLikeIcon = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    if (isLiked) {
+      dispatch(deleteFromLikedProducts(id));
+    } else {
+      dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
+    }
+    dispatch(getQuantity());
   };
 
   return (
@@ -56,7 +73,7 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
           src={isLiked ? likedIcon : likeIcon}
           alt="like-icon"
           className={classes.likeIcon}
-          onClick={handleLikeIcon}
+          onClick={handleClickLikeIcon}
         />
         <h3 className={classes.product_title}>{title}</h3>
         <div className={classes.price_container}>
