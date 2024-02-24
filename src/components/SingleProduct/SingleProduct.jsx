@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Counter } from "../../components/Counter/Counter";
@@ -18,9 +18,13 @@ const SingleProduct = () => {
   const { id } = useParams();
   const { data: products, isLoading } = useGetProductByIdQuery(id);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  const isLiked = useSelector((state) =>
-    state.likedProducts.likedProducts.some((item) => item.id === id)
+  const likedProducts = useSelector(
+    (state) => state.likedProducts.likedProducts
   );
+  const [isLiked, setIsLiked] = useState(
+    likedProducts.some((item) => item.id === id)
+  );
+
   const isInCart = cartItems.some((item) => item.id === id);
   const dispatch = useDispatch();
 
@@ -32,6 +36,7 @@ const SingleProduct = () => {
       dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
     }
     dispatch(getQuantity());
+    setIsLiked(!isLiked);
   };
 
   const handleClickAddToCart = (product) => {
@@ -50,6 +55,7 @@ const SingleProduct = () => {
       <div className={classes.card_descriptoin}>
         <div className={classes.title_box}>
           <h2>{product.title}</h2>
+
           <img
             src={isLiked ? likedIcon : likeIcon}
             alt="like-icon"
