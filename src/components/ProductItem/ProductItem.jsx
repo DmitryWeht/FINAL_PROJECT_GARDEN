@@ -3,31 +3,60 @@ import { useDispatch, useSelector } from "react-redux";
 import likeIcon from "../../media/like-in-card.svg";
 import likedIcon from "../../media/liked-icon.svg";
 import { addToCart, getTotals } from "../../store/cartSlice";
+import {
+  addToLikedProducts,
+  deleteFromLikedProducts,
+  getQuantity,
+} from "../../store/likedProductsSlice";
+
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = ({ image, title, price, discont_price, id }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  const [isLiked, setIsLiked] = useState(false);
-
-  const handleLikeIcon = () => {
-    setIsLiked(true);
-  };
-
   const isInCart = cartItems.some((item) => item.id === id);
+
+  const isLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((item) => item.id === id)
+  );
   const dispatch = useDispatch();
+
   const discountPercentage =
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
+
   const handleClick = () => {
-    dispatch(addToCart({ id, image, title, price, discont_price }));
-    dispatch(getTotals());
+    dispatch(addToCart({ id, image, title, price, discont_price })).then(
+      (result) => {
+        if (result.payload) {
+          setAddedToCart(true);
+          dispatch(getTotals());
+        }
+      }
+    );
+  };
+
+  const handleClickLikeIcon = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    if (isLiked) {
+      dispatch(deleteFromLikedProducts(id));
+    } else {
+      dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
+    }
+    dispatch(getQuantity());
   };
 
   return (
     <div>
-      <div className={classes.product_item}>
+      <div
+        className={classes.product_item}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className={classes.img_container}>
           <img
             className={classes.product_img}
@@ -44,7 +73,7 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
           src={isLiked ? likedIcon : likeIcon}
           alt="like-icon"
           className={classes.likeIcon}
-          onClick={handleLikeIcon}
+          onClick={handleClickLikeIcon}
         />
         <h3 className={classes.product_title}>{title}</h3>
         <div className={classes.price_container}>
@@ -57,12 +86,15 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
             <p className={classes.discounted_price}>${price}</p>
           )}
         </div>
+
         <CustomButton
           onClick={handleClick}
           added={isInCart}
+          isHovered={isHovered}
           buttonClasses={`${classes.custom_button} ${
             isInCart ? classes.added : ""
           }`}
+          addedToCart={addedToCart}
         />
       </div>
     </div>

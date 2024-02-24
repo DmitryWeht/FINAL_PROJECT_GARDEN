@@ -2,7 +2,7 @@
   overflow: hidden;
   color: #282828;
   text-overflow: ellipsis;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: 20px;
   line-height: 130%;
   width: 275px;
   white-space: nowrap;
@@ -68,7 +68,7 @@
 
 .discount_text {
   color: #fff;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: 20px;
   font-weight: 600;
   line-height: 130%;
   letter-spacing: 0.6px;
@@ -80,7 +80,6 @@
 
 .discounted_price {
   color: #282828;
-
   font-size: clamp(20px, 5vw, 40px);
   font-weight: 600;
   line-height: 110%;
@@ -88,7 +87,6 @@
 
 .price_without_discounted {
   color: #8b8b8b;
-
   font-size: clamp(16px, 2vw, 20px);
   text-decoration: line-through;
   line-height: 130%;
@@ -99,10 +97,6 @@
   background-color: green;
   color: #fff;
   border: none;
-}
-.product_item:hover .custom_button:hover {
-  background-color: black;
-  color: white;
 }
 
 @media (max-width: 768px) {

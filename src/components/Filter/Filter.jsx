@@ -10,6 +10,16 @@ import classes from "../../components/Filter/Filter.module.css";
 export const Filter = ({content}) => {
   const dispatch = useDispatch();
 
+  const handleMinPriceChange = (e) => {
+    console.log("Min Price:", e.target.value); 
+    dispatch(minPriceChange(e.target.value));
+  };
+
+  const handleMaxPriceChange = (e) => {
+    console.log("Max Price:", e.target.value); 
+    dispatch(maxPriceChange(e.target.value));
+  };
+
   return (
     <form>
       <div className={classes.filters}>
@@ -23,7 +33,7 @@ export const Filter = ({content}) => {
               min="0"
               id="price"
               placeholder="from"
-              onChange={(e) => dispatch(minPriceChange(e.target.value))}
+              onChange={handleMinPriceChange}
             />
             <input
               className={classes.filter_inputs}
@@ -31,14 +41,14 @@ export const Filter = ({content}) => {
               placeholder="to"
               step="1.0"
               min="0"
-              onChange={(e) => dispatch(maxPriceChange(e.target.value))}
+              onChange={handleMaxPriceChange}
             />
           </label>
         </div>
 
         {content !== "sale" && (
           <div className={classes.checkbox}>
-            <p>Discounted items</p>
+            Discounted items
             <label className={classes.labelForCheckbox}>
               <input
                 className={classes.inputForCheckbox}
@@ -62,6 +72,7 @@ export const Filter = ({content}) => {
             <option>by default</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
+           
           </select>
         </div>
       </div>

@@ -1,0 +1,34 @@
+.cart_list {
+    width: 50rem;
+}
+
+@media (max-width: 1320px) {
+    .cart_list {
+       width: 43rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .cart_list {
+       width: 42rem;
+    }
+}
+
+@media (max-width: 1120px) {
+    .cart_list {
+       width: 36rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .cart_list {
+       width: 27rem;
+    }
+}
+
+@media (max-width: 950px) {
+    .cart_list {
+       width: 100%;
+    }
+}
+
