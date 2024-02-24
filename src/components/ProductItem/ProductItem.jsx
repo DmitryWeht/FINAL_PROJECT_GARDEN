@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import likeIcon from "../../media/like-in-card.svg";
 import likedIcon from "../../media/liked-icon.svg";
@@ -12,6 +13,8 @@ import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = ({ image, title, price, discont_price, id }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const isInCart = cartItems.some((item) => item.id === id);
 
@@ -26,8 +29,14 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
       : null;
 
   const handleClick = () => {
-    dispatch(addToCart({ id, image, title, price, discont_price }));
-    dispatch(getTotals());
+    dispatch(addToCart({ id, image, title, price, discont_price })).then(
+      (result) => {
+        if (result.payload) {
+          setAddedToCart(true);
+          dispatch(getTotals());
+        }
+      }
+    );
   };
 
   const handleClickLikeIcon = (event) => {
@@ -43,7 +52,11 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
 
   return (
     <div>
-      <div className={classes.product_item}>
+      <div
+        className={classes.product_item}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className={classes.img_container}>
           <img
             className={classes.product_img}
@@ -73,12 +86,15 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
             <p className={classes.discounted_price}>${price}</p>
           )}
         </div>
+
         <CustomButton
           onClick={handleClick}
           added={isInCart}
+          isHovered={isHovered}
           buttonClasses={`${classes.custom_button} ${
             isInCart ? classes.added : ""
           }`}
+          addedToCart={addedToCart}
         />
       </div>
     </div>
