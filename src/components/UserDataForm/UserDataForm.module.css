@@ -65,11 +65,11 @@ form {
     font-size: 14px;
     position: absolute;
     top: 23%;
-    color: #6f0101;
+    color: #890202;
 }
 
 .phone {
-    color: #6f0101;
+    color: #890202;
     text-align: center;
     font-weight: 500;
     font-size: 14px;
@@ -78,7 +78,7 @@ form {
 }
 
 .email {
-    color: #6f0101;
+    color: #890202;
     text-align: center;
     font-weight: 500;
     font-size: 14px;
