@@ -8,27 +8,31 @@
 }
 
 @media (max-width: 1440px) {
-    .products_list {
+    .categories_block {
         grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
     }
 }
 
 @media (max-width: 1000px) {
-    .products_list {
+    .categories_block {
         grid-template-columns: repeat(auto-fill, minmax(47%, 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    .products_list {
+    .categories_block {
         grid-template-columns: repeat(auto-fill, minmax(46%, 1fr));
     }
 }
 
 @media (max-width: 480px) {
-    .products_list {
+    .categories_block {
         display: flex;
         flex-direction: column;
+    }
+
+    .categories_block {
+        margin-bottom: 24px;
     }
 
     .card_category {

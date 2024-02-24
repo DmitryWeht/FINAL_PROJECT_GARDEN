@@ -7,7 +7,11 @@ import classes from "./ProductsFromCategory.module.css";
 const ProductsFromCategory = () => {
   const { categoryId } = useParams();
   const categories = useGetCategoryByIdQuery(categoryId);
-  const categoryTitle = categories.data ? categories.data.category.title : "";
+  const categoryTitle =
+    categories.data && categories.data.category
+      ? categories.data.category.title
+      : "";
+
   console.log(categoryTitle);
 
   if (!categories || !categories.data) {
