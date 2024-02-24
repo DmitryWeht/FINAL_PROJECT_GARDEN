@@ -22,14 +22,14 @@ export const Counter = ({ id }) => {
 
   return (
     <div className={styles.counter_box}>
-      <div className={styles.minus}>
-        <img src={minus} alt="minus" onClick={decrease} />
+      <div className={styles.minus} onClick={decrease}>
+        <img src={minus} alt="minus" />
       </div>
       <div className={styles.counter}>
         <p>{quantity}</p>
       </div>
-      <div className={styles.plus}>
-        <img src={plus} alt="plus" onClick={increase} />
+      <div className={styles.plus} onClick={increase}>
+        <img src={plus} alt="plus" />
       </div>
     </div>
   );
