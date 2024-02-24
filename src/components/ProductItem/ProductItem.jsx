@@ -29,14 +29,9 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
       : null;
 
   const handleClick = () => {
-    dispatch(addToCart({ id, image, title, price, discont_price })).then(
-      (result) => {
-        if (result.payload) {
-          setAddedToCart(true);
-          dispatch(getTotals());
-        }
-      }
-    );
+    dispatch(addToCart({ id, image, title, price, discont_price }));
+    setAddedToCart(true);
+    dispatch(getTotals());
   };
 
   const handleClickLikeIcon = (event) => {
