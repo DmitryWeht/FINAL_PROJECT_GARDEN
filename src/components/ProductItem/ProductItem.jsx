@@ -9,7 +9,8 @@ import classes from "./ProductItem.module.css";
 const ProductItem = ({ image, title, price, discont_price, id }) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [isLiked, setIsLiked] = useState(false);
-
+  const [isHovered, setIsHovered] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
   const handleLikeIcon = () => {
     setIsLiked(true);
   };
@@ -20,14 +21,25 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
+
   const handleClick = () => {
-    dispatch(addToCart({ id, image, title, price, discont_price }));
-    dispatch(getTotals());
+    dispatch(addToCart({ id, image, title, price, discont_price })).then(
+      (result) => {
+        if (result.payload) {
+          setAddedToCart(true);
+          dispatch(getTotals());
+        }
+      }
+    );
   };
 
   return (
     <div>
-      <div className={classes.product_item}>
+      <div
+        className={classes.product_item}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className={classes.img_container}>
           <img
             className={classes.product_img}
@@ -57,12 +69,15 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
             <p className={classes.discounted_price}>${price}</p>
           )}
         </div>
+
         <CustomButton
           onClick={handleClick}
           added={isInCart}
+          isHovered={isHovered}
           buttonClasses={`${classes.custom_button} ${
             isInCart ? classes.added : ""
           }`}
+          addedToCart={addedToCart}
         />
       </div>
     </div>
