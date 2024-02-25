@@ -18,15 +18,15 @@ const CustomButton = ({ added, onClick, buttonClasses }) => {
     onClick();
   };
   return (
-    <button
-      className={`${classes.custom_button} ${
+      <button
+        className={`${classes.custom_button} ${
         isAdded ? classes.added : ""
       } ${buttonClasses}`}
-      onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-    >
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+      >
       {isAdded ? "Added" : "Add to cart"}
-    </button>
+      </button>
   );
 };
 

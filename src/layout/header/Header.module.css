@@ -11,9 +11,9 @@
   margin-top: -130px; 
 }
 
-.header + * {
+/* .header + * {
   margin-top: 70px; 
-}
+}  */
 
 body {
   margin-top: clamp(4.25rem, 3rem + 5.5556vw, 8rem);
