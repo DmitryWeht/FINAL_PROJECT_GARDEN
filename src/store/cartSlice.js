@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cartItems: [],
-  cartTotalQuantity: null,
+  cartTotalQuantity: 0,
   cartTotalAmount: 0,
 };
 const cartSlice = createSlice({
@@ -60,27 +60,41 @@ const cartSlice = createSlice({
       state.cartTotalQuantity = 0;
       state.cartTotalAmount = 0;
     },
-    getTotals(state) {
-      const { cartItems } = state;
+    // getTotals(state) {
+    //   const { cartItems } = state;
 
-      const uniqueItems = {};
-      cartItems.forEach((item) => {
-        if (uniqueItems[item.id]) {
-          uniqueItems[item.id].cartQuantity += item.cartQuantity;
-        } else {
-          uniqueItems[item.id] = { ...item };
-        }
-      });
-      const total = Object.values(uniqueItems).reduce((cartTotal, cartItem) => {
+    //   const uniqueItems = {};
+    //   cartItems.forEach((item) => {
+    //     if (uniqueItems[item.id]) {
+    //       uniqueItems[item.id].cartQuantity += item.cartQuantity;
+    //     } else {
+    //       uniqueItems[item.id] = { ...item };
+    //     }
+    //   });
+    //   const total = Object.values(uniqueItems).reduce((cartTotal, cartItem) => {
+    //     const { price, discont_price, cartQuantity } = cartItem;
+    //     const itemTotal = discont_price
+    //       ? discont_price * cartQuantity
+    //       : price * cartQuantity;
+    //     return cartTotal + itemTotal;
+    //   }, 0);
+    //   const quantity = Object.values(uniqueItems).length;
+
+    //   state.cartTotalQuantity = quantity;
+    //   state.cartTotalAmount = Number(total.toFixed(2));
+    // },
+    getTotals(state) {
+      const total = state.cartItems.reduce((cartTotal, cartItem) => {
         const { price, discont_price, cartQuantity } = cartItem;
         const itemTotal = discont_price
           ? discont_price * cartQuantity
           : price * cartQuantity;
         return cartTotal + itemTotal;
       }, 0);
-      const quantity = Object.values(uniqueItems).length;
-
-      state.cartTotalQuantity = quantity;
+      state.cartTotalQuantity = state.cartItems.reduce(
+        (total, item) => total + item.cartQuantity,
+        0
+      );
       state.cartTotalAmount = Number(total.toFixed(2));
     },
   },
