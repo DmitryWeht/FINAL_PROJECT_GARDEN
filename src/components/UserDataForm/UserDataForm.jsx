@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import {
   useGetDiscountMutation,
   useSendOrderMutation,
 } from "../../store/apiSlice";
+import { clearCart } from "../../store/cartSlice";
 import classes from "./UserDataForm.module.css";
 
 export const UserDataForm = ({
@@ -15,6 +17,7 @@ export const UserDataForm = ({
   successText = "Request Submitted",
   requestType = "getDiscount",
 }) => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -37,6 +40,7 @@ export const UserDataForm = ({
       getDiscount(userData);
     } else if (requestType === "sendOrder") {
       sendOrder(userData);
+      dispatch(clearCart());
     }
 
     setSubmittedSuccessful(true);
