@@ -8,12 +8,8 @@
   z-index: 1000;
   border-bottom: 1px solid var(--grey-divider, #ddd);
   background-color: #ffffff;
-  margin-top: -130px; 
+  margin-top: -130px;
 }
-
-/* .header + * {
-  margin-top: 70px; 
-}  */
 
 body {
   margin-top: clamp(4.25rem, 3rem + 5.5556vw, 8rem);
@@ -55,7 +51,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 7px;
+  top: 6px;
 }
 
 
@@ -64,4 +60,3 @@ body {
     padding: 12px 0;
   }
 }
-

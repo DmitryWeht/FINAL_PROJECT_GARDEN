@@ -22,7 +22,7 @@ const ShoppingCartPage = () => {
       }
     };
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, cartItems]);
 
   return (
     <div className="container">

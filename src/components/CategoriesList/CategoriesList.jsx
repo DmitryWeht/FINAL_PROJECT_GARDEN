@@ -15,7 +15,7 @@ export const CategoriesList = ({ listLength = 4 }) => {
           <Link
             key={category.id}
             to={`/categories/${category.id}`}
-            className={classes.link}
+            className={classes.card_category}
           >
             <CategoryItem {...category} />
           </Link>

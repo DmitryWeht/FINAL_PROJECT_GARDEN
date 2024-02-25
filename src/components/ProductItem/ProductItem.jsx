@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import likeIcon from "../../media/like-in-card.svg";
 import likedIcon from "../../media/liked-icon.svg";
@@ -8,11 +9,12 @@ import {
   getQuantity,
 } from "../../store/likedProductsSlice";
 
-import { Link } from "react-router-dom";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = ({ image, title, price, discont_price, id }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const isInCart = cartItems.some((item) => item.id === id);
 
@@ -28,6 +30,7 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
 
   const handleClick = () => {
     dispatch(addToCart({ id, image, title, price, discont_price }));
+    setAddedToCart(true);
     dispatch(getTotals());
   };
 
@@ -44,48 +47,51 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
 
   return (
     <div>
-      <Link to={`/products/${id}`} className={classes.link}>
-        <div className={classes.product_item}>
-          <div className={classes.img_container}>
-            <img
-              className={classes.product_img}
-              src={`http://127.0.0.1:3333/${image}`}
-              alt={title}
-            />
-          </div>
-          {discountPercentage !== null && (
-            <div className={classes.discount_overlay}>
-              <div className={classes.discount_text}>
-                -{discountPercentage}%{" "}
-              </div>
-            </div>
-          )}
+      <div
+        className={classes.product_item}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className={classes.img_container}>
           <img
-            src={isLiked ? likedIcon : likeIcon}
-            alt="like-icon"
-            className={classes.likeIcon}
-            onClick={handleClickLikeIcon}
-          />
-          <h3 className={classes.product_title}>{title}</h3>
-          <div className={classes.price_container}>
-            {discont_price ? (
-              <>
-                <p className={classes.discounted_price}>${discont_price}</p>
-                <p className={classes.price_without_discounted}>${price}</p>
-              </>
-            ) : (
-              <p className={classes.discounted_price}>${price}</p>
-            )}
-          </div>
-          <CustomButton
-            onClick={handleClick}
-            added={isInCart}
-            buttonClasses={`${classes.custom_button} ${
-              isInCart ? classes.added : ""
-            }`}
+            className={classes.product_img}
+            src={`http://127.0.0.1:3333/${image}`}
+            alt={title}
           />
         </div>
-      </Link>
+        {discountPercentage !== null && (
+          <div className={classes.discount_overlay}>
+            <div className={classes.discount_text}>-{discountPercentage}% </div>
+          </div>
+        )}
+        <img
+          src={isLiked ? likedIcon : likeIcon}
+          alt="like-icon"
+          className={classes.likeIcon}
+          onClick={handleClickLikeIcon}
+        />
+        <h3 className={classes.product_title}>{title}</h3>
+        <div className={classes.price_container}>
+          {discont_price ? (
+            <>
+              <p className={classes.discounted_price}>${discont_price}</p>
+              <p className={classes.price_without_discounted}>${price}</p>
+            </>
+          ) : (
+            <p className={classes.discounted_price}>${price}</p>
+          )}
+        </div>
+
+        <CustomButton
+          onClick={handleClick}
+          added={isInCart}
+          isHovered={isHovered}
+          buttonClasses={`${classes.custom_button} ${
+            isInCart ? classes.added : ""
+          }`}
+          addedToCart={addedToCart}
+        />
+      </div>
     </div>
   );
 };

@@ -47,4 +47,8 @@
     .counter_box {
         justify-content: center;
     }
+
+    .counter{
+        width:70px;
+    }
 }

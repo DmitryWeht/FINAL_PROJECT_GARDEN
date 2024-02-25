@@ -45,7 +45,7 @@
 
 .card_descriptoin h2 {
     color: #282828;
-    font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
+    font-size: clamp(1.5rem, 1.167rem + 1.48vw, 2.5rem);
     font-weight: 700;
     line-height: 110%;
     letter-spacing: 1.2px;
@@ -171,9 +171,13 @@
 }
 
 @media (max-width: 768px) {
+    .likeIcon {
+        width: 40px;
+    }
 
-    .image_card {
+    .card_product {
         position: relative;
+        gap: 20px;
     }
 
     .button_box button {
@@ -183,7 +187,7 @@
     .discountPercentage {
         position: absolute;
         right: 52%;
-        top: 17%;
+        top: 4%;
         z-index: 1;
     }
 }
@@ -194,6 +198,10 @@
         margin-bottom: 0;
     }
 
+    .discountPercentage {
+        top: 2%;
+        right: 4%;
+    }
 
 
     .card_product {
@@ -210,9 +218,5 @@
 
     .prices_box {
         justify-content: center;
-    }
-
-    .prices_box p:last-child {
-        right: 8%;
     }
 }

@@ -63,5 +63,6 @@ a.active {
     }
     .title {
         padding-top: 24px;
+        margin-top: 40px;
     }
 }
