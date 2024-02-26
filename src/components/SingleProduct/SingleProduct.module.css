@@ -178,6 +178,7 @@
     .card_product {
         position: relative;
         gap: 20px;
+        margin-top: clamp(40px, calc(40px + (1100px - 100vw) * 0.06), 80px);
     }
 
     .button_box button {
