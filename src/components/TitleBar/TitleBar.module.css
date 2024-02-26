@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 
@@ -44,6 +45,18 @@
 
 .hidden_button button {
     display: none;
+}
+
+@media (max-width: 1200px) {
+    .title_box {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 770px) {
+    .title_box {
+        margin-top: 80px;
+    }
 }
 
 @media (max-width: 480px) {

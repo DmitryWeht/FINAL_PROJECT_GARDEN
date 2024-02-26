@@ -1,8 +1,13 @@
-.cart_list {
-    width: 50rem;
+.cart_list{
+    width: 60%;
 }
 
-@media (max-width: 1320px) {
+@media (max-width: 950px) {
+    .cart_list {
+       width: 100%;
+    }}
+
+/* @media (max-width: 1320px) {
     .cart_list {
        width: 43rem;
     }
@@ -31,4 +36,4 @@
        width: 100%;
     }
 }
-
+ */
