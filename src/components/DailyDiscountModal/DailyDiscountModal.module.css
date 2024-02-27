@@ -1,0 +1,37 @@
+.modal {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.card {
+    margin-top: 40px;
+    border-radius: 12px;
+    padding: 32px;
+    width: 38%;
+    background-color: #393;
+}
+
+.text_box h2 {
+    font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
+    font-weight: 600;
+    line-height: 110%;
+    color: #ffffff;
+}
+
+.text_box {
+    display: flex;
+    align-items: start;
+    margin-bottom: 16px;
+}
+
+.text_box img {
+    cursor: pointer;
+}
