@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Counter } from "../../components/Counter/Counter";
 import likeIcon from "../../media/like-icon.svg";
 import likedIcon from "../../media/liked-icon.svg";
 import { useGetProductByIdQuery } from "../../store/apiSlice";
@@ -63,36 +62,39 @@ const SingleProduct = () => {
             onClick={() => handleClickLikeIcon(product)}
           />
         </div>
-        <div className={classes.prices_box}>
-          {product.discont_price === null ? (
-            <p className={classes.price}>${product.price}</p>
-          ) : (
-            <>
-              <p className={classes.price}>${product.discont_price}</p>
-              <p className={classes.discont_price}>${product.price}</p>
-            </>
-          )}
-          {product.discont_price && (
-            <p className={classes.discountPercentage}>
-              -
-              {Math.round(
-                ((product.price - product.discont_price) / product.price) * 100
-              )}
-              %
-            </p>
-          )}
-        </div>
-        <Counter id={product.id} />
-        <div className={classes.button_box}>
-          <CustomButton
-            onClick={() => handleClickAddToCart(product)}
-            added={isInCart}
-            buttonClasses={classes.custom_button}
-          />
-        </div>
-        <div className={classes.text_box}>
-          <p>Description</p>
-          <p>{product.description}</p>
+        <div className={classes.info_box}>
+          <div className={classes.prices_box}>
+            {product.discont_price === null ? (
+              <p className={classes.price}>${product.price}</p>
+            ) : (
+              <>
+                <p className={classes.price}>${product.discont_price}</p>
+                <p className={classes.discont_price}>${product.price}</p>
+              </>
+            )}
+            {product.discont_price && (
+              <p className={classes.discountPercentage}>
+                -
+                {Math.round(
+                  ((product.price - product.discont_price) / product.price) *
+                    100
+                )}
+                %
+              </p>
+            )}
+          </div>
+          {/* <Counter id={product.id} /> */}
+          <div className={classes.button_box}>
+            <CustomButton
+              onClick={() => handleClickAddToCart(product)}
+              added={isInCart}
+              buttonClasses={classes.custom_button}
+            />
+          </div>
+          <div className={classes.text_box}>
+            <p>Description</p>
+            <p>{product.description}</p>
+          </div>
         </div>
       </div>
     </div>

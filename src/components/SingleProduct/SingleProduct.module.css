@@ -17,14 +17,14 @@
 
 .text_box p:last-child {
     color: #282828;
-    font-size: 16px;
+    font-size: clamp(1rem, 0.917rem + 0.37vw, 1.25rem);
     font-weight: 400;
     line-height: 130%;
 }
 
 .text_box p:first-child {
     color: #282828;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     line-height: 130%;
     margin-bottom: 16px;
@@ -40,7 +40,14 @@
 .card_descriptoin {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+.info_box {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .card_descriptoin h2 {
@@ -50,11 +57,13 @@
     line-height: 110%;
     letter-spacing: 1.2px;
     margin-bottom: 32px;
+
 }
 
 .prices_box {
     display: flex;
     align-items: flex-end;
+
 }
 
 .price {
@@ -131,7 +140,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
     .text_box {
         display: none;
     }
@@ -142,7 +151,6 @@
 
     .text_box_hidden {
         display: block;
-        padding-bottom: 40px;
     }
 
     .text_box_hidden p:last-child {
