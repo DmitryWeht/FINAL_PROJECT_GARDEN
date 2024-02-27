@@ -125,4 +125,7 @@
   .sort_select {
     padding: 8px 20px 8px 10px;
   }
+  .filters {
+    gap: 20px; 
+  }
 }
