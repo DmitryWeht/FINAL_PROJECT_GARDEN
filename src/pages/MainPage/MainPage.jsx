@@ -5,7 +5,7 @@ import SaleBanner from "../../components/SaleBanner/SaleBanner";
 
 export const MainPage = () => {
   return (
-    <div >
+    <div>
       <SaleBanner />
       <CategoriesSection />
       <DiscountForm />

@@ -5,7 +5,7 @@
   padding-bottom: 20px;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 900;
   border-bottom: 1px solid var(--grey-divider, #ddd);
   background-color: #ffffff;
   margin-top: -130px;
