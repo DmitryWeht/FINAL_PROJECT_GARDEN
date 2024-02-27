@@ -1,6 +1,7 @@
 .dataForm {
     width: 40%;
     position: relative;
+    padding-bottom: 40px;
 }
 
 form {
@@ -58,32 +59,29 @@ form {
     color: #ffffff;
 }
 
-.name {
+.name,
+.phone,
+.email {
     text-align: center;
     font-weight: 500;
     font-size: 14px;
     position: absolute;
-    top: 23%;
     color: #890202;
+}
+
+.name {
+    top: 13%;
 }
 
 .phone {
-    color: #890202;
-    text-align: center;
-    font-weight: 500;
-    font-size: 14px;
-    position: absolute;
-    top: 44.4%;
+    top: 36.4%;
 }
 
 .email {
-    color: #890202;
-    text-align: center;
-    font-weight: 500;
-    font-size: 14px;
-    position: absolute;
-    top: 66%;
+    top: 60%;
 }
+
+
 
 input::placeholder {
     color: #ffffff;
@@ -92,6 +90,7 @@ input::placeholder {
 @media (max-width: 1440px) {
     .dataForm {
         width: 50%;
+        margin-top: 30px;
     }
 
     input {
@@ -102,18 +101,18 @@ input::placeholder {
 @media (max-width: 768px) {
     .dataForm {
         width: 100%;
-        padding: 0;
+        padding: 20px;
     }
 
     .name {
-        top: 15%;
+        top: 19%;
     }
 
     .phone {
-        top: 42%;
+        top: 43%;
     }
 
     .email {
-        top: 68%;
+        top: 66%;
     }
 }

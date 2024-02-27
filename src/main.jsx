@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
 import App from "./App.jsx";
 import "./index.css";
 import AllProductsPage from "./pages/AllProductsPage/AllProductsPage.jsx";
@@ -13,7 +14,7 @@ import SalePage from "./pages/SalePage/SalePage.jsx";
 import ShoppingCartPage from "./pages/ShoppingCartPage/ShoppingCartPage.jsx";
 import SingleCategoryPage from "./pages/SingleCategoryPage/SingleCategoryPage.jsx";
 import { SingleProductPage } from "./pages/SingleProductPage/SingleProductPage.jsx";
-import { store } from "./store/store.js";
+import { persistor, store } from "./store/store.js";
 
 const router = createBrowserRouter([
   {
@@ -73,7 +74,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );

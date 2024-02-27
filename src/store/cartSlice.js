@@ -1,11 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  cartItems: localStorage.getItem("cartItems")
-    ? JSON.parse(localStorage.getItem("cartItems"))
-    : [],
-  cartTotalQuantity: localStorage.getItem("cartTotalQuantity")
-    ? parseInt(localStorage.getItem("cartTotalQuantity"))
-    : null,
+  cartItems: [],
+  cartTotalQuantity: null,
   cartTotalAmount: 0,
 };
 const cartSlice = createSlice({
@@ -25,15 +21,11 @@ const cartSlice = createSlice({
         state.cartItems.push(tempProduct);
         state.cartTotalQuantity += 1;
       }
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      localStorage.setItem("cartTotalQuantity", state.cartTotalQuantity);
     },
     removeFromCart(state, action) {
       const { id } = action.payload;
       state.cartItems = state.cartItems.filter((item) => item.id !== id);
       state.cartTotalQuantity -= 1;
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      localStorage.setItem("cartTotalQuantity", state.cartTotalQuantity);
     },
     increaseCart(state, action) {
       const { id } = action.payload;
@@ -43,8 +35,6 @@ const cartSlice = createSlice({
         state.cartItems[itemIndex].cartQuantity += 1;
         state.cartTotalQuantity += 1;
       }
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      localStorage.setItem("cartTotalQuantity", state.cartTotalQuantity);
     },
     // decreaseCart(state, action) {
     //   const { id } = action.payload;
@@ -66,13 +56,9 @@ const cartSlice = createSlice({
         state.cartItems[itemIndex].cartQuantity -= 1;
         state.cartTotalQuantity -= 1;
       }
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      localStorage.setItem("cartTotalQuantity", state.cartTotalQuantity);
     },
     clearCart(state) {
       state.cartItems = [];
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      localStorage.setItem("cartTotalQuantity", state.cartTotalQuantity);
     },
     // getTotals(state) {
     //   const { cartItems } = state;

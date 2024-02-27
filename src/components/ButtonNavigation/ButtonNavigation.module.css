@@ -3,7 +3,8 @@
     align-items: center;
     flex-wrap: wrap;
     display: flex;
-    margin: 40px 0;
+    margin-bottom: 40px;
+    margin-top: clamp(40px, calc(40px + (1440px - 100vw) * 0.06), 75px);
 }
 
 .navigation_container button {
@@ -16,7 +17,7 @@
     gap: 10px;
     color: #8b8b8b;
     text-align: center;
-    font-size: 16px;
+    font-size: clamp(0.875rem, 0.833rem + 0.19vw, 1rem);
     line-height: 126%;
     border-radius: 6px;
     border: 1px solid #ddd;
@@ -48,21 +49,10 @@ a.active {
     background: #ddd;
 }
 
-@media (max-width: 1000px) {
-    .navigation_container {
-        margin-top: 60px;
-    }
-    .title{
-        margin-top: 50px;
-    }
-}
-
 @media (max-width: 768px) {
     .navigation_container {
         display: none;
     }
-    .title {
-        padding-top: 24px;
-        margin-top: 40px;
-    }
+
+
 }
