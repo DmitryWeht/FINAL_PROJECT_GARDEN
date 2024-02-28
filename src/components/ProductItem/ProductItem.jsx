@@ -12,7 +12,15 @@ import {
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./ProductItem.module.css";
 
-const ProductItem = ({ image, title, price, discont_price, id }) => {
+const ProductItem = ({
+  image,
+  title,
+  price,
+  discont_price,
+  id,
+  productStyles,
+  content,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -48,7 +56,7 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
   return (
     <div>
       <div
-        className={classes.product_item}
+        className={`${classes.product_item} ${productStyles}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -81,16 +89,19 @@ const ProductItem = ({ image, title, price, discont_price, id }) => {
             <p className={classes.discounted_price}>${price}</p>
           )}
         </div>
-
-        <CustomButton
-          onClick={handleClick}
-          added={isInCart}
-          isHovered={isHovered}
-          buttonClasses={`${classes.custom_button} ${
-            isInCart ? classes.added : ""
-          }`}
-          addedToCart={addedToCart}
-        />
+        {content === "modal" ? (
+          ""
+        ) : (
+          <CustomButton
+            onClick={handleClick}
+            added={isInCart}
+            isHovered={isHovered}
+            buttonClasses={`${classes.custom_button} ${
+              isInCart ? classes.added : ""
+            }`}
+            addedToCart={addedToCart}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import ProductItem from "../../components/ProductItem/ProductItem";
 import closeImage from "../../media/close.svg";
+import CustomButton from "../CustomButton/CustomButton";
 import classes from "./DailyDiscountModal.module.css";
-const DailyDiscountModal = ({ isOpen, setIsOpen, product }) => {
+const DailyDiscountModal = ({ isOpen, setIsOpen, product, content }) => {
   useEffect(() => {
     const scrollbarWidth =
       window.innerWidth - document.documentElement.clientWidth;
@@ -24,7 +25,12 @@ const DailyDiscountModal = ({ isOpen, setIsOpen, product }) => {
             <img src={closeImage} alt="close" />
           </div>
         </div>
-        <ProductItem {...product} />
+        <ProductItem
+          {...product}
+          productStyles={classes.product_card}
+          content="modal"
+        />
+        <CustomButton buttonClasses={classes.custom_button} />
       </div>
     </div>
   );
