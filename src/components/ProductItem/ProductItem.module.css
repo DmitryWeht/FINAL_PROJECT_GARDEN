@@ -18,6 +18,17 @@
   transition: transform 0.5s ease;
 }
 
+.custom_button_modal {
+  display: block;
+  position: static;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.custom_button_modal:hover {
+  background-color: #ffffff;
+}
+
 .product_item {
   display: flex;
   height: 422px;
