@@ -13,7 +13,7 @@ import {
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./SingleProduct.module.css";
 
-const SingleProduct = () => {
+const SingleProduct = ({ handleOpenModal }) => {
   const { id } = useParams();
   const { data: products, isLoading } = useGetProductByIdQuery(id);
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -50,6 +50,7 @@ const SingleProduct = () => {
         src={`http://127.0.0.1:3333/${product.image}`}
         alt={product.title}
         className={classes.image_card}
+        onClick={() => handleOpenModal(product)}
       />
       <div className={classes.card_descriptoin}>
         <div className={classes.title_box}>
