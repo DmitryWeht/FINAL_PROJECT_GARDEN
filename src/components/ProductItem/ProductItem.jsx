@@ -103,6 +103,14 @@ const ProductItem = ({
           />
         )}
       </div>
+      {content === "modal" ? (
+        <CustomButton
+          onClick={handleClick}
+          buttonClasses={classes.custom_button_modal}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
