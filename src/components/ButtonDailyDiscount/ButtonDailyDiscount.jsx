@@ -22,15 +22,12 @@ const ButtonDailyDiscount = () => {
       <button onClick={toggleModal} className={classes.button_discount}>
         1 day discount!
       </button>
-      {isOpen ? (
-        <DailyDiscountModal
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          product={product}
-        />
-      ) : (
-        ""
-      )}
+
+      <DailyDiscountModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        product={product}
+      />
     </div>
   );
 };
