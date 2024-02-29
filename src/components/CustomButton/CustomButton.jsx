@@ -26,8 +26,8 @@ const CustomButton = ({
   }, [addedToCart]);
 
   return (
-      <button
-        className={`${classes.custom_button} ${
+    <button
+      className={`${classes.custom_button} ${
         isAdded ? classes.added : ""
       } ${buttonClasses}`}
       onClick={handleClick}

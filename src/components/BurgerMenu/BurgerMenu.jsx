@@ -1,8 +1,9 @@
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import basketImage from "../../media/basket_light.png";
-import likeIcon from "../../media/like-icon.svg";
+// import basketImage from "../../media/basket_light.png";
+// import likeIcon from "../../media/like-icon.svg";
+import { PiBagThin, PiHeartThin } from "react-icons/pi";
 import classes from "./BurgerMenu.module.css";
 
 const BurgerMenu = ({ nav, setNav }) => {
@@ -20,7 +21,7 @@ const BurgerMenu = ({ nav, setNav }) => {
     <div className={classes.toogleAll}>
       <div className={classes.nav_liked}>
         <NavLink to="/liked">
-          <img src={likeIcon} alt="like-icon" className={classes.likeIcon} />
+          <PiHeartThin className={classes.likeIcon} />
           {hasItemsInLiked > 0 && (
             <span className={classes.like_quantity}>
               <span>{likeTotalQuantity}</span>
@@ -30,7 +31,8 @@ const BurgerMenu = ({ nav, setNav }) => {
       </div>
       <div className={classes.nav_basket}>
         <NavLink to="/cart">
-          <img src={basketImage} alt="basket" />
+          <PiBagThin />
+          {/* <img src={basketImage} alt="basket" /> */}
         </NavLink>
         {hasItemsInCart && (
           <span className={classes.bag_quantity}>
