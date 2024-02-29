@@ -8,7 +8,7 @@ const DailyDiscountModal = ({ isOpen, setIsOpen, product, content }) => {
     <Dialog
       open={isOpen}
       onClose={() => setIsOpen(false)}
-      BackdropClick={() => setIsOpen(false)}
+      BackdropProps={{ onClick: () => setIsOpen(false) }}
       sx={{
         borderRadius: "16px",
         "& .MuiPaper-root": {
