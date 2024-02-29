@@ -152,6 +152,10 @@
     fill: forestgreen;
 }
 
+.likeIconnn:hover {
+    filter: invert(100%);
+}
+
 @media (max-width: 1440px) {
     .image_card {
         width: 50%;
