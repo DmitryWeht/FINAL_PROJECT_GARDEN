@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import { PiHeartFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import likeIcon from "../../media/like-icon.svg";
-import likedIcon from "../../media/liked-icon.svg";
 import { useGetProductByIdQuery } from "../../store/apiSlice";
 import { addToCart, getTotals } from "../../store/cartSlice";
 import {
@@ -55,13 +54,12 @@ const SingleProduct = ({ handleOpenModal }) => {
       <div className={classes.card_descriptoin}>
         <div className={classes.title_box}>
           <h2>{product.title}</h2>
-
-          <img
-            src={isLiked ? likedIcon : likeIcon}
-            alt="like-icon"
-            className={classes.likeIcon}
+          <div
+            className={isLiked ? classes.likedIcon : classes.likeIcon}
             onClick={() => handleClickLikeIcon(product)}
-          />
+          >
+            <PiHeartFill />
+          </div>
         </div>
         <div className={classes.info_box}>
           <div className={classes.prices_box}>

@@ -3,15 +3,29 @@ import React from "react";
 
 const ImageModal = ({ open, handleClose, imageUrl, title }) => {
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      maxWidth={false}
+      sx={{
+        borderRadius: "16px",
+        "& .MuiPaper-root": {
+          borderRadius: "16px",
+        },
+      }}
+    >
       <img
         src={imageUrl}
         alt={title}
         style={{
-          width: "100%",
-          height: "80vh",
-          objectFit: "cover",
+          maxWidth: "100%",
+          maxHeight: "calc(100vh - 64px)",
+          width: "auto",
+          height: "auto",
+          display: "block",
+          objectFit: "",
         }}
+        // style={{ width: "100%", height: "85vh", objectFit: "cover" }}
       />
     </Dialog>
   );

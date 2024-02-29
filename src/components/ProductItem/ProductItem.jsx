@@ -1,7 +1,6 @@
 import { useState } from "react";
+import { PiHeartFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
-import likeIcon from "../../media/like-in-card.svg";
-import likedIcon from "../../media/liked-icon.svg";
 import { addToCart, getTotals } from "../../store/cartSlice";
 import {
   addToLikedProducts,
@@ -72,12 +71,11 @@ const ProductItem = ({
             <div className={classes.discount_text}>-{discountPercentage}% </div>
           </div>
         )}
-        <img
-          src={isLiked ? likedIcon : likeIcon}
-          alt="like-icon"
-          className={classes.likeIcon}
+        <PiHeartFill
+          className={isLiked ? classes.likedIcon : classes.likeIcon}
           onClick={handleClickLikeIcon}
         />
+
         <h3 className={classes.product_title}>{title}</h3>
         <div className={classes.price_container}>
           {discont_price ? (
