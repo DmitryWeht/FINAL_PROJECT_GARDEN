@@ -46,8 +46,6 @@ export const UserDataForm = ({
       if (typeof handleOpenModalClick === 'function') {
         handleOpenModalClick();
       }
-    
-      // handleOpenModalClick();
     }
 
     setSubmittedSuccessful(true);
