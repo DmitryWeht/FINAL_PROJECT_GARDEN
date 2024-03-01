@@ -32,6 +32,21 @@
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
+.content p {
+  font-size: 20px;
+  padding-top: 0;
+  color:black;
+  line-height: 110%;
+}
+
+.content_one{
+  padding-bottom: 10px;
+}
+
+.close_modal{
+  top: 0;
+  right: 0;
+}
 
  @media (max-width: 950px) {
     .shopping_basket {

@@ -2,9 +2,8 @@ import { useSelector } from "react-redux";
 import { UserDataForm } from "../UserDataForm/UserDataForm";
 import classes from "./CartForm.module.css";
 
-const CartForm = () => {
+const CartForm = ({handleOpenModalClick}) => {
   const totalQuantity = useSelector((state) => state.cart.cartTotalQuantity);
-
   const totalAmount = useSelector((state) => state.cart.cartTotalAmount);
 
   return (
@@ -17,14 +16,16 @@ const CartForm = () => {
           <p className={classes.total_sum}>${totalAmount}</p>
         </div>
       </div>
+
       <UserDataForm
+        handleSubmitClick={handleOpenModalClick}
         inputStyles={classes.cartInput}
         formStyles={classes.cartForm}
         buttonStyles={classes.cartButton}
         buttonText="Order"
         successText="Thanks for your order"
         requestType="sendOrder"
-      />
+      />  
     </div>
   );
 };
