@@ -54,9 +54,20 @@ body {
   top: 6px;
 }
 
-
 @media (max-width: 790px) {
   .header {
     padding: 12px 0;
   }
+}
+
+.dark {
+  background: #282828;
+  color: white;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.light > {
+  background: white;
+  color: black;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }

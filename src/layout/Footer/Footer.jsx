@@ -1,9 +1,12 @@
+import { SiWhatsapp } from "react-icons/si";
+import { SlSocialInstagram } from "react-icons/sl";
+import { Link } from "react-router-dom";
 import Map from "../../components/Map/Map";
-import instagram from "../../media/ic-instagram.svg";
-import whatsapp from "../../media/ic-whatsapp.svg";
 import classes from "./Footer.module.css";
+import { useSelector } from "react-redux";
 
 function Footer() {
+  const theme = useSelector((state) => state.theme.theme);
   return (
     <div>
       <footer className={classes.footer}>
@@ -23,25 +26,21 @@ function Footer() {
                 <p className={classes.descreibe}>Socials</p>
 
                 <div className={classes.media}>
-                  <div className={classes.instagram}>
-                    <a
-                      href="https://www.instagram.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img src={instagram} alt="instagram" />
-                    </a>
-                  </div>
+                  <Link
+                    className={classes.media_item}
+                    to="https://www.linkedin.com/school/tel-ran-de/"
+                    target="_blank"
+                  >
+                    <SlSocialInstagram />
+                  </Link>
 
-                  <div className={classes.whatsapp}>
-                    <a
-                      href="https://www.whatsapp.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img src={whatsapp} alt="whatsapp" />
-                    </a>
-                  </div>
+                  <Link
+                    className={classes.media_item}
+                    to="https://wa.me/+499999999999"
+                    target="_blank"
+                  >
+                    <SiWhatsapp />
+                  </Link>
                 </div>
               </div>
 

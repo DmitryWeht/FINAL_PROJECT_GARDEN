@@ -6,24 +6,32 @@ import { appApi } from "./apiSlice";
 import cartReducer from "./cartSlice";
 import filterReducer from "./filterSlice";
 import likedProductsReducer from "./likedProductsSlice";
+import themeReducer from "./themeSlice";
 const persistConfig = {
   key: "root",
   storage,
 };
-const persistedReducer = persistReducer(
-  persistConfig,
-  combineReducers({
-    [appApi.reducerPath]: appApi.reducer,
-    filter: filterReducer,
-    cart: cartReducer,
-    likedProducts: likedProductsReducer,
-  })
-);
+
+const rootReducer = combineReducers({
+  [appApi.reducerPath]: appApi.reducer,
+  filter: filterReducer,
+  cart: cartReducer,
+  likedProducts: likedProductsReducer,
+  theme: themeReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(appApi.middleware),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ["REGISTER"],
+        ignoredActionPaths: ["payload.nonSerializable"],
+        ignoredPaths: ["some.nested.nonSerializable"],
+      },
+    }).concat(appApi.middleware),
 });
 
 export const persistor = persistStore(store);
