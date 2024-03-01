@@ -76,7 +76,9 @@ const ProductItem = ({
         />
         <PiHandbagSimpleFill
           className={classes.bag}
-          style={{ display: isInCart ? "block" : "none" }}
+          style={{
+            display: isInCart && window.innerWidth > 768 ? "block" : "none",
+          }}
           onClick={(event) => {
             event.preventDefault();
             event.stopPropagation();
@@ -98,10 +100,10 @@ const ProductItem = ({
           ""
         ) : (
           <CustomButton
-            // onClick={isAddedToCart ? handleClickRemoveProduct : handleClick}
-            onClick={handleClick}
+            onClick={isAddedToCart ? handleClickRemoveProduct : handleClick}
+            // onClick={handleClick}
             buttonClasses={classes.custom_button}
-            buttonText={isAddedToCart ? "Added" : "Add to Cart"}
+            buttonText={isAddedToCart ? "Delete from Cart" : "Add to Cart"}
           />
         )}
       </div>

@@ -64,8 +64,8 @@
 
 .discount_overlay {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 14px;
+  left: 14px;
   border-radius: 6px;
   background: #393;
   padding: 4px 8px;
@@ -73,11 +73,11 @@
 
 .bag {
   position: absolute;
-  top: 60px;
-  right: 17px;
-  width: 44px;
-  height: 44px;
-  stroke-width: 5px;
+  top: 14px;
+  right: 65px;
+  width: 40px;
+  height: 40px;
+  stroke-width: 10px;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
   stroke: #ffffff;
   fill: forestgreen;
@@ -88,14 +88,15 @@
   position: absolute;
   top: 15px;
   right: 16px;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
 
-  stroke-width: 5px;
+  stroke-width: 10px;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
 }
 
 .likeIcon {
+  stroke-width: 5px;
   stroke: #000000;
   fill: #ffffff;
 
@@ -147,5 +148,16 @@
 @media (max-width: 768px) {
   .product_item h3 {
     width: 200px;
+  }
+
+  .custom_button {
+    background-color: forestgreen;
+    color: #ffffff;
+    border: 1px solid #fff;
+    white-space: nowrap;
+  }
+
+  .bag {
+    display: none;
   }
 }

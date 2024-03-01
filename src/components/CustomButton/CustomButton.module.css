@@ -1,15 +1,16 @@
 .custom_button {
-  width: 90%;
+  width: 70%;
   bottom: 152px;
   font-family: Montserrat;
   left: 15%;
   right: 16px;
   border-radius: 12px;
-  padding: 14px 32px;
+  padding: 12px 0;
   position: absolute;
+  text-align: center;
   display: none;
   cursor: pointer;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(16px, 2vw, 18px);
   font-weight: 600;
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
@@ -20,4 +21,12 @@
 
 .custom_button:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .custom_button {
+
+    display: block;
+
+  }
 }
