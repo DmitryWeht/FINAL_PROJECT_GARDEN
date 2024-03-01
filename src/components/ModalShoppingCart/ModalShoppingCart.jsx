@@ -32,30 +32,20 @@ const ModalShoppingCart = ({ open, handleCloseModal }) => {
         },
       }}
     >
-      <div
-        className={classes.content}
-        style={{ backgroundColor: "#339933", padding: "32px" }}
-      >
-        <div  style={{ 
-            display: "flex",
-            justifyContent: "space-between",
-    }}>
-          <h2
-            style={{
-              fontSize: "clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem)",
-              fontWeight: "600",
-              fontFamily: "Montserrat",
-              color: "#FFFFFF",
-              paddingBottom: "24px",
-            }}
-          >
+      <div className={classes.content}>
+        <div  className={classes.modal_content}>
+          <h2>
             Congratulations!
           </h2>
           <IconButton
             onClick={() => {
               handleCloseModal();
             }}
-            style={{ width: "44px", height: "44px", color: "#FFFFFF"}}
+            className={classes.icon_close}
+            style={{ width: "44px",
+            height: "44px",
+            color: "#FFFFFF",
+            }}
             autoFocus
             color="inherit"
           >
@@ -63,7 +53,7 @@ const ModalShoppingCart = ({ open, handleCloseModal }) => {
           </IconButton>
         </div>
 
-        <div>
+        <div className={classes.modal_text}>
           <p
             style={{
               fontSize: "clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem)",

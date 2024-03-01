@@ -43,7 +43,11 @@ export const UserDataForm = ({
     } else if (requestType === "sendOrder") {
       sendOrder(userData);
       dispatch(clearCart());
-      handleOpenModalClick(); //vvvvvvv
+      if (typeof handleOpenModalClick === 'function') {
+        handleOpenModalClick();
+      }
+    
+      // handleOpenModalClick();
     }
 
     setSubmittedSuccessful(true);
