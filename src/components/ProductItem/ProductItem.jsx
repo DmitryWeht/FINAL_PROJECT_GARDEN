@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { PiHandbagSimpleFill, PiHeartFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
-import likeIcon from "../../media/like-in-card.svg";
-import likedIcon from "../../media/liked-icon.svg";
-import { addToCart, getTotals } from "../../store/cartSlice";
+import { addToCart, getTotals, removeFromCart } from "../../store/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
@@ -20,11 +18,13 @@ const ProductItem = ({
   id,
   productStyles,
   content,
+  buttonText,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [addedToCart, setAddedToCart] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const isInCart = cartItems.some((item) => item.id === id);
+  const isAddedToCart = useSelector((state) =>
+    state.cart.cartItems.some((item) => item.id === id)
+  );
 
   const isLiked = useSelector((state) =>
     state.likedProducts.likedProducts.some((item) => item.id === id)
@@ -35,11 +35,13 @@ const ProductItem = ({
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
-
   const handleClick = () => {
     dispatch(addToCart({ id, image, title, price, discont_price }));
-    setAddedToCart(true);
     dispatch(getTotals());
+  };
+
+  const handleClickRemoveProduct = () => {
+    dispatch(removeFromCart({ id, image, title, price, discont_price }));
   };
 
   const handleClickLikeIcon = (event) => {
@@ -55,11 +57,7 @@ const ProductItem = ({
 
   return (
     <div>
-      <div
-        className={`${classes.product_item} ${productStyles}`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <div className={`${classes.product_item} ${productStyles}`}>
         <div className={classes.img_container}>
           <img
             className={classes.product_img}
@@ -72,11 +70,18 @@ const ProductItem = ({
             <div className={classes.discount_text}>-{discountPercentage}% </div>
           </div>
         )}
-        <img
-          src={isLiked ? likedIcon : likeIcon}
-          alt="like-icon"
-          className={classes.likeIcon}
+        <PiHeartFill
+          className={isLiked ? classes.likedIcon : classes.likeIcon}
           onClick={handleClickLikeIcon}
+        />
+        <PiHandbagSimpleFill
+          className={classes.bag}
+          style={{ display: isInCart ? "block" : "none" }}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            handleClickRemoveProduct();
+          }}
         />
         <h3 className={classes.product_title}>{title}</h3>
         <div className={classes.price_container}>
@@ -93,13 +98,10 @@ const ProductItem = ({
           ""
         ) : (
           <CustomButton
+            // onClick={isAddedToCart ? handleClickRemoveProduct : handleClick}
             onClick={handleClick}
-            added={isInCart}
-            isHovered={isHovered}
-            buttonClasses={`${classes.custom_button} ${
-              isInCart ? classes.added : ""
-            }`}
-            addedToCart={addedToCart}
+            buttonClasses={classes.custom_button}
+            buttonText={isAddedToCart ? "Added" : "Add to Cart"}
           />
         )}
       </div>
@@ -107,6 +109,7 @@ const ProductItem = ({
         <CustomButton
           onClick={handleClick}
           buttonClasses={classes.custom_button_modal}
+          buttonText={isAddedToCart ? "Added" : "Add to Cart"}
         />
       ) : (
         ""

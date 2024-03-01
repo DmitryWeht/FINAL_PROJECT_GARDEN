@@ -47,15 +47,3 @@ a {
     padding: 0 20px;
   }
 }
-
-.dark {
-  background: #282828;
-  color: white;
-  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
-}
-
-.light > {
-  background: white;
-  color: black;
-  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
-}

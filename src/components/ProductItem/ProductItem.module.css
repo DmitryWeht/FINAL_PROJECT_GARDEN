@@ -71,11 +71,42 @@
   padding: 4px 8px;
 }
 
-.likeIcon {
+.bag {
+  position: absolute;
+  top: 60px;
+  right: 17px;
+  width: 44px;
+  height: 44px;
+  stroke-width: 5px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+  stroke: #ffffff;
+  fill: forestgreen;
+}
+
+.likeIcon,
+.likedIcon {
   position: absolute;
   top: 15px;
   right: 16px;
+  width: 44px;
+  height: 44px;
+
+  stroke-width: 5px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
 }
+
+.likeIcon {
+  stroke: #000000;
+  fill: #ffffff;
+
+}
+
+.likedIcon {
+  stroke: #ffffff;
+  fill: forestgreen;
+}
+
+
 
 .discount_text {
   color: #fff;
@@ -103,11 +134,14 @@
   line-height: 130%;
 }
 
+
+
 .product_item:hover .custom_button {
   display: block;
-  background-color: green;
+  background-color: forestgreen;
   color: #fff;
-  border: none;
+  border: 1px solid #fff;
+  width: 70%;
 }
 
 @media (max-width: 768px) {

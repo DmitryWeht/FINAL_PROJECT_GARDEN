@@ -36,6 +36,8 @@ footer {
   height: 10%;
 }
 
+
+
 .descreibe {
   color: var(--txt-grey, #8b8b8b);
   font-size: clamp(1.125rem, 1.089rem + 0.18vw, 1.25rem);
