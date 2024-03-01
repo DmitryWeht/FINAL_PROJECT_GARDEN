@@ -84,7 +84,7 @@ const SingleProduct = ({ handleOpenModal }) => {
               </p>
             )}
           </div>
-          {/* <Counter id={product.id} /> */}
+         
           <div className={classes.button_box}>
             <CustomButton
               onClick={() => handleClickAddToCart(product)}
