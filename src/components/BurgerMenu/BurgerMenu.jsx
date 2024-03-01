@@ -1,9 +1,7 @@
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { PiBagThin, PiHeartThin } from "react-icons/pi";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-// import basketImage from "../../media/basket_light.png";
-// import likeIcon from "../../media/like-icon.svg";
-import { PiBagThin, PiHeartThin } from "react-icons/pi";
 import classes from "./BurgerMenu.module.css";
 
 const BurgerMenu = ({ nav, setNav }) => {

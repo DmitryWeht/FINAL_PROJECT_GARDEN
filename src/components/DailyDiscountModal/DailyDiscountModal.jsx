@@ -1,4 +1,4 @@
-import { Dialog } from "@mui/material";
+import { Backdrop, Dialog, Grow } from "@mui/material";
 import React from "react";
 import ProductItem from "../../components/ProductItem/ProductItem";
 import closeImage from "../../media/close.svg";
@@ -8,9 +8,17 @@ const DailyDiscountModal = ({ isOpen, setIsOpen, product, content }) => {
     <Dialog
       open={isOpen}
       onClose={() => setIsOpen(false)}
-      BackdropProps={{ onClick: () => setIsOpen(false) }}
+      BackdropComponent={Backdrop}
+      BackdropProps={{
+        transitionDuration: 500,
+      }}
+      TransitionComponent={Grow}
+      TransitionProps={{
+        timeout: 500,
+      }}
       sx={{
         borderRadius: "16px",
+        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         "& .MuiPaper-root": {
           borderRadius: "16px",
         },

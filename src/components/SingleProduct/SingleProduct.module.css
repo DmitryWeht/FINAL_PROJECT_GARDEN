@@ -13,6 +13,7 @@
 .custom_button {
     display: block;
     position: static;
+    border: 1px solid #fff;
 }
 
 .text_box p:last-child {
@@ -96,12 +97,12 @@
     letter-spacing: 0.6px;
 }
 
-.button_box {
+/* .button_box {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 32px;
-}
+} */
 
 
 .button_box button {
