@@ -13,6 +13,7 @@
 .custom_button {
     display: block;
     position: static;
+    border: 1px solid #fff;
 }
 
 .text_box p:last-child {
@@ -96,12 +97,12 @@
     letter-spacing: 0.6px;
 }
 
-.button_box {
+/* .button_box {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 32px;
-}
+} */
 
 
 .button_box button {
@@ -132,6 +133,28 @@
 
 .text_box_hidden {
     display: none;
+}
+
+.likeIcon svg,
+.likedIcon svg {
+    width: 55px;
+    height: 55px;
+    stroke-width: 7px;
+}
+
+.likeIcon svg {
+    stroke: #000000;
+    fill: #ffffff;
+
+}
+
+.likedIcon svg {
+    stroke: forestgreen;
+    fill: forestgreen;
+}
+
+.likeIconnn:hover {
+    filter: invert(100%);
 }
 
 @media (max-width: 1440px) {
@@ -179,8 +202,11 @@
 }
 
 @media (max-width: 768px) {
-    .likeIcon {
-        width: 40px;
+
+    .likeIcon svg,
+    .likedIcon svg {
+        width: 38px;
+        height: 38px;
     }
 
     .card_product {

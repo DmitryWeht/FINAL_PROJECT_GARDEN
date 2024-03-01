@@ -3,8 +3,20 @@
 }
 
 .nav_basket {
+  position: relative;
+}
+
+.nav_basket svg {
   cursor: pointer;
   position: relative;
+  width: 57px;
+  height: 67px;
+  color: #282828;
+  margin-top: 5px;
+}
+
+.nav_basket svg:hover {
+  color: #2b802b
 }
 
 .nav_liked {
@@ -31,8 +43,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 2px;
-  top: 7px;
+  left: -2px;
+  top: 17px;
 }
 
 .like_quantity {
@@ -48,6 +60,16 @@
   justify-content: center;
   align-items: center;
   top: 7px;
+}
+
+.likeIcon {
+  width: 54px;
+  height: 54px;
+  color: #282828;
+}
+
+.likeIcon:hover {
+  color: #2b802b
 }
 
 @media (max-width: 790px) {

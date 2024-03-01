@@ -2,10 +2,10 @@
   width: 90%;
   bottom: 152px;
   font-family: Montserrat;
-  left: 16px;
+  left: 15%;
   right: 16px;
-  border-radius: 6px;
-  padding: 16px 32px;
+  border-radius: 12px;
+  padding: 14px 32px;
   position: absolute;
   display: none;
   cursor: pointer;
@@ -14,21 +14,7 @@
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
-.custom_button.added {
-  border: 1px solid rgb(40, 40, 40);
-  background-color: white;
-  color: black;
-  display: block;
-}
-
-/* .custom_button:active {
-  background-color: white !important;
-  color: black !important;
-  border: 1px solid rgb(40, 40, 40) !important;
-} */
-
 .custom_button:hover {
-  background-color: #2b802b;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 

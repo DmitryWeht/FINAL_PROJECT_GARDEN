@@ -36,6 +36,8 @@ footer {
   height: 10%;
 }
 
+
+
 .descreibe {
   color: var(--txt-grey, #8b8b8b);
   font-size: clamp(1.125rem, 1.089rem + 0.18vw, 1.25rem);
@@ -45,11 +47,16 @@ footer {
 }
 
 .number {
-  color: var(--txt-black, #282828);
+  color: #282828;
   font-size: clamp(1.75rem, 1.536rem + 1.07vw, 2.5rem);
   font-style: normal;
   font-weight: 600;
   line-height: 110%;
+}
+
+.number :first-child:hover {
+  color: #2b802b;
+  transition: color 0.3s ease;
 }
 
 .socials,
@@ -57,8 +64,8 @@ footer {
   display: flex;
   width: 37%;
   padding: 32px;
-  border-radius: var(--radius-big, 12px);
-  background: var(--light-grey, #f1f3f4);
+  border-radius: 12px;
+  background: #f1f3f4;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
@@ -67,12 +74,20 @@ footer {
 
 .media {
   display: flex;
-  gap: 16px;
+  gap: 24px;
 }
 
-.instagram:hover img,
-.whatsapp:hover img {
+.media_item svg:hover {
   transform: scale(1.2);
+  color: #2b802b;
+}
+
+.media_item svg {
+  width: 44px;
+  height: 44px;
+  color: #000000;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 1200px) {
@@ -171,7 +186,7 @@ footer {
     margin-bottom: 80px;
   }
 
-  .contact{
+  .contact {
     margin-top: 0;
   }
 }

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import { PiHeartFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import likeIcon from "../../media/like-icon.svg";
-import likedIcon from "../../media/liked-icon.svg";
 import { useGetProductByIdQuery } from "../../store/apiSlice";
 import { addToCart, getTotals } from "../../store/cartSlice";
 import {
@@ -16,7 +15,8 @@ import classes from "./SingleProduct.module.css";
 const SingleProduct = ({ handleOpenModal }) => {
   const { id } = useParams();
   const { data: products, isLoading } = useGetProductByIdQuery(id);
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  // const cartItems = useSelector((state) => state.cart.cartItems);
+  const [addedToCart, setAddedToCart] = useState(false);
   const likedProducts = useSelector(
     (state) => state.likedProducts.likedProducts
   );
@@ -24,7 +24,7 @@ const SingleProduct = ({ handleOpenModal }) => {
     likedProducts.some((item) => item.id === id)
   );
 
-  const isInCart = cartItems.some((item) => item.id === id);
+  // const isInCart = cartItems.some((item) => item.id === id);
   const dispatch = useDispatch();
 
   const handleClickLikeIcon = (product) => {
@@ -42,6 +42,7 @@ const SingleProduct = ({ handleOpenModal }) => {
     const { id, image, title, price, discont_price } = product;
     dispatch(addToCart({ id, image, title, price, discont_price }));
     dispatch(getTotals());
+    setAddedToCart(true);
   };
 
   const renderProduct = (product) => (
@@ -55,13 +56,12 @@ const SingleProduct = ({ handleOpenModal }) => {
       <div className={classes.card_descriptoin}>
         <div className={classes.title_box}>
           <h2>{product.title}</h2>
-
-          <img
-            src={isLiked ? likedIcon : likeIcon}
-            alt="like-icon"
-            className={classes.likeIcon}
+          <div
+            className={isLiked ? classes.likedIcon : classes.likeIcon}
             onClick={() => handleClickLikeIcon(product)}
-          />
+          >
+            <PiHeartFill />
+          </div>
         </div>
         <div className={classes.info_box}>
           <div className={classes.prices_box}>
@@ -88,7 +88,7 @@ const SingleProduct = ({ handleOpenModal }) => {
           <div className={classes.button_box}>
             <CustomButton
               onClick={() => handleClickAddToCart(product)}
-              added={isInCart}
+              buttonText={addedToCart ? "Added" : "Add to Cart"}
               buttonClasses={classes.custom_button}
             />
           </div>
