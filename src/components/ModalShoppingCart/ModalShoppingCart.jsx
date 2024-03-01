@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import classes from "./ModalShoppingCart.module.css";
 import { AiOutlineClose } from "react-icons/ai";

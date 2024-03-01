@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { PiHeartFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
