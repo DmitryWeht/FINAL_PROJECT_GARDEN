@@ -40,6 +40,7 @@
         flex-direction: column-reverse;
     }
     .icon_close{
-        align-self: flex-end;
+        /* align-self: flex-end; */
+        margin-left: 88%;
     }
 }
