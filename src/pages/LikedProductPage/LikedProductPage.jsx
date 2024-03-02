@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
 import { Filter } from "../../components/Filter/Filter";
 import ProductItem from "../../components/ProductItem/ProductItem";
@@ -36,9 +37,13 @@ const LikedProductPage = () => {
       <Filter content="sale" />
       <div className={classes.products_list}>
         {filteredProducts.map((product) => (
-          <div className={classes.card_product} key={product.id}>
+          <Link
+            to={`/liked/${product.id}`}
+            className={classes.card_product}
+            key={product.id}
+          >
             <ProductItem {...product} />
-          </div>
+          </Link>
         ))}
       </div>
     </div>
