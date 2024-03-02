@@ -1,0 +1,45 @@
+.content{
+    background-Color: #339933;
+    padding: 32px;
+}
+
+.modal_content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal_content h2{
+    font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
+    font-weight: "600";
+    font-family: 'Montserrat';
+    color: #FFFFFF;
+    padding-bottom: 24px;
+    line-height: 39.6px; 
+}
+
+.modal_text{
+    font-size: clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem);
+    font-weight: 600;
+    font-family: "Montserrat";
+    color:  #FFFFFF;
+    margin-bottom: 20px;
+    white-space: 'pre-line';
+    line-height: 22px;
+
+}
+
+@media (max-width: 480px){
+    .content{
+        padding: 20px;
+    }
+}
+
+@media (max-width: 380px){
+    .modal_content{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .icon_close{
+        align-self: flex-end;
+    }
+}
