@@ -1,16 +1,9 @@
-import { useEffect } from "react";
 import classes from "./ModalShoppingCart.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import IconButton from "@mui/material/IconButton";
 import { Backdrop, Dialog, Grow } from "@mui/material";
 
 const ModalShoppingCart = ({ open, handleCloseModal }) => {
-  console.log("open in ModalShoppingCart:", open);
-
-  useEffect(() => {
-    console.log("open changed:", open);
-  }, [open]);
-
   return (
     <Dialog
       open={open}
@@ -32,24 +25,20 @@ const ModalShoppingCart = ({ open, handleCloseModal }) => {
       }}
     >
       <div className={classes.content}>
-        <div  className={classes.modal_content}>
-          <h2>
-            Congratulations!
-          </h2>
-          <IconButton
-            onClick={() => {
-              handleCloseModal();
-            }}
-            className={classes.icon_close}
-            style={{ width: "44px",
-            height: "44px",
-            color: "#FFFFFF",
-            }}
-            autoFocus
-            color="inherit"
-          >
-            <AiOutlineClose />
-          </IconButton>
+        <div className={classes.modal_content}>
+          <h2>Congratulations!</h2>
+          <div className={classes.icon_close}>
+            <IconButton
+              onClick={() => {
+                handleCloseModal();
+              }}
+              style={{ width: "44px", height: "44px", color: "#FFFFFF" }}
+              autoFocus
+              color="inherit"
+            >
+              <AiOutlineClose />
+            </IconButton>
+          </div>
         </div>
 
         <div className={classes.modal_text}>
@@ -60,13 +49,13 @@ const ModalShoppingCart = ({ open, handleCloseModal }) => {
               fontFamily: "Montserrat",
               color: " #FFFFFF",
               marginBottom: "20px",
-              whiteSpace: 'pre-line',
+              whiteSpace: "pre-line",
               lineHeight: "22px",
             }}
           >
             Your order has been successfully placed on the website.
-            {"\n"} {"\n"}
-            A manager will contact you shortly to confirm your order.
+            {"\n"} {"\n"}A manager will contact you shortly to confirm your
+            order.
           </p>
         </div>
       </div>
