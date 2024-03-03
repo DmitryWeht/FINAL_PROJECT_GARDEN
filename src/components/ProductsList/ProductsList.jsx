@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { usePagination } from "../../hooks/usePagination";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
+import CustomPagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
 import classes from "./ProductsList.module.css";
-
 const ProductsList = ({ content, products: propProducts }) => {
   const {
     data: fetchedProducts,
@@ -30,26 +31,39 @@ const ProductsList = ({ content, products: propProducts }) => {
     discountedProducts.splice(randomIndex, 1);
   }
 
+  const { totalPages, currentProducts, setCurrentPage } = usePagination(
+    products,
+    8
+  );
+  const handlechange = (event, page) => {
+    setCurrentPage(page);
+  };
+
   return (
-    <div className={classes.products_list}>
-      {(content === "main"
-        ? limitedProducts
-        : content === "sale"
-        ? [...discountedProducts, ...limitedProducts]
-        : products
-      ).map((product) => (
-        <Link
-          key={product.id}
-          to={
-            content === "sale"
-              ? `/sales/${product.id}`
-              : `/products/${product.id}`
-          }
-          className={classes.card_product}
-        >
-          <ProductItem {...product} />
-        </Link>
-      ))}
+    <div>
+      <div className={classes.products_list}>
+        {(content === "main"
+          ? limitedProducts
+          : content === "sale"
+          ? [...discountedProducts, ...limitedProducts]
+          : currentProducts
+        ).map((product) => (
+          <Link
+            key={product.id}
+            to={
+              content === "sale"
+                ? `/sales/${product.id}`
+                : `/products/${product.id}`
+            }
+            className={classes.card_product}
+          >
+            <ProductItem {...product} />
+          </Link>
+        ))}
+      </div>
+      <div className={classes.pagination}>
+        <CustomPagination count={totalPages} handlechange={handlechange} />
+      </div>
     </div>
   );
 };

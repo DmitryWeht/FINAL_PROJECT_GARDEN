@@ -25,18 +25,26 @@ const cartSlice = createSlice({
     addToCart(state, action) {
       const existingProductIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
 
-      // Проверяем, существует ли товар в корзине
       if (existingProductIndex === -1) {
-        // Если товара нет в корзине, добавляем его с начальным количеством 1
+
         const newProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(newProduct);
         state.cartTotalQuantity += 1;
       }
     },
+    // removeFromCart(state, action) {
+    //   const { id } = action.payload;
+    //   state.cartItems = state.cartItems.filter((item) => item.id !== id);
+    //   state.cartTotalQuantity -= 1;
+    // },
     removeFromCart(state, action) {
       const { id } = action.payload;
-      state.cartItems = state.cartItems.filter((item) => item.id !== id);
-      state.cartTotalQuantity -= 1;
+      const itemIndex = state.cartItems.findIndex(item => item.id === id);
+
+      if (itemIndex !== -1) {
+        state.cartItems.splice(itemIndex, 1); // Удаляем товар из корзины
+        state.cartTotalQuantity -= 1; // Уменьшаем общее количество товаров в корзине
+      }
     },
     increaseCart(state, action) {
       const { id } = action.payload;

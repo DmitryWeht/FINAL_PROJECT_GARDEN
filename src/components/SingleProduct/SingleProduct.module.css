@@ -97,14 +97,6 @@
     letter-spacing: 0.6px;
 }
 
-/* .button_box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-} */
-
-
 .button_box button {
     padding: 16px 0;
     width: 67%;
@@ -149,13 +141,10 @@
 }
 
 .likedIcon svg {
-    stroke: forestgreen;
-    fill: forestgreen;
+    stroke: #000000;
+    fill: rgb(252, 161, 146);
 }
 
-.likeIconnn:hover {
-    filter: invert(100%);
-}
 
 @media (max-width: 1440px) {
     .image_card {
