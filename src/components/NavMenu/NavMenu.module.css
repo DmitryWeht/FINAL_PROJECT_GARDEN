@@ -30,6 +30,15 @@
   display: none;
 }
 
+.dark {
+  color: white;
+  background: #282828;
+}
+
+.dark .link {
+  color: white;
+}
+
 @media (max-width: 1000px) {
   .nav_wrapper {
     display: flex;

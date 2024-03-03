@@ -38,6 +38,18 @@ a {
   cursor: pointer;
 }
 
+.dark {
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  background: #282828;
+  color: white;
+}
+
+.light {
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  background-color: white;
+  color: black;
+}
+
 .container {
   width: 100%;
   padding: 0 40px;

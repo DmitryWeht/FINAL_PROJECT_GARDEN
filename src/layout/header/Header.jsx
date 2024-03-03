@@ -10,21 +10,16 @@ const Header = () => {
   const [nav, setNav] = useState(false);
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme.theme);
+  const themeClass = theme === "dark" ? classes.dark : "";
 
   const toggleThemeHandler = () => {
     dispatch(toggleTheme());
   };
 
   return (
-    <header
-      className={`${classes.header} ${theme === "dark" ? classes.dark : ""}`}
-    >
+    <header className={`${classes.header} ${themeClass}`}>
       <div className="container">
-        <div
-          className={`${classes.header_row} ${
-            theme === "dark" ? classes.dark : ""
-          }`}
-        >
+        <div className={`${classes.header_row} ${themeClass}`}>
           <HeaderLogo />
           <NavMenu nav={nav} />
           <div

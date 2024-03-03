@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   minPriceChange,
   maxPriceChange,
@@ -7,27 +7,36 @@ import {
 } from "../../store/filterSlice";
 import classes from "../../components/Filter/Filter.module.css";
 
-export const Filter = ({content}) => {
+export const Filter = ({ content }) => {
   const dispatch = useDispatch();
 
+  const theme = useSelector((state) => state.theme.theme);
+  const themeClass = theme === "dark" ? classes.dark : "";
+
   const handleMinPriceChange = (e) => {
-    console.log("Min Price:", e.target.value); 
+    console.log("Min Price:", e.target.value);
     dispatch(minPriceChange(e.target.value));
   };
 
   const handleMaxPriceChange = (e) => {
-    console.log("Max Price:", e.target.value); 
+    console.log("Max Price:", e.target.value);
     dispatch(maxPriceChange(e.target.value));
   };
 
   return (
-    <form>
-      <div className={classes.filters}>
-        <div className={classes.filter_price}>
-          <label htmlFor="price">
+    <form className={`${themeClass}`}>
+      {" "}
+      {}
+      <div className={`${classes.filters} ${themeClass}`}>
+        {" "}
+        {}
+        <div className={`${classes.filter_price} ${themeClass}`}>
+          {" "}
+          {}
+          <label htmlFor="price" className={`${themeClass}`}>
             Price
             <input
-              className={classes.filter_inputs}
+              className={`${classes.filter_inputs} ${themeClass}`}
               type="number"
               step="1.0"
               min="0"
@@ -36,7 +45,7 @@ export const Filter = ({content}) => {
               onChange={handleMinPriceChange}
             />
             <input
-              className={classes.filter_inputs}
+              className={`${classes.filter_inputs} ${themeClass}`}
               type="number"
               placeholder="to"
               step="1.0"
@@ -45,7 +54,6 @@ export const Filter = ({content}) => {
             />
           </label>
         </div>
-
         {content !== "sale" && (
           <div className={classes.checkbox}>
             Discounted items
@@ -59,20 +67,21 @@ export const Filter = ({content}) => {
             </label>
           </div>
         )}
-
-        <div className={classes.sorted}>
-        <label htmlFor="sort" className={classes.sort_label}>
+        <div className={`${classes.sorted} ${themeClass}`}>
+          <label
+            htmlFor="sort"
+            className={`${classes.sort_label} ${themeClass}`}
+          >
             Sorted
           </label>
           <select
-            className={classes.sort_select}
+            className={`${classes.sort_select} ${themeClass}`}
             id="sort"
             onChange={(e) => dispatch(sortChange(e.target.value))}
           >
             <option>by default</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
-           
           </select>
         </div>
       </div>

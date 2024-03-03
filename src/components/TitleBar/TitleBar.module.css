@@ -1,18 +1,10 @@
 .title_box {
-<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
   margin-top: 40px;
-=======
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-    margin-top: 40px;
-    color: #282828;
->>>>>>> 161bed16436df2ff370ce66f554ac7dadad792d6
+  color: #282828;
 }
 
 .line {
@@ -55,6 +47,11 @@
   display: none;
 }
 
+.dark {
+  color: white;
+  background: #282828;
+}
+
 @media (max-width: 1200px) {
   .title_box {
     margin-top: 60px;
@@ -75,9 +72,4 @@
   .title_box button {
     display: none;
   }
-}
-
-.dark {
-  color: white;
-  background: #282828;
 }

@@ -6,14 +6,28 @@ import ProductsList from "../../components/ProductsList/ProductsList";
 import { resetFilters } from "../../store/filterSlice";
 import classes from "./AllProductsPage.module.css";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
-import { useFiltration } from '../../hooks/useFiltration';
+import { useFiltration } from "../../hooks/useFiltration";
 
 const AllProductsPage = () => {
   const dispatch = useDispatch();
-  const { data: fetchedProducts, isLoading, isError } = useGetAllProductsQuery();
-  const { minPrice, maxPrice, showDiscounted, sort } = useSelector((state) => state.filter);
+  const {
+    data: fetchedProducts,
+    isLoading,
+    isError,
+  } = useGetAllProductsQuery();
+  const { minPrice, maxPrice, showDiscounted, sort } = useSelector(
+    (state) => state.filter
+  );
 
-  const filteredProducts = useFiltration(minPrice, maxPrice, showDiscounted, sort, fetchedProducts, isLoading, isError);
+  const filteredProducts = useFiltration(
+    minPrice,
+    maxPrice,
+    showDiscounted,
+    sort,
+    fetchedProducts,
+    isLoading,
+    isError
+  );
 
   useEffect(() => {
     dispatch(resetFilters());
@@ -24,7 +38,7 @@ const AllProductsPage = () => {
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
       <h1 className={classes.title}>All products</h1>
       <Filter />
-      <ProductsList  products={filteredProducts}/>
+      <ProductsList products={filteredProducts} />
     </div>
   );
 };

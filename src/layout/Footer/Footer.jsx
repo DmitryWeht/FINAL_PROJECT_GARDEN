@@ -7,22 +7,23 @@ import { useSelector } from "react-redux";
 
 function Footer() {
   const theme = useSelector((state) => state.theme.theme);
+  const themeClass = theme === "light" ? classes.light : classes.dark;
   return (
-    <div>
+    <div className={classes.footerContainer}>
       <footer className={classes.footer}>
         <div className="container">
           <div className={classes.daten}>
-            <div className={classes.contact}>Contact</div>
+            <div className={`${classes.contact} ${themeClass}`}>Contact</div>
 
             <div className={classes.connect}>
-              <div className={classes.phone}>
+              <div className={`${classes.phone} ${themeClass}`}>
                 <p className={classes.descreibe}>Phone</p>
-                <p className={classes.number}>
+                <p className={`${classes.number} ${themeClass}  `}>
                   <a href="tel:+499999999999">+49 999 999 99 99</a>
                 </p>
               </div>
 
-              <div className={classes.socials}>
+              <div className={`${classes.socials} ${themeClass}`}>
                 <p className={classes.descreibe}>Socials</p>
 
                 <div className={classes.media}>
@@ -44,16 +45,18 @@ function Footer() {
                 </div>
               </div>
 
-              <div className={classes.adress}>
+              <div className={`${classes.adress} ${themeClass}`}>
                 <p className={classes.descreibe}>Adress</p>
-                <p className={classes.number}>
+                <p className={`${classes.number} ${themeClass}`}>
                   Linkstraße 2, 8 OG, 10 785, Berlin, Deutschland
                 </p>
               </div>
 
-              <div className={classes.work}>
+              <div className={`${classes.work} ${themeClass}`}>
                 <p className={classes.descreibe}>Working Hours</p>
-                <p className={classes.number}>24 hours a day</p>
+                <p className={`${classes.number} ${themeClass}`}>
+                  24 hours a day
+                </p>
               </div>
 
               <Map />

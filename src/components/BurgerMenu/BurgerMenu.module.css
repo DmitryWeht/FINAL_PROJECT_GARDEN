@@ -16,7 +16,7 @@
 }
 
 .nav_basket svg:hover {
-  color: #2b802b
+  color: #2b802b;
 }
 
 .nav_liked {
@@ -69,7 +69,12 @@
 }
 
 .likeIcon:hover {
-  color: #2b802b
+  color: #2b802b;
+}
+
+.dark {
+  background: #282828;
+  color: white;
 }
 
 @media (max-width: 790px) {
