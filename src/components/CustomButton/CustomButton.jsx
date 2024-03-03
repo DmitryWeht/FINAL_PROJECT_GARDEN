@@ -1,6 +1,5 @@
-import React from "react";
-
 import classes from "./CustomButton.module.css";
+
 const CustomButton = ({ onClick, buttonClasses, buttonText }) => {
   const handleClick = (event) => {
     event.preventDefault();
