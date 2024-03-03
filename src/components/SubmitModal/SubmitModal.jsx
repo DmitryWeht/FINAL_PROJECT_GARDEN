@@ -1,9 +1,9 @@
-import classes from "./ModalShoppingCart.module.css";
-import { AiOutlineClose } from "react-icons/ai";
-import IconButton from "@mui/material/IconButton";
 import { Backdrop, Dialog, Grow } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import { AiOutlineClose } from "react-icons/ai";
+import classes from "./SubmitModal.module.css";
 
-const ModalShoppingCart = ({ open, handleCloseModal }) => {
+const SubmitModal = ({ open, handleCloseModal, content }) => {
   return (
     <Dialog
       open={open}
@@ -42,25 +42,22 @@ const ModalShoppingCart = ({ open, handleCloseModal }) => {
         </div>
 
         <div className={classes.modal_text}>
-          <p
-            style={{
-              fontSize: "clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem)",
-              fontWeight: "600",
-              fontFamily: "Montserrat",
-              color: " #FFFFFF",
-              marginBottom: "20px",
-              whiteSpace: "pre-line",
-              lineHeight: "22px",
-            }}
-          >
-            Your order has been successfully placed on the website.
-            {"\n"} {"\n"}A manager will contact you shortly to confirm your
-            order.
-          </p>
+          {content === "form" ? (
+            <p>
+              You have 5% discount! A promo code with a discount has been sent
+              to your email.
+            </p>
+          ) : (
+            <p>
+              Your order has been successfully placed on the website.
+              {"\n"} {"\n"}A manager will contact you shortly to confirm your
+              order.
+            </p>
+          )}
         </div>
       </div>
     </Dialog>
   );
 };
 
-export default ModalShoppingCart;
+export default SubmitModal;
