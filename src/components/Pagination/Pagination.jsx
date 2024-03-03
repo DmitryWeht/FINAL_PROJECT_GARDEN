@@ -4,10 +4,10 @@ const CustomPagination = ({ count, handlechange }) => {
     <div>
       <Pagination
         count={count}
-        variant="outlined"
+        variant="text"
         sx={{
           "& .MuiPaginationItem-page.Mui-selected": {
-            backgroundColor: "rgba(251, 124, 105, 0.4)", // Фон с прозрачностью
+            backgroundColor: "rgba(251, 124, 105, 0.4)",
           },
           "& .MuiPaginationItem-page": {
             color: "#000000",

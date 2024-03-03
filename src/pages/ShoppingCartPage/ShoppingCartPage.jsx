@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import CartForm from "../../components/CartForm/CartForm";
 import { CartList } from "../../components/CartList/CartList";
+import SubmitModal from "../../components/SubmitModal/SubmitModal";
 import TitleBar from "../../components/TitleBar/TitleBar";
 import { getTotals } from "../../store/cartSlice";
 import classes from "./ShoppingCartPage.module.css";
-import ModalShoppingCart from "../../components/ModalShoppingCart/ModalShoppingCart";
 
 const ShoppingCartPage = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,6 @@ const ShoppingCartPage = () => {
     fetchData();
   }, [dispatch, cartItems]);
 
-
   const handleOpenModal = () => {
     setOpenModal(true);
   };
@@ -35,7 +34,7 @@ const ShoppingCartPage = () => {
   const handleCloseModal = () => {
     setOpenModal(false);
   };
- 
+
   return (
     <div className="container">
       <TitleBar
@@ -45,9 +44,10 @@ const ShoppingCartPage = () => {
       />
       <div
         className={`${
-          isCartNotEmpty ? classes.shopping_basket : classes.empty_basket}`}>
-            
-         {isCartNotEmpty ? (
+          isCartNotEmpty ? classes.shopping_basket : classes.empty_basket
+        }`}
+      >
+        {isCartNotEmpty ? (
           <CartList />
         ) : (
           <>
@@ -58,13 +58,9 @@ const ShoppingCartPage = () => {
           </>
         )}
 
-        <ModalShoppingCart
-             open={openModal}
-             handleCloseModal={handleCloseModal}/> 
-        
-        {isCartNotEmpty && (
-            <CartForm handleOpenModalClick={handleOpenModal} />  
-        )}
+        <SubmitModal open={openModal} handleCloseModal={handleCloseModal} />
+
+        {isCartNotEmpty && <CartForm handleOpenModalClick={handleOpenModal} />}
       </div>
     </div>
   );

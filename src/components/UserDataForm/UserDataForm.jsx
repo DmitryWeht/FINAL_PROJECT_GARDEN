@@ -18,6 +18,7 @@ export const UserDataForm = ({
   requestType = "getDiscount",
   handleOpenModalClick,
   handleSubmitClick,
+  handleOpenModal,
 }) => {
   const dispatch = useDispatch();
   const {
@@ -40,10 +41,11 @@ export const UserDataForm = ({
 
     if (requestType === "getDiscount") {
       getDiscount(userData);
+      handleOpenModal();
     } else if (requestType === "sendOrder") {
       sendOrder(userData);
       dispatch(clearCart());
-      if (typeof handleOpenModalClick === 'function') {
+      if (typeof handleOpenModalClick === "function") {
         handleOpenModalClick();
       }
     }
