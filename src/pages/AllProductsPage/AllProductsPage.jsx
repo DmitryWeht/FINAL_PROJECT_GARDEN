@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
 import { Filter } from "../../components/Filter/Filter";
 import ProductsList from "../../components/ProductsList/ProductsList";
+import { useFiltration } from "../../hooks/useFiltration";
+import { useGetAllProductsQuery } from "../../store/apiSlice";
 import { resetFilters } from "../../store/filterSlice";
 import classes from "./AllProductsPage.module.css";
-import { useGetAllProductsQuery } from "../../store/apiSlice";
-import { useFiltration } from "../../hooks/useFiltration";
-
 const AllProductsPage = () => {
   const dispatch = useDispatch();
   const {

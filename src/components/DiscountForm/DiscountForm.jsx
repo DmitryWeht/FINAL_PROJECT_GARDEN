@@ -2,7 +2,7 @@ import gardenSuppliesImage from "../../media/garden-supplies.svg";
 import { UserDataForm } from "../UserDataForm/UserDataForm";
 import classes from "./DiscountForm.module.css";
 
-export const DiscountForm = () => {
+export const DiscountForm = ({ handleOpenModal }) => {
   return (
     <div className={classes.form}>
       <div className="container">
@@ -14,7 +14,7 @@ export const DiscountForm = () => {
               alt="garden supplies"
               className={classes.hidden}
             />
-            <UserDataForm />
+            <UserDataForm handleOpenModal={handleOpenModal} />
           </div>
         </div>
       </div>

@@ -14,12 +14,10 @@ export const Filter = ({ content }) => {
   const themeClass = theme === "dark" ? classes.dark : "";
 
   const handleMinPriceChange = (e) => {
-    console.log("Min Price:", e.target.value);
     dispatch(minPriceChange(e.target.value));
   };
 
   const handleMaxPriceChange = (e) => {
-    console.log("Max Price:", e.target.value);
     dispatch(maxPriceChange(e.target.value));
   };
 

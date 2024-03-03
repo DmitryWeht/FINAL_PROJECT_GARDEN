@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { PiHeartFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../store/apiSlice";
-import { addToCart, getTotals } from "../../store/cartSlice";
+import { addToCart, getTotals, removeFromCart } from "../../store/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
@@ -45,6 +45,12 @@ const SingleProduct = ({ handleOpenModal }) => {
     setAddedToCart(true);
   };
 
+  const handleClickRemoveProduct = (product) => {
+    const { id, image, title, price, discont_price } = product;
+    dispatch(removeFromCart({ id, image, title, price, discont_price }));
+    setAddedToCart(false);
+  };
+
   const renderProduct = (product) => (
     <div key={product.id} className={classes.card_product}>
       <img
@@ -84,12 +90,17 @@ const SingleProduct = ({ handleOpenModal }) => {
               </p>
             )}
           </div>
-          {/* <Counter id={product.id} /> */}
+         
           <div className={classes.button_box}>
             <CustomButton
-              onClick={() => handleClickAddToCart(product)}
-              buttonText={addedToCart ? "Added" : "Add to Cart"}
+              onClick={
+                addedToCart
+                  ? () => handleClickRemoveProduct(product)
+                  : () => handleClickAddToCart(product)
+              }
+              buttonText={addedToCart ? "Delete from cart" : "Add to Cart"}
               buttonClasses={classes.custom_button}
+              disabled={addedToCart}
             />
           </div>
           <div className={classes.text_box}>

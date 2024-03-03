@@ -1,8 +1,8 @@
 import { Backdrop, Dialog, Grow } from "@mui/material";
-import React from "react";
 import ProductItem from "../../components/ProductItem/ProductItem";
 import closeImage from "../../media/close.svg";
 import classes from "./DailyDiscountModal.module.css";
+
 const DailyDiscountModal = ({ isOpen, setIsOpen, product, content }) => {
   return (
     <Dialog

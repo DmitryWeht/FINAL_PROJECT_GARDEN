@@ -1,5 +1,5 @@
 import { Dialog, Grow } from "@mui/material";
-import React from "react";
+
 
 const ImageModal = ({ open, handleClose, imageUrl, title }) => {
   return (
