@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
 import { Filter } from "../../components/Filter/Filter";
+import CustomPagination from "../../components/Pagination/Pagination";
 import ProductItem from "../../components/ProductItem/ProductItem";
 import { useFiltration } from "../../hooks/useFiltration";
+import { usePagination } from "../../hooks/usePagination";
 import { updateFilters } from "../../store/likedProductsSlice";
 import classes from "./LikedProductPage.module.css";
 
@@ -30,13 +32,21 @@ const LikedProductPage = () => {
     dispatch(updateFilters(filteredProducts));
   }, [dispatch, likedProducts, filters, filteredProducts]);
 
+  const { totalPages, currentProducts, setCurrentPage } = usePagination(
+    filteredProducts,
+    8
+  );
+  const handlechange = (event, page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="container">
       <ButtonNavigation />
       <h1 className={classes.title}>Liked products</h1>
       <Filter content="sale" />
       <div className={classes.products_list}>
-        {filteredProducts.map((product) => (
+        {currentProducts.map((product) => (
           <Link
             to={`/liked/${product.id}`}
             className={classes.card_product}
@@ -45,6 +55,9 @@ const LikedProductPage = () => {
             <ProductItem {...product} />
           </Link>
         ))}
+      </div>
+      <div className={classes.pagination}>
+        <CustomPagination count={totalPages} handlechange={handlechange} />
       </div>
     </div>
   );

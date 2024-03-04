@@ -80,7 +80,7 @@
   stroke-width: 10px;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
   stroke: #ffffff;
-  fill: forestgreen;
+  fill: rgb(53, 161, 53);
 }
 
 .empty_bag {
@@ -107,7 +107,7 @@
 
 .likedIcon {
   stroke: #ffffff;
-  fill: forestgreen;
+  fill: rgb(252, 145, 128);
 }
 
 

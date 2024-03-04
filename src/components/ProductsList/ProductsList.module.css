@@ -14,6 +14,13 @@
   align-items: center;
 }
 
+.pagination {
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 1440px) {
   .products_list {
     grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
@@ -40,4 +47,5 @@
 
   .card_product {
     width: 100%;
-  }}
+  }
+}
