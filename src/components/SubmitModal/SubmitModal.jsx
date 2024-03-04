@@ -44,8 +44,8 @@ const SubmitModal = ({ open, handleCloseModal, content }) => {
         <div className={classes.modal_text}>
           {content === "form" ? (
             <p>
-              You have 5% discount! A promo code with a discount has been sent
-              to your email.
+              Your request for a 5% discount has been successfully submitted.
+              Please expect an email confirmation.
             </p>
           ) : (
             <p>
