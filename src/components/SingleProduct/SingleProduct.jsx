@@ -3,7 +3,7 @@ import { PiHeartFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../store/apiSlice";
-import { addToCart, getTotals } from "../../store/cartSlice";
+import { addToCart, getTotals, removeFromCart } from "../../store/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
@@ -43,6 +43,12 @@ const SingleProduct = ({ handleOpenModal }) => {
     dispatch(addToCart({ id, image, title, price, discont_price }));
     dispatch(getTotals());
     setAddedToCart(true);
+  };
+
+  const handleClickRemoveProduct = (product) => {
+    const { id, image, title, price, discont_price } = product;
+    dispatch(removeFromCart({ id, image, title, price, discont_price }));
+    setAddedToCart(false);
   };
 
   const renderProduct = (product) => (
@@ -87,9 +93,14 @@ const SingleProduct = ({ handleOpenModal }) => {
          
           <div className={classes.button_box}>
             <CustomButton
-              onClick={() => handleClickAddToCart(product)}
-              buttonText={addedToCart ? "Added" : "Add to Cart"}
+              onClick={
+                addedToCart
+                  ? () => handleClickRemoveProduct(product)
+                  : () => handleClickAddToCart(product)
+              }
+              buttonText={addedToCart ? "Delete from cart" : "Add to Cart"}
               buttonClasses={classes.custom_button}
+              disabled={addedToCart}
             />
           </div>
           <div className={classes.text_box}>

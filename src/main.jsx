@@ -64,6 +64,10 @@ const router = createBrowserRouter([
         element: <LikedProductPage />,
       },
       {
+        path: "/liked/:id",
+        element: <SingleProductPage />,
+      },
+      {
         path: "/*",
         element: <ErrorPage />,
       },

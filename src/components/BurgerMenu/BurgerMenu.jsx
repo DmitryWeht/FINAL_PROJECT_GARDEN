@@ -30,7 +30,6 @@ const BurgerMenu = ({ nav, setNav }) => {
       <div className={classes.nav_basket}>
         <NavLink to="/cart">
           <PiBagThin />
-          {/* <img src={basketImage} alt="basket" /> */}
         </NavLink>
         {hasItemsInCart && (
           <span className={classes.bag_quantity}>
