@@ -1,5 +1,9 @@
+import { useSelector } from "react-redux";
 import Pagination from "@mui/material/Pagination";
+
 const CustomPagination = ({ count, handlechange }) => {
+  const theme = useSelector((state) => state.theme.theme);
+
   return (
     <div>
       <Pagination
@@ -10,7 +14,10 @@ const CustomPagination = ({ count, handlechange }) => {
             backgroundColor: "rgba(251, 124, 105, 0.4)",
           },
           "& .MuiPaginationItem-page": {
-            color: "#000000",
+            color: theme === "dark" ? "white" : "black",
+          },
+          "& .MuiPaginationItem-previousNext": {
+            color: theme === "dark" ? "white" : "black",
           },
         }}
         defaultPage={1}

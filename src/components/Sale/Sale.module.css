@@ -22,7 +22,6 @@
 }
 
 @media (max-width: 480px) {
-
   .line {
     display: none;
   }
@@ -48,6 +47,12 @@
     margin-bottom: 68px;
     transition: background-color 0.3s, color 0.3s, transform 0.3s,
       box-shadow 0.3s;
+  }
+
+  .dark .hidden_button button {
+    color: white;
+    background-color: #282828;
+    border: 1px solid #ffffff;
   }
 
   .hidden_button button:active {
