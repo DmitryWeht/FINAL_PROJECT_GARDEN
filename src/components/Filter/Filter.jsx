@@ -5,7 +5,10 @@ import {
   toggleDiscounted,
   sortChange,
 } from "../../store/filterSlice";
+import Box from "@mui/material/Box";
 import classes from "../../components/Filter/Filter.module.css";
+import TextField from "@mui/material/TextField";
+import InputLabel from "@mui/material/InputLabel";
 
 export const Filter = ({ content }) => {
   const dispatch = useDispatch();
@@ -22,42 +25,100 @@ export const Filter = ({ content }) => {
   };
 
   return (
-    <form className={`${themeClass}`}>
-      {" "}
-      {}
+    <Box component="form" sx={{ fontFamily: "Montserrat" }}>
       <div className={`${classes.filters} ${themeClass}`}>
-        {" "}
-        {}
         <div className={`${classes.filter_price} ${themeClass}`}>
-          {" "}
-          {}
-          <label htmlFor="price" className={`${themeClass}`}>
+          <InputLabel
+            htmlFor="price"
+            sx={{
+              marginBottom: "8px",
+              fontSize: "20px",
+              fontFamily: "Montserrat",
+              fontWeight: "500",
+              color: "black",
+              top: "5px",
+              "&.dark": {
+                color: "white",
+              },
+            }}
+          >
             Price
-            <input
-              className={`${classes.filter_inputs} ${themeClass}`}
-              type="number"
-              step="1.0"
-              min="0"
-              id="price"
-              placeholder="from"
-              onChange={handleMinPriceChange}
-            />
-            <input
-              className={`${classes.filter_inputs} ${themeClass}`}
-              type="number"
-              placeholder="to"
-              step="1.0"
-              min="0"
-              onChange={handleMaxPriceChange}
-            />
-          </label>
+          </InputLabel>
+
+          <TextField
+            sx={{
+              width: "112px",
+              height: "36px",
+              position: "relative",
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: "#0b710b",
+                  color: "#0b710b",
+                },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#0b710b",
+                transform: "translate(14px, -5px) scale(0.75)", // Изменение положения метки при фокусировке
+              },
+              "& .MuiInputLabel-root": {
+                color: "#888",
+                fontSize: "16px",
+                top: "-25%",
+                left: "0%",
+              },
+            }}
+            type="number"
+            step="1.0"
+            min="0"
+            id="price"
+            label="min price"
+            placeholder="from"
+            inputProps={{
+              style: {
+                padding: "8px 8px",
+                fontSize: "16px",
+              },
+            }}
+            onChange={handleMinPriceChange}
+          />
+          <TextField
+            sx={{
+              width: "112px",
+              height: "36px",
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: " #0b710b",
+                },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#0b710b",
+                transform: "translate(14px, -5px) scale(0.75)", // Изменение положения метки при фокусировке
+              },
+              "& .MuiInputLabel-root": {
+                color: "#888",
+                fontSize: "16px",
+                top: "-25%",
+                left: "0%",
+              },
+            }}
+            type="number"
+            placeholder="to"
+            inputProps={{
+              style: {
+                padding: "8px 8px",
+                fontSize: "16px",
+              },
+            }}
+            step="1.0"
+            label="max price"
+            min="0"
+            onChange={handleMaxPriceChange}
+          />
         </div>
         {content !== "sale" && (
-          <div className={classes.checkbox}>
+          <div className={`${classes.checkbox} ${themeClass}`}>
             Discounted items
-            <label className={classes.labelForCheckbox}>
+            <label className={`${classes.labelForCheckbox} ${themeClass}`}>
               <input
-                className={classes.inputForCheckbox}
+                className={`${classes.inputForCheckbox} ${themeClass}`}
                 type="checkbox"
                 onChange={(e) => dispatch(toggleDiscounted(e.target.checked))}
               />
@@ -65,11 +126,9 @@ export const Filter = ({ content }) => {
             </label>
           </div>
         )}
+
         <div className={`${classes.sorted} ${themeClass}`}>
-          <label
-            htmlFor="sort"
-            className={`${classes.sort_label} ${themeClass}`}
-          >
+          <label htmlFor="sort" className={classes.sort_label}>
             Sorted
           </label>
           <select
@@ -83,6 +142,6 @@ export const Filter = ({ content }) => {
           </select>
         </div>
       </div>
-    </form>
+    </Box>
   );
 };

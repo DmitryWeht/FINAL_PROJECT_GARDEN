@@ -4,6 +4,7 @@
   cursor: pointer;
   transition: transform 0.3s;
   align-items: center;
+  gap: 16px;
 }
 
 .header_logo:active {

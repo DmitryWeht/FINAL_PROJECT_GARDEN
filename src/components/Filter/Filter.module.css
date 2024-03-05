@@ -3,40 +3,19 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 40px;
-
   padding-bottom: 32px;
-  color: #282828;
-
-  font-weight: 600;
-  font-size: 20px;
 }
 
 .filter_price {
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 15px;
-}
-
-.filter_inputs {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 8px 16px;
-  width: 112px;
-  height: 36px;
-  color: #282828;
-  margin-left: 16px;
-  cursor: pointer;
-}
-
-.filter_inputs::placeholder {
-  color: #888;
-  font-size: 16px;
-  line-height: 36px;
 }
 
 .price {
   display: flex;
   align-items: center;
+  color: black;
 }
 
 .checkbox {
@@ -56,6 +35,11 @@
   height: 100%;
   position: absolute;
   opacity: 0;
+}
+
+.labelForCheckbox:hover {
+  border: 1px solid black;
+  border-radius: 6px;
 }
 
 .labelForCheckbox span {
@@ -107,8 +91,11 @@
   font-size: 16px;
 }
 
+.sort_select:hover {
+  border: 1px solid black;
+}
+
 .sort_label {
-  color: #282828;
   cursor: pointer;
 }
 
@@ -121,12 +108,21 @@
   background: #282828;
 }
 
+.dark .price {
+  color: white;
+}
+
+.darkTheme {
+  /* Стили для тёмной темы */
+  color: white; /* Пример для текста */
+  background-color: black; /* Пример для фона */
+}
+
 @media (max-width: 1000px) {
   .sorted {
     margin-left: 0px;
     gap: 30px;
   }
-
   .sort_select {
     padding: 8px 20px 8px 10px;
   }
