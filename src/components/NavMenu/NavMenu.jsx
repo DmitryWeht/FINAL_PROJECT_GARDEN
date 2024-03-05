@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import ButtonDailyDiscount from "../ButtonDailyDiscount/ButtonDailyDiscount";
 import classes from "./NavMenu.module.css";
 
@@ -64,15 +64,11 @@ const NavMenu = ({ nav }) => {
             </NavLink>
           </li>
           <li className={`${classes.button} ${themeClass}`}>
-            {" "}
-            {}
             <ButtonDailyDiscount />
           </li>
         </ul>
       </div>
       <div className={`${classes.hidden_button} ${themeClass}`}>
-        {" "}
-        {}
         <ButtonDailyDiscount />
       </div>
     </div>

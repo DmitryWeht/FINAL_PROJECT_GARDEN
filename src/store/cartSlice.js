@@ -8,20 +8,6 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    // addToCart(state, action) {
-    //   const existingIndex = state.cartItems.findIndex(
-    //     (item) => item.id === action.payload.id
-    //   );
-
-    //   if (existingIndex >= 0) {
-    //     state.cartItems[existingIndex].cartQuantity += 1;
-    //     state.cartTotalQuantity += 1;
-    //   } else {
-    //     const tempProduct = { ...action.payload, cartQuantity: 1 };
-    //     state.cartItems.push(tempProduct);
-    //     state.cartTotalQuantity += 1;
-    //   }
-    // },
     addToCart(state, action) {
       const existingProductIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
 
@@ -32,11 +18,6 @@ const cartSlice = createSlice({
         state.cartTotalQuantity += 1;
       }
     },
-    // removeFromCart(state, action) {
-    //   const { id } = action.payload;
-    //   state.cartItems = state.cartItems.filter((item) => item.id !== id);
-    //   state.cartTotalQuantity -= 1;
-    // },
     removeFromCart(state, action) {
       const { id } = action.payload;
       const itemIndex = state.cartItems.findIndex(item => item.id === id);

@@ -13,21 +13,23 @@ import CustomButton from "../CustomButton/CustomButton";
 import classes from "./SingleProduct.module.css";
 
 const SingleProduct = ({ handleOpenModal }) => {
-  const { id } = useParams();
+  const { id } = useParams(); //Извлекаем параметры маршрута из URL
   const { data: products, isLoading } = useGetProductByIdQuery(id);
-  // const cartItems = useSelector((state) => state.cart.cartItems);
+  // Хук состояния для определения, добавлен ли продукт в корзину
   const [addedToCart, setAddedToCart] = useState(false);
+
   const likedProducts = useSelector(
     (state) => state.likedProducts.likedProducts
   );
+  // Хук состояния для определения, добавлен ли продукт в список избранных
   const [isLiked, setIsLiked] = useState(
     likedProducts.some((item) => item.id === id)
   );
 
-  // const isInCart = cartItems.some((item) => item.id === id);
   const dispatch = useDispatch();
 
   const handleClickLikeIcon = (product) => {
+    // Извлекаем данные о продукте
     const { id, image, title, price, discont_price } = product;
     if (isLiked) {
       dispatch(deleteFromLikedProducts(id));
@@ -50,7 +52,7 @@ const SingleProduct = ({ handleOpenModal }) => {
     dispatch(removeFromCart({ id, image, title, price, discont_price }));
     setAddedToCart(false);
   };
-
+  // Функция для рендеринга карточки продукта
   const renderProduct = (product) => (
     <div key={product.id} className={classes.card_product}>
       <img
@@ -90,7 +92,7 @@ const SingleProduct = ({ handleOpenModal }) => {
               </p>
             )}
           </div>
-         
+
           <div className={classes.button_box}>
             <CustomButton
               onClick={

@@ -126,6 +126,7 @@
   width: 55px;
   height: 55px;
   stroke-width: 7px;
+  cursor: pointer;
 }
 
 .likeIcon svg {
@@ -144,7 +145,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .text_box {
     display: none;
   }
@@ -183,6 +184,7 @@
 }
 
 @media (max-width: 768px) {
+
   .likeIcon svg,
   .likedIcon svg {
     width: 38px;

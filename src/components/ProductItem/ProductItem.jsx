@@ -111,7 +111,6 @@ const ProductItem = ({
         ) : (
           <CustomButton
             onClick={isAddedToCart ? handleClickRemoveProduct : handleClick}
-            // onClick={handleClick}
             buttonClasses={classes.custom_button}
             buttonText={isAddedToCart ? "Delete from Cart" : "Add to Cart"}
           />

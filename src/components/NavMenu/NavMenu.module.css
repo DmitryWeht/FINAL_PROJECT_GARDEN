@@ -31,11 +31,11 @@
 }
 
 .dark .active_link {
-  color: #00ff00;
+  color: #20e220;
 }
 
 .dark .nav_list li a:hover {
-  color: #00ff00;
+  color: #20e220;
 }
 
 @media (max-width: 1000px) {
@@ -55,17 +55,7 @@
   }
 }
 
-@media (max-width: 500px) {
-  .button {
-    display: block;
-  }
-
-  .hidden_button {
-    display: none;
-  }
-}
-
-@media (max-width: 790px) {
+@media (max-width: 950px) {
   .nav_list {
     display: flex;
     flex-direction: column;
@@ -112,6 +102,16 @@
     font-style: normal;
     font-weight: 500;
     line-height: 130%;
+  }
+}
+
+@media (max-width: 600px) {
+  .button {
+    display: block;
+  }
+
+  .hidden_button {
+    display: none;
   }
 }
 

@@ -8,11 +8,11 @@ const DailyDiscountModal = ({ isOpen, setIsOpen, product, content }) => {
     <Dialog
       open={isOpen}
       onClose={() => setIsOpen(false)}
-      BackdropComponent={Backdrop}
+      BackdropComponent={Backdrop} // Компонент заднего фона модального окна(при клике на любую область закрывается)
       BackdropProps={{
         transitionDuration: 500,
       }}
-      TransitionComponent={Grow}
+      TransitionComponent={Grow} // Компонент для анимации открытия модального окна
       TransitionProps={{
         timeout: 500,
       }}
