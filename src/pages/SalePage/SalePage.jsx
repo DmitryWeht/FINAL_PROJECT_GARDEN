@@ -5,17 +5,31 @@ import { Filter } from "../../components/Filter/Filter";
 import { resetFilters } from "../../store/filterSlice";
 
 import ProductsList from "../../components/ProductsList/ProductsList";
-import classes from "./SalePage.module.css";
+import { useFiltration } from "../../hooks/useFiltration";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
-import { useFiltration } from '../../hooks/useFiltration';
+import classes from "./SalePage.module.css";
 
 const SalePage = () => {
   const dispatch = useDispatch();
 
-  const { data: fetchedProducts, isLoading, isError } = useGetAllProductsQuery();
-  const { minPrice, maxPrice, showDiscounted, sort } = useSelector((state) => state.filter);
- 
-  const filteredProducts = useFiltration(minPrice, maxPrice, showDiscounted, sort, fetchedProducts, isLoading, isError);
+  const {
+    data: fetchedProducts,
+    isLoading,
+    isError,
+  } = useGetAllProductsQuery();
+  const { minPrice, maxPrice, showDiscounted, sort } = useSelector(
+    (state) => state.filter
+  );
+
+  const filteredProducts = useFiltration(
+    minPrice,
+    maxPrice,
+    showDiscounted,
+    sort,
+    fetchedProducts,
+    isLoading,
+    isError
+  );
 
   useEffect(() => {
     dispatch(resetFilters());
@@ -26,7 +40,7 @@ const SalePage = () => {
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
       <h1 className={classes.title}>Discounted items</h1>
       <Filter content="sale" />
-      <ProductsList content="sale" products={filteredProducts}/>
+      <ProductsList content="sale" products={filteredProducts} />
     </div>
   );
 };
