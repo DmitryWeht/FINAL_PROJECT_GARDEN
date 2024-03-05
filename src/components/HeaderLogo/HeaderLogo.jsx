@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../media/logo-garden.svg";
 import classes from "./HeaderLogo.module.css";
+import ThemaToggle from "../../components/ThemaToggle/ThemaToggle";
 
 const HeaderLogo = () => {
   return (
@@ -8,6 +9,7 @@ const HeaderLogo = () => {
       <NavLink to="/">
         <img src={logo} alt="logo" />
       </NavLink>
+      <ThemaToggle />
     </div>
   );
 };

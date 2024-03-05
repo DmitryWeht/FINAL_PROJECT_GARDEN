@@ -1,0 +1,32 @@
+.Btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  left: 31px;
+  top: 1px;
+  transition: left 0.1s ease-in-out;
+}
+
+.themeToggle {
+  border-radius: 30px;
+  background: #8b8b8b;
+  width: 60px;
+}
+
+.themeContainer {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: relative;
+  padding: 5px 4px;
+}
+
+.activeBackground {
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  background: #fff;
+}
+.EnableDarkMode {
+  left: 1px;
+  top: 1px;
+}

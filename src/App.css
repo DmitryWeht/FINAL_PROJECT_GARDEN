@@ -38,6 +38,15 @@ a {
   cursor: pointer;
 }
 
+.dark {
+  background: #282828;
+  color: white;
+}
+
+/* .light {
+  background-color: white;
+  color: #282828; */
+
 .container {
   width: 100%;
   padding: 0 40px;

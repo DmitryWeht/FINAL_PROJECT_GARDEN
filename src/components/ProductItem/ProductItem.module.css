@@ -1,6 +1,6 @@
 .product_item h3 {
   overflow: hidden;
-  color: #282828;
+
   text-overflow: ellipsis;
   font-size: 20px;
   line-height: 130%;
@@ -102,14 +102,12 @@
   stroke-width: 6px;
   stroke: #000000;
   fill: #ffffff;
-
 }
 
 .likedIcon {
   stroke: #ffffff;
   fill: rgb(252, 145, 128);
 }
-
 
 .discount_text {
   color: #fff;
@@ -124,7 +122,6 @@
 }
 
 .discounted_price {
-  color: #282828;
   font-size: clamp(20px, 5vw, 40px);
   font-weight: 600;
   line-height: 110%;
@@ -143,7 +140,6 @@
   color: #fff;
   border: 1px solid #fff;
   width: 70%;
-
 }
 
 @media (max-width: 768px) {
