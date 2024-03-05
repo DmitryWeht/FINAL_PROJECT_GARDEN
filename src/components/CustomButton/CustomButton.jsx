@@ -1,9 +1,10 @@
 import classes from "./CustomButton.module.css";
 
 const CustomButton = ({ onClick, buttonClasses, buttonText }) => {
+  // Обработчик клика по кнопке
   const handleClick = (event) => {
-    event.preventDefault();
-    onClick();
+    event.preventDefault(); // Предотвращение стандартного поведения браузера
+    onClick(); // Вызов функции onClick, переданной через пропс
   };
 
   return (
@@ -13,6 +14,7 @@ const CustomButton = ({ onClick, buttonClasses, buttonText }) => {
          ${buttonClasses}`}
         onClick={handleClick}
       >
+        {/* Отображаем текст кнопки, переданный через пропс */}
         {buttonText}
       </button>
     </div>

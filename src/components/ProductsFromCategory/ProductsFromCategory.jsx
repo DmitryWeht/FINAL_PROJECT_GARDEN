@@ -7,23 +7,28 @@ import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProduct
 import classes from "./ProductsFromCategory.module.css";
 
 const ProductsFromCategory = () => {
+  // Получение параметра categoryId из URL
   const { categoryId } = useParams();
+  // Получение данных о категории по ее идентификатору с помощью хука useGetCategoryByIdQuery
   const categoryData = useGetCategoryByIdQuery(categoryId);
+  // Получение названия категории
   const categoryTitle =
     categoryData.data && categoryData.data.category
       ? categoryData.data.category.title
       : "";
-
+  // Отображение скелетона во время загрузки
   const showSkeleton = useSkeleton(2000);
   return (
     <div>
       <p className={classes.title}>{categoryTitle}</p>
       <div className={classes.products_wrapper}>
+        {/* Если данные загружаются или показывается скелетон, отображаем заглушки */}
         {categoryData.isLoading || showSkeleton
           ? Array.from({ length: 4 }).map((_, index) => (
               <SkeletonForProductItem />
             ))
-          : categoryData.data.data.map((product) => (
+          : // Если данные загружены, отображаем каждый продукт
+            categoryData.data.data.map((product) => (
               <div key={product.id}>
                 <Link to={`/categories/${categoryId}/${product.id}`}>
                   <ProductItem {...product} />

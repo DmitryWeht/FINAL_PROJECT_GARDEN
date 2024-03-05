@@ -9,12 +9,13 @@ import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProduct
 import classes from "./ProductsList.module.css";
 
 const ProductsList = ({ content, products: propProducts }) => {
+  // Получение данных о продуктах с помощью хука useGetAllProductsQuery
   const {
     data: fetchedProducts,
     isLoading,
     isError,
   } = useGetAllProductsQuery();
-
+  // Отображение скелетона, пока загружаются данные
   const showSkeleton = useSkeleton(2000);
 
   if (isLoading) {
@@ -23,23 +24,25 @@ const ProductsList = ({ content, products: propProducts }) => {
 
   if (isError) return <div>Error...</div>;
 
-  const products = propProducts || fetchedProducts;
+  const products = propProducts || fetchedProducts; // Используем переданные или полученные данные
 
   if (!products || products.length === 0) {
     return <div>No products available</div>;
   }
-
+  // Фильтрация продуктов со скидкой
   const discountedProducts = products.filter(
     (product) => product.discont_price
   );
-
+  // Получение случайных продуктов со скидкой
   const limitedProducts = [];
   while (limitedProducts.length < 4 && discountedProducts.length > 0) {
+    // Генерация случайного индекса в массиве discountedProducts
     const randomIndex = Math.floor(Math.random() * discountedProducts.length);
-    limitedProducts.push(discountedProducts[randomIndex]);
-    discountedProducts.splice(randomIndex, 1);
-  }
+    limitedProducts.push(discountedProducts[randomIndex]); // Добавление продукта с полученным случайным индексом в массив limitedProducts
 
+    discountedProducts.splice(randomIndex, 1); // Удаление выбранного продукта из массива discountedProducts
+  }
+  // Пагинация
   const { totalPages, currentProducts, setCurrentPage } = usePagination(
     products,
     8
@@ -51,6 +54,7 @@ const ProductsList = ({ content, products: propProducts }) => {
   return (
     <div>
       <div className={classes.products_list}>
+        {/* Отображение списка продуктов */}
         {(content === "main"
           ? limitedProducts
           : content === "sale"
@@ -66,6 +70,7 @@ const ProductsList = ({ content, products: propProducts }) => {
             }
             className={classes.card_product}
           >
+            {/* Показывать скелетон или товар */}
             {showSkeleton ? (
               <SkeletonForProductItem />
             ) : (

@@ -1,5 +1,5 @@
-import { Skeleton } from "@mui/material";
-import Box from "@mui/material/Box";
+import { Skeleton } from "@mui/material"; // Импорт компонента Skeleton из Material-UI
+import Box from "@mui/material/Box"; // Импорт компонента Box из Material-UI
 import React from "react";
 const SkeletonForCategoryItem = () => {
   return (
@@ -12,6 +12,7 @@ const SkeletonForCategoryItem = () => {
         gap: "16px",
       }}
     >
+      {/* Скелетон для изображения категории */}
       <Skeleton
         animation="pulse"
         variant="rectangular"
@@ -19,6 +20,7 @@ const SkeletonForCategoryItem = () => {
         height={350}
         sx={{ borderRadius: "12px" }}
       />
+      {/* Скелетон для текстового описания категории */}
       <Skeleton
         animation="pulse"
         ariant="text"
