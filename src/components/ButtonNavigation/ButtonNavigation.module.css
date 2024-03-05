@@ -48,6 +48,10 @@ a.active {
   background: #ddd;
 }
 
+.dark #last_button {
+  color: white;
+}
+
 @media (max-width: 768px) {
   .navigation_container {
     display: none;

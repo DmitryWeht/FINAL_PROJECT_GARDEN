@@ -1,246 +1,235 @@
 .card_product {
-    display: flex;
-    padding-bottom: 82px;
-    gap: 32px;
+  display: flex;
+  padding-bottom: 82px;
+  gap: 32px;
 }
 
 .title_box {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
 
 .custom_button {
-    display: block;
-    position: static;
-    border: 1px solid #fff;
+  display: block;
+  position: static;
+  border: 1px solid #fff;
 }
 
 .text_box p:last-child {
-    color: #282828;
-    font-size: clamp(1rem, 0.917rem + 0.37vw, 1.25rem);
-    font-weight: 400;
-    line-height: 130%;
+  font-size: clamp(1rem, 0.917rem + 0.37vw, 1.25rem);
+  font-weight: 400;
+  line-height: 130%;
 }
 
 .text_box p:first-child {
-    color: #282828;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 130%;
-    margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 130%;
+  margin-bottom: 16px;
 }
 
 .image_card {
-    width: 57%;
-    min-height: auto;
-    object-fit: cover;
-    border-radius: 12px;
+  width: 57%;
+  min-height: auto;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .card_descriptoin {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
 }
 
 .info_box {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .card_descriptoin h2 {
-    color: #282828;
-    font-size: clamp(1.5rem, 1.167rem + 1.48vw, 2.5rem);
-    font-weight: 700;
-    line-height: 110%;
-    letter-spacing: 1.2px;
-    margin-bottom: 32px;
-
+  font-size: clamp(1.5rem, 1.167rem + 1.48vw, 2.5rem);
+  font-weight: 700;
+  line-height: 110%;
+  letter-spacing: 1.2px;
+  margin-bottom: 32px;
 }
 
 .prices_box {
-    display: flex;
-    align-items: flex-end;
-
+  display: flex;
+  align-items: flex-end;
 }
 
 .price {
-    color: #282828;
-    font-size: clamp(2.5rem, 2rem + 2.22vw, 4rem);
-    font-weight: 700;
-    line-height: 110%;
-    margin-right: 32px;
+  font-size: clamp(2.5rem, 2rem + 2.22vw, 4rem);
+  font-weight: 700;
+  line-height: 110%;
+  margin-right: 32px;
 }
 
 .discont_price {
-    color: #8B8B8B;
-    font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
-    font-weight: 500;
-    line-height: 130%;
-    text-decoration: line-through;
-    margin-right: 24px;
+  color: #8b8b8b;
+  font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration: line-through;
+  margin-right: 24px;
 }
 
 .discountPercentage {
-    align-self: flex-start;
-    border-radius: 6px;
-    background: #393;
-    padding: 4px 8px;
-    color: #ffffff;
-    font-family: Montserrat;
-    font-size: clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem);
-    font-weight: 600;
-    line-height: 130%;
-    letter-spacing: 0.6px;
+  align-self: flex-start;
+  border-radius: 6px;
+  background: #393;
+  padding: 4px 8px;
+  color: #ffffff;
+  font-family: Montserrat;
+  font-size: clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem);
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: 0.6px;
 }
 
 .button_box button {
-    padding: 16px 0;
-    width: 67%;
-    border-radius: 6px;
-    background: #393;
-    color: #FFF;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem);
-    font-style: normal;
-    font-weight: 600;
-    line-height: 130%;
-    white-space: nowrap;
-    background: #339933;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  padding: 16px 0;
+  width: 67%;
+  border-radius: 6px;
+  background: #393;
+  color: #fff;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  white-space: nowrap;
+  background: #339933;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .button_box button:hover {
-    background-color: #2b802b;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background-color: #2b802b;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .button_box button:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .text_box_hidden {
-    display: none;
+  display: none;
 }
 
 .likeIcon svg,
 .likedIcon svg {
-    width: 55px;
-    height: 55px;
-    stroke-width: 7px;
+  width: 55px;
+  height: 55px;
+  stroke-width: 7px;
 }
 
 .likeIcon svg {
-    stroke: #000000;
-    fill: #ffffff;
-
+  stroke: #000000;
+  fill: #ffffff;
 }
 
 .likedIcon svg {
-    stroke: #000000;
-    fill: rgb(252, 161, 146);
+  stroke: #000000;
+  fill: rgb(252, 161, 146);
 }
-
 
 @media (max-width: 1440px) {
-    .image_card {
-        width: 50%;
-    }
+  .image_card {
+    width: 50%;
+  }
 }
 
 @media (max-width: 768px) {
-    .text_box {
-        display: none;
-    }
+  .text_box {
+    display: none;
+  }
 
-    .button_box button {
-        width: 100%;
-    }
+  .button_box button {
+    width: 100%;
+  }
 
-    .text_box_hidden {
-        display: block;
-    }
+  .text_box_hidden {
+    display: block;
+  }
 
-    .text_box_hidden p:last-child {
-        color: #282828;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 130%;
-    }
+  .text_box_hidden p:last-child {
+    color: #282828;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 130%;
+  }
 
-    .text_box_hidden p:first-child {
-        color: #282828;
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 130%;
-        margin-bottom: 16px;
-    }
+  .text_box_hidden p:first-child {
+    color: #282828;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    margin-bottom: 16px;
+  }
 
-    .card_product {
-        padding-bottom: 20px;
-    }
+  .card_product {
+    padding-bottom: 20px;
+  }
 
-    .button_box {
-        flex-direction: column;
-        align-items: start;
-    }
+  .button_box {
+    flex-direction: column;
+    align-items: start;
+  }
 }
 
 @media (max-width: 768px) {
+  .likeIcon svg,
+  .likedIcon svg {
+    width: 38px;
+    height: 38px;
+  }
 
-    .likeIcon svg,
-    .likedIcon svg {
-        width: 38px;
-        height: 38px;
-    }
+  .card_product {
+    position: relative;
+    gap: 20px;
+    margin-top: clamp(40px, calc(40px + (1100px - 100vw) * 0.06), 80px);
+  }
 
-    .card_product {
-        position: relative;
-        gap: 20px;
-        margin-top: clamp(40px, calc(40px + (1100px - 100vw) * 0.06), 80px);
-    }
+  .button_box button {
+    width: 90%;
+  }
 
-    .button_box button {
-        width: 90%;
-    }
-
-    .discountPercentage {
-        position: absolute;
-        right: 52%;
-        top: 4%;
-        z-index: 1;
-    }
+  .discountPercentage {
+    position: absolute;
+    right: 52%;
+    top: 4%;
+    z-index: 1;
+  }
 }
 
 @media (max-width: 480px) {
+  .card_descriptoin h2 {
+    margin-bottom: 0;
+  }
 
-    .card_descriptoin h2 {
-        margin-bottom: 0;
-    }
+  .discountPercentage {
+    top: 2%;
+    right: 4%;
+  }
 
-    .discountPercentage {
-        top: 2%;
-        right: 4%;
-    }
+  .card_product {
+    flex-direction: column;
+  }
 
+  .image_card {
+    width: 100%;
+  }
 
-    .card_product {
-        flex-direction: column;
-    }
+  .button_box button {
+    width: 100%;
+  }
 
-    .image_card {
-        width: 100%;
-    }
-
-    .button_box button {
-        width: 100%;
-    }
-
-    .prices_box {
-        justify-content: center;
-    }
+  .prices_box {
+    justify-content: center;
+  }
 }

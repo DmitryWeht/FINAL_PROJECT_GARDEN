@@ -9,7 +9,7 @@ const TitleBar = ({ title, buttonText, linkTo }) => {
   return (
     <div className={`${classes.title_box} ${themeClass}`}>
       <h2>{title}</h2>
-      <div className={classes.line}></div>
+      <div className={`${classes.line} ${themeClass}`}></div>
       <Link to={linkTo}>
         <button>{buttonText}</button>
       </Link>

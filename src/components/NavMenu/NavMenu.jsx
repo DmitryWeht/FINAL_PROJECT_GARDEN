@@ -5,23 +5,17 @@ import classes from "./NavMenu.module.css";
 
 const NavMenu = ({ nav }) => {
   const theme = useSelector((state) => state.theme.theme);
-  // Определяем класс для темной темы
+
   const themeClass = theme === "dark" ? classes.dark : "";
   return (
     <div className={`${classes.nav_wrapper} ${themeClass}`}>
-      {" "}
-      {/* Применяем класс темы к корневому элементу */}
       <div className={`${classes.menu} ${themeClass}`}>
-        {" "}
-        {/* Применяем класс темы к меню */}
         <ul
           className={`${classes.nav_list} ${
             nav ? classes.active : ""
           } ${themeClass}`}
         >
-          {" "}
-          {/* Применяем класс темы к списку */}
-          <li className={classes.nav_list_item}>
+          <li className={`${classes.nav_list_item} ${themeClass}`}>
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -33,7 +27,7 @@ const NavMenu = ({ nav }) => {
               Main Page
             </NavLink>
           </li>
-          <li className={classes.nav_list_item}>
+          <li className={`${classes.nav_list_item} ${themeClass}`}>
             <NavLink
               to="/categories"
               className={({ isActive }) =>
@@ -45,7 +39,7 @@ const NavMenu = ({ nav }) => {
               Categories
             </NavLink>
           </li>
-          <li className={classes.nav_list_item}>
+          <li className={`${classes.nav_list_item} ${themeClass}`}>
             <NavLink
               to="/products"
               className={({ isActive }) =>
@@ -57,7 +51,7 @@ const NavMenu = ({ nav }) => {
               All products
             </NavLink>
           </li>
-          <li className={classes.nav_list_item}>
+          <li className={`${classes.nav_list_item} ${themeClass}`}>
             <NavLink
               to="/sales"
               className={({ isActive }) =>
@@ -71,14 +65,14 @@ const NavMenu = ({ nav }) => {
           </li>
           <li className={`${classes.button} ${themeClass}`}>
             {" "}
-            {/* Применяем класс темы к кнопке */}
+            {}
             <ButtonDailyDiscount />
           </li>
         </ul>
       </div>
       <div className={`${classes.hidden_button} ${themeClass}`}>
         {" "}
-        {/* Применяем класс темы к скрытой кнопке */}
+        {}
         <ButtonDailyDiscount />
       </div>
     </div>

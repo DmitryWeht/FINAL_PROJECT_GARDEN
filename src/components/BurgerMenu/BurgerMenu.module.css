@@ -11,7 +11,7 @@
   position: relative;
   width: 57px;
   height: 67px;
-  color: #282828;
+
   margin-top: 5px;
 }
 
@@ -65,7 +65,6 @@
 .likeIcon {
   width: 54px;
   height: 54px;
-  color: #282828;
 }
 
 .likeIcon:hover {

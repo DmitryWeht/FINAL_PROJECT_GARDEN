@@ -1,80 +1,89 @@
 .form_conteiner {
-    border-radius: 12px;
-    padding: 32px;
-    width: 38%;
-    height: 60vh;
-    background-color: #f1f3f4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* margin-top: 40px; */
+  border-radius: 12px;
+  padding: 32px;
+  width: 38%;
+  height: 60vh;
+  background-color: #f1f3f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-top: 40px; */
 }
 
 .text_box {
-    width: 100%;
-    align-self: flex-start;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+  width: 100%;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .total_box {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .total_sum {
-    font-size: clamp(2.5rem, 2rem + 2.22vw, 4rem);
-    font-weight: 700;
-    line-height: 70px;
-    letter-spacing: 0em;
-    color: #000000;
+  font-size: clamp(2.5rem, 2rem + 2.22vw, 4rem);
+  font-weight: 700;
+  line-height: 70px;
+  letter-spacing: 0em;
+  color: #000000;
 }
 
 h2 {
-    font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
-    font-weight: 700;
-    line-height: 44px;
-    letter-spacing: 0em;
+  font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: 0em;
 }
 
 p {
-    font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
-    font-weight: 500;
-    line-height: 52px;
-    letter-spacing: 0em;
-    color: #8B8B8B;
+  font-size: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: 0em;
+  /* color: #8b8b8b; */
 }
 
 .cartForm {
-    width: 100%;
+  width: 100%;
 }
 
 .cartInput {
-    border: 1px solid #ddd;
-    background-color: #fff;
-    color: #8b8b8b;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #8b8b8b;
 }
 
 .cartInput::placeholder {
-    color: #8b8b8b;
+  color: #8b8b8b;
 }
 
 .cartInput:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #fff inset;
-    -webkit-text-fill-color: #8b8b8b;
+  -webkit-box-shadow: 0 0 0 30px #fff inset;
+  -webkit-text-fill-color: #8b8b8b;
 }
 
 .cartButton {
-    width: 100%;
-    background-color: #0B710B;
-    color: #ffffff;
+  width: 100%;
+  background-color: #0b710b;
+  color: #ffffff;
+}
+
+.dark {
+  color: white;
+  background: rgba(64, 64, 64, 1);
+}
+
+.dark .cartInput {
+  background: #282828;
 }
 
 @media (max-width: 1000px) {
-    .form_conteiner {
-        width: 100%;
-    }
+  .form_conteiner {
+    width: 100%;
+  }
 }

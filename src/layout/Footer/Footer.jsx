@@ -13,7 +13,7 @@ function Footer() {
       <footer className={classes.footer}>
         <div className="container">
           <div className={classes.daten}>
-            <div className={`${classes.contact} ${themeClass}`}>Contact</div>
+            <div className={classes.contact}>Contact</div>
 
             <div className={classes.connect}>
               <div className={`${classes.phone} ${themeClass}`}>

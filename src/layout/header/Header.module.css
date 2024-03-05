@@ -54,6 +54,29 @@ body {
   top: 6px;
 }
 
+.themaWrapper {
+  border-radius: 30px;
+  background: #8b8b8b;
+  width: 60px;
+}
+
+.activeBg {
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  background: #ffff;
+}
+.activeDarkMode {
+  left: 1px;
+  top: 1px;
+}
+
+.themaDiv {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: relative;
+  padding: 5px 4px;
+}
+
 .dark {
   background: #282828;
   color: white;
@@ -66,10 +89,8 @@ body {
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-
 @media (max-width: 790px) {
   .header {
     padding: 12px 0;
   }
 }
-

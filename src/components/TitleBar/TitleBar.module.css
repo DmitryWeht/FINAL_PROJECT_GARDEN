@@ -49,6 +49,14 @@
 
 .dark {
   color: white;
+}
+
+.dark .line {
+  background: gray;
+}
+
+.dark button {
+  color: white;
   background: #282828;
 }
 

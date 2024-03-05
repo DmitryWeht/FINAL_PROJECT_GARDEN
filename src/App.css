@@ -39,16 +39,13 @@ a {
 }
 
 .dark {
-  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
   background: #282828;
   color: white;
 }
 
-.light {
-  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+/* .light {
   background-color: white;
-  color: black;
-}
+  color: #282828; */
 
 .container {
   width: 100%;
