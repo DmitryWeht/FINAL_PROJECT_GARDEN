@@ -1,9 +1,14 @@
+// import { Skeleton } from "@mui/material";
+import React from "react";
 import { Link } from "react-router-dom";
 import { usePagination } from "../../hooks/usePagination";
+import useSkeleton from "../../hooks/useSkeleton";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import CustomPagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
+import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";
 import classes from "./ProductsList.module.css";
+
 const ProductsList = ({ content, products: propProducts }) => {
   const {
     data: fetchedProducts,
@@ -11,7 +16,12 @@ const ProductsList = ({ content, products: propProducts }) => {
     isError,
   } = useGetAllProductsQuery();
 
-  if (isLoading) return <div>Loading...</div>;
+  const showSkeleton = useSkeleton(2000);
+
+  if (isLoading) {
+    return <SkeletonForProductItem />;
+  }
+
   if (isError) return <div>Error...</div>;
 
   const products = propProducts || fetchedProducts;
@@ -57,7 +67,11 @@ const ProductsList = ({ content, products: propProducts }) => {
             }
             className={classes.card_product}
           >
-            <ProductItem {...product} />
+            {showSkeleton ? (
+              <SkeletonForProductItem />
+            ) : (
+              <ProductItem {...product} />
+            )}
           </Link>
         ))}
       </div>
