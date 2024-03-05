@@ -6,6 +6,11 @@
   margin-bottom: 40px;
 }
 
+.dark {
+  color: white;
+  background: #282828;
+}
+
 @media (max-width: 768px) {
   .title {
     margin-bottom: 30px;

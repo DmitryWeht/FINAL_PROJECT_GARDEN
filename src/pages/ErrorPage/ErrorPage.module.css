@@ -22,14 +22,13 @@
 
 .messageWrapper h4 {
   margin: 32px auto 16px auto;
-  color: var(--txt-black, #282828);
+
   font-size: 64px;
   font-weight: 700;
   line-height: 110%;
 }
 
 .messageWrapper p {
-  color: var(--txt-grey, #8b8b8b);
   font-size: 20px;
   font-weight: 500;
   line-height: 130%;
@@ -51,6 +50,11 @@
 
 .messageWrapper button:hover {
   background: var(--black, #282828);
+}
+
+.dark {
+  color: white;
+  background: #282828;
 }
 
 @media (max-width: 768px) {

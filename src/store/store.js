@@ -15,10 +15,12 @@ import { appApi } from "./apiSlice";
 import cartReducer from "./cartSlice";
 import filterReducer from "./filterSlice";
 import likedProductsReducer from "./likedProductsSlice";
+import themeReducer from "./themeSlice";
 const persistConfig = {
   key: "root",
   storage,
 };
+
 const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
@@ -26,6 +28,7 @@ const persistedReducer = persistReducer(
     filter: filterReducer,
     cart: cartReducer,
     likedProducts: likedProductsReducer,
+    theme: themeReducer,
   })
 );
 
