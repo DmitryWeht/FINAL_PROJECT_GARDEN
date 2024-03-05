@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Link, useLocation, useParams } from "react-router-dom";
 import {
   useGetCategoryByIdQuery,
@@ -9,7 +10,7 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const location = useLocation();
   let buttonText = "";
   let linkTo = "";
-
+  // Логика для определения текста и URL кнопки в зависимости от текущего пути
   if (location.pathname.startsWith("/products")) {
     buttonText = "All products";
     linkTo = "/products";
@@ -34,7 +35,7 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
     categoryData && categoryData.category ? categoryData.category.title : "";
   const productTitle =
     productData && productData.length > 0 ? productData[0].title : "";
-
+  // Установка стилей для отображения кнопок в зависимости от наличия данных
   const categoryButtonStyle = categoryTitle
     ? { display: "block" }
     : { display: "none" };
@@ -42,9 +43,12 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
     ? { display: "block" }
     : { display: "none" };
 
+  const theme = useSelector((state) => state.theme.theme);
+  const themeClass = theme === "dark" ? classes.dark : "";
+
   return (
     <>
-      <div className={classes.navigation_container}>
+      <div className={`${classes.navigation_container} ${themeClass}`}>
         {!showOnlyFirstTwoButtons && (
           <>
             <Link to="/">

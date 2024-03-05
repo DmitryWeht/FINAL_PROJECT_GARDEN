@@ -8,7 +8,6 @@
 }
 
 .title {
-  color: #282828;
   font-size: clamp(2rem, 1.333rem + 2.96vw, 4rem);
   font-weight: 700;
   line-height: 110%;

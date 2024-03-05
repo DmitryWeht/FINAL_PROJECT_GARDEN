@@ -1,10 +1,16 @@
 .header_logo {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   cursor: pointer;
+
+  align-items: center;
+  gap: 30px;
+}
+
+.header_logo a img {
   transition: transform 0.3s;
 }
 
-.header_logo:active {
-  transform: scale(0.90);
+.header_logo a img:active {
+  transform: scale(0.9);
 }

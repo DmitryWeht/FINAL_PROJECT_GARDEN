@@ -12,6 +12,7 @@ export const CategoriesList = ({ listLength = 4 }) => {
   if (isLoading || showSkeleton) {
     return (
       <div className={classes.loading}>
+        {/* Создается массив длиной listLength, без определенных значений,затем для каждого элемента массива создается компонент скелетона*/}
         {[...Array(listLength)].map((_, index) => (
           <SkeletonForCategoryItem key={index} />
         ))}

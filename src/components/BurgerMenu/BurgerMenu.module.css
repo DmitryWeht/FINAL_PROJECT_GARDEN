@@ -11,12 +11,15 @@
   position: relative;
   width: 57px;
   height: 67px;
-  color: #282828;
   margin-top: 5px;
 }
 
 .nav_basket svg:hover {
-  color: #2b802b
+  color: #2b802b;
+}
+
+.dark.nav_basket svg:hover {
+  color: #20e220;
 }
 
 .nav_liked {
@@ -65,14 +68,13 @@
 .likeIcon {
   width: 54px;
   height: 54px;
-  color: #282828;
 }
 
 .likeIcon:hover {
   color: rgb(252, 145, 128);
 }
 
-@media (max-width: 790px) {
+@media (max-width: 950px) {
   .mobile_btn {
     display: block;
     position: absolute;

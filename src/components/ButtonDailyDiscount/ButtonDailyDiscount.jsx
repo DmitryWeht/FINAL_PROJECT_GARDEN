@@ -3,8 +3,8 @@ import { useGetAllProductsQuery } from "../../store/apiSlice";
 import DailyDiscountModal from "../DailyDiscountModal/DailyDiscountModal";
 import classes from "./ButtonDailyDiscount.module.css";
 const ButtonDailyDiscount = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [product, setProduct] = useState(null);
+  const [isOpen, setIsOpen] = useState(false); // Состояние для открытия/закрытия модального окна
+  const [product, setProduct] = useState(null); // Состояние для хранения продукта с скидкой
   const { data: products } = useGetAllProductsQuery();
 
   const toggleModal = () => {
