@@ -1,4 +1,4 @@
-import { Backdrop, Dialog, Grow } from "@mui/material";
+import { Backdrop, Dialog, Slide } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { AiOutlineClose } from "react-icons/ai";
 import classes from "./SubmitModal.module.css";
@@ -12,7 +12,7 @@ const SubmitModal = ({ open, handleCloseModal, content }) => {
       BackdropProps={{
         transitionDuration: 500,
       }}
-      TransitionComponent={Grow}
+      TransitionComponent={Slide}
       TransitionProps={{
         timeout: 500,
       }}
@@ -45,7 +45,7 @@ const SubmitModal = ({ open, handleCloseModal, content }) => {
           {content === "form" ? (
             <p>
               Your request for a 5% discount has been successfully submitted.
-              Please expect an email confirmation.
+              Please expect an email confirmation shortly.
             </p>
           ) : (
             <p>
