@@ -8,10 +8,6 @@
   color: var(--hover-color, var(--green, #0b710b));
 }
 
-.nav_list .color_active {
-  color: var(--hover-color, var(--green, #0b710b));
-}
-
 .active {
   right: 0;
 }

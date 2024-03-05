@@ -14,13 +14,13 @@ export const Filter = ({ content }) => {
   const dispatch = useDispatch();
 
   const handleMinPriceChange = (e) => {
-    dispatch(minPriceChange(e.target.value));
+    dispatch(minPriceChange(Number(e.target.value)));
   };
-
+  
   const handleMaxPriceChange = (e) => {
-    dispatch(maxPriceChange(e.target.value));
+    dispatch(maxPriceChange(Number(e.target.value)));
   };
-
+  
   return (
     <Box component="form"
       sx={{ fontFamily: 'Montserrat' }}>
@@ -45,12 +45,12 @@ export const Filter = ({ content }) => {
               height: '36px',
               position: 'relative',
               '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#0b710b',
-                color: '#0b710b',
+                borderColor: '#282828',
+                color: '#282828',
               },
               '& .MuiInputLabel-root.Mui-focused': {
-                color: '#0b710b',
-                transform: 'translate(14px, -5px) scale(0.75)', // Изменение положения метки при фокусировке
+                color: '#282828',
+                transform: 'translate(14px, -5px) scale(0.75)', 
               },
               '& .MuiInputLabel-root': {
                 color: '#888',
@@ -60,16 +60,17 @@ export const Filter = ({ content }) => {
               },
             }}
             type="number"
-            step="1.0"
-            min="0"
             id="price"
             label="min price"
             placeholder="from"
             inputProps={{
               style: {
-                padding: '8px 8px',
+                padding: '6px 6px',
                 fontSize: '16px',
               },
+              inputMode: 'numeric', 
+              pattern: '[0-9]*',
+              min: "0",
             }}
             onChange={handleMinPriceChange} />
           <TextField
@@ -77,11 +78,11 @@ export const Filter = ({ content }) => {
               width: '112px',
               height: '36px',
               '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: ' #0b710b',
+                borderColor: ' #282828',
               },
               '& .MuiInputLabel-root.Mui-focused': {
-                color: '#0b710b',
-                transform: 'translate(14px, -5px) scale(0.75)', // Изменение положения метки при фокусировке
+                color: '#282828',
+                transform: 'translate(14px, -5px) scale(0.75)',
               },
               '& .MuiInputLabel-root': {
                 color: '#888',
@@ -94,13 +95,14 @@ export const Filter = ({ content }) => {
             placeholder="to"
             inputProps={{
               style: {
-                padding: '8px 8px',
+                padding: '6px 6px',
                 fontSize: '16px',
               },
+              inputMode: 'numeric', 
+              pattern: '[0-9]*',
+              min: "0",
             }}
-            step="1.0"
             label="max price"
-            min="0"
             onChange={handleMaxPriceChange}
           />
         </div>
