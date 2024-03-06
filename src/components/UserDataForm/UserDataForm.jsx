@@ -114,7 +114,6 @@ export const UserDataForm = ({
           className={`${classes.submit_button} ${
             submittedSuccessful ? classes.successful_button : ""
           } ${buttonStyles}`}
-          disabled={submittedSuccessful}
         />
       </form>
     </div>

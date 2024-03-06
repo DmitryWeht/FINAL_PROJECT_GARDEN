@@ -56,6 +56,10 @@ footer {
   transition: color 0.3s ease;
 }
 
+.dark.number :first-child:hover {
+  color: #20e220;
+}
+
 .socials,
 .work {
   display: flex;
@@ -97,10 +101,12 @@ footer {
 }
 
 .dark .media_item svg:hover {
-  color: #2b802b;
+  color: #20e220;
 }
 
+
 @media (max-width: 1200px) {
+
   .phone,
   .adress {
     width: 48%;
@@ -118,6 +124,7 @@ footer {
 }
 
 @media (max-width: 850px) {
+
   .phone,
   .adress {
     width: 62%;
@@ -137,6 +144,7 @@ footer {
 }
 
 @media (max-width: 720px) {
+
   .phone,
   .adress {
     width: 55%;
@@ -151,6 +159,7 @@ footer {
 }
 
 @media (max-width: 620px) {
+
   .socials,
   .work {
     width: 40.5%;
@@ -177,6 +186,7 @@ footer {
 }
 
 @media (max-width: 400px) {
+
   .phone,
   .adress,
   .socials,

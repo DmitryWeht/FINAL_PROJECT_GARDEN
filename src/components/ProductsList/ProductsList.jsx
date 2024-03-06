@@ -1,10 +1,11 @@
-// import { Skeleton } from "@mui/material";
-// import React from "react";
+
+import React from "react";
 import { Link } from "react-router-dom";
 import { usePagination } from "../../hooks/usePagination";
 import useSkeleton from "../../hooks/useSkeleton";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
-// import { useDispatch, useSelector } from "react-redux";
+
+ import { useSelector } from "react-redux";
 import CustomPagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
 import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";

@@ -30,7 +30,7 @@ const BurgerMenu = ({ nav, setNav }) => {
           )}
         </NavLink>
       </div>
-      <div className={classes.nav_basket}>
+      <div className={`${classes.nav_basket} ${themeClass}`}>
         <NavLink to="/cart">
           <PiBagThin />
         </NavLink>
