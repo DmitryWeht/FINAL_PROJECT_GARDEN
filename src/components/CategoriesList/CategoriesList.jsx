@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import useSkeleton from "../../hooks/useSkeleton";
 import { useGetAllCategoriesQuery } from "../../store/apiSlice";
 import { CategoryItem } from "../CategoryItem/CategoryItem";
 import SkeletonForCategoryItem from "../SkeletonForCategoryItem/SkeletonForCategoryItem";
@@ -7,9 +6,8 @@ import classes from "./CategoriesList.module.css";
 
 export const CategoriesList = ({ listLength = 4 }) => {
   const { data, isLoading } = useGetAllCategoriesQuery();
-  const showSkeleton = useSkeleton(2000);
 
-  if (isLoading || showSkeleton) {
+  if (isLoading) {
     return (
       <div className={classes.loading}>
         {/* Создается массив длиной listLength, без определенных значений,затем для каждого элемента массива создается компонент скелетона*/}

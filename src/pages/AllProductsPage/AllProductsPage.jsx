@@ -37,7 +37,7 @@ const AllProductsPage = () => {
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
       <h1 className={classes.title}>All products</h1>
       <Filter />
-      <ProductsList products={filteredProducts} />
+      <ProductsList products={filteredProducts} isLoading={isLoading} />
     </div>
   );
 };
