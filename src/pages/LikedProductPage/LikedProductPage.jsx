@@ -1,5 +1,3 @@
-
-import { useDispatch, useSelector } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
@@ -12,18 +10,10 @@ import { usePagination } from "../../hooks/usePagination";
 import classes from "./LikedProductPage.module.css";
 
 const LikedProductPage = () => {
-  // const dispatch = useDispatch();
   const likedProducts = useSelector(
     (state) => state.likedProducts.likedProducts
   );
-  const { isLoading } = useGetAllProductsQuery();
 
-import classes from "./LikedProductPage.module.css";
-
-const LikedProductPage = () => {
-  const likedProducts = useSelector(
-    (state) => state.likedProducts.likedProducts
-  );
   const { minPrice, maxPrice, sort } = useSelector((state) => state.filter);
 
   const filteredProducts = useFiltration(
@@ -36,10 +26,8 @@ const LikedProductPage = () => {
     false
   );
 
-  const { totalPages, currentProducts, setCurrentPage } = usePagination(
-    filteredProducts,
-    8
-  );
+  const { totalPages, currentProducts, setCurrentPage, isLoading } =
+    usePagination(filteredProducts, 8);
   const handlechange = (event, page) => {
     setCurrentPage(page);
   };
