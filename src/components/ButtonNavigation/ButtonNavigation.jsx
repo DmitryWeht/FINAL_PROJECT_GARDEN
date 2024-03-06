@@ -1,9 +1,11 @@
+import { useSelector } from "react-redux";
 import { Link, useLocation, useParams } from "react-router-dom";
 import {
   useGetCategoryByIdQuery,
   useGetProductByIdQuery,
 } from "../../store/apiSlice";
 import classes from "./ButtonNavigation.module.css";
+import { ThemeContext } from "@emotion/react";
 
 const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const location = useLocation();
@@ -42,9 +44,12 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
     ? { display: "block" }
     : { display: "none" };
 
+  const theme = useSelector((state) => state.theme.theme);
+  const themeClass = theme === "dark" ? classes.dark : "";
+
   return (
     <>
-      <div className={classes.navigation_container}>
+      <div className={`${classes.navigation_container} ${themeClass}`}>
         {!showOnlyFirstTwoButtons && (
           <>
             <Link to="/">

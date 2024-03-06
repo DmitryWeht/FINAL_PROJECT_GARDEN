@@ -54,13 +54,16 @@ const ProductItem = ({
     }
     dispatch(getQuantity());
   };
+  const theme = useSelector((state) => state.theme.theme);
+
+  const themeClass = theme === "dark" ? classes.dark : "";
 
   return (
     <div>
-      <div className={`${classes.product_item} ${productStyles}`}>
-        <div className={classes.img_container}>
+      <div className={`${classes.product_item} ${productStyles} ${themeClass}`}>
+        <div className={`${classes.img_container} ${themeClass}`}>
           <img
-            className={classes.product_img}
+            className={`${classes.product_img} ${themeClass}`}
             src={`http://127.0.0.1:3333/${image}`}
             alt={title}
           />
@@ -88,15 +91,19 @@ const ProductItem = ({
             }
           }}
         />
-        <h3 className={classes.product_title}>{title}</h3>
-        <div className={classes.price_container}>
+        <h3 className={`${classes.product_title} ${themeClass}`}>{title}</h3>
+        <div className={`${classes.price_container} ${themeClass}`}>
           {discont_price ? (
             <>
-              <p className={classes.discounted_price}>${discont_price}</p>
+              <p className={`${classes.discounted_price} ${themeClass}`}>
+                ${discont_price}
+              </p>
               <p className={classes.price_without_discounted}>${price}</p>
             </>
           ) : (
-            <p className={classes.discounted_price}>${price}</p>
+            <p className={`${classes.discounted_price} ${themeClass}`}>
+              ${price}
+            </p>
           )}
         </div>
         {content === "modal" ? (

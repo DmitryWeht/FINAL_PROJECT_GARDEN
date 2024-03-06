@@ -11,12 +11,12 @@
   position: relative;
   width: 57px;
   height: 67px;
-  color: #282828;
+
   margin-top: 5px;
 }
 
 .nav_basket svg:hover {
-  color: #2b802b
+  color: #2b802b;
 }
 
 .nav_liked {
@@ -65,7 +65,6 @@
 .likeIcon {
   width: 54px;
   height: 54px;
-  color: #282828;
 }
 
 .likeIcon:hover {

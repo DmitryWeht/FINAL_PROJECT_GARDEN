@@ -1,17 +1,20 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   minPriceChange,
   maxPriceChange,
   toggleDiscounted,
   sortChange,
 } from "../../store/filterSlice";
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 import classes from "../../components/Filter/Filter.module.css";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 
 export const Filter = ({ content }) => {
   const dispatch = useDispatch();
+
+  const theme = useSelector((state) => state.theme.theme);
+  const themeClass = theme === "dark" ? classes.dark : "";
 
   const handleMinPriceChange = (e) => {
     dispatch(minPriceChange(e.target.value));
@@ -22,41 +25,45 @@ export const Filter = ({ content }) => {
   };
 
   return (
-    <Box component="form"
-      sx={{ fontFamily: 'Montserrat' }}>
-      <div className={classes.filters}>
-        <div className={classes.filter_price}>
+    <Box component="form" sx={{ fontFamily: "Montserrat" }}>
+      <div className={`${classes.filters} ${themeClass}`}>
+        <div className={`${classes.filter_price} ${themeClass}`}>
           <InputLabel
             htmlFor="price"
             sx={{
-              marginBottom: '8px',
-              fontSize: '20px',
-              fontFamily: 'Montserrat',
-              fontWeight: '500',
-              color: '#282828',
-              top: '5px',
-            }}>
+              marginBottom: "8px",
+              fontSize: "20px",
+              fontFamily: "Montserrat",
+              fontWeight: "500",
+              color: "black",
+              top: "5px",
+              "&.dark": {
+                color: "white",
+              },
+            }}
+          >
             Price
           </InputLabel>
 
           <TextField
             sx={{
-              width: '112px',
-              height: '36px',
-              position: 'relative',
-              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#0b710b',
-                color: '#0b710b',
+              width: "112px",
+              height: "36px",
+              position: "relative",
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: "#0b710b",
+                  color: "#0b710b",
+                },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#0b710b",
+                transform: "translate(14px, -5px) scale(0.75)", // Изменение положения метки при фокусировке
               },
-              '& .MuiInputLabel-root.Mui-focused': {
-                color: '#0b710b',
-                transform: 'translate(14px, -5px) scale(0.75)', // Изменение положения метки при фокусировке
-              },
-              '& .MuiInputLabel-root': {
-                color: '#888',
-                fontSize: '16px',
-                top: '-25%',
-                left: '0%',
+              "& .MuiInputLabel-root": {
+                color: "#888",
+                fontSize: "16px",
+                top: "-25%",
+                left: "0%",
               },
             }}
             type="number"
@@ -67,35 +74,37 @@ export const Filter = ({ content }) => {
             placeholder="from"
             inputProps={{
               style: {
-                padding: '8px 8px',
-                fontSize: '16px',
+                padding: "8px 8px",
+                fontSize: "16px",
               },
             }}
-            onChange={handleMinPriceChange} />
+            onChange={handleMinPriceChange}
+          />
           <TextField
             sx={{
-              width: '112px',
-              height: '36px',
-              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: ' #0b710b',
+              width: "112px",
+              height: "36px",
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: " #0b710b",
+                },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#0b710b",
+                transform: "translate(14px, -5px) scale(0.75)", // Изменение положения метки при фокусировке
               },
-              '& .MuiInputLabel-root.Mui-focused': {
-                color: '#0b710b',
-                transform: 'translate(14px, -5px) scale(0.75)', // Изменение положения метки при фокусировке
-              },
-              '& .MuiInputLabel-root': {
-                color: '#888',
-                fontSize: '16px',
-                top: '-25%',
-                left: '0%',
+              "& .MuiInputLabel-root": {
+                color: "#888",
+                fontSize: "16px",
+                top: "-25%",
+                left: "0%",
               },
             }}
             type="number"
             placeholder="to"
             inputProps={{
               style: {
-                padding: '8px 8px',
-                fontSize: '16px',
+                padding: "8px 8px",
+                fontSize: "16px",
               },
             }}
             step="1.0"
@@ -104,13 +113,12 @@ export const Filter = ({ content }) => {
             onChange={handleMaxPriceChange}
           />
         </div>
-
         {content !== "sale" && (
-          <div className={classes.checkbox}>
+          <div className={`${classes.checkbox} ${themeClass}`}>
             Discounted items
-            <label className={classes.labelForCheckbox}>
+            <label className={`${classes.labelForCheckbox} ${themeClass}`}>
               <input
-                className={classes.inputForCheckbox}
+                className={`${classes.inputForCheckbox} ${themeClass}`}
                 type="checkbox"
                 onChange={(e) => dispatch(toggleDiscounted(e.target.checked))}
               />
@@ -119,19 +127,18 @@ export const Filter = ({ content }) => {
           </div>
         )}
 
-        <div className={classes.sorted}>
+        <div className={`${classes.sorted} ${themeClass}`}>
           <label htmlFor="sort" className={classes.sort_label}>
             Sorted
           </label>
           <select
-            className={classes.sort_select}
+            className={`${classes.sort_select} ${themeClass}`}
             id="sort"
             onChange={(e) => dispatch(sortChange(e.target.value))}
           >
             <option>by default</option>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
-
           </select>
         </div>
       </div>

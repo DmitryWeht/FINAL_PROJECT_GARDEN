@@ -3,7 +3,6 @@ footer {
 }
 
 .contact {
-  color: var(--txt-black, #282828);
   font-size: clamp(2.5rem, 2.071rem + 2.14vw, 4rem);
   font-style: normal;
   font-weight: 700;
@@ -35,8 +34,6 @@ footer {
 .phone {
   height: 10%;
 }
-
-
 
 .descreibe {
   color: var(--txt-grey, #8b8b8b);
@@ -90,12 +87,23 @@ footer {
   transition: color 0.3s ease;
 }
 
-@media (max-width: 1200px) {
+.dark {
+  color: white;
+  background: rgba(64, 64, 64, 1);
+}
 
+.dark .media_item svg {
+  color: white;
+}
+
+.dark .media_item svg:hover {
+  color: #2b802b;
+}
+
+@media (max-width: 1200px) {
   .phone,
   .adress {
     width: 48%;
-
   }
 
   .socials,
@@ -110,11 +118,9 @@ footer {
 }
 
 @media (max-width: 850px) {
-
   .phone,
   .adress {
     width: 62%;
-
   }
 
   .socials,
@@ -131,7 +137,6 @@ footer {
 }
 
 @media (max-width: 720px) {
-
   .phone,
   .adress {
     width: 55%;
@@ -146,7 +151,6 @@ footer {
 }
 
 @media (max-width: 620px) {
-
   .socials,
   .work {
     width: 40.5%;
@@ -173,7 +177,6 @@ footer {
 }
 
 @media (max-width: 400px) {
-
   .phone,
   .adress,
   .socials,
