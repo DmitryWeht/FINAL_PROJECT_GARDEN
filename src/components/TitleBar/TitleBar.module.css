@@ -43,6 +43,10 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+.dark.title_box button:hover {
+  color: #20e220;
+}
+
 .hidden_button button {
   display: none;
 }

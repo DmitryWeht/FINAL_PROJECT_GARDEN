@@ -121,6 +121,10 @@
   color: #0b710b;
 }
 
+.dark.product_item:hover h3 {
+  color: #20e220;
+}
+
 .discounted_price {
   font-size: clamp(20px, 5vw, 40px);
   font-weight: 600;

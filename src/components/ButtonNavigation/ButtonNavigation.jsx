@@ -5,7 +5,6 @@ import {
   useGetProductByIdQuery,
 } from "../../store/apiSlice";
 import classes from "./ButtonNavigation.module.css";
-import { ThemeContext } from "@emotion/react";
 
 const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const location = useLocation();
