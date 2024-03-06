@@ -10,7 +10,6 @@ import { useFiltration } from "../../hooks/useFiltration";
 import { usePagination } from "../../hooks/usePagination";
 import useSkeleton from "../../hooks/useSkeleton";
 import classes from "./LikedProductPage.module.css";
-
 const LikedProductPage = () => {
   const likedProducts = useSelector(
     (state) => state.likedProducts.likedProducts
@@ -22,6 +21,7 @@ const LikedProductPage = () => {
     const newTotalPages = Math.ceil(likedProducts.length / 8);
     setTotalPages(newTotalPages);
   }, [likedProducts]);
+
   const { minPrice, maxPrice, sort } = useSelector((state) => state.filter);
 
   const filteredProducts = useFiltration(
