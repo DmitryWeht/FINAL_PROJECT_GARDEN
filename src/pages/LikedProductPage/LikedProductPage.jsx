@@ -1,3 +1,5 @@
+
+import { useDispatch, useSelector } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
@@ -11,10 +13,17 @@ import useSkeleton from "../../hooks/useSkeleton";
 import classes from "./LikedProductPage.module.css";
 
 const LikedProductPage = () => {
+  // const dispatch = useDispatch();
   const likedProducts = useSelector(
     (state) => state.likedProducts.likedProducts
   );
 
+import classes from "./LikedProductPage.module.css";
+
+const LikedProductPage = () => {
+  const likedProducts = useSelector(
+    (state) => state.likedProducts.likedProducts
+  );
   const { minPrice, maxPrice, sort } = useSelector((state) => state.filter);
 
   const filteredProducts = useFiltration(
