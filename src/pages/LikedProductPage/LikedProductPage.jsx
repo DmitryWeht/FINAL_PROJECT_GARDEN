@@ -64,7 +64,7 @@
 // };
 
 // export default LikedProductPage;
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
@@ -75,15 +75,15 @@ import SkeletonForProductItem from "../../components/SkeletonForProductItem/Skel
 import { useFiltration } from "../../hooks/useFiltration";
 import { usePagination } from "../../hooks/usePagination";
 import useSkeleton from "../../hooks/useSkeleton";
-import { updateFilters } from "../../store/likedProductsSlice";
+// import { updateFilters } from "../../store/likedProductsSlice";
 import classes from "./LikedProductPage.module.css";
 
 const LikedProductPage = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const likedProducts = useSelector(
     (state) => state.likedProducts.likedProducts
   );
-  const { filters } = useSelector((state) => state.likedProducts.filters);
+ 
   const { minPrice, maxPrice, sort } = useSelector((state) => state.filter);
 
   const filteredProducts = useFiltration(
@@ -96,9 +96,9 @@ const LikedProductPage = () => {
     false
   );
 
-  useEffect(() => {
-    dispatch(updateFilters(filteredProducts));
-  }, [dispatch, likedProducts, filters, filteredProducts]);
+  // useEffect(() => {
+  //   dispatch(updateFilters(filteredProducts));
+  // }, [dispatch, likedProducts, minPrice, maxPrice, sort, filteredProducts]);
 
   const showSkeleton = useSkeleton(2000);
 

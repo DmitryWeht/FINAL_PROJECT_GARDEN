@@ -4,41 +4,44 @@ export const useFiltration = (minPrice, maxPrice, showDiscounted, sort, data, is
   const [products, setProducts] = useState(data);
   
   useEffect(() => {
-    
     const filterProducts = () => {
       if (data && !isLoading && !isError) {
-        const filteredAndSortedProducts = data
-          .filter((product) => {
-            const productPrice = product.discont_price !== null ? product.discont_price : product.price;
-
-            const isInPriceRange =
-           (!minPrice || product.discont_price >= Number(minPrice) || productPrice >= Number(minPrice)) &&
-           (!maxPrice || product.discont_price <= Number(maxPrice) || productPrice <= Number(maxPrice));
-
+          const filteredAndSortedProducts = data
+            .filter((product) => {
+              const productPrice = product.discont_price !== null ? product.discont_price
+               : product.price;
+      
+              const isInPriceRange =
+             (!minPrice || productPrice >= Number(minPrice)) &&
+             (!maxPrice || productPrice <= Number(maxPrice));
+      
            const isDiscounted = showDiscounted ? product.discont_price !== null : true;
-            return isInPriceRange && isDiscounted;
-          })
-
+             return isInPriceRange && isDiscounted;
+            })
+      
           .sort((a, b) => {
-            const priceA = a.discont_price !== null ? a.discont_price : a.price;
-            const priceB = b.discont_price !== null ? b.discont_price : b.price;
-          
-            if (sort === 'asc') {
-                return priceA - priceB;
-              } else if (sort === 'desc') {
-                return priceB - priceA;
-              } else {
-                return 0;
-              }
-            });
+              const priceA = a.discont_price !== null ? a.discont_price : a.price;
+              const priceB = b.discont_price !== null ? b.discont_price : b.price;
+           
+              if (sort === 'asc') {
+                  return priceA - priceB;
+                } else if (sort === 'desc') {
+                  return priceB - priceA;
+                } else {
+                  return 0;
+                }
+              });
+      
+          setProducts(filteredAndSortedProducts);
+        }
+       };
+        const timeoutId = setTimeout(filterProducts, 200);
+        return () => clearTimeout(timeoutId);
+       }, [minPrice, maxPrice, showDiscounted, sort, data, isLoading, isError]);
+      
+       return products
+       };
+      
+      
 
-        setProducts(filteredAndSortedProducts);
-      }
-    };
 
-    const timeoutId = setTimeout(filterProducts, 200);
-    return () => clearTimeout(timeoutId);
-  }, [minPrice, maxPrice, showDiscounted, sort, data, isLoading, isError]);
-
-  return products
-};
