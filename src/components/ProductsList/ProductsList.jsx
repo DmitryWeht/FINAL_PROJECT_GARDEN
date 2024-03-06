@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import CustomPagination from "../../components/Pagination/Pagination";
-// import { usePagination } from "../../hooks/usePagination";
+import { usePagination } from "../../hooks/usePagination";
 import useSkeleton from "../../hooks/useSkeleton";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
+import CustomPagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
 import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";
 import classes from "./ProductsList.module.css";
@@ -40,13 +40,13 @@ const ProductsList = ({ content, products: propProducts }) => {
     discountedProducts.splice(randomIndex, 1);
   }
 
-  // const { totalPages, currentProducts, setCurrentPage } = usePagination(
-  //   products,
-  //   8
-  // );
-  // const handlechange = (event, page) => {
-  //   setCurrentPage(page);
-  // };
+  const { totalPages, currentProducts, setCurrentPage } = usePagination(
+    products,
+    8
+  );
+  const handlechange = (event, page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div>
@@ -55,7 +55,7 @@ const ProductsList = ({ content, products: propProducts }) => {
           ? limitedProducts
           : content === "sale"
           ? [...discountedProducts, ...limitedProducts]
-          : fetchedProducts
+          : currentProducts
         ).map((product) => (
           <Link
             key={product.id}
@@ -74,13 +74,9 @@ const ProductsList = ({ content, products: propProducts }) => {
           </Link>
         ))}
       </div>
-      {/* <div className={classes.pagination}>
-        {content === "main" ? (
-          ""
-        ) : (
-          <CustomPagination count={totalPages} handlechange={handlechange} />
-        )}
-      </div> */}
+      <div className={classes.pagination}>
+        <CustomPagination count={totalPages} handlechange={handlechange} />
+      </div>
     </div>
   );
 };
