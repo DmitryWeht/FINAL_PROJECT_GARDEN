@@ -21,7 +21,8 @@ const CustomPagination = ({ count, handlechange }) => {
           },
         }}
         defaultPage={1}
-        onChange={handlechange} //функция служит для определения обработчика события изменения страницы
+        onChange={handlechange}
+        //функция служит для определения обработчика события изменения страницы
       />
     </div>
   );

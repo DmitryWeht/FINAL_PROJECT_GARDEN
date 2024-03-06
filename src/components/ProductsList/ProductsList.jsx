@@ -1,11 +1,9 @@
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { usePagination } from "../../hooks/usePagination";
 import useSkeleton from "../../hooks/useSkeleton";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 
- import { useSelector } from "react-redux";
 import CustomPagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
 import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";
@@ -32,19 +30,25 @@ const ProductsList = ({ content, products: propProducts }) => {
     return <div>No products available</div>;
   }
 
-  const discountedProducts = products.filter(
-    (product) => product.discont_price
-  );
+  const [allProducts, setAllProducts] = useState(products);
 
-  const limitedProducts = [];
-  while (limitedProducts.length < 4 && discountedProducts.length > 0) {
-    const randomIndex = Math.floor(Math.random() * discountedProducts.length);
-    limitedProducts.push(discountedProducts[randomIndex]);
-    discountedProducts.splice(randomIndex, 1);
-  }
+  useEffect(() => {
+    const discountedProducts = products.filter(
+      (product) => product.discont_price
+    );
+
+    if (content === "main") {
+      const limitedProducts = discountedProducts.sort(
+        () => Math.random() - 0.5
+      );
+      setAllProducts(limitedProducts.slice(0, 4));
+    } else if (content === "sale") {
+      setAllProducts(discountedProducts);
+    } else setAllProducts(products);
+  }, [products]);
 
   const { totalPages, currentProducts, setCurrentPage } = usePagination(
-    products,
+    allProducts,
     8
   );
   const handlechange = (event, page) => {
@@ -54,12 +58,7 @@ const ProductsList = ({ content, products: propProducts }) => {
   return (
     <div>
       <div className={classes.products_list}>
-        {(content === "main"
-          ? limitedProducts
-          : content === "sale"
-          ? [...discountedProducts, ...limitedProducts]
-          : currentProducts
-        ).map((product) => (
+        {currentProducts.map((product) => (
           <Link
             key={product.id}
             to={
@@ -77,9 +76,13 @@ const ProductsList = ({ content, products: propProducts }) => {
           </Link>
         ))}
       </div>
-      <div className={classes.pagination}>
-        <CustomPagination count={totalPages} handlechange={handlechange} />
-      </div>
+      {content === "main" ? (
+        ""
+      ) : (
+        <div className={classes.pagination}>
+          <CustomPagination count={totalPages} handlechange={handlechange} />
+        </div>
+      )}
     </div>
   );
 };
