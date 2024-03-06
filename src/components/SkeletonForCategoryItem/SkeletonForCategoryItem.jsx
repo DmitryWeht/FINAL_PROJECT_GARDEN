@@ -23,7 +23,7 @@ const SkeletonForCategoryItem = () => {
       {/* Скелетон для текстового описания категории */}
       <Skeleton
         animation="pulse"
-        ariant="text"
+        variant="text"
         sx={{ fontSize: "20px", width: "60%" }}
       />
     </Box>

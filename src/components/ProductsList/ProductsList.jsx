@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { usePagination } from "../../hooks/usePagination";
-import useSkeleton from "../../hooks/useSkeleton";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 import CustomPagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
@@ -15,24 +14,34 @@ const ProductsList = ({ content, products: propProducts }) => {
     isLoading,
     isError,
   } = useGetAllProductsQuery();
-  // Отображение скелетона, пока загружаются данные
-  const showSkeleton = useSkeleton(2000);
-
-  if (isLoading) {
-    return <SkeletonForProductItem />;
-  }
-
-  if (isError) return <div>Error...</div>;
 
   const products = propProducts || fetchedProducts; // Используем переданные или полученные данные
 
+  // Создание массива скелетонов
+  const skeletonArray = Array.from({ length: 4 }, (_, index) => (
+    <SkeletonForProductItem key={index} />
+  ));
+
+  // Если данные загружаются, отображаем скелетон
+  if (isLoading) {
+    return <div className={classes.products_list}>{skeletonArray}</div>;
+  }
+
+  // Если произошла ошибка, отображаем сообщение об ошибке
+  if (isError) {
+    return <div>Error...</div>;
+  }
+
+  // Если продукты не найдены, отображаем сообщение об отсутствии продуктов
   if (!products || products.length === 0) {
     return <div>No products available</div>;
   }
+
   // Фильтрация продуктов со скидкой
   const discountedProducts = products.filter(
     (product) => product.discont_price
   );
+
   // Получение случайных продуктов со скидкой
   const limitedProducts = [];
   while (limitedProducts.length < 4 && discountedProducts.length > 0) {
@@ -42,6 +51,7 @@ const ProductsList = ({ content, products: propProducts }) => {
 
     discountedProducts.splice(randomIndex, 1); // Удаление выбранного продукта из массива discountedProducts
   }
+
   // Пагинация
   const { totalPages, currentProducts, setCurrentPage } = usePagination(
     products,
@@ -71,7 +81,7 @@ const ProductsList = ({ content, products: propProducts }) => {
             className={classes.card_product}
           >
             {/* Показывать скелетон или товар */}
-            {showSkeleton ? (
+            {isLoading ? (
               <SkeletonForProductItem />
             ) : (
               <ProductItem {...product} />
