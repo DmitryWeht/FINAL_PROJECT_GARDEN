@@ -17,13 +17,13 @@ export const Filter = ({ content }) => {
   const themeClass = theme === "dark" ? classes.dark : "";
 
   const handleMinPriceChange = (e) => {
-    dispatch(minPriceChange(e.target.value));
+    dispatch(minPriceChange(Number(e.target.value)));
   };
-
+  
   const handleMaxPriceChange = (e) => {
-    dispatch(maxPriceChange(e.target.value));
+    dispatch(maxPriceChange(Number(e.target.value)));
   };
-
+  
   return (
     <Box component="form" sx={{ fontFamily: "Montserrat" }}>
       <div className={`${classes.filters} ${themeClass}`}>
@@ -35,11 +35,8 @@ export const Filter = ({ content }) => {
               fontSize: "20px",
               fontFamily: "Montserrat",
               fontWeight: "500",
-              color: "black",
+              color: theme === "dark" ? "white" : "black",
               top: "5px",
-              "&.dark": {
-                color: "white",
-              },
             }}
           >
             Price
@@ -47,69 +44,82 @@ export const Filter = ({ content }) => {
 
           <TextField
             sx={{
-              width: "112px",
-              height: "36px",
-              position: "relative",
-              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                {
-                  borderColor: "#0b710b",
-                  color: "#0b710b",
-                },
-              "& .MuiInputLabel-root.Mui-focused": {
-                color: "#0b710b",
-                transform: "translate(14px, -5px) scale(0.75)", // Изменение положения метки при фокусировке
+              width: '112px',
+              height: '36px',
+              position: 'relative',
+              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor:  '#282828', 
               },
-              "& .MuiInputLabel-root": {
-                color: "#888",
-                fontSize: "16px",
-                top: "-25%",
-                left: "0%",
+              '& .MuiInputLabel-root.Mui-focused': { 
+                color: theme === 'dark' ? 'white' : '#282828',
+                transform: 'translate(14px, -5px) scale(0.75)', 
               },
-            }}
+              '& .MuiInputLabel-root': { 
+                color: theme === 'dark' ? 'white' : '#888',
+                fontSize: '16px',
+                top: '-25%',
+                left: '0%',
+              },
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: theme === 'dark' ? 'white !important' : '1px solid #282828 !important',
+              },
+              '& input': {
+                color: theme === 'dark' ? 'white !important' : 'black !important',
+              },
+            }
+            }
             type="number"
-            step="1.0"
-            min="0"
             id="price"
             label="min price"
             placeholder="from"
             inputProps={{
               style: {
-                padding: "8px 8px",
-                fontSize: "16px",
+                padding: '6px 6px',
+                fontSize: '16px',
+           
               },
+              inputMode: 'numeric', 
+              pattern: '[0-9]*',
+              min: "0",
             }}
             onChange={handleMinPriceChange}
           />
           <TextField
             sx={{
-              width: "112px",
-              height: "36px",
-              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                {
-                  borderColor: " #0b710b",
-                },
-              "& .MuiInputLabel-root.Mui-focused": {
-                color: "#0b710b",
-                transform: "translate(14px, -5px) scale(0.75)", // Изменение положения метки при фокусировке
+              width: '112px',
+              height: '36px',
+              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: ' #282828',
               },
-              "& .MuiInputLabel-root": {
-                color: "#888",
-                fontSize: "16px",
-                top: "-25%",
-                left: "0%",
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: theme === 'dark' ? 'white' : '#282828',
+                transform: 'translate(14px, -5px) scale(0.75)',
+              },
+              '& .MuiInputLabel-root': {
+                color: theme === 'dark' ? 'white' : '#888',
+                fontSize: '16px',
+                top: '-25%',
+                left: '0%',
+              },
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: theme === 'dark' ? 'white !important' : '1px solid #282828 !important',
+              },
+              '& input': {
+                color: theme === 'dark' ? 'white !important' : 'black !important',
               },
             }}
             type="number"
             placeholder="to"
             inputProps={{
               style: {
-                padding: "8px 8px",
-                fontSize: "16px",
+                padding: '6px 6px',
+                fontSize: '16px',
               },
+              inputMode: 'numeric', 
+              pattern: '[0-9]*',
+              min: "0",
             }}
-            step="1.0"
             label="max price"
-            min="0"
             onChange={handleMaxPriceChange}
           />
         </div>
