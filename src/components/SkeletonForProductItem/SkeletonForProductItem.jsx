@@ -12,7 +12,6 @@ const SkeletonForProductItem = () => {
         gap: "16px",
         height: "422px",
         borderRadius: "12px",
-        bgcolor: "#eee",
       }}
     >
       {/* Скелетон для изображения продукта */}

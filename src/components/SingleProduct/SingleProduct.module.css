@@ -159,14 +159,12 @@
   }
 
   .text_box_hidden p:last-child {
-    color: #282828;
     font-size: 16px;
     font-weight: 400;
     line-height: 130%;
   }
 
   .text_box_hidden p:first-child {
-    color: #282828;
     font-size: 20px;
     font-weight: 600;
     line-height: 130%;
@@ -184,7 +182,6 @@
 }
 
 @media (max-width: 768px) {
-
   .likeIcon svg,
   .likedIcon svg {
     width: 38px;
