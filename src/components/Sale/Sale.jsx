@@ -19,7 +19,7 @@ const Sale = () => {
       <div>
         <ProductsList content="main" />
       </div>
-      <div className={classes.hidden_button}>
+      <div className={`${classes.hidden_button} ${themeClass}`}>
         <Link to="/sales">
           <button>All sales</button>
         </Link>
