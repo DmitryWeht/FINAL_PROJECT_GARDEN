@@ -1,10 +1,8 @@
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { usePagination } from "../../hooks/usePagination";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 
- import { useSelector } from "react-redux";
 import CustomPagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
 import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";
@@ -40,24 +38,26 @@ const ProductsList = ({ content, products: propProducts }) => {
     return <div>No products available</div>;
   }
 
-  // Фильтрация продуктов со скидкой
-  const discountedProducts = products.filter(
-    (product) => product.discont_price
-  );
+  const [allProducts, setAllProducts] = useState(products);
 
-  // Получение случайных продуктов со скидкой
-  const limitedProducts = [];
-  while (limitedProducts.length < 4 && discountedProducts.length > 0) {
-    // Генерация случайного индекса в массиве discountedProducts
-    const randomIndex = Math.floor(Math.random() * discountedProducts.length);
-    limitedProducts.push(discountedProducts[randomIndex]); // Добавление продукта с полученным случайным индексом в массив limitedProducts
+  useEffect(() => {
+    const discountedProducts = products.filter(
+      (product) => product.discont_price
+    );
 
-    discountedProducts.splice(randomIndex, 1); // Удаление выбранного продукта из массива discountedProducts
-  }
+    if (content === "main") {
+      const limitedProducts = discountedProducts.sort(
+        () => Math.random() - 0.5
+      );
+      setAllProducts(limitedProducts.slice(0, 4));
+    } else if (content === "sale") {
+      setAllProducts(discountedProducts);
+    } else setAllProducts(products);
+  }, [products]);
 
   // Пагинация
   const { totalPages, currentProducts, setCurrentPage } = usePagination(
-    products,
+    allProducts,
     8
   );
   const handlechange = (event, page) => {
@@ -67,13 +67,7 @@ const ProductsList = ({ content, products: propProducts }) => {
   return (
     <div>
       <div className={classes.products_list}>
-        {/* Отображение списка продуктов */}
-        {(content === "main"
-          ? limitedProducts
-          : content === "sale"
-          ? [...discountedProducts, ...limitedProducts]
-          : currentProducts
-        ).map((product) => (
+        {currentProducts.map((product) => (
           <Link
             key={product.id}
             to={
@@ -92,9 +86,13 @@ const ProductsList = ({ content, products: propProducts }) => {
           </Link>
         ))}
       </div>
-      <div className={classes.pagination}>
-        <CustomPagination count={totalPages} handlechange={handlechange} />
-      </div>
+      {content === "main" ? (
+        ""
+      ) : (
+        <div className={classes.pagination}>
+          <CustomPagination count={totalPages} handlechange={handlechange} />
+        </div>
+      )}
     </div>
   );
 };

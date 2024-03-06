@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 export const usePagination = (products, productsPerPage) => {
+  console.log(products);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentProducts, setCurrentProducts] = useState(products);
 
-  const totalPages =
-    products && Math.floor(Number(products?.length / productsPerPage));
+  const totalPages = products && Math.ceil(products.length / productsPerPage);
 
   useEffect(() => {
     const lastIndex = currentPage * productsPerPage; // 1*8 = 8   // 2*8 = 16
