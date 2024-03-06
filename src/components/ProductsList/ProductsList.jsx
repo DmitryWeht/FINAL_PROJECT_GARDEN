@@ -18,16 +18,6 @@ const ProductsList = ({ content, products: propProducts }) => {
 
   const products = propProducts || fetchedProducts; // Используем переданные или полученные данные
 
-  // Создание массива скелетонов
-  const skeletonArray = Array.from({ length: 4 }, (_, index) => (
-    <SkeletonForProductItem key={index} />
-  ));
-
-  // Если данные загружаются, отображаем скелетон
-  if (isLoading) {
-    return <div className={classes.products_list}>{skeletonArray}</div>;
-  }
-
   // Если произошла ошибка, отображаем сообщение об ошибке
   if (isError) {
     return <div>Error...</div>;
@@ -52,8 +42,10 @@ const ProductsList = ({ content, products: propProducts }) => {
       setAllProducts(limitedProducts.slice(0, 4));
     } else if (content === "sale") {
       setAllProducts(discountedProducts);
-    } else setAllProducts(products);
-  }, [products]);
+    } else {
+      setAllProducts(products);
+    }
+  }, [content, products]);
 
   // Пагинация
   const { totalPages, currentProducts, setCurrentPage } = usePagination(
@@ -67,24 +59,28 @@ const ProductsList = ({ content, products: propProducts }) => {
   return (
     <div>
       <div className={classes.products_list}>
-        {currentProducts.map((product) => (
-          <Link
-            key={product.id}
-            to={
-              content === "sale"
-                ? `/sales/${product.id}`
-                : `/products/${product.id}`
-            }
-            className={classes.card_product}
-          >
-            {/* Показывать скелетон или товар */}
-            {isLoading ? (
-              <SkeletonForProductItem />
-            ) : (
-              <ProductItem {...product} />
-            )}
-          </Link>
-        ))}
+        {isLoading
+          ? Array.from({ length: 4 }, (_, index) => (
+              <SkeletonForProductItem key={index} />
+            ))
+          : currentProducts.map((product) => (
+              <Link
+                key={product.id}
+                to={
+                  content === "sale"
+                    ? `/sales/${product.id}`
+                    : `/products/${product.id}`
+                }
+                className={classes.card_product}
+              >
+                {/* Показывать скелетон или товар */}
+                {isLoading ? (
+                  <SkeletonForProductItem />
+                ) : (
+                  <ProductItem {...product} />
+                )}
+              </Link>
+            ))}
       </div>
       {content === "main" ? (
         ""
