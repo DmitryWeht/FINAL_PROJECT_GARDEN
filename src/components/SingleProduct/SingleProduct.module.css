@@ -132,6 +132,7 @@
     width: 55px;
     height: 55px;
     stroke-width: 7px;
+    cursor: pointer;
 }
 
 .likeIcon svg {

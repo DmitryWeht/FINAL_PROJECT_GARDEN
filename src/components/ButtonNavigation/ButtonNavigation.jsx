@@ -9,7 +9,7 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
   const location = useLocation();
   let buttonText = "";
   let linkTo = "";
-
+  // Логика для определения текста и URL кнопки в зависимости от текущего пути
   if (location.pathname.startsWith("/products")) {
     buttonText = "All products";
     linkTo = "/products";
@@ -34,7 +34,7 @@ const ButtonNavigation = ({ showOnlyFirstTwoButtons }) => {
     categoryData && categoryData.category ? categoryData.category.title : "";
   const productTitle =
     productData && productData.length > 0 ? productData[0].title : "";
-
+  // Установка стилей для отображения кнопок в зависимости от наличия данных
   const categoryButtonStyle = categoryTitle
     ? { display: "block" }
     : { display: "none" };

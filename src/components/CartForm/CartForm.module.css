@@ -2,12 +2,10 @@
     border-radius: 12px;
     padding: 32px;
     width: 38%;
-    height: 60vh;
     background-color: #f1f3f4;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-top: 40px; */
 }
 
 .text_box {
