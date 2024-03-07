@@ -4,7 +4,6 @@ import { addToCart, getTotals, removeFromCart } from "../../store/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
-  getQuantity,
 } from "../../store/likedProductsSlice";
 
 import CustomButton from "../CustomButton/CustomButton";
@@ -20,30 +19,32 @@ const ProductItem = ({
   content,
   buttonText,
 }) => {
+  // Получение информации о корзине из хранилища
   const cartItems = useSelector((state) => state.cart.cartItems);
   const isInCart = cartItems.some((item) => item.id === id);
   const isAddedToCart = useSelector((state) =>
     state.cart.cartItems.some((item) => item.id === id)
   );
-
+  // Проверка, добавлен ли товар в избранное
   const isLiked = useSelector((state) =>
     state.likedProducts.likedProducts.some((item) => item.id === id)
   );
   const dispatch = useDispatch();
-
+  // Вычисление процента скидки
   const discountPercentage =
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
+  // Обработчик клика по кнопке "Добавить в корзину"
   const handleClick = () => {
     dispatch(addToCart({ id, image, title, price, discont_price }));
     dispatch(getTotals());
   };
-
+  // Обработчик клика по кнопке "Удалить из корзины"
   const handleClickRemoveProduct = () => {
     dispatch(removeFromCart({ id, image, title, price, discont_price }));
   };
-
+  // Обработчик клика по иконке "Добавить в избранное"
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
     event.preventDefault();
@@ -52,8 +53,8 @@ const ProductItem = ({
     } else {
       dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
     }
-    dispatch(getQuantity());
   };
+  // Определение темы оформления
   const theme = useSelector((state) => state.theme.theme);
 
   const themeClass = theme === "dark" ? classes.dark : "";
@@ -73,10 +74,12 @@ const ProductItem = ({
             <div className={classes.discount_text}>-{discountPercentage}% </div>
           </div>
         )}
+        {/* Иконка "Добавить в избранное" */}
         <PiHeartFill
           className={isLiked ? classes.likedIcon : classes.likeIcon}
           onClick={handleClickLikeIcon}
         />
+        {/* Иконка корзины */}
         <PiHandbagSimpleFill
           className={isInCart ? classes.bag : classes.empty_bag}
           onClick={(event) => {
@@ -106,6 +109,7 @@ const ProductItem = ({
             </p>
           )}
         </div>
+        {/* Кнопка "Добавить в корзину" или "Удалить из корзины" */}
         {content === "modal" ? (
           ""
         ) : (
@@ -116,6 +120,7 @@ const ProductItem = ({
           />
         )}
       </div>
+      {/* Кнопка "Добавить в корзину" или "Удалить из корзины" для модального окна */}
       {content === "modal" ? (
         <CustomButton
           onClick={isAddedToCart ? handleClickRemoveProduct : handleClick}

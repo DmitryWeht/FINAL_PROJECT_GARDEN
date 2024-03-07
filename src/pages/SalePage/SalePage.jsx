@@ -40,7 +40,11 @@ const SalePage = () => {
       <ButtonNavigation showOnlyFirstTwoButtons={false} />
       <h1 className={classes.title}>Discounted items</h1>
       <Filter content="sale" />
-      <ProductsList content="sale" products={filteredProducts} />
+      <ProductsList
+        content="sale"
+        products={filteredProducts}
+        isLoading={isLoading}
+      />
     </div>
   );
 };

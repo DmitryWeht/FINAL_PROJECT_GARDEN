@@ -46,7 +46,7 @@ export const UserDataForm = ({
       sendOrder(userData);
       dispatch(clearCart());
       if (typeof handleOpenModalClick === "function") {
-        handleOpenModalClick();
+        handleOpenModal();
       }
     }
 

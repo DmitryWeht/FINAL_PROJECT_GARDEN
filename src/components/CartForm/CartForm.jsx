@@ -25,7 +25,6 @@ const CartForm = ({ handleOpenModalClick }) => {
         formStyles={classes.cartForm}
         buttonStyles={classes.cartButton}
         buttonText="Order"
-        successText="Thanks for your order"
         requestType="sendOrder"
       />
     </div>

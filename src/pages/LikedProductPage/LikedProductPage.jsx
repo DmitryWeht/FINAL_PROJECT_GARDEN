@@ -7,8 +7,8 @@ import ProductItem from "../../components/ProductItem/ProductItem";
 import SkeletonForProductItem from "../../components/SkeletonForProductItem/SkeletonForProductItem";
 import { useFiltration } from "../../hooks/useFiltration";
 import { usePagination } from "../../hooks/usePagination";
-import useSkeleton from "../../hooks/useSkeleton";
 import classes from "./LikedProductPage.module.css";
+
 const LikedProductPage = () => {
   const likedProducts = useSelector(
     (state) => state.likedProducts.likedProducts
@@ -26,11 +26,8 @@ const LikedProductPage = () => {
     false
   );
 
-  const showSkeleton = useSkeleton(2000);
-  const { totalPages, currentProducts, setCurrentPage } = usePagination(
-    filteredProducts,
-    8
-  );
+  const { totalPages, currentProducts, setCurrentPage, isLoading } =
+    usePagination(filteredProducts, 8);
   const handlechange = (event, page) => {
     setCurrentPage(page);
   };
@@ -43,7 +40,7 @@ const LikedProductPage = () => {
       <h1 className={classes.title}>Liked products</h1>
       <Filter content="sale" />
       <div className={classes.products_list}>
-        {showSkeleton
+        {isLoading
           ? Array.from({ length: skeletonCount }).map((_, index) => (
               <SkeletonForProductItem key={index} />
             ))

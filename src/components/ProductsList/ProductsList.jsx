@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { usePagination } from "../../hooks/usePagination";
-import useSkeleton from "../../hooks/useSkeleton";
 import { useGetAllProductsQuery } from "../../store/apiSlice";
 
 import CustomPagination from "../Pagination/Pagination";
@@ -10,22 +9,21 @@ import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProduct
 import classes from "./ProductsList.module.css";
 
 const ProductsList = ({ content, products: propProducts }) => {
+  // Получение данных о продуктах с помощью хука useGetAllProductsQuery
   const {
     data: fetchedProducts,
     isLoading,
     isError,
   } = useGetAllProductsQuery();
 
-  const showSkeleton = useSkeleton(2000);
+  const products = propProducts || fetchedProducts; // Используем переданные или полученные данные
 
-  if (isLoading) {
-    return <SkeletonForProductItem />;
+  // Если произошла ошибка, отображаем сообщение об ошибке
+  if (isError) {
+    return <div>Error...</div>;
   }
 
-  if (isError) return <div>Error...</div>;
-
-  const products = propProducts || fetchedProducts;
-
+  // Если продукты не найдены, отображаем сообщение об отсутствии продуктов
   if (!products || products.length === 0) {
     return <div>No products available</div>;
   }
@@ -44,9 +42,12 @@ const ProductsList = ({ content, products: propProducts }) => {
       setAllProducts(limitedProducts.slice(0, 4));
     } else if (content === "sale") {
       setAllProducts(discountedProducts);
-    } else setAllProducts(products);
-  }, [products]);
+    } else {
+      setAllProducts(products);
+    }
+  }, [content, products]);
 
+  // Пагинация
   const { totalPages, currentProducts, setCurrentPage } = usePagination(
     allProducts,
     8
@@ -58,23 +59,28 @@ const ProductsList = ({ content, products: propProducts }) => {
   return (
     <div>
       <div className={classes.products_list}>
-        {currentProducts.map((product) => (
-          <Link
-            key={product.id}
-            to={
-              content === "sale"
-                ? `/sales/${product.id}`
-                : `/products/${product.id}`
-            }
-            className={classes.card_product}
-          >
-            {showSkeleton ? (
-              <SkeletonForProductItem />
-            ) : (
-              <ProductItem {...product} />
-            )}
-          </Link>
-        ))}
+        {isLoading
+          ? Array.from({ length: 4 }, (_, index) => (
+              <SkeletonForProductItem key={index} />
+            ))
+          : currentProducts.map((product) => (
+              <Link
+                key={product.id}
+                to={
+                  content === "sale"
+                    ? `/sales/${product.id}`
+                    : `/products/${product.id}`
+                }
+                className={classes.card_product}
+              >
+                {/* Показывать скелетон или товар */}
+                {isLoading ? (
+                  <SkeletonForProductItem />
+                ) : (
+                  <ProductItem {...product} />
+                )}
+              </Link>
+            ))}
       </div>
       {content === "main" ? (
         ""
