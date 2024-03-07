@@ -8,13 +8,9 @@ import ProductItem from "../ProductItem/ProductItem";
 import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";
 import classes from "./ProductsList.module.css";
 
-const ProductsList = ({ content, products: propProducts }) => {
+const ProductsList = ({ content, products: propProducts, isLoading }) => {
   // Получение данных о продуктах с помощью хука useGetAllProductsQuery
-  const {
-    data: fetchedProducts,
-    isLoading,
-    isError,
-  } = useGetAllProductsQuery();
+  const { data: fetchedProducts, isError } = useGetAllProductsQuery();
 
   const products = propProducts || fetchedProducts; // Используем переданные или полученные данные
 
