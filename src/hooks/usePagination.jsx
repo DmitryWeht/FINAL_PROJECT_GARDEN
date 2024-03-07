@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export const usePagination = (products, productsPerPage) => {
-  console.log(products);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentProducts, setCurrentProducts] = useState(products);
   //Math.ceil() используется для округления значения в большую сторону, чтобы учесть все продукты

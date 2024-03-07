@@ -36,7 +36,7 @@ export const UserDataForm = ({
   const handlePostUserData = (data) => {
     const userData = {
       ...data,
-      id: uuidv4(),
+      id: uuidv4(), // Генерация уникального идентификатора для пользователя
     };
 
     if (requestType === "getDiscount") {
@@ -54,7 +54,7 @@ export const UserDataForm = ({
     console.log(userData);
     reset();
   };
-
+  // Функция для сброса состояния успешной отправки при изменении ввода
   const handleInputChange = () => {
     setSubmittedSuccessful(false);
   };
