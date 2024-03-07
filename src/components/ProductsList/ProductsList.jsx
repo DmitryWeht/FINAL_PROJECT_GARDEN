@@ -54,30 +54,29 @@ const ProductsList = ({ content, products: propProducts, isLoading }) => {
 
   return (
     <div>
-      <div className={classes.products_list}>
-        {isLoading
-          ? Array.from({ length: 4 }, (_, index) => (
-              <SkeletonForProductItem key={index} />
-            ))
-          : currentProducts.map((product) => (
-              <Link
-                key={product.id}
-                to={
-                  content === "sale"
-                    ? `/sales/${product.id}`
-                    : `/products/${product.id}`
-                }
-                className={classes.card_product}
-              >
-                {/* Показывать скелетон или товар */}
-                {isLoading ? (
-                  <SkeletonForProductItem />
-                ) : (
-                  <ProductItem {...product} />
-                )}
-              </Link>
-            ))}
-      </div>
+      {isLoading ? (
+        <div className={classes.products_list}>
+          {Array.from({ length: 4 }, (_, index) => (
+            <SkeletonForProductItem key={index} />
+          ))}
+        </div>
+      ) : (
+        <div className={classes.products_list}>
+          {currentProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={
+                content === "sale"
+                  ? `/sales/${product.id}`
+                  : `/products/${product.id}`
+              }
+              className={classes.card_product}
+            >
+              <ProductItem {...product} />
+            </Link>
+          ))}
+        </div>
+      )}
       {content === "main" ? (
         ""
       ) : (
