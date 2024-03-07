@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-
   align-items: center;
   gap: 30px;
 }
@@ -13,4 +12,10 @@
 
 .header_logo a img:active {
   transform: scale(0.9);
+}
+
+@media (max-width: 480px) {
+  .header_logo {
+    gap: 12px;
+  }
 }
