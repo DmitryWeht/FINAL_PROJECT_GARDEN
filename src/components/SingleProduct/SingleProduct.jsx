@@ -7,7 +7,6 @@ import { addToCart, getTotals, removeFromCart } from "../../store/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
-  getQuantity,
 } from "../../store/likedProductsSlice";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./SingleProduct.module.css";
@@ -36,7 +35,6 @@ const SingleProduct = ({ handleOpenModal }) => {
     } else {
       dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
     }
-    dispatch(getQuantity());
     setIsLiked(!isLiked);
   };
 

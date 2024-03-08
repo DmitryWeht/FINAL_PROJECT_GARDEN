@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { usePagination } from "../../hooks/usePagination";
-import { useGetAllProductsQuery } from "../../store/apiSlice";
-
 import CustomPagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
 import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";
 import classes from "./ProductsList.module.css";
 
 const ProductsList = ({ content, products: propProducts, isLoading }) => {
-  // Получение данных о продуктах с помощью хука useGetAllProductsQuery
-  const { data: fetchedProducts, isError } = useGetAllProductsQuery();
+  // В переменной products храним список продуктов, переданных в пропсах.
+  const products = propProducts;
 
-  const products = propProducts || fetchedProducts; // Используем переданные или полученные данные
-
-  // Если произошла ошибка, отображаем сообщение об ошибке
-  if (isError) {
-    return <div>Error...</div>;
-  }
-
-  // Если продукты не найдены, отображаем сообщение об отсутствии продуктов
   if (!products || products.length === 0) {
     return <div>No products available</div>;
   }
-
+  // В allProducts храним состояние текущего списка продуктов
   const [allProducts, setAllProducts] = useState(products);
-
+  // useEffect вызывается при изменении списка продуктов (products) или контента.
   useEffect(() => {
     const discountedProducts = products.filter(
       (product) => product.discont_price
@@ -41,9 +31,8 @@ const ProductsList = ({ content, products: propProducts, isLoading }) => {
     } else {
       setAllProducts(products);
     }
-  }, [content, products]);
+  }, [products]);
 
-  // Пагинация
   const { totalPages, currentProducts, setCurrentPage } = usePagination(
     allProducts,
     8

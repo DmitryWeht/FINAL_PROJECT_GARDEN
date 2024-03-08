@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
@@ -15,14 +14,6 @@ const LikedProductPage = () => {
     (state) => state.likedProducts.likedProducts
   );
 
-  const [totalPages, setTotalPages] = useState(1);
-
-  useEffect(() => {
-    // Пересчитываем totalPages при изменении списка избранных товаров
-    const newTotalPages = Math.ceil(likedProducts.length / 8);
-    setTotalPages(newTotalPages);
-  }, [likedProducts]);
-
   const { minPrice, maxPrice, sort } = useSelector((state) => state.filter);
 
   const filteredProducts = useFiltration(
@@ -35,10 +26,8 @@ const LikedProductPage = () => {
     false
   );
 
-  const { currentProducts, setCurrentPage, isLoading } = usePagination(
-    filteredProducts,
-    8
-  );
+  const { totalPages, currentProducts, setCurrentPage, isLoading } =
+    usePagination(filteredProducts, 8);
   const handlechange = (event, page) => {
     setCurrentPage(page);
   };
