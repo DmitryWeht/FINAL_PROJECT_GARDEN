@@ -1,17 +1,17 @@
-import { useSelector, useDispatch } from "react-redux";
-import { toggleTheme } from "../../store/themeSlice";
-import sun from "../../media/sun.svg";
-import CirlceLight from "../../media/CirlceLightMode.svg";
+import { useDispatch, useSelector } from "react-redux";
 import CirlceDark from "../../media/CirlceDarkMode.svg";
+import CirlceLight from "../../media/CirlceLightMode.svg";
 import moon from "../../media/moon.svg";
+import sun from "../../media/sun.svg";
+import { toggleTheme } from "../../store/themeSlice";
 import classes from "./ThemaToggle.module.css";
 
 const ThemaToggle = () => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme.theme); // Доступ к текущей теме из Redux store
+  const theme = useSelector((state) => state.theme.theme);
 
   const toggleThemeHandler = () => {
-    dispatch(toggleTheme()); // Вызов действия toggleTheme
+    dispatch(toggleTheme());
   };
 
   return (

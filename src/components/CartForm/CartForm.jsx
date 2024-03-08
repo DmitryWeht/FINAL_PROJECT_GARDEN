@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { UserDataForm } from "../UserDataForm/UserDataForm";
 import classes from "./CartForm.module.css";
 
-const CartForm = ({ handleOpenModalClick }) => {
+const CartForm = ({ handleOpenModal }) => {
   const totalQuantity = useSelector((state) => state.cart.cartTotalQuantity);
   const totalAmount = useSelector((state) => state.cart.cartTotalAmount);
   const theme = useSelector((state) => state.theme.theme);
@@ -20,7 +20,7 @@ const CartForm = ({ handleOpenModalClick }) => {
       </div>
 
       <UserDataForm
-        handleSubmitClick={handleOpenModalClick}
+        handleOpenModal={handleOpenModal}
         inputStyles={classes.cartInput}
         formStyles={classes.cartForm}
         buttonStyles={classes.cartButton}

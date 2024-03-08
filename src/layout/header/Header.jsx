@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import classes from "./Header.module.css";
-import NavMenu from "../../components/NavMenu/NavMenu";
+import { useSelector } from "react-redux";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import HeaderLogo from "../../components/HeaderLogo/HeaderLogo";
+import NavMenu from "../../components/NavMenu/NavMenu";
+import classes from "./Header.module.css";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
-  const dispatch = useDispatch();
+
   const theme = useSelector((state) => state.theme.theme);
   const themeClass = theme === "light" ? classes.light : classes.dark;
 

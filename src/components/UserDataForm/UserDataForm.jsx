@@ -16,8 +16,6 @@ export const UserDataForm = ({
   buttonText = "Get a discount",
   successText = "Request Submitted",
   requestType = "getDiscount",
-  handleOpenModalClick,
-  handleSubmitClick,
   handleOpenModal,
 }) => {
   const dispatch = useDispatch();
@@ -36,7 +34,7 @@ export const UserDataForm = ({
   const handlePostUserData = (data) => {
     const userData = {
       ...data,
-      id: uuidv4(), // Генерация уникального идентификатора для пользователя
+      id: uuidv4(),
     };
 
     if (requestType === "getDiscount") {
@@ -45,13 +43,9 @@ export const UserDataForm = ({
     } else if (requestType === "sendOrder") {
       sendOrder(userData);
       dispatch(clearCart());
-      if (typeof handleOpenModalClick === "function") {
-        handleOpenModal();
-      }
+      handleOpenModal();
     }
-
     setSubmittedSuccessful(true);
-    console.log(userData);
     reset();
   };
   // Функция для сброса состояния успешной отправки при изменении ввода
@@ -110,7 +104,6 @@ export const UserDataForm = ({
         <input
           type="submit"
           value={submittedSuccessful ? successText : buttonText}
-          onClick={handleSubmitClick}
           className={`${classes.submit_button} ${
             submittedSuccessful ? classes.successful_button : ""
           } ${buttonStyles}`}

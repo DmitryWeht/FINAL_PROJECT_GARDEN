@@ -1,16 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-// Начальное состояние корзины
+
 const initialState = {
-  cartItems: [], // Массив элементов корзины
-  cartTotalQuantity: null, // Общее количество товаров в корзине
-  cartTotalAmount: 0, // Общая стоимость товаров в корзине
+  cartItems: [],
+  cartTotalQuantity: null,
+  cartTotalAmount: 0,
 };
-// Создание среза (slice) для корзины
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    // Добавление товара в корзину
     addToCart(state, action) {
       const existingProductIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
@@ -24,37 +23,36 @@ const cartSlice = createSlice({
         state.cartTotalQuantity += 1;
       }
     },
-    // Удаление товара из корзины
     removeFromCart(state, action) {
       const { id } = action.payload;
       const itemIndex = state.cartItems.findIndex((item) => item.id === id);
       // Если товар найден в корзине
       if (itemIndex !== -1) {
         state.cartItems.splice(itemIndex, 1); // Удаляем товар из корзины
-        state.cartTotalQuantity -= 1; // Уменьшаем общее количество товаров в корзине
+        state.cartTotalQuantity -= 1;
       }
     },
-    // Увеличение количества товара в корзине
+
     increaseCart(state, action) {
       const { id } = action.payload;
       const itemIndex = state.cartItems.findIndex((item) => item.id === id);
       // Если товар найден в корзине
       if (itemIndex !== -1) {
         state.cartItems[itemIndex].cartQuantity += 1; // Увеличиваем количество выбранного товара
-        state.cartTotalQuantity += 1; // Увеличиваем общее количество товаров в корзине
+        state.cartTotalQuantity += 1;
       }
     },
-    // Уменьшение количества товара в корзине
+
     decreaseCart(state, action) {
       const { id } = action.payload;
       const itemIndex = state.cartItems.findIndex((item) => item.id === id);
       // Если количество выбранного товара больше нуля
       if (state.cartItems[itemIndex].cartQuantity > 0) {
         state.cartItems[itemIndex].cartQuantity -= 1; // Уменьшаем количество выбранного товара
-        state.cartTotalQuantity -= 1; // Уменьшаем общее количество товаров в корзине
+        state.cartTotalQuantity -= 1;
       }
     },
-    // Очистка корзины
+
     clearCart(state) {
       state.cartItems = [];
     },

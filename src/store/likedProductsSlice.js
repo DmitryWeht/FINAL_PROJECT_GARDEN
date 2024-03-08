@@ -57,22 +57,6 @@ const likedProductsSlice = createSlice({
       );
       state.likeTotalQuantity--;
     },
-    // getQuantity(state) {
-    //   // Деструктурируем likedProducts из состояния
-    //   const { likedProducts } = state;
-    //   // Создаем пустой массив для хранения уникальных id товаров
-    //   const uniqueIds = [];
-    //   // Проверяем, содержится ли id текущего товара в массиве уникальных id
-    //   likedProducts.forEach((item) => {
-    //     if (!uniqueIds.includes(item.id)) {
-    //       //Если нет,то добавляем его в массив
-    //       uniqueIds.push(item.id);
-    //     }
-    //   });
-    //   // Получаем количество уникальных id товаров и обновляем состояние
-    //   const quantity = uniqueIds.length;
-    //   state.likeTotalQuantity = quantity;
-    // },
 
     updateFilters(state, action) {
       // Обновляем фильтры, объединяя текущие фильтры со вновь полученными
