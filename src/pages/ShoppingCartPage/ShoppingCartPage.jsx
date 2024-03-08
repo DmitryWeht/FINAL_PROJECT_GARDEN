@@ -60,7 +60,7 @@ const ShoppingCartPage = () => {
 
         <SubmitModal open={openModal} handleCloseModal={handleCloseModal} />
 
-        {isCartNotEmpty && <CartForm handleOpenModalClick={handleOpenModal} />}
+        {isCartNotEmpty && <CartForm handleOpenModal={handleOpenModal} />}
       </div>
     </div>
   );

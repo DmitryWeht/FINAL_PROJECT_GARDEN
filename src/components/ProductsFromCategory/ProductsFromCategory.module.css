@@ -24,9 +24,12 @@
   .products_wrapper {
     grid-template-columns: repeat(2, 1fr);
   }
+}
 
+@media (max-width: 768px) {
   .title {
-    padding-top: 24px;
+    margin-bottom: 30px;
+    margin-top: clamp(40px, calc(40px + (1200px - 100vw) * 0.06), 90px);
   }
 }
 

@@ -1,5 +1,5 @@
-import { Skeleton } from "@mui/material"; // Импорт компонента Skeleton из Material-UI
-import Box from "@mui/material/Box"; // Импорт компонента Box из Material-UI
+import { Skeleton } from "@mui/material";
+import Box from "@mui/material/Box";
 import React from "react";
 
 const SkeletonForProductItem = () => {
@@ -14,7 +14,6 @@ const SkeletonForProductItem = () => {
         borderRadius: "12px",
       }}
     >
-      {/* Скелетон для изображения продукта */}
       <Skeleton
         animation="pulse"
         variant="rectangular"
@@ -32,7 +31,6 @@ const SkeletonForProductItem = () => {
           gap: "16px",
         }}
       >
-        {/* Скелетон для названия продукта */}
         <Skeleton
           animation="pulse"
           variant="text"
@@ -41,7 +39,6 @@ const SkeletonForProductItem = () => {
             width: "80%",
           }}
         />
-        {/* Скелетон для цены продукта */}
         <Skeleton
           animation="pulse"
           variant="text"

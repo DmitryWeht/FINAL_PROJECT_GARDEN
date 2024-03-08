@@ -4,7 +4,6 @@ import { addToCart, getTotals, removeFromCart } from "../../store/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
-  getQuantity,
 } from "../../store/likedProductsSlice";
 
 import CustomButton from "../CustomButton/CustomButton";
@@ -54,7 +53,6 @@ const ProductItem = ({
     } else {
       dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
     }
-    dispatch(getQuantity());
   };
   // Определение темы оформления
   const theme = useSelector((state) => state.theme.theme);

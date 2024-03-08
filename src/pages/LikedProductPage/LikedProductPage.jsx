@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ButtonNavigation from "../../components/ButtonNavigation/ButtonNavigation";
@@ -8,7 +7,6 @@ import ProductItem from "../../components/ProductItem/ProductItem";
 import SkeletonForProductItem from "../../components/SkeletonForProductItem/SkeletonForProductItem";
 import { useFiltration } from "../../hooks/useFiltration";
 import { usePagination } from "../../hooks/usePagination";
-import { useGetAllProductsQuery } from "../../store/apiSlice";
 import classes from "./LikedProductPage.module.css";
 
 const LikedProductPage = () => {
@@ -16,14 +14,6 @@ const LikedProductPage = () => {
     (state) => state.likedProducts.likedProducts
   );
   const { data: allProducts, isLoading } = useGetAllProductsQuery();
-  const [totalPages, setTotalPages] = useState(1);
-
-  useEffect(() => {
-    // Пересчитываем totalPages при изменении списка избранных товаров
-    const newTotalPages = Math.ceil(likedProducts.length / 8);
-    setTotalPages(newTotalPages);
-  }, [likedProducts]);
-
   const { minPrice, maxPrice, sort } = useSelector((state) => state.filter);
 
   const filteredProducts = useFiltration(
@@ -36,7 +26,7 @@ const LikedProductPage = () => {
     false
   );
 
-  const { currentProducts, setCurrentPage } = usePagination(
+  const { totalPages, currentProducts, setCurrentPage } = usePagination(
     filteredProducts,
     8
   );

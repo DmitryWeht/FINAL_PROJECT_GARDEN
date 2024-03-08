@@ -64,7 +64,7 @@
   opacity: 0;
 }
 
-.inputForCheckbox:checked ~ span::after {
+.inputForCheckbox:checked~span::after {
   width: 30px;
   height: 30px;
   opacity: 1;
@@ -92,7 +92,11 @@
 }
 
 .sort_select:hover {
-  border: 1px solid black;
+  border: 1px solid #000000;
+}
+
+.dark.sort_select:hover {
+  border: 1px solid #ffffff;
 }
 
 .sort_label {
@@ -114,8 +118,10 @@
 
 .darkTheme {
   /* Стили для тёмной темы */
-  color: white; /* Пример для текста */
-  background-color: black; /* Пример для фона */
+  color: white;
+  /* Пример для текста */
+  background-color: black;
+  /* Пример для фона */
 }
 
 @media (max-width: 1000px) {
@@ -123,9 +129,11 @@
     margin-left: 0px;
     gap: 30px;
   }
+
   .sort_select {
     padding: 8px 20px 8px 10px;
   }
+
   .filters {
     gap: 20px;
   }
