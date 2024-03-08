@@ -6,7 +6,7 @@ const initialState = {
   filters: {
     minPrice: null,
     maxPrice: null,
-    sort: '',
+    sort: "",
   },
 };
 
@@ -19,10 +19,10 @@ const applyFiltersAndSort = (products, filters) => {
   if (maxPrice !== null && maxPrice !== undefined) {
     products = products.filter((product) => product.price <= maxPrice);
   }
-  
-  if (sort === 'asc') {
+
+  if (sort === "asc") {
     products = products.sort((a, b) => a.price - b.price);
-  } else if (sort === 'desc') {
+  } else if (sort === "desc") {
     products = products.sort((a, b) => b.price - a.price);
   }
 
@@ -69,7 +69,10 @@ const likedProductsSlice = createSlice({
 
     updateFilters(state, action) {
       const newFilters = { ...state.filters, ...action.payload };
-      const updatedLikedProducts = applyFiltersAndSort(state.likedProducts, newFilters);
+      const updatedLikedProducts = applyFiltersAndSort(
+        state.likedProducts,
+        newFilters
+      );
       return {
         ...state,
         filters: newFilters,
@@ -79,7 +82,11 @@ const likedProductsSlice = createSlice({
   },
 });
 
-export const { addToLikedProducts, deleteFromLikedProducts, getQuantity, updateFilters } =
-  likedProductsSlice.actions;
+export const {
+  addToLikedProducts,
+  deleteFromLikedProducts,
+  getQuantity,
+  updateFilters,
+} = likedProductsSlice.actions;
 export { applyFiltersAndSort };
 export default likedProductsSlice.reducer;

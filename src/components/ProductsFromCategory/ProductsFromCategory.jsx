@@ -5,12 +5,9 @@ import ProductItem from "../ProductItem/ProductItem";
 import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";
 import classes from "./ProductsFromCategory.module.css";
 
-const ProductsFromCategory = () => {
-  // Получение параметра categoryId из URL
+const ProductsFromCategory = ({ isLoading }) => {
   const { categoryId } = useParams();
-  // Получение данных о категории по ее идентификатору с помощью хука useGetCategoryByIdQuery
-  const { data: categoryData, isLoading } = useGetCategoryByIdQuery(categoryId);
-  // Получение названия категории
+  const { data: categoryData } = useGetCategoryByIdQuery(categoryId);
   const categoryTitle =
     categoryData && categoryData.category ? categoryData.category.title : "";
 
@@ -18,12 +15,14 @@ const ProductsFromCategory = () => {
     <div>
       <p className={classes.title}>{categoryTitle}</p>
       <div className={classes.products_wrapper}>
-        {/* Если данные загружаются, отображаем скелетон */}
         {isLoading
-          ? Array.from({ length: 4 }).map((_, index) => (
+          ? // Проверяем isLoading перед отображением скелетона
+            Array.from({ length: 4 }).map((_, index) => (
               <SkeletonForProductItem key={index} />
             ))
-          : // Если данные загружены, отображаем каждый продукт
+          : // Проверяем, существует ли categoryData и его свойство data
+            categoryData &&
+            categoryData.data &&
             categoryData.data.map((product) => (
               <div key={product.id}>
                 <Link to={`/categories/${categoryId}/${product.id}`}>
