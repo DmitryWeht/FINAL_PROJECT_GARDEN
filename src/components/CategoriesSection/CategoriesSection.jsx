@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { CategoriesList } from "../CategoriesList/CategoriesList";
 import TitleBar from "../TitleBar/TitleBar";
 import classes from "./CategoriesSection.module.css";
 
-export const CategoriesSection = () => {
+export const CategoriesSection = ({ isLoading }) => {
   const theme = useSelector((state) => state.theme.theme);
   // Определение стилей для кнопки в зависимости от темы
   const buttonStyle = {
@@ -30,7 +30,7 @@ export const CategoriesSection = () => {
           buttonText="All categories"
           linkTo="/categories"
         />
-        <CategoriesList />
+        <CategoriesList isLoading={isLoading} />
         <div className={classes.hidden_button}>
           <Link to="/categories">
             <button style={buttonStyle}>All categories</button>
