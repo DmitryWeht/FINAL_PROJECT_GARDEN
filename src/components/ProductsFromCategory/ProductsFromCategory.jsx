@@ -23,7 +23,9 @@ const ProductsFromCategory = ({ isLoading }) => {
           ? Array.from({ length: 4 }).map((_, index) => (
               <SkeletonForProductItem key={index} />
             ))
-          : // Если данные загружены, отображаем каждый продукт
+          : // Если данные загружены и categoryData существует, отображаем каждый продукт
+            categoryData &&
+            categoryData.data &&
             categoryData.data.map((product) => (
               <div key={product.id}>
                 <Link to={`/categories/${categoryId}/${product.id}`}>
