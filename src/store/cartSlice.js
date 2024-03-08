@@ -47,7 +47,7 @@ const cartSlice = createSlice({
       const { id } = action.payload;
       const itemIndex = state.cartItems.findIndex((item) => item.id === id);
       // Если количество выбранного товара больше нуля
-      if (state.cartItems[itemIndex].cartQuantity > 0) {
+      if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1; // Уменьшаем количество выбранного товара
         state.cartTotalQuantity -= 1;
       }
