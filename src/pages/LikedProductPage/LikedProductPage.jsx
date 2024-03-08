@@ -7,6 +7,7 @@ import ProductItem from "../../components/ProductItem/ProductItem";
 import SkeletonForProductItem from "../../components/SkeletonForProductItem/SkeletonForProductItem";
 import { useFiltration } from "../../hooks/useFiltration";
 import { usePagination } from "../../hooks/usePagination";
+import { useGetAllProductsQuery } from "../../store/apiSlice";
 import classes from "./LikedProductPage.module.css";
 
 const LikedProductPage = () => {
