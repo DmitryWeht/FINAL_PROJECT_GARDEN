@@ -31,7 +31,7 @@ const ProductsList = ({ content, products: propProducts, isLoading }) => {
     } else {
       setAllProducts(products);
     }
-  }, [products]);
+  }, [content, products]);
 
   const { totalPages, currentProducts, setCurrentPage } = usePagination(
     allProducts,
