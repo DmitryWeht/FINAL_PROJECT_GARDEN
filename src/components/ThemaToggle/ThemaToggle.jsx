@@ -20,13 +20,12 @@ const ThemaToggle = () => {
         theme === "dark" ? classes.activeBackground : ""
       }`}
     >
-      <div className={classes.themeContainer}>
+      <div className={classes.themeContainer} onClick={toggleThemeHandler}>
         <img className={classes.Img} src={sun} alt="sun" />
         <button
           className={`${classes.Btn} ${
             theme === "light" ? classes.EnableDarkMode : ""
           }`}
-          onClick={toggleThemeHandler}
         >
           {theme === "light" ? (
             <img src={CirlceLight} alt="elipseLight" />
