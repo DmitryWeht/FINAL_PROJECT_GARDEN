@@ -18,4 +18,9 @@
   .header_logo {
     gap: 12px;
   }
+
+  .header_logo a img {
+    width: 60px;
+    height: 60px;
+  }
 }

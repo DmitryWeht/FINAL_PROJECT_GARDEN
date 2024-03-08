@@ -79,7 +79,7 @@
     display: block;
     position: absolute;
     right: 20px;
-    top: 30px;
+    top: 35px;
     z-index: 10;
     cursor: pointer;
   }
@@ -89,12 +89,32 @@
   }
 }
 
+@media (max-width: 790px) {
+  .mobile_btn {
+    top: 28px;
+  }
+}
+
 @media (max-width: 480px) {
   .toogleAll {
-    gap: 5px;
+    gap: 10px;
   }
 
   .nav_basket {
-    padding-right: 50px;
+    padding-right: 55px;
+  }
+
+  .likeIcon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .nav_basket svg {
+    width: 49px;
+    height: 59px;
+  }
+
+  .mobile_btn {
+    top: 22px;
   }
 }
