@@ -5,7 +5,6 @@ const initialState = {
   likeTotalQuantity: null,
 };
 
-
 const likedProductsSlice = createSlice({
   name: "likedProducts",
   initialState,

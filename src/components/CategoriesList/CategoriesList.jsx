@@ -4,8 +4,8 @@ import { CategoryItem } from "../CategoryItem/CategoryItem";
 import SkeletonForCategoryItem from "../SkeletonForCategoryItem/SkeletonForCategoryItem";
 import classes from "./CategoriesList.module.css";
 
-export const CategoriesList = ({ listLength = 4 }) => {
-  const { data, isLoading } = useGetAllCategoriesQuery();
+export const CategoriesList = ({ listLength = 4, isLoading }) => {
+  const { data } = useGetAllCategoriesQuery();
 
   if (isLoading) {
     return (
