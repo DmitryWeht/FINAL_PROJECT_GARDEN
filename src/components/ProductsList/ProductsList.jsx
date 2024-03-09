@@ -5,6 +5,7 @@ import CustomPagination from "../Pagination/Pagination";
 import ProductItem from "../ProductItem/ProductItem";
 import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";
 import classes from "./ProductsList.module.css";
+
 const ProductsList = ({ content, products: propProducts, isLoading }) => {
   // В переменной products храним список продуктов, переданных в пропсах.
   const products = propProducts;
@@ -19,12 +20,18 @@ const ProductsList = ({ content, products: propProducts, isLoading }) => {
     const discountedProducts = products.filter(
       (product) => product.discont_price
     );
-    if (content === "sale") {
+
+    if (content === "main") {
+      const limitedProducts = discountedProducts.sort(
+        () => Math.random() - 0.5
+      );
+      setAllProducts(limitedProducts.slice(0, 4));
+    } else if (content === "sale") {
       setAllProducts(discountedProducts);
     } else {
       setAllProducts(products);
     }
-  }, [content, products]);
+  }, [products]);
 
   const { totalPages, currentProducts, setCurrentPage } = usePagination(
     allProducts,
@@ -59,10 +66,13 @@ const ProductsList = ({ content, products: propProducts, isLoading }) => {
           ))}
         </div>
       )}
-
-      <div className={classes.pagination}>
-        <CustomPagination count={totalPages} handlechange={handlechange} />
-      </div>
+      {content === "main" ? (
+        ""
+      ) : (
+        <div className={classes.pagination}>
+          <CustomPagination count={totalPages} handlechange={handlechange} />
+        </div>
+      )}
     </div>
   );
 };
