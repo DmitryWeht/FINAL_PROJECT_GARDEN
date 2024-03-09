@@ -38,6 +38,10 @@ a.active {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+.dark.navigation_container button:hover {
+  color: #20e220;
+}
+
 #last_button {
   color: #282828;
 }

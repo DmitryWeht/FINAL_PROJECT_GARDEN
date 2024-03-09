@@ -106,7 +106,7 @@
 
 .likedIcon {
   stroke: #ffffff;
-  fill: rgb(252, 145, 128);
+  fill: rgb(251, 153, 138);
 }
 
 .discount_text {
@@ -119,6 +119,10 @@
 
 .product_item:hover h3 {
   color: #0b710b;
+}
+
+.dark.product_item:hover h3 {
+  color: #20e220;
 }
 
 .discounted_price {

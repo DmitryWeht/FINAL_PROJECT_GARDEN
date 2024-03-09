@@ -1,6 +1,5 @@
 import { Dialog, Grow } from "@mui/material";
 
-
 const ImageModal = ({ open, handleClose, imageUrl, title }) => {
   return (
     <Dialog
@@ -32,7 +31,6 @@ const ImageModal = ({ open, handleClose, imageUrl, title }) => {
           display: "block",
           objectFit: "",
         }}
-        // style={{ width: "100%", height: "85vh", objectFit: "cover" }}
       />
     </Dialog>
   );

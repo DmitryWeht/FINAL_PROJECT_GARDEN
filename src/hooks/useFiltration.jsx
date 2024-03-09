@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
 export const useFiltration = (minPrice, maxPrice, showDiscounted, sort, data, isLoading, isError) => {
+ //  // Локальное состояние для хранения отфильтрованных и отсортированных продуктов
   const [products, setProducts] = useState(data);
   
   useEffect(() => {
     const filterProducts = () => {
+     //  Проверка на наличие данных и отсутствие ошибок и загрузки 
       if (data && !isLoading && !isError) {
           const filteredAndSortedProducts = data
             .filter((product) => {
@@ -31,11 +33,13 @@ export const useFiltration = (minPrice, maxPrice, showDiscounted, sort, data, is
                   return 0;
                 }
               });
-      
+      // Устанавливаем отфильтрованные и отсортированные продукты в состояние
           setProducts(filteredAndSortedProducts);
         }
        };
+       // Устанавливаем задержку перед выполнением фильтрации и сортировки
         const timeoutId = setTimeout(filterProducts, 200);
+        // Возвращаем функцию для очистки таймера при размонтировании компонента
         return () => clearTimeout(timeoutId);
        }, [minPrice, maxPrice, showDiscounted, sort, data, isLoading, isError]);
       

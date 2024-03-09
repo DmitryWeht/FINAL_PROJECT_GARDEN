@@ -11,12 +11,15 @@
   position: relative;
   width: 57px;
   height: 67px;
-
   margin-top: 5px;
 }
 
 .nav_basket svg:hover {
   color: #2b802b;
+}
+
+.dark.nav_basket svg:hover {
+  color: #20e220;
 }
 
 .nav_liked {
@@ -71,7 +74,7 @@
   color: rgb(252, 145, 128);
 }
 
-@media (max-width: 790px) {
+@media (max-width: 950px) {
   .mobile_btn {
     display: block;
     position: absolute;

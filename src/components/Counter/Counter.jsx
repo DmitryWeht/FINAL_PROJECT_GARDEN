@@ -6,7 +6,9 @@ import styles from "./Counter.module.css";
 
 export const Counter = ({ id }) => {
   const dispatch = useDispatch();
+  // Получение текущего значения количества товара из Redux store
   const quantity = useSelector((state) => {
+    // Поиск товара в корзине по id
     const item = state.cart.cartItems.find((item) => item.id === id);
     return item ? item.cartQuantity : 0;
   });

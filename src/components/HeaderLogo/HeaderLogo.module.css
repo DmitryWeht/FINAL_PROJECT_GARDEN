@@ -2,11 +2,15 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  transition: transform 0.3s;
+
   align-items: center;
-  gap: 16px;
+  gap: 30px;
 }
 
-.header_logo:active {
+.header_logo a img {
+  transition: transform 0.3s;
+}
+
+.header_logo a img:active {
   transform: scale(0.9);
 }
