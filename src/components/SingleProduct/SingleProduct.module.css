@@ -1,6 +1,6 @@
 .card_product {
   display: flex;
-  padding-bottom: 82px;
+  /* padding-bottom: 82px; */
   gap: 32px;
 }
 
@@ -182,6 +182,7 @@
 }
 
 @media (max-width: 768px) {
+
   .likeIcon svg,
   .likedIcon svg {
     width: 38px;
