@@ -4,9 +4,11 @@ import { DiscountForm } from "../../components/DiscountForm/DiscountForm";
 import Sale from "../../components/Sale/Sale";
 import SaleBanner from "../../components/SaleBanner/SaleBanner";
 import SubmitModal from "../../components/SubmitModal/SubmitModal";
+import { useGetAllCategoriesQuery } from "../../store/apiSlice";
 
 export const MainPage = () => {
   const [openModal, setOpenModal] = useState(false);
+  const { isLoading } = useGetAllCategoriesQuery();
   const handleCloseModal = () => {
     setOpenModal(false);
   };
@@ -17,7 +19,7 @@ export const MainPage = () => {
   return (
     <div>
       <SaleBanner />
-      <CategoriesSection />
+      <CategoriesSection isLoading={isLoading} />
       <DiscountForm handleOpenModal={handleOpenModal} />
       <Sale />
       <SubmitModal
