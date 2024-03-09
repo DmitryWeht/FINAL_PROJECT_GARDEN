@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 export const usePagination = (products, productsPerPage) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentProducts, setCurrentProducts] = useState(products);
-
-  const totalPages =
-    products && Math.floor(Number(products?.length / productsPerPage));
+  //Math.ceil() используется для округления значения в большую сторону, чтобы учесть все продукты
+  const totalPages = products && Math.ceil(products.length / productsPerPage);
 
   useEffect(() => {
     const lastIndex = currentPage * productsPerPage; // 1*8 = 8   // 2*8 = 16

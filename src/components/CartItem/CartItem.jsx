@@ -6,9 +6,12 @@ import { Counter } from "../Counter/Counter";
 import classes from "./CartItem.module.css";
 
 export const CartItem = (props) => {
-  const { id, image, title, price, discont_price } = props;// Деструктуризация пропсов для удобного доступа к значениям 
+  const { id, image, title, price, discont_price } = props;
+  // Деструктуризация пропсов для удобного доступа к значениям 
   const dispatch = useDispatch();
-  const handleRemove = (id) => {        // Объявление функции handleRemove, которая отправляет экшен removeFromCart с параметром id в Redux store при вызове.
+  // Объявление функции handleRemove, которая отправляет экшен removeFromCart
+  // с параметром id в Redux store при вызове.
+  const handleRemove = (id) => {         
     dispatch(removeFromCart({ id }));
   };
 

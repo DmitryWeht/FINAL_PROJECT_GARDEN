@@ -1,29 +1,32 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import useSkeleton from "../../hooks/useSkeleton";
 import { useGetCategoryByIdQuery } from "../../store/apiSlice";
 import ProductItem from "../ProductItem/ProductItem";
 import SkeletonForProductItem from "../SkeletonForProductItem/SkeletonForProductItem";
 import classes from "./ProductsFromCategory.module.css";
 
-const ProductsFromCategory = () => {
+const ProductsFromCategory = ({ isLoading }) => {
+  // Получение параметра categoryId из URL
   const { categoryId } = useParams();
-  const categoryData = useGetCategoryByIdQuery(categoryId);
+  // Получение данных о категории по ее идентификатору с помощью хука useGetCategoryByIdQuery
+  const { data: categoryData } = useGetCategoryByIdQuery(categoryId);
+  // Получение названия категории
   const categoryTitle =
-    categoryData.data && categoryData.data.category
-      ? categoryData.data.category.title
-      : "";
+    categoryData && categoryData.category ? categoryData.category.title : "";
 
-  const showSkeleton = useSkeleton(2000);
   return (
     <div>
       <p className={classes.title}>{categoryTitle}</p>
       <div className={classes.products_wrapper}>
-        {categoryData.isLoading || showSkeleton
+        {/* Если данные загружаются, отображаем скелетон */}
+        {isLoading
           ? Array.from({ length: 4 }).map((_, index) => (
-              <SkeletonForProductItem />
+              <SkeletonForProductItem key={index} />
             ))
-          : categoryData.data.data.map((product) => (
+          : // Если данные загружены и categoryData существует, отображаем каждый продукт
+            categoryData &&
+            categoryData.data &&
+            categoryData.data.map((product) => (
               <div key={product.id}>
                 <Link to={`/categories/${categoryId}/${product.id}`}>
                   <ProductItem {...product} />

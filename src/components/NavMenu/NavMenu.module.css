@@ -38,7 +38,7 @@
   color: #20e220;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .nav_wrapper {
     display: flex;
     flex-direction: column;

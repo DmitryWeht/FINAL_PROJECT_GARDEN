@@ -16,8 +16,6 @@ export const UserDataForm = ({
   buttonText = "Get a discount",
   successText = "Request Submitted",
   requestType = "getDiscount",
-  handleOpenModalClick,
-  handleSubmitClick,
   handleOpenModal,
 }) => {
   const dispatch = useDispatch();
@@ -45,16 +43,12 @@ export const UserDataForm = ({
     } else if (requestType === "sendOrder") {
       sendOrder(userData);
       dispatch(clearCart());
-      if (typeof handleOpenModalClick === "function") {
-        handleOpenModalClick();
-      }
+      handleOpenModal();
     }
-
     setSubmittedSuccessful(true);
-    console.log(userData);
     reset();
   };
-
+  // Функция для сброса состояния успешной отправки при изменении ввода
   const handleInputChange = () => {
     setSubmittedSuccessful(false);
   };
@@ -110,7 +104,6 @@ export const UserDataForm = ({
         <input
           type="submit"
           value={submittedSuccessful ? successText : buttonText}
-          onClick={handleSubmitClick}
           className={`${classes.submit_button} ${
             submittedSuccessful ? classes.successful_button : ""
           } ${buttonStyles}`}

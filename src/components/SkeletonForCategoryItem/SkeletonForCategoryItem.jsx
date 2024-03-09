@@ -19,9 +19,10 @@ const SkeletonForCategoryItem = () => {
         height={350}
         sx={{ borderRadius: "12px" }}
       />
+
       <Skeleton
         animation="pulse"
-        ariant="text"
+        variant="text"
         sx={{ fontSize: "20px", width: "60%" }}
       />
     </Box>
