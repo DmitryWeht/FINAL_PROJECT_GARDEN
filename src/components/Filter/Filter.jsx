@@ -10,12 +10,13 @@ import classes from "../../components/Filter/Filter.module.css";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 
-export const Filter = ({ content }) => {
+export const Filter = ({ content }) => { //Компонент Filter ожидает пропс content, который, указывает на контекст использования фильтров. Из контекста использования (например, "sale"), компонент может определить, какие фильтры следует отобразить.
   const dispatch = useDispatch();
 
   const theme = useSelector((state) => state.theme.theme);
   const themeClass = theme === "dark" ? classes.dark : "";
 
+//обработчики изменения мин и макс цен. Они отправляют соответствующие action с новыми значениями в Redux store.
   const handleMinPriceChange = (e) => {
     dispatch(minPriceChange(Number(e.target.value)));
   };

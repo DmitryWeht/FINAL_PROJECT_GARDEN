@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import classes from "./BurgerMenu.module.css";
 
 const BurgerMenu = ({ nav, setNav }) => {
+  // Получение данных из Redux-хранилища
   const cartTotalQuantity = useSelector(
     (state) => state.cart.cartTotalQuantity
   );
@@ -12,7 +13,7 @@ const BurgerMenu = ({ nav, setNav }) => {
     (state) => state.likedProducts.likeTotalQuantity
   );
   const theme = useSelector((state) => state.theme.theme);
-
+  // Проверка наличия товаров в корзине и избранных
   const hasItemsInCart = cartTotalQuantity !== null && cartTotalQuantity !== 0;
   const hasItemsInLiked = likeTotalQuantity !== null && likeTotalQuantity !== 0;
 
@@ -23,6 +24,7 @@ const BurgerMenu = ({ nav, setNav }) => {
       <div className={`${classes.nav_liked} ${themeClass}`}>
         <NavLink to="/liked">
           <PiHeartThin className={`${classes.likeIcon} ${themeClass}`} />
+          {/* Отображение количества избранных товаров, если есть */}
           {hasItemsInLiked > 0 && (
             <span className={classes.like_quantity}>
               <span>{likeTotalQuantity}</span>
@@ -34,12 +36,14 @@ const BurgerMenu = ({ nav, setNav }) => {
         <NavLink to="/cart">
           <PiBagThin />
         </NavLink>
+         {/* Отображение количества товаров в корзине, если есть */}
         {hasItemsInCart && (
           <span className={classes.bag_quantity}>
             <span>{cartTotalQuantity}</span>
           </span>
         )}
       </div>
+        {/* Кнопка для открытия/закрытия мобильного меню */}
       <div onClick={() => setNav(!nav)} className={classes.mobile_btn}>
         {nav ? <AiOutlineClose size={50} /> : <AiOutlineMenu size={50} />}
       </div>
