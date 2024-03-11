@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
 import Pagination from "@mui/material/Pagination";
+import { useSelector } from "react-redux";
 
 const CustomPagination = ({ count, handlechange }) => {
   const theme = useSelector((state) => state.theme.theme);

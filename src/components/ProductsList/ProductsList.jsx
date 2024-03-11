@@ -39,6 +39,10 @@ const ProductsList = ({ content, products: propProducts, isLoading }) => {
   );
   const handlechange = (event, page) => {
     setCurrentPage(page);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Добавляем плавность прокрутки
+    });
   };
 
   return (

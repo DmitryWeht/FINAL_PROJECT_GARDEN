@@ -1,9 +1,9 @@
 import { SiWhatsapp } from "react-icons/si";
 import { SlSocialInstagram } from "react-icons/sl";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Map from "../../components/Map/Map";
 import classes from "./Footer.module.css";
-import { useSelector } from "react-redux";
 
 function Footer() {
   const theme = useSelector((state) => state.theme.theme);
@@ -15,7 +15,7 @@ function Footer() {
           <div>
             <h3 className={classes.contact}>Contact</h3>
 
-             <div className={classes.connect}> 
+            <div className={classes.connect}>
               <div className={`${classes.phone} ${themeClass}`}>
                 <span>Phone</span>
                 <p className={`${classes.number} ${themeClass}  `}>
