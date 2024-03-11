@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import App from "./App.jsx";
-
 import AllProductsPage from "./pages/AllProductsPage/AllProductsPage.jsx";
 import { CategoriesPage } from "./pages/CategoriesPage/CategoriesPage.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
