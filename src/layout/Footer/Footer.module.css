@@ -46,7 +46,7 @@ footer {
   line-height: 110%;
 }
 
- .media {
+.media {
   display: flex;
   gap: 24px;
 } 
