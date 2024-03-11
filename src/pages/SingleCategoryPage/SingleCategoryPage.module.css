@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+    .title {
+        margin-bottom: 30px;
+        margin-top: clamp(40px, calc(40px + (1200px - 100vw) * 0.06), 90px);
+    }
+}

@@ -4,9 +4,9 @@ import CirlceLight from "../../media/CirlceLightMode.svg";
 import moon from "../../media/moon.svg";
 import sun from "../../media/sun.svg";
 import { toggleTheme } from "../../store/themeSlice";
-import classes from "./ThemaToggle.module.css";
+import classes from "./ThemeToggle.module.css";
 
-const ThemaToggle = () => {
+const ThemeToggle = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme.theme);
 
@@ -39,4 +39,4 @@ const ThemaToggle = () => {
   );
 };
 
-export default ThemaToggle;
+export default ThemeToggle;

@@ -31,7 +31,6 @@
 
 .product_item {
   display: flex;
-  height: 422px;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 12px;
@@ -48,7 +47,6 @@
   align-items: center;
   overflow: hidden;
   border-radius: 12px 12px 0 0;
-
 }
 
 .product_item:hover .img_container img {
@@ -126,14 +124,14 @@
 }
 
 .discounted_price {
-  font-size: clamp(20px, 5vw, 40px);
+  font-size: 40px;
   font-weight: 600;
   line-height: 110%;
 }
 
 .price_without_discounted {
   color: #8b8b8b;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: 20px;
   text-decoration: line-through;
   line-height: 130%;
 }

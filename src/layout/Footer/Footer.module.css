@@ -20,7 +20,7 @@ footer {
   margin-bottom: 32px;
 }
 
-.connect > div {
+.connect>div {
   display: flex;
   padding: 32px;
   flex-direction: column;
@@ -29,7 +29,7 @@ footer {
   flex: 1 0 0;
   align-self: stretch;
   border-radius: 12px;
-  background: #f1f3f4; 
+  background: #f1f3f4;
 }
 
 .connect>div span {
@@ -49,7 +49,7 @@ footer {
 .media {
   display: flex;
   gap: 24px;
-} 
+}
 
 .media_item svg:hover {
   transform: scale(1.2);
@@ -64,14 +64,14 @@ footer {
   transition: color 0.3s ease;
 }
 
- .dark.phone,
- .dark.number,
- .dark.socials,
- .dark.adress, 
- .dark.work {
+.dark.phone,
+.dark.number,
+.dark.socials,
+.dark.adress,
+.dark.work {
   color: white;
   background: rgba(64, 64, 64, 1);
-} 
+}
 
 .number :first-child:hover {
   color: #2b802b;
@@ -81,6 +81,7 @@ footer {
 .dark.number :first-child:hover {
   color: #20e220;
 }
+
 .dark .media_item svg {
   color: white;
 }
@@ -91,47 +92,49 @@ footer {
 
 @media (max-width: 1440px) {
   .connect {
-      gap: 20px;
+    gap: 20px;
   }
 }
 
 @media (max-width: 1000px) {
   .contact {
-      margin-bottom: 32px;
+    margin-bottom: 32px;
   }
 
   .connect {
-      grid-template-columns: 67% 30%;
+    grid-template-columns: 67% 30%;
   }
 }
+
 @media (max-width: 768px) {
   .connect>div {
-      padding: 24px 20px;
+    padding: 24px 20px;
   }
 
   .connect>div span {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .connect>div p {
-      font-size: 28px;
+    font-size: 28px;
   }
 
   .connect {
-      grid-template-columns: 100%;
+    grid-template-columns: 100%;
   }
 
   .socials {
-      display: flex;
-      flex-direction: row;
+    display: flex;
+    flex-direction: row;
   }
 }
 
 @media (max-width: 480px) {
   .connect>div {
-      padding: 24px 20px;
+    padding: 24px 20px;
   }
-  .contact{
+
+  .contact {
     margin-top: 20px;
   }
 }

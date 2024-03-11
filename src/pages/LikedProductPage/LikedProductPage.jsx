@@ -33,6 +33,10 @@ const LikedProductPage = () => {
   );
   const handlechange = (event, page) => {
     setCurrentPage(page);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Добавляем плавность прокрутки
+    });
   };
 
   const skeletonCount = likedProducts.length;
