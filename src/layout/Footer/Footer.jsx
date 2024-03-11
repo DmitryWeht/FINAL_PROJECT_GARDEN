@@ -12,19 +12,19 @@ function Footer() {
     <div className={classes.footerContainer}>
       <footer className={classes.footer}>
         <div className="container">
-          <div className={classes.daten}>
-            <div className={classes.contact}>Contact</div>
+          <div>
+            <h3 className={classes.contact}>Contact</h3>
 
-            <div className={classes.connect}>
+             <div className={classes.connect}> 
               <div className={`${classes.phone} ${themeClass}`}>
-                <p className={classes.descreibe}>Phone</p>
+                <span>Phone</span>
                 <p className={`${classes.number} ${themeClass}  `}>
                   <a href="tel:+499999999999">+49 999 999 99 99</a>
                 </p>
               </div>
 
               <div className={`${classes.socials} ${themeClass}`}>
-                <p className={classes.descreibe}>Socials</p>
+                <span>Socials</span>
 
                 <div className={classes.media}>
                   <Link
@@ -46,22 +46,21 @@ function Footer() {
               </div>
 
               <div className={`${classes.adress} ${themeClass}`}>
-                <p className={classes.descreibe}>Adress</p>
+                <span>Adress</span>
                 <p className={`${classes.number} ${themeClass}`}>
                   Linkstraße 2, 8 OG, 10 785, Berlin, Deutschland
                 </p>
               </div>
 
               <div className={`${classes.work} ${themeClass}`}>
-                <p className={classes.descreibe}>Working Hours</p>
+                <span>Working Hours</span>
                 <p className={`${classes.number} ${themeClass}`}>
                   24 hours a day
                 </p>
               </div>
-
-              <Map />
             </div>
           </div>
+          <Map />
         </div>
       </footer>
     </div>

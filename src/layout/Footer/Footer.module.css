@@ -12,71 +12,44 @@ footer {
 }
 
 .connect {
-  display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 58% 40%;
+  grid-template-rows: auto auto;
   gap: 32px;
+  margin-bottom: 32px;
 }
 
-.phone,
-.adress {
+.connect > div {
   display: flex;
+  padding: 32px;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  flex: 1 0 0;
   align-self: stretch;
-  width: 60%;
-
-  padding: 32px;
-  border-radius: var(--radius-big, 12px);
-  background: var(--light-grey, #f1f3f4);
+  border-radius: 12px;
+  background: #f1f3f4; 
 }
 
-.phone {
-  height: 10%;
-}
-
-.descreibe {
-  color: var(--txt-grey, #8b8b8b);
-  font-size: clamp(1.125rem, 1.089rem + 0.18vw, 1.25rem);
-  font-style: normal;
+.connect>div span {
+  color: #8B8B8B;
+  font-size: 20px;
   font-weight: 500;
   line-height: 130%;
 }
 
-.number {
+.connect>div p {
   color: #282828;
-  font-size: clamp(1.75rem, 1.536rem + 1.07vw, 2.5rem);
-  font-style: normal;
+  font-size: 40px;
   font-weight: 600;
   line-height: 110%;
 }
 
-.number :first-child:hover {
-  color: #2b802b;
-  transition: color 0.3s ease;
-}
-
-.dark.number :first-child:hover {
-  color: #20e220;
-}
-
-.socials,
-.work {
-  display: flex;
-  width: 37%;
-  padding: 32px;
-  border-radius: 12px;
-  background: #f1f3f4;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  align-self: stretch;
-}
-
-.media {
+ .media {
   display: flex;
   gap: 24px;
-}
+} 
 
 .media_item svg:hover {
   transform: scale(1.2);
@@ -91,11 +64,23 @@ footer {
   transition: color 0.3s ease;
 }
 
-.dark {
+ .dark.phone,
+ .dark.number,
+ .dark.socials,
+ .dark.adress, 
+ .dark.work {
   color: white;
   background: rgba(64, 64, 64, 1);
+} 
+
+.number :first-child:hover {
+  color: #2b802b;
+  transition: color 0.3s ease;
 }
 
+.dark.number :first-child:hover {
+  color: #20e220;
+}
 .dark .media_item svg {
   color: white;
 }
@@ -104,102 +89,49 @@ footer {
   color: #20e220;
 }
 
-
-@media (max-width: 1200px) {
-
-  .phone,
-  .adress {
-    width: 48%;
-  }
-
-  .socials,
-  .work {
-    width: 48%;
-    padding: 20px;
-  }
-
-  Map {
-    height: 250px;
-  }
-}
-
-@media (max-width: 850px) {
-
-  .phone,
-  .adress {
-    width: 62%;
-  }
-
-  .socials,
-  .work {
-    width: 35%;
-    padding: 20px;
-  }
-
+@media (max-width: 1440px) {
   .connect {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+      gap: 20px;
   }
 }
 
-@media (max-width: 720px) {
-
-  .phone,
-  .adress {
-    width: 55%;
-    padding: 20px;
-  }
-
-  .socials,
-  .work {
-    width: 41.5%;
-    padding: 20px;
-  }
-}
-
-@media (max-width: 620px) {
-
-  .socials,
-  .work {
-    width: 40.5%;
-    padding: 20px;
-  }
-}
-
-@media (max-width: 550px) {
-  .connect {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .phone,
-  .adress,
-  .socials,
-  .work {
-    width: 100%;
-  }
-
-  .footer {
-    margin-bottom: 80px;
-  }
-}
-
-@media (max-width: 400px) {
-
-  .phone,
-  .adress,
-  .socials,
-  .work {
-    width: 100%;
-  }
-
-  .footer {
-    margin-top: 56px;
-    margin-bottom: 80px;
-  }
-
+@media (max-width: 1000px) {
   .contact {
-    margin-top: 0;
+      margin-bottom: 32px;
+  }
+
+  .connect {
+      grid-template-columns: 67% 30%;
+  }
+}
+@media (max-width: 768px) {
+  .connect>div {
+      padding: 24px 20px;
+  }
+
+  .connect>div span {
+      font-size: 18px;
+  }
+
+  .connect>div p {
+      font-size: 28px;
+  }
+
+  .connect {
+      grid-template-columns: 100%;
+  }
+
+  .socials {
+      display: flex;
+      flex-direction: row;
+  }
+}
+
+@media (max-width: 480px) {
+  .connect>div {
+      padding: 24px 20px;
+  }
+  .contact{
+    margin-top: 20px;
   }
 }

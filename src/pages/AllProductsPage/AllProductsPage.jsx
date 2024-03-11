@@ -14,10 +14,11 @@ const AllProductsPage = () => {
     isLoading,
     isError,
   } = useGetAllProductsQuery();
+  //извлечения значений фильтров из Redux store
   const { minPrice, maxPrice, showDiscounted, sort } = useSelector(
     (state) => state.filter
   );
-
+  // для фильтрации продуктов в соответствии с текущими значениями фильтров.
   const filteredProducts = useFiltration(
     minPrice,
     maxPrice,
@@ -27,7 +28,8 @@ const AllProductsPage = () => {
     isLoading,
     isError
   );
-
+  // Выполняется побочный эффект, данном случае, когда компонент монтируется,
+  // происходит сброс всех фильтров с помощью действия resetFilters.
   useEffect(() => {
     dispatch(resetFilters());
   }, [dispatch]);
