@@ -25,11 +25,6 @@
   display: none;
 }
 
-.dark .nav_list {
-  color: white;
-  background: #282828;
-}
-
 .dark .active_link {
   color: #20e220;
 }
@@ -77,6 +72,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: 130%;
+  }
+
+  .dark .nav_list {
+    color: white;
+    background: #282828;
   }
 
   .nav_list li {
