@@ -6,6 +6,7 @@ import NavMenu from "../../components/NavMenu/NavMenu";
 import classes from "./Header.module.css";
 
 const Header = () => {
+  // Состояние для управления видимостью меню
   const [nav, setNav] = useState(false);
 
   const theme = useSelector((state) => state.theme.theme);
@@ -17,6 +18,7 @@ const Header = () => {
         <div className={classes.header_row}>
           <HeaderLogo />
           <NavMenu nav={nav} />
+           {/* Оверлей для закрытия меню при клике вне его области */}
           <div
             className={`${classes.overlay} ${nav ? classes.activeOverlay : ""}`}
             onClick={() => setNav(false)}

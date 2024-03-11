@@ -11,6 +11,8 @@ const filterSlice = createSlice({
     name: 'filter',
     initialState,
     reducers: {
+        // создается и возвращается новый объект состояния.Копируются все свойства текущего состояния, 
+        // а затем обновляет minPrice новым значением из action.payload.
         minPriceChange: (state, action) => {
             return { ...state, minPrice: action.payload }
         },
@@ -29,7 +31,6 @@ const filterSlice = createSlice({
         resetFilters: () => initialState,
         },
       })
-
 
 export const { minPriceChange, maxPriceChange, toggleDiscounted, sortChange, resetFilters } = filterSlice.actions
 
