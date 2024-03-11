@@ -1,30 +1,30 @@
-import { useDispatch, useSelector } from "react-redux";
-import {
-  minPriceChange,
-  maxPriceChange,
-  toggleDiscounted,
-  sortChange,
-} from "../../store/filterSlice";
 import Box from "@mui/material/Box";
-import classes from "../../components/Filter/Filter.module.css";
-import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
+import TextField from "@mui/material/TextField";
+import { useDispatch, useSelector } from "react-redux";
+import classes from "../../components/Filter/Filter.module.css";
+import {
+  maxPriceChange,
+  minPriceChange,
+  sortChange,
+  toggleDiscounted,
+} from "../../store/filterSlice";
 
-export const Filter = ({ content }) => { //Компонент Filter ожидает пропс content, который, указывает на контекст использования фильтров. Из контекста использования (например, "sale"), компонент может определить, какие фильтры следует отобразить.
+export const Filter = ({ content }) => {
   const dispatch = useDispatch();
 
   const theme = useSelector((state) => state.theme.theme);
   const themeClass = theme === "dark" ? classes.dark : "";
 
-//обработчики изменения мин и макс цен. Они отправляют соответствующие action с новыми значениями в Redux store.
+  //обработчики изменения мин и макс цен. Они отправляют соответствующие action с новыми значениями в Redux store.
   const handleMinPriceChange = (e) => {
     dispatch(minPriceChange(Number(e.target.value)));
   };
-  
+
   const handleMaxPriceChange = (e) => {
     dispatch(maxPriceChange(Number(e.target.value)));
   };
-  
+
   return (
     <Box component="form" sx={{ fontFamily: "Montserrat" }}>
       <div className={`${classes.filters} ${themeClass}`}>
@@ -45,79 +45,87 @@ export const Filter = ({ content }) => { //Компонент Filter ожида�
 
           <TextField
             sx={{
-              width: '112px',
-              height: '36px',
-              position: 'relative',
-              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor:  '#282828', 
+              width: "112px",
+              height: "36px",
+              position: "relative",
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: "#282828",
+                },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: theme === "dark" ? "white" : "#282828",
+                transform: "translate(14px, -5px) scale(0.75)",
               },
-              '& .MuiInputLabel-root.Mui-focused': { 
-                color: theme === 'dark' ? 'white' : '#282828',
-                transform: 'translate(14px, -5px) scale(0.75)', 
+              "& .MuiInputLabel-root": {
+                color: theme === "dark" ? "white" : "#888",
+                fontSize: "16px",
+                top: "-25%",
+                left: "0%",
               },
-              '& .MuiInputLabel-root': { 
-                color: theme === 'dark' ? 'white' : '#888',
-                fontSize: '16px',
-                top: '-25%',
-                left: '0%',
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor:
+                  theme === "dark"
+                    ? "white !important"
+                    : "1px solid #282828 !important",
               },
-              '& .MuiOutlinedInput-notchedOutline': {
-                borderColor: theme === 'dark' ? 'white !important' : '1px solid #282828 !important',
+              "& input": {
+                color:
+                  theme === "dark" ? "white !important" : "black !important",
               },
-              '& input': {
-                color: theme === 'dark' ? 'white !important' : 'black !important',
-              },
-            }
-            }
+            }}
             type="number"
             id="price"
             label="min price"
             placeholder="from"
             inputProps={{
               style: {
-                padding: '6px 6px',
-                fontSize: '16px',
-           
+                padding: "6px 6px",
+                fontSize: "16px",
               },
-              inputMode: 'numeric', 
-              pattern: '[0-9]*',
+              inputMode: "numeric",
+              pattern: "[0-9]*",
               min: "0",
             }}
             onChange={handleMinPriceChange}
           />
           <TextField
             sx={{
-              width: '112px',
-              height: '36px',
-              '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: ' #282828',
+              width: "112px",
+              height: "36px",
+              "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: " #282828",
+                },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: theme === "dark" ? "white" : "#282828",
+                transform: "translate(14px, -5px) scale(0.75)",
               },
-              '& .MuiInputLabel-root.Mui-focused': {
-                color: theme === 'dark' ? 'white' : '#282828',
-                transform: 'translate(14px, -5px) scale(0.75)',
+              "& .MuiInputLabel-root": {
+                color: theme === "dark" ? "white" : "#888",
+                fontSize: "16px",
+                top: "-25%",
+                left: "0%",
               },
-              '& .MuiInputLabel-root': {
-                color: theme === 'dark' ? 'white' : '#888',
-                fontSize: '16px',
-                top: '-25%',
-                left: '0%',
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor:
+                  theme === "dark"
+                    ? "white !important"
+                    : "1px solid #282828 !important",
               },
-              '& .MuiOutlinedInput-notchedOutline': {
-                borderColor: theme === 'dark' ? 'white !important' : '1px solid #282828 !important',
-              },
-              '& input': {
-                color: theme === 'dark' ? 'white !important' : 'black !important',
+              "& input": {
+                color:
+                  theme === "dark" ? "white !important" : "black !important",
               },
             }}
             type="number"
             placeholder="to"
             inputProps={{
               style: {
-                padding: '6px 6px',
-                fontSize: '16px',
+                padding: "6px 6px",
+                fontSize: "16px",
               },
-              inputMode: 'numeric', 
-              pattern: '[0-9]*',
+              inputMode: "numeric",
+              pattern: "[0-9]*",
               min: "0",
             }}
             label="max price"

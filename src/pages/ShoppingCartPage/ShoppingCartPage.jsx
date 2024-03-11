@@ -10,19 +10,18 @@ import classes from "./ShoppingCartPage.module.css";
 
 const ShoppingCartPage = () => {
   const dispatch = useDispatch();
-  //Получение данных о элементах корзины из Redux store с помощью селектора useSelector.
+
   const cartItems = useSelector((state) => state.cart.cartItems);
   // проверяет, есть ли элементы в корзине
   const isCartNotEmpty = cartItems.length > 0;
-  // Создание состояния openModal, представляющего открыто ли модальное окно.
+
   const [openModal, setOpenModal] = useState(false);
 
-  // выполняются побочные эффекты, попосле монтирования компонента (или при изменении 
-  // cartItems), происходит вызов асинхронной функции fetchData, которая задерживает выполнение на 1 секунду (симуляция асинхронного запроса) 
-  //и затем отправляет действие getTotals в Redux store с помощью dispatch.
   useEffect(() => {
+    // Создаем асинхронную функцию fetchData для загрузки данных о корзине
     const fetchData = async () => {
       try {
+        // Имитируем задержку в 1 секунду перед запросом данных
         await new Promise((resolve) => setTimeout(resolve, 1000));
         dispatch(getTotals());
       } catch (error) {
@@ -32,7 +31,6 @@ const ShoppingCartPage = () => {
     fetchData();
   }, [dispatch, cartItems]);
 
-  // функции для управления открытием и закрытием модального окна.
   const handleOpenModal = () => {
     setOpenModal(true);
   };

@@ -19,7 +19,6 @@ const ProductItem = ({
   content,
   buttonText,
 }) => {
-  // Получение информации о корзине из хранилища
   const cartItems = useSelector((state) => state.cart.cartItems);
   const isInCart = cartItems.some((item) => item.id === id);
   const isAddedToCart = useSelector((state) =>
@@ -35,16 +34,16 @@ const ProductItem = ({
     discont_price !== null
       ? Math.round(((price - discont_price) / price) * 100)
       : null;
-  // Обработчик клика по кнопке "Добавить в корзину"
-  const handleClick = () => {
+
+  const handleClickAddProduct = () => {
     dispatch(addToCart({ id, image, title, price, discont_price }));
     dispatch(getTotals());
   };
-  // Обработчик клика по кнопке "Удалить из корзины"
+
   const handleClickRemoveProduct = () => {
     dispatch(removeFromCart({ id, image, title, price, discont_price }));
   };
-  // Обработчик клика по иконке "Добавить в избранное"
+
   const handleClickLikeIcon = (event) => {
     event.stopPropagation();
     event.preventDefault();
@@ -54,7 +53,7 @@ const ProductItem = ({
       dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
     }
   };
-  // Определение темы оформления
+
   const theme = useSelector((state) => state.theme.theme);
 
   const themeClass = theme === "dark" ? classes.dark : "";
@@ -90,7 +89,7 @@ const ProductItem = ({
             } else {
               event.preventDefault();
               event.stopPropagation();
-              handleClick();
+              handleClickAddProduct();
             }
           }}
         />
@@ -114,16 +113,20 @@ const ProductItem = ({
           ""
         ) : (
           <CustomButton
-            onClick={isAddedToCart ? handleClickRemoveProduct : handleClick}
+            onClick={
+              isAddedToCart ? handleClickRemoveProduct : handleClickAddProduct
+            }
             buttonClasses={classes.custom_button}
             buttonText={isAddedToCart ? "Delete from Cart" : "Add to Cart"}
           />
         )}
       </div>
-      {/* Кнопка "Добавить в корзину" или "Удалить из корзины" для модального окна */}
+
       {content === "modal" ? (
         <CustomButton
-          onClick={isAddedToCart ? handleClickRemoveProduct : handleClick}
+          onClick={
+            isAddedToCart ? handleClickRemoveProduct : handleClickAddProduct
+          }
           buttonClasses={classes.custom_button_modal}
           buttonText={isAddedToCart ? "Delete from Cart" : "Add to Cart"}
         />
