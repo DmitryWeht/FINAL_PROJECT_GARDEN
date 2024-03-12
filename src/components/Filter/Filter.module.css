@@ -86,12 +86,12 @@
   width: 200px;
   height: 36px;
   color: #888;
-  outline: none;
   cursor: pointer;
   font-size: 16px;
 }
 
-.sort_select:hover {
+.sort_select:hover,
+.sort_select:focus {
   border: 1px solid #000000;
 }
 
