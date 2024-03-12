@@ -6,12 +6,13 @@ import { Counter } from "../Counter/Counter";
 import classes from "./CartItem.module.css";
 
 export const CartItem = (props) => {
-  const { id, image, title, price, discont_price } = props;
-  // Деструктуризация пропсов для удобного доступа к значениям 
+  const { id, image, title, price, discont_price, cartQuantity} = props;
   const dispatch = useDispatch();
-  // Объявление функции handleRemove, которая отправляет экшен removeFromCart
-  // с параметром id в Redux store при вызове.
-  const handleRemove = (id) => {         
+
+  // Вычисляем itemTotal 
+  const itemTotal = discont_price ? discont_price *
+                    cartQuantity : price * cartQuantity;
+  const handleRemove = (id) => {
     dispatch(removeFromCart({ id }));
   };
 
@@ -39,16 +40,22 @@ export const CartItem = (props) => {
             <div className={classes.price_container}>
               {discont_price ? (
                 <>
+                <div className={classes.alle_prices}>
                   <p className={classes.discounted_price}>${discont_price}</p>
                   <p className={classes.price_without_discounted}>${price}</p>
+                </div>
+                  <p className={classes.item_total}>Total: ${itemTotal}</p>
                 </>
               ) : (
+                <>
                 <p className={classes.discounted_price}>${price}</p>
-              )}
-            </div>
+                <p className={classes.item_total}>Total: ${itemTotal}</p>
+              </>
+            )}
           </div>
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 };
