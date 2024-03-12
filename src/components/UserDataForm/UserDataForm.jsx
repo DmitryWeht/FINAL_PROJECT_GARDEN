@@ -65,7 +65,7 @@ export const UserDataForm = ({
             required: true,
             minLength: {
               value: 4,
-              message: "Please enter correct name",
+              message: "The name must contain more than 3 letters",
             },
           })}
         />
