@@ -71,13 +71,14 @@
 } 
 
 .discounted_price {
-  font-size: clamp(1.25rem, 0.833rem + 1.85vw, 2.5rem);
+  font-size: 40px;
   line-height: 110%;
+  
 }
 
 .price_container {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
   gap: 16px;
   margin-top: 25px;
@@ -86,73 +87,67 @@
 .price_without_discounted {
   text-decoration: line-through;
   font-size: 20px;
-  margin-top: 3px;
   color: grey;
+  align-self: self-end;
 }
 .alle_prices{
   display: flex;
   justify-content: flex-start;
   gap:16px;
+  align-items: baseline;
 }
 
 .item_total{
-  font-size: clamp(1.25rem, 0.833rem + 1.85vw, 2.5rem);
+  font-size: 40px;
   font-weight: 500;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .item_right{
-    padding-right: 30px;
+    padding-right: 22px;
+    margin-top: 20px;
+  }
+  .counter{
+    margin-right: 40px;
   }
   .price_container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-  }
-  .price_container p{
-    font-size: 22px;
-  }
-  .del_btn{
-    margin-top: -15px;
-    right: 5px;
-  }}
-
-@media (max-width: 768px) {
-  .price_container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap:16px;
-  }
-  .price_container p{
-    font-size: 24px;
-  }
+    margin-bottom: 20px;
+  } 
+  .discounted_price, .item_total {
+    font-size: 36px; 
+  } 
 }
 
 @media (max-width: 580px) {
   .price_container p{
-    font-size: 20px;
     margin-top: -10px;
   }
   .item_right{
     padding-left: 15px;
   }
+  .discounted_price, .item_total {
+    font-size: 34px; 
+  } 
 }
 
-@media (max-width: 480px){
+@media (max-width: 520px){
   .item_content h2{
     font-size:  18px;
   }
-  .price_container p{
-    font-size: 16px;
-  }
+
   .item_wrapper img {
-    width: 116px;
+    width: 126px;
   }
   .item_content h2 {
     font-size: 17px;
     max-width: 10ch;
+  }
+  .price_container{
+    gap: 15px;
   }
 }
 
