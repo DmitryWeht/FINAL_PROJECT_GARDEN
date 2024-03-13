@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import minus from "../../Media/minus.svg";
-import plus from "../../Media/plus.svg";
+import minus from "../../media/minus.svg";
+import plus from "../../media/plus.svg";
 import { decreaseCart, getTotals, increaseCart } from "../../store/cartSlice";
 import styles from "./Counter.module.css";
 
