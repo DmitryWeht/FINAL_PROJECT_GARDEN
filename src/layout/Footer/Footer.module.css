@@ -64,6 +64,10 @@ footer {
   transition: color 0.3s ease;
 }
 
+.number:hover {
+  transform: scale(1.1);
+}
+
 .dark.phone,
 .dark.number,
 .dark.socials,
