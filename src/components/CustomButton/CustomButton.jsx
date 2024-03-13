@@ -1,6 +1,7 @@
 import classes from "./CustomButton.module.css";
 
 const CustomButton = ({ onClick, buttonClasses, buttonText }) => {
+  // Обработчик клика по кнопке
   const handleClick = (event) => {
     event.preventDefault();
     onClick();

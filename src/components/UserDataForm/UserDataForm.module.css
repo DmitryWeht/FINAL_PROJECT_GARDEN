@@ -8,7 +8,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 21px;
 }
 
 .form_input {
@@ -29,6 +29,8 @@ form {
     -webkit-box-shadow: 0 0 0 30px #0B710B inset;
     -webkit-text-fill-color: #ffffff;
 }
+
+
 
 .submit_button {
     font-size: 20px;
@@ -64,7 +66,7 @@ form {
 .email {
     text-align: center;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     position: absolute;
     color: #890202;
 }
@@ -74,11 +76,11 @@ form {
 }
 
 .phone {
-    top: 36.4%;
+    top: 36.8%;
 }
 
 .email {
-    top: 60%;
+    top: 60.3%;
 }
 
 

@@ -17,7 +17,6 @@ const ProductItem = ({
   id,
   productStyles,
   content,
-  buttonText,
 }) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const isInCart = cartItems.some((item) => item.id === id);

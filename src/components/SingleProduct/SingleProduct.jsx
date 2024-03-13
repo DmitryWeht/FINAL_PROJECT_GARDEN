@@ -1,32 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PiHeartFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../store/apiSlice";
-import { addToCart, getTotals, removeFromCart } from "../../store/cartSlice";
+import { addToCart, removeFromCart } from "../../store/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
 } from "../../store/likedProductsSlice";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./SingleProduct.module.css";
-
 const SingleProduct = ({ handleOpenModal }) => {
   const { id } = useParams(); //Извлекаем параметры маршрута из URL
   const { data: products, isLoading } = useGetProductByIdQuery(id);
   // Хук состояния для определения, добавлен ли продукт в корзину
-  const [addedToCart, setAddedToCart] = useState(false);
+  const [isProductInCart, setIsProductInCart] = useState(false);
+  const addedInCart = useSelector((state) =>
+    state.cart.cartItems.some((item) => item.id === parseInt(id))
+  );
+  useEffect(() => {
+    setIsProductInCart(addedInCart);
+  }, [addedInCart]);
 
-  const likedProducts = useSelector(
-    (state) => state.likedProducts.likedProducts
-  );
   // Хук состояния для определения, добавлен ли продукт в список избранных
-  const [isLiked, setIsLiked] = useState(
-    likedProducts.some((item) => item.id === id)
+  const [isLiked, setIsLiked] = useState(false);
+  const isProductLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((item) => item.id === parseInt(id))
   );
+
+  useEffect(() => {
+    setIsLiked(isProductLiked);
+  }, [isProductLiked]);
 
   const dispatch = useDispatch();
-
   const handleClickLikeIcon = (product) => {
     // Извлекаем данные о продукте
     const { id, image, title, price, discont_price } = product;
@@ -38,17 +44,14 @@ const SingleProduct = ({ handleOpenModal }) => {
     setIsLiked(!isLiked);
   };
 
-  const handleClickAddToCart = (product) => {
+  const handleClickToggleCart = (product) => {
     const { id, image, title, price, discont_price } = product;
-    dispatch(addToCart({ id, image, title, price, discont_price }));
-    dispatch(getTotals());
-    setAddedToCart(true);
-  };
-
-  const handleClickRemoveProduct = (product) => {
-    const { id, image, title, price, discont_price } = product;
-    dispatch(removeFromCart({ id, image, title, price, discont_price }));
-    setAddedToCart(false);
+    if (isProductInCart) {
+      dispatch(removeFromCart({ id, image, title, price, discont_price }));
+    } else {
+      dispatch(addToCart({ id, image, title, price, discont_price }));
+    }
+    setIsProductInCart(!isProductInCart);
   };
   // Функция для рендеринга карточки продукта
   const renderProduct = (product) => (
@@ -93,14 +96,9 @@ const SingleProduct = ({ handleOpenModal }) => {
 
           <div className={classes.button_box}>
             <CustomButton
-              onClick={
-                addedToCart
-                  ? () => handleClickRemoveProduct(product)
-                  : () => handleClickAddToCart(product)
-              }
-              buttonText={addedToCart ? "Delete from cart" : "Add to Cart"}
+              onClick={() => handleClickToggleCart(product)}
+              buttonText={isProductInCart ? "Delete from Cart" : "Add to Cart"}
               buttonClasses={classes.custom_button}
-              disabled={addedToCart}
             />
           </div>
           <div className={classes.text_box}>
