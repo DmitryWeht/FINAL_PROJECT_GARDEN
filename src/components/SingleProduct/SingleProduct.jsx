@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PiHeartFill } from "react-icons/pi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../store/apiSlice";
 import { addToCart, removeFromCart } from "../../store/cartSlice";
@@ -15,15 +15,22 @@ const SingleProduct = ({ handleOpenModal }) => {
   const { data: products, isLoading } = useGetProductByIdQuery(id);
   // Хук состояния для определения, добавлен ли продукт в корзину
   const [isProductInCart, setIsProductInCart] = useState(false);
-  // const isProductInCart = useSelector((state) =>
-  //   state.cart.cartItems.some((item) => item.id === id)
-  // );
+  const addedInCart = useSelector((state) =>
+    state.cart.cartItems.some((item) => item.id === parseInt(id))
+  );
+  useEffect(() => {
+    setIsProductInCart(addedInCart);
+  }, [addedInCart]);
 
   // Хук состояния для определения, добавлен ли продукт в список избранных
   const [isLiked, setIsLiked] = useState(false);
-  // const isLiked = useSelector((state) =>
-  //   state.likedProducts.likedProducts.some((item) => item.id === id)
-  // );
+  const isProductLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((item) => item.id === parseInt(id))
+  );
+
+  useEffect(() => {
+    setIsLiked(isProductLiked);
+  }, [isProductLiked]);
 
   const dispatch = useDispatch();
   const handleClickLikeIcon = (product) => {
